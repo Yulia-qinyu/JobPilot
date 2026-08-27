@@ -4,6 +4,7 @@ from app.db.models import Experience, ExperienceFact, Resume, TargetCompany, Tar
 from app.repositories.profile_repository import DEFAULT_PROFILE_ID, ProfileRepository
 from app.schemas.analysis import ResumeProfile
 from app.schemas.profile import ProfileRead, RolePriority, TargetRoleUpdate
+from app.services.activity_service import ActivityService
 from app.services.role_classifier import RoleClassifier
 
 MAX_TARGETS = 5
@@ -39,6 +40,36 @@ class ProfileService:
         profile = self.repo.ensure_default_profile()
         profile.preferred_location = self._clean_optional(location)
         self.repo.mark_job_decisions_stale()
+        self.repo.commit()
+        return self.get_profile()
+
+    def update_candidate_identity(
+        self, candidate_type: str | None, graduation_year: int | None
+    ) -> ProfileRead:
+        if candidate_type not in {None, "graduate", "experienced", "both"}:
+            raise ProfileError("Invalid candidate type.")
+        if graduation_year is not None and not 1900 <= graduation_year <= 2200:
+            raise ProfileError("Invalid graduation year.")
+        if candidate_type in {None, "experienced"}:
+            graduation_year = None
+        profile = self.repo.ensure_default_profile()
+        previous = {
+            "candidate_type": profile.candidate_type,
+            "graduation_year": profile.graduation_year,
+        }
+        profile.candidate_type = candidate_type
+        profile.graduation_year = graduation_year
+        self.repo.mark_job_decisions_stale(analysis_stale=True)
+        ActivityService(self.repo.db).record(
+            "candidate_identity_changed",
+            metadata={
+                "from": previous,
+                "to": {
+                    "candidate_type": candidate_type,
+                    "graduation_year": graduation_year,
+                },
+            },
+        )
         self.repo.commit()
         return self.get_profile()
 

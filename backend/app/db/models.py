@@ -30,10 +30,22 @@ class TimestampMixin:
 
 class UserProfile(TimestampMixin, Base):
     __tablename__ = "user_profiles"
+    __table_args__ = (
+        CheckConstraint(
+            "candidate_type IS NULL OR candidate_type IN ('graduate', 'experienced', 'both')",
+            name="ck_user_profiles_candidate_type",
+        ),
+        CheckConstraint(
+            "graduation_year IS NULL OR (graduation_year >= 1900 AND graduation_year <= 2200)",
+            name="ck_user_profiles_graduation_year",
+        ),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     preferred_location: Mapped[str | None] = mapped_column(String(120))
     job_search_strategy: Mapped[str] = mapped_column(String(24), default="balanced")
+    candidate_type: Mapped[str | None] = mapped_column(String(24))
+    graduation_year: Mapped[int | None] = mapped_column(Integer)
     resume: Mapped["Resume | None"] = relationship(
         back_populates="user_profile", cascade="all, delete-orphan", uselist=False
     )

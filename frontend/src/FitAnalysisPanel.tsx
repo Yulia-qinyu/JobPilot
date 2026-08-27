@@ -63,7 +63,7 @@ export function FitAnalysisResult({
           <p>{analysis.summary}</p>
           <small>最后分析：{formatFullDate(analysis.updated_at)}</small>
         </div>
-        <button className="secondary-button" onClick={onReanalyze} disabled={analyzing}>{analyzing ? "正在重新分析…" : "重新分析"}</button>
+        <button className="secondary-button reanalyze-button" onClick={onReanalyze} disabled={analyzing}>{analyzing ? "正在重新分析…" : "↻ 重新分析"}</button>
       </section>
 
       <div className="fit-two-column">

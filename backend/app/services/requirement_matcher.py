@@ -7,7 +7,7 @@ from app.services.requirement_catalog import RequirementCatalog
 
 
 class RequirementMatcher:
-    PROMPT_VERSION = "job-fit-v1"
+    PROMPT_VERSION = "job-fit-v2-candidate-identity"
     SCHEMA_VERSION = "fit-analysis-wire-v1"
 
     def __init__(self, client: ClaudeStructuredClient):
@@ -52,6 +52,11 @@ MATCH RULES:
 - Cite at most the four strongest, most direct evidence sources for each requirement.
 - Never invent candidate facts, achievements, dates, employers, credentials, or evidence IDs.
 - A resume skill keyword alone is normally Partial unless other factual evidence demonstrates use.
+- Evidence IDs beginning with manual_confirmed:profile: are user-confirmed Candidate Profile facts.
+- A confirmed graduation cohort supports only that cohort/campus identity; it does not prove a degree.
+- For a compound requirement such as "2027届本科及以上学历", use Strong only when separate
+  eligible evidence supports both the graduation cohort and the required degree. Use Partial when
+  only one component is supported. Never infer a degree from graduation cohort metadata.
 
 IMPORTANCE:
 - Critical: central explicit requirement or essential responsibility.

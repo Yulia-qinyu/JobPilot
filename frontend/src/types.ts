@@ -360,9 +360,12 @@ export interface UserProfile {
   target_roles: TargetRole[];
   experiences: Experience[];
   job_search_strategy: JobSearchStrategy;
+  candidate_type: CandidateType | null;
+  graduation_year: number | null;
 }
 
 export type JobSearchStrategy = "high_volume" | "focused" | "balanced" | "interview_first";
+export type CandidateType = "graduate" | "experienced" | "both";
 export interface ApplicationStatusDefinition { id: number; key: string; label: string; sort_order: number; is_system_default: boolean; is_active: boolean; legacy_status: JobStatus | null; }
 export type PlanType = "application" | "resume" | "interview_prep" | "job_search" | "follow_up" | "other";
 export interface PlanItem { id: number; title: string; date: string; time_optional: string | null; job_id: number | null; type: PlanType; status: "todo" | "done"; notes: string | null; created_by: "user" | "agent_suggestion"; completed_at: string | null; created_at: string; updated_at: string; job: { id: number; company: string; role: string } | null; }

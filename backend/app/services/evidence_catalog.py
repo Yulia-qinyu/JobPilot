@@ -26,6 +26,8 @@ class EvidenceCatalog:
 class EvidenceCatalogBuilder:
     """Maps Phase 1 storage semantics to explicit Phase 3 provenance."""
 
+    VERSION = "candidate-evidence-v2"
+
     @staticmethod
     def catalog_id(source: EvidenceSourceRead) -> str:
         return f"{source.source_type}:{source.source_id}"
@@ -35,7 +37,8 @@ class EvidenceCatalogBuilder:
             raise ValueError("A Master Resume is required before running Fit Analysis.")
 
         structured = ResumeProfile.model_validate(profile.resume.structured_profile)
-        sources: list[EvidenceSourceRead] = []
+        # Structured, user-confirmed profile truth wins if an equivalent free-text fact exists.
+        sources: list[EvidenceSourceRead] = self._candidate_identity_sources(profile)
         for experience in profile.experiences:
             context = " · ".join(
                 item
@@ -61,17 +64,51 @@ class EvidenceCatalogBuilder:
         sources = self._deduplicate(sources)
         resume_hash = canonical_hash(structured.model_dump(mode="json"))
         experience_hash = canonical_hash(
-            [
+            {
+                "catalog_version": self.VERSION,
+                "sources": [
                 {
                     "catalog_id": self.catalog_id(source),
                     "text": source.text,
                     "context": source.context,
                 }
                 for source in sources
-                if source.source_id.isdigit()
-            ]
+                if source.source_id.isdigit() or source.source_id.startswith("profile:")
+                ],
+            }
         )
         return EvidenceCatalog(sources, resume_hash, experience_hash)
+
+    @staticmethod
+    def _candidate_identity_sources(profile: UserProfile) -> list[EvidenceSourceRead]:
+        labels = {
+            "graduate": "应届 / 校招",
+            "experienced": "社招",
+            "both": "校招与社招都可以",
+        }
+        sources: list[EvidenceSourceRead] = []
+        if profile.candidate_type in labels:
+            sources.append(
+                EvidenceSourceRead(
+                    source_type="manual_confirmed",
+                    source_id="profile:candidate_type",
+                    text=f"求职身份：{labels[profile.candidate_type]}",
+                    context="求职档案 · 求职身份",
+                )
+            )
+        if (
+            profile.candidate_type in {"graduate", "both"}
+            and profile.graduation_year is not None
+        ):
+            sources.append(
+                EvidenceSourceRead(
+                    source_type="manual_confirmed",
+                    source_id="profile:graduation_year",
+                    text=f"毕业届别：{profile.graduation_year}届",
+                    context="求职档案 · 求职身份",
+                )
+            )
+        return sources
 
     @staticmethod
     def _eligible_provenance(source_type: str, confirmed: bool) -> str | None:

@@ -12,6 +12,7 @@ import type {
   TargetRole,
   UserProfile,
   JobSearchStrategy,
+  CandidateType,
 } from "./types";
 
 const STRATEGIES: { id: JobSearchStrategy; title: string; description: string }[] = [
@@ -22,6 +23,40 @@ const STRATEGIES: { id: JobSearchStrategy; title: string; description: string }[
 ];
 
 type ProfileAction = () => Promise<UserProfile>;
+
+const CANDIDATE_TYPES: { id: CandidateType; title: string; description: string }[] = [
+  { id: "graduate", title: "应届 / 校招", description: "我以应届毕业生身份参加校园招聘。" },
+  { id: "experienced", title: "社招", description: "我主要申请有工作经验的社会招聘岗位。" },
+  { id: "both", title: "都可以", description: "我同时考虑符合条件的校招和社招机会。" },
+];
+
+export function CandidateIdentityCard({
+  candidateType,
+  graduationYear,
+  busy,
+  onSave,
+}: {
+  candidateType: CandidateType | null;
+  graduationYear: number | null;
+  busy: boolean;
+  onSave: (candidateType: CandidateType | null, graduationYear: number | null) => void;
+}) {
+  const [selectedType, setSelectedType] = useState<CandidateType | null>(candidateType);
+  const [selectedYear, setSelectedYear] = useState<number | null>(graduationYear);
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 9 }, (_, index) => currentYear - 2 + index);
+  const supportsCampus = selectedType === "graduate" || selectedType === "both";
+  return (
+    <section className="profile-card identity-card">
+      <div className="profile-card-header"><div><span className="card-kicker">求职身份</span><h2>你以哪种身份申请岗位？</h2><p>这是你主动确认的求职事实，只用于判断明确的校招身份与毕业届别要求。</p></div></div>
+      <div className="identity-options">
+        {CANDIDATE_TYPES.map((item) => <button type="button" key={item.id} className={selectedType === item.id ? "selected" : ""} aria-pressed={selectedType === item.id} disabled={busy} onClick={() => { setSelectedType(item.id); if (item.id === "experienced") setSelectedYear(null); }}><strong>{item.title}</strong><span>{item.description}</span></button>)}
+      </div>
+      {supportsCampus && <label className="graduation-year-field">毕业届别<select aria-label="毕业届别" value={selectedYear ?? ""} onChange={(event) => setSelectedYear(event.target.value ? Number(event.target.value) : null)}><option value="">请选择</option>{years.map((year) => <option key={year} value={year}>{year}届</option>)}</select><small>毕业届别与学历是两条独立证据；选择届别不会自动证明学历。</small></label>}
+      <div className="identity-actions"><button type="button" className="primary-small" disabled={busy || selectedType === null || (supportsCampus && selectedYear === null)} onClick={() => onSave(selectedType, supportsCampus ? selectedYear : null)}>保存求职身份</button></div>
+    </section>
+  );
+}
 
 const ROLE_SUGGESTIONS: { name: string; family: RoleFamily }[] = [
   { name: "AI Product Manager", family: "ai_product" },
@@ -261,6 +296,7 @@ export default function ProfilePage() {
           <div className="profile-card-header"><div><span className="card-kicker">我的求职策略</span><h2>你现在更想怎样推进？</h2><p>这会成为未来规划建议的基础，你可以随时修改。</p></div></div>
           <div className="strategy-options">{STRATEGIES.map((strategy) => <button key={strategy.id} className={profile.job_search_strategy === strategy.id ? "selected" : ""} disabled={busy} onClick={() => void run(async () => { await workspaceApi.updateStrategy(strategy.id); return profileApi.get(); }, "求职策略已保存。") }><strong>{strategy.title}</strong><span>{strategy.description}</span></button>)}</div>
         </section>
+        <CandidateIdentityCard key={`${profile.candidate_type ?? "unknown"}-${profile.graduation_year ?? "unknown"}`} candidateType={profile.candidate_type} graduationYear={profile.graduation_year} busy={busy} onSave={(candidateType, graduationYear) => void run(() => profileApi.updateIdentity(candidateType, graduationYear), "求职身份已保存，既有匹配分析将按新证据重新验证。") } />
         <section className="profile-card resume-card">
           <div className="profile-card-header"><div><span className="card-kicker">主简历</span><h2>你的核心经历来源</h2><p>解析后形成结构化档案与经历事实库。</p></div><button className="primary-small" onClick={() => resumeInput.current?.click()} disabled={busy}>{profile.resume ? "替换简历" : "上传简历"}</button></div>
           <input className="hidden-input" ref={resumeInput} type="file" accept=".pdf,.docx" onChange={(event) => { const file = event.target.files?.[0]; if (file) void run(() => profileApi.uploadResume(file), "主简历和经历事实库已更新。"); event.target.value = ""; }} />

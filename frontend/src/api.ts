@@ -1,4 +1,5 @@
 import type {
+  CandidateType,
   AnalysisResponse,
   DashboardData,
   DecisionJobPage,
@@ -132,6 +133,11 @@ export const profileApi = {
   },
   updateLocation: (preferred_location: string | null) =>
     profileRequest("/location", { method: "PUT", body: JSON.stringify({ preferred_location }) }),
+  updateIdentity: (candidate_type: CandidateType | null, graduation_year: number | null) =>
+    profileRequest("/identity", {
+      method: "PUT",
+      body: JSON.stringify({ candidate_type, graduation_year }),
+    }),
   addCompany: (name: string) =>
     profileRequest("/companies", { method: "POST", body: JSON.stringify({ name }) }),
   updateCompany: (id: number, name: string) =>

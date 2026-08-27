@@ -80,6 +80,7 @@ class CandidateDiscoveryContextProvider:
                     evidence_topics=(),
                     context_version=canonical_hash({"version": self.VERSION, "profile": None}),
                     limited=True,
+                    candidate_type=None,
                 ),
                 saved_preferences=SavedCareerPreferences(
                     target_roles=(), preferred_location=None, target_companies=()
@@ -114,9 +115,7 @@ class CandidateDiscoveryContextProvider:
                 EligibilityService._professional_years(structured) if structured else None
             ),
             education_level=self._education_level(structured),
-            graduation_year=(
-                EligibilityService._graduation_year(structured) if structured else None
-            ),
+            graduation_year=profile.graduation_year,
             evidence=tuple(evidence_items),
             evidence_topics=tuple(
                 CandidateEvidenceTopic(topic=topic, evidence_refs=tuple(dict.fromkeys(refs)))
@@ -132,6 +131,7 @@ class CandidateDiscoveryContextProvider:
                 }
             ),
             limited=structured is None or not evidence_items,
+            candidate_type=profile.candidate_type,
         )
         preferences = SavedCareerPreferences(
             target_roles=tuple(

@@ -27,6 +27,7 @@ class CandidateDiscoveryContext:
     evidence_topics: tuple[CandidateEvidenceTopic, ...]
     context_version: str
     limited: bool
+    candidate_type: str | None = None
 
     @property
     def evidence_by_ref(self) -> dict[str, CandidateEvidenceItem]:

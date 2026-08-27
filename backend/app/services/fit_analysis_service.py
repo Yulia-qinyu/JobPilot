@@ -20,6 +20,7 @@ from app.schemas.fit_analysis import (
     RequirementMatch,
 )
 from app.services.activity_service import ActivityService
+from app.services.candidate_requirement_evidence import CandidateRequirementEvidenceNormalizer
 from app.services.evidence_catalog import EvidenceCatalog, EvidenceCatalogBuilder
 from app.services.hard_requirements import validate_hard_requirement
 from app.services.match_score import MatchScoreService, NoScorableRequirementsError
@@ -56,6 +57,7 @@ class FitAnalysisService:
         self.evidence_builder = EvidenceCatalogBuilder()
         self.requirement_builder = RequirementCatalogBuilder()
         self.score_service = MatchScoreService()
+        self.candidate_requirement_normalizer = CandidateRequirementEvidenceNormalizer()
 
     def get_state(self, job_id: int) -> FitAnalysisState:
         job = self.job_repo.get(job_id)
@@ -107,9 +109,12 @@ class FitAnalysisService:
             len(evidence.sources),
         )
         output = matcher.analyze(requirements, evidence)
-        matches, unsupported_evidence_count, hard_downgrade_count = self._normalize_matches(
-            output, requirements, evidence
-        )
+        (
+            matches,
+            unsupported_evidence_count,
+            hard_downgrade_count,
+            deterministic_adjustment_count,
+        ) = self._normalize_matches(output, requirements, evidence)
         try:
             score = self.score_service.score(matches)
         except NoScorableRequirementsError as exc:
@@ -122,6 +127,9 @@ class FitAnalysisService:
             job=job,
             matcher=matcher,
             output=output,
+            summary=self._final_summary(
+                output.summary, matches, deterministic_adjustment_count
+            ),
             evidence=evidence,
             requirements=requirements,
             matches=matches,
@@ -158,7 +166,9 @@ class FitAnalysisService:
         if not requirements.requirements:
             raise FitAnalysisPrerequisiteError("The saved JD has no scorable requirements.")
         output = matcher.analyze(requirements, evidence)
-        matches, _, _ = self._normalize_matches(output, requirements, evidence)
+        matches, _, _, deterministic_adjustment_count = self._normalize_matches(
+            output, requirements, evidence
+        )
         try:
             score = self.score_service.score(matches)
         except NoScorableRequirementsError as exc:
@@ -167,7 +177,9 @@ class FitAnalysisService:
         preview = FitAnalysisPreview(
             match_score=score,
             recommendation=self.score_service.recommendation(score, matches),
-            summary=" ".join(output.summary.split()) or "已完成岗位要求与经历证据匹配。",
+            summary=self._final_summary(
+                output.summary, matches, deterministic_adjustment_count
+            ),
             requirement_matches=matches,
             strengths=self._derive_strengths(matches),
             gaps=self._derive_gaps(matches, preparation),
@@ -235,7 +247,7 @@ class FitAnalysisService:
         output: FitAnalysisOutput,
         requirements: RequirementCatalog,
         evidence: EvidenceCatalog,
-    ) -> tuple[list[RequirementMatch], int, int]:
+    ) -> tuple[list[RequirementMatch], int, int, int]:
         expected_ids = set(requirements.by_id)
         returned_ids = [item.requirement_id for item in output.requirement_matches]
         if len(returned_ids) != len(set(returned_ids)) or set(returned_ids) != expected_ids:
@@ -246,6 +258,7 @@ class FitAnalysisService:
         evidence_by_id = evidence.by_catalog_id
         unsupported_count = 0
         hard_downgrade_count = 0
+        deterministic_adjustment_count = 0
         normalized: list[RequirementMatch] = []
         for item in output.requirement_matches:
             requirement = requirements.by_id[item.requirement_id]
@@ -278,6 +291,28 @@ class FitAnalysisService:
             if match_status == "Missing":
                 reason = "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。"
 
+            identity_normalization = self.candidate_requirement_normalizer.normalize(
+                requirement.text,
+                requirement.context,
+                match_status,
+                reason,
+                confidence,
+                cited,
+                evidence_by_id,
+            )
+            if identity_normalization is not None:
+                if (
+                    match_status != identity_normalization.match_status
+                    or reason != identity_normalization.reason
+                    or confidence != identity_normalization.confidence
+                    or cited != identity_normalization.evidence_sources
+                ):
+                    deterministic_adjustment_count += 1
+                match_status = identity_normalization.match_status
+                reason = identity_normalization.reason
+                confidence = identity_normalization.confidence
+                cited = identity_normalization.evidence_sources
+
             normalized.append(
                 RequirementMatch(
                     requirement_id=requirement.requirement_id,
@@ -291,7 +326,30 @@ class FitAnalysisService:
                     evidence_sources=cited,
                 )
             )
-        return normalized, unsupported_count, hard_downgrade_count
+        return (
+            normalized,
+            unsupported_count,
+            hard_downgrade_count,
+            deterministic_adjustment_count,
+        )
+
+    @staticmethod
+    def _final_summary(
+        model_summary: str,
+        matches: list[RequirementMatch],
+        deterministic_adjustment_count: int,
+    ) -> str:
+        if deterministic_adjustment_count == 0:
+            return " ".join(model_summary.split()) or "已完成岗位要求与经历证据匹配。"
+        counts = {
+            status: sum(item.match_status == status for item in matches)
+            for status in ("Strong", "Partial", "Missing")
+        }
+        return (
+            f"已按最终验证证据完成 {len(matches)} 项岗位要求核验："
+            f"{counts['Strong']} 项已匹配，{counts['Partial']} 项部分匹配，"
+            f"{counts['Missing']} 项暂无匹配证据。"
+        )
 
     @staticmethod
     def _normalize_preparation(
@@ -419,6 +477,7 @@ class FitAnalysisService:
         job,
         matcher: RequirementMatcher,
         output: FitAnalysisOutput,
+        summary: str,
         evidence: EvidenceCatalog,
         requirements: RequirementCatalog,
         matches: list[RequirementMatch],
@@ -438,7 +497,7 @@ class FitAnalysisService:
             "matcher_schema_version": matcher.SCHEMA_VERSION,
             "match_score": score,
             "recommendation": recommendation,
-            "summary": " ".join(output.summary.split()) or "已完成岗位要求与经历证据匹配。",
+            "summary": summary,
             "requirement_matches": [item.model_dump(mode="json") for item in matches],
             "strengths": [item.model_dump(mode="json") for item in strengths],
             "gaps": [item.model_dump(mode="json") for item in gaps],

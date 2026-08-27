@@ -99,7 +99,8 @@ def test_role_classifier_is_conservative_and_stable(db: Session, role: str, expe
     [
         ("至少 3 年工作经验", "Eligible"),
         ("至少 5 年工作经验", "Ineligible"),
-        ("必须为 2026 届毕业生", "Ineligible"),
+        # Graduation cohort is now trusted only when the user confirms it in Candidate Profile.
+        ("必须为 2026 届毕业生", "PossiblyEligible"),
         ("本科及以上学历", "Eligible"),
         ("必须具备 CET-6", "PossiblyEligible"),
         ("必须具备工作许可", "PossiblyEligible"),

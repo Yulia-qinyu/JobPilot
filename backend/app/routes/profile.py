@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.db.session import get_db
 from app.schemas.profile import (
+    CandidateIdentityUpdate,
     FactCreate,
     FactUpdate,
     LocationUpdate,
@@ -64,6 +65,19 @@ def get_profile(db: Session = Depends(get_db)) -> ProfileRead:
 def update_location(payload: LocationUpdate, db: Session = Depends(get_db)) -> ProfileRead:
     try:
         return service(db).update_location(payload.preferred_location)
+    except (ProfileError, SQLAlchemyError) as exc:
+        db.rollback()
+        raise profile_error(exc) from exc
+
+
+@router.put("/identity", response_model=ProfileRead)
+def update_candidate_identity(
+    payload: CandidateIdentityUpdate, db: Session = Depends(get_db)
+) -> ProfileRead:
+    try:
+        return service(db).update_candidate_identity(
+            payload.candidate_type, payload.graduation_year
+        )
     except (ProfileError, SQLAlchemyError) as exc:
         db.rollback()
         raise profile_error(exc) from exc

@@ -102,6 +102,8 @@ describe("Phase 3 Fit Analysis presentation", () => {
     expect(html).not.toContain("准备四");
     expect(html).toContain("查看更多建议（1）");
     expect(html).toContain("重新分析");
+    expect(html).toContain("↻ 重新分析");
+    expect(html).toContain("reanalyze-button");
   });
 
   it("renders stale, pending, loading and failure states", () => {

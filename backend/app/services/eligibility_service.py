@@ -70,7 +70,11 @@ class EligibilityService:
         candidate_text = json.dumps(candidate.model_dump(mode="json"), ensure_ascii=False)
         years = self._professional_years(candidate)
         degree = self._highest_degree(candidate)
-        graduation_year = self._graduation_year(candidate)
+        graduation_year = (
+            profile.graduation_year
+            if profile.candidate_type in {"graduate", "both"}
+            else None
+        )
 
         for requirement in requirements:
             if SOFT_LANGUAGE.search(requirement):
@@ -85,7 +89,15 @@ class EligibilityService:
                 elif graduation_year != required_year:
                     blocking.append(requirement)
                 else:
-                    reasons.append(f"教育经历显示毕业年份为 {required_year}。")
+                    reasons.append(f"求职档案已确认毕业届别为 {required_year}。")
+                    required_degree = self._required_degree(requirement)
+                    if required_degree is not None:
+                        if degree is None:
+                            unknown.append(requirement)
+                        elif degree < required_degree:
+                            blocking.append(requirement)
+                        else:
+                            reasons.append("已记录的最高学历不低于岗位明确门槛。")
                 continue
 
             required_degree = self._required_degree(requirement)
@@ -144,6 +156,7 @@ class EligibilityService:
     @staticmethod
     def _requirements(jd: JDRequirements) -> list[str]:
         values = [*jd.required_skills]
+        values.extend(item.title for item in jd.key_requirements if item.priority != "low")
         values.extend(item.explanation for item in jd.key_requirements if item.priority != "low")
         return EligibilityService._deduplicate(values)
 

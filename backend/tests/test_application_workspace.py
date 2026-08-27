@@ -26,6 +26,7 @@ from app.services.fit_analysis_service import FitAnalysisService
 from app.services.job_service import JobService
 from app.services.preview_analysis_store import preview_analysis_store
 from app.services.profile_service import ProfileService
+from app.services.requirement_matcher import RequirementMatcher
 from app.services.workspace_service import WorkspaceConflictError, WorkspaceService
 
 
@@ -114,7 +115,7 @@ def test_plan_crud_completion_job_relation_and_job_delete_set_null(db: Session) 
 
 
 class DynamicMatcher:
-    PROMPT_VERSION = "job-fit-v1"
+    PROMPT_VERSION = RequirementMatcher.PROMPT_VERSION
     SCHEMA_VERSION = "fit-analysis-wire-v1"
 
     def __init__(self):
@@ -158,6 +159,20 @@ def test_preview_not_promoted_after_candidate_evidence_changes(db: Session) -> N
     profile = ProfileService(db).get_profile()
     ProfileService(db).add_fact(profile.experiences[0].id, "A newly confirmed fact.", True)
     created = JobService(db, get_settings()).create(job_payload().model_copy(update={"preview_artifact_token": preview.artifact_token}))
+    assert created.analysis_promoted is False
+    assert db.scalar(select(JobAnalysis).where(JobAnalysis.job_id == created.id)) is None
+
+
+def test_preview_not_promoted_after_candidate_identity_changes(db: Session) -> None:
+    profile_with_resume(db)
+    matcher = DynamicMatcher()
+    preview = FitAnalysisService(db, get_settings()).analyze_preview(
+        job_payload().structured_jd, matcher  # type: ignore[arg-type]
+    )
+    ProfileService(db).update_candidate_identity("graduate", 2027)
+    created = JobService(db, get_settings()).create(
+        job_payload().model_copy(update={"preview_artifact_token": preview.artifact_token})
+    )
     assert created.analysis_promoted is False
     assert db.scalar(select(JobAnalysis).where(JobAnalysis.job_id == created.id)) is None
 

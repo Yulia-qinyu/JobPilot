@@ -84,6 +84,8 @@ class ProfileRead(BaseModel):
     target_roles: list[TargetRoleRead]
     experiences: list[ExperienceRead]
     job_search_strategy: Literal["high_volume", "focused", "balanced", "interview_first"]
+    candidate_type: Literal["graduate", "experienced", "both"] | None
+    graduation_year: int | None
 
 
 class NameCreate(BaseModel):
@@ -103,6 +105,11 @@ class TargetRoleUpdate(BaseModel):
 
 class LocationUpdate(BaseModel):
     preferred_location: str | None = Field(default=None, max_length=120)
+
+
+class CandidateIdentityUpdate(BaseModel):
+    candidate_type: Literal["graduate", "experienced", "both"] | None
+    graduation_year: int | None = Field(default=None, ge=1900, le=2200)
 
 
 class FactCreate(BaseModel):
