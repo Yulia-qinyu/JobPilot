@@ -132,7 +132,7 @@ export default function AnalyzeJobPage() {
 
   return <main className="analyze-home">
     <section className="analyze-hero">
-      <span className="eyebrow">Job analysis</span>
+      <span className="eyebrow">岗位分析</span>
       <h1>先看看这个岗位适不适合你</h1>
       <p>粘贴岗位链接或完整 JD，快速看懂岗位要求、匹配程度和简历优化方向。</p>
       <form className="analyze-input-card" onSubmit={submit}>

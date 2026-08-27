@@ -26,7 +26,7 @@ describe("Resume Tailoring UI", () => {
   it("shows plan actions, unsupported requirements and omit confirmation", () => {
     const planOnly = { ...tailoring, generated_draft: {} };
     const html = renderToStaticMarkup(<TailoringPlanView tailoring={planOnly} busy={false} onGenerate={() => undefined} />);
-    expect(html).toContain("Tailoring Plan");
+    expect(html).toContain("简历优化方案");
     expect(html).toContain("AWS 认证");
     expect(html).toContain("省略");
     expect(html).not.toContain("relevance =");
@@ -44,8 +44,8 @@ describe("Resume Tailoring UI", () => {
     const html = renderToStaticMarkup(<EvidenceDrawer bullet={bullet} plan={tailoring.tailoring_plan} />);
     expect(html).toContain("resume_extracted:1");
     expect(html).toContain("LLM 产品交付");
-    expect(html).toContain("Experience Context");
-    expect(html).toContain("No unsupported numbers: passed");
+    expect(html).toContain("经历背景");
+    expect(html).toContain("数字真实性：通过");
   });
 
   it("renders model keep without pretending there is a tailored rewrite", () => {

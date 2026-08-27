@@ -1084,3 +1084,195 @@ input:focus, textarea:focus, select:focus { border-color: var(--color-border-str
   .facts { padding: 0 18px; }
   .fact-add { grid-template-columns: 1fr; padding: 18px; }
 }
+
+/* Visual Redesign V1 — second-pass typography, density, and layout polish. */
+.analyze-hero > p {
+  max-width: 660px;
+  color: var(--color-text-body);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.analyze-input-card label { font-size: 13px; }
+.analyze-input-card textarea { font-size: 15px; line-height: 1.7; }
+.analyze-input-footer > span { color: var(--color-text-secondary); font-size: 13px; line-height: 1.55; }
+
+/* Plan: decisive hero, structured form, and readable task rows. */
+.plan-page-hero {
+  min-height: 148px;
+  padding-top: 48px;
+  padding-bottom: 24px;
+  gap: 48px;
+}
+.plan-page-hero > div { max-width: 640px; }
+.plan-page-hero p { max-width: 580px; font-size: 15px; line-height: 1.7; }
+.plan-page-hero > .button-link { flex: 0 0 auto; align-self: center; }
+.planning-agent-heading { align-items: center; }
+.planning-agent-heading > div { min-width: 0; }
+.planning-agent-heading > .submit-button {
+  flex: 0 0 auto;
+  min-width: 168px;
+  margin: 0 0 0 auto;
+}
+.planning-agent-intro, .planning-summary { font-size: 14px; line-height: 1.75; }
+.advice-copy p { max-width: 70ch; font-size: 14px; line-height: 1.7; }
+.plan-form {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px 16px;
+  margin-bottom: 34px;
+  padding: 28px;
+  background: var(--color-bg-card);
+}
+.plan-form label { gap: 8px; color: var(--color-text-body); font-size: 13px; }
+.plan-form input, .plan-form select, .plan-form textarea { min-height: 46px; padding: 12px 14px; font-size: 14px; }
+.plan-form textarea { min-height: 112px; line-height: 1.65; }
+.plan-form .plan-title-field { grid-column: span 6; }
+.plan-form label:nth-of-type(2), .plan-form label:nth-of-type(3) { grid-column: span 3; }
+.plan-form label:nth-of-type(4) { grid-column: span 3; }
+.plan-form .plan-job-field { grid-column: span 9; }
+.plan-form .plan-notes { grid-column: 1 / -1; }
+.plan-form .plan-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 2px;
+}
+.plan-form-actions .submit-button {
+  width: auto;
+  min-width: 132px;
+  height: 44px;
+  margin: 0;
+}
+.plan-form-actions .secondary-button { width: auto; min-width: 82px; height: 44px; }
+.plan-group { padding-top: 32px; }
+.plan-group > h2 { margin-bottom: 10px; font-size: 21px; }
+.plan-item { gap: 16px; padding: 20px 2px; }
+.plan-item-copy { min-width: 0; }
+.plan-item h3 { margin: 7px 0 6px; color: var(--color-text-primary); font-size: 16px; line-height: 1.45; }
+.plan-meta { gap: 9px; color: var(--color-text-secondary); font-size: 12px; line-height: 1.4; }
+.plan-job-link { color: var(--color-text-secondary) !important; font-size: 13px; line-height: 1.55; }
+.plan-item-notes { max-width: 72ch; color: var(--color-text-body) !important; font-size: 14px; line-height: 1.65; }
+.plan-empty { color: var(--color-text-secondary); font-size: 14px; }
+
+/* Job Detail: one stable content boundary and fewer nested frames. */
+.job-detail-page { width: min(1120px, calc(100% - 48px)); }
+.job-detail-page .back-link { margin-top: 28px; color: var(--color-text-secondary); font-size: 13px; }
+.job-detail-header {
+  padding: 24px 0 28px;
+  border-bottom: 0;
+}
+.job-detail-header > div:first-child { min-width: 0; max-width: 760px; }
+.job-detail-header h1 { max-width: 760px; font-size: clamp(32px, 3.4vw, 40px); line-height: 1.15; }
+.job-detail-header p { font-size: 14px; line-height: 1.6; }
+.detail-tabs { margin-bottom: 34px; }
+.detail-layout { gap: 30px; }
+.detail-main { gap: 0; }
+.quick-overview { margin-bottom: 28px; padding: 34px 36px; }
+.one-line-summary h2 { max-width: 68ch; font-size: 21px; line-height: 1.65; }
+.quick-columns { gap: 36px; }
+.quick-columns li { padding: 15px 0; border-color: var(--color-border-default); }
+.quick-columns li strong { font-size: 14px; line-height: 1.55; }
+.quick-columns li span, .quick-columns li p { color: var(--color-text-secondary); font-size: 13px; line-height: 1.65; }
+.detail-section { padding: 30px 2px; }
+.detail-section h2, .application-panel h2 { margin-bottom: 18px; font-size: 21px; }
+.detail-list li { padding: 13px 0 13px 18px; border-color: var(--color-border-default); color: var(--color-text-body); font-size: 14px; line-height: 1.75; }
+.application-panel { padding: 28px; }
+.application-panel > p { color: var(--color-text-secondary); font-size: 13px; line-height: 1.65; }
+.application-panel label { font-size: 13px; }
+.original-jd pre { color: var(--color-text-body); font-size: 13px; line-height: 1.75; }
+.fit-analysis { gap: 32px; }
+.fit-score-card { gap: 30px; padding: 30px 32px; }
+.fit-score-copy p { max-width: 68ch; font-size: 14px; line-height: 1.75; }
+.fit-score-copy small { font-size: 12px; }
+.fit-two-column {
+  gap: 0;
+  border-top: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-default);
+}
+.fit-two-column .fit-card {
+  padding: 32px 30px 32px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.fit-two-column .fit-card + .fit-card { padding-right: 0; padding-left: 30px; border-left: 1px solid var(--color-border-default); }
+.fit-item-list article { padding: 18px 20px; border: 0; border-left: 3px solid var(--color-success); background: var(--color-bg-soft); }
+.fit-item-list h3 { font-size: 15px; line-height: 1.5; }
+.fit-item-list p { color: var(--color-text-body); font-size: 14px; line-height: 1.72; }
+.fit-item-list ul { color: var(--color-text-body); font-size: 13px; line-height: 1.65; }
+.fit-item-list li span, .evidence-map td li span { color: var(--color-text-secondary); font-size: 11px; }
+.fit-item-list small { color: var(--color-text-body); font-size: 13px; line-height: 1.65; }
+.job-detail-page .evidence-map, .job-detail-page .fit-preparation {
+  padding: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--color-border-default);
+  border-radius: 0;
+  background: transparent;
+}
+.evidence-map th { color: var(--color-text-secondary); font-size: 11px; }
+.evidence-map td { padding: 18px 13px; color: var(--color-text-body); font-size: 13px; line-height: 1.65; }
+.fit-preparation p { color: var(--color-text-body); font-size: 14px; line-height: 1.7; }
+
+/* Resume tailoring: readable prose with section rhythm instead of frames within frames. */
+.tailoring-plan, .tailored-draft { gap: 28px; }
+.tailoring-plan > .fit-card, .tailored-draft > .fit-card {
+  padding: 30px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-default);
+  border-radius: 0;
+  background: transparent;
+}
+.tailoring-plan > .fit-card:first-child, .tailored-draft > .fit-card:first-child {
+  padding: 28px 30px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-soft);
+}
+.tailoring-plan > .fit-card > p, .tailored-draft > .fit-card > p { max-width: 72ch; color: var(--color-text-secondary); font-size: 14px; line-height: 1.75; }
+.tailoring-heading p, .tailoring-heading strong { color: var(--color-text-secondary); font-size: 13px; line-height: 1.55; }
+.plan-bullet, .tailored-bullet { margin-top: 0; padding: 20px 0; border: 0; border-top: 1px solid var(--color-border-default); background: transparent; }
+.plan-bullet p { margin-bottom: 14px; color: var(--color-text-body); font-size: 14px; line-height: 1.75; }
+.plan-bullet label { font-size: 13px; }
+.plan-bullet small { color: var(--color-text-secondary); font-size: 13px; line-height: 1.65; }
+.before-after { gap: 16px; }
+.before-after > div, .kept-bullet { padding: 18px; border: 0; border-radius: var(--radius-sm); background: var(--color-bg-soft); }
+.before-after span { color: var(--color-text-secondary); font-size: 11px; }
+.before-after p { color: var(--color-text-body); font-size: 14px; line-height: 1.75; }
+.bullet-review-actions span { color: var(--color-text-secondary); font-size: 12px; }
+.validation-warning { font-size: 13px; line-height: 1.6; }
+.evidence-drawer summary { color: var(--color-brand-action); font-size: 13px; }
+.evidence-drawer > div { padding: 18px; border-radius: var(--radius-sm); background: var(--color-brand-primary-surface); }
+.evidence-drawer h4 { font-size: 13px; }
+.evidence-drawer article span { color: var(--color-text-secondary); font-size: 11px; }
+.evidence-drawer article p, .evidence-drawer > div > p, .evidence-drawer li { color: var(--color-text-body); font-size: 13px; line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .plan-page-hero { min-height: 0; }
+  .fit-two-column .fit-card { padding: 28px 0; }
+  .fit-two-column .fit-card + .fit-card { padding-left: 0; border-top: 1px solid var(--color-border-default); border-left: 0; }
+}
+
+@media (max-width: 720px) {
+  .plan-page-hero { gap: 20px; padding-top: 36px; }
+  .plan-page-hero > .button-link { align-self: flex-start; }
+  .planning-agent-heading > .submit-button { width: 100%; margin: 18px 0 0; }
+  .plan-form { grid-template-columns: 1fr; gap: 15px; padding: 22px 18px; }
+  .plan-form .plan-title-field,
+  .plan-form label:nth-of-type(2),
+  .plan-form label:nth-of-type(3),
+  .plan-form label:nth-of-type(4),
+  .plan-form .plan-job-field,
+  .plan-form .plan-notes,
+  .plan-form .plan-form-actions { grid-column: 1; }
+  .plan-form .plan-form-actions { justify-content: flex-start; }
+  .plan-form-actions .submit-button, .plan-form-actions .secondary-button { min-width: 0; }
+  .plan-item { grid-template-columns: auto minmax(0, 1fr) auto; padding: 18px 0; }
+  .job-detail-page { width: min(100% - 28px, 1120px); }
+  .job-detail-header { padding-top: 20px; }
+  .quick-overview { padding: 26px 20px; }
+  .quick-columns { grid-template-columns: 1fr; gap: 24px; }
+  .fit-score-card { padding: 26px 20px; }
+  .tailoring-plan > .fit-card:first-child, .tailored-draft > .fit-card:first-child { padding: 24px 20px; }
+  .before-after { grid-template-columns: 1fr; }
+}

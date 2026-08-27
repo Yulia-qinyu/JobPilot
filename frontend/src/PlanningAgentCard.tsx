@@ -38,7 +38,7 @@ export default function PlanningAgentCard({ planning, loading, error, onGenerate
   }
   return <section className="planning-agent-card" aria-label="今日规划助手">
     <div className="planning-agent-heading">
-      <div><span className="agent-sparkle">✦</span><div><span className="eyebrow">Today’s focus</span><h2>{snapshot ? "今天先把最重要的 3 件事推进掉" : "今天需要一点小助攻吗？"}</h2></div></div>
+      <div><span className="agent-sparkle">✦</span><div><span className="eyebrow">今日重点</span><h2>{snapshot ? "今天先把最重要的 3 件事推进掉" : "今天需要一点小助攻吗？"}</h2></div></div>
       {!snapshot && !planning?.empty_context && <button className="submit-button" disabled={loading} onClick={() => onGenerate(false)}>✨ 帮我规划今天</button>}
     </div>
     {!snapshot && !loading && <p className="planning-agent-intro">{planning?.empty_message || "我会看看你的岗位、计划和最近进度，帮你排一下今天最值得做的事情。"}</p>}

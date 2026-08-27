@@ -19,7 +19,7 @@ function PlanGroup({ title, values, onToggle, onDelete }: {
     <h2>{title}<span>{values.length}</span></h2>
     {values.length ? <div className="plan-list">{values.map((item) => <article className={`plan-item ${item.status}`} key={item.id}>
       <button className="plan-check" aria-label={item.status === "done" ? "重新设为未完成" : "标记完成"} onClick={() => onToggle(item)}>{item.status === "done" ? "✓" : ""}</button>
-      <div><div className="plan-meta"><span>{item.date}{item.time_optional ? ` · ${item.time_optional}` : ""}</span><span className="soft-badge">{TYPE_LABELS[item.type]}</span></div><h3>{item.title}</h3>{item.job && <p>关联：{item.job.company} · {item.job.role}</p>}{item.notes && <p>{item.notes}</p>}</div>
+      <div className="plan-item-copy"><div className="plan-meta"><time dateTime={`${item.date}${item.time_optional ? `T${item.time_optional}` : ""}`}>{item.date}{item.time_optional ? ` · ${item.time_optional}` : ""}</time><span className="soft-badge">{TYPE_LABELS[item.type]}</span></div><h3>{item.title}</h3>{item.job && <p className="plan-job-link">关联岗位：{item.job.company} · {item.job.role}</p>}{item.notes && <p className="plan-item-notes">{item.notes}</p>}</div>
       <button className="danger-text-button" onClick={() => onDelete(item)}>删除</button>
     </article>)}</div> : <p className="plan-empty">暂时没有计划。</p>}
   </section>;
@@ -78,17 +78,17 @@ export default function PlanPage() {
   }
 
   return <main className="workspace-shell plan-page">
-    <header className="workspace-heading compact"><div><span className="eyebrow">My application plan</span><h1>我的计划</h1><p>记录准备做什么和已经完成什么，JobPilot 会在未来规划时参考这些真实记录。</p></div><button className="primary-link button-link" onClick={() => setShowForm((value) => !value)}>+ 添加计划</button></header>
+    <header className="workspace-heading compact plan-page-hero"><div><span className="eyebrow">求职计划</span><h1>我的计划</h1><p>记录接下来要做的事和已经完成的进度，让每一步都更清楚。</p></div><button className="primary-link button-link" onClick={() => setShowForm((value) => !value)}>+ 添加计划</button></header>
     {error && <div className="error" role="alert">{error}</div>}
     <PlanningAgentCard planning={planning} loading={planningLoading} error={planningError} onGenerate={(force) => void generateAdvice(force)} onAddToPlan={(itemId) => void addAdviceToPlan(itemId)} />
     {showForm && <form className="plan-form" onSubmit={submit}>
-      <label>标题<input required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} /></label>
+      <label className="plan-title-field">标题<input required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} placeholder="例如：完善岗位简历" /></label>
       <label>日期<input type="date" required value={form.date} onChange={(event) => setForm({ ...form, date: event.target.value })} /></label>
       <label>时间（可选）<input type="time" value={form.time_optional} onChange={(event) => setForm({ ...form, time_optional: event.target.value })} /></label>
       <label>类型<select value={form.type} onChange={(event) => setForm({ ...form, type: event.target.value as PlanType })}>{Object.entries(TYPE_LABELS).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label>
-      <label>关联岗位（可选）<select value={form.job_id} onChange={(event) => setForm({ ...form, job_id: event.target.value })}><option value="">不关联岗位</option>{jobs.map((job) => <option key={job.id} value={job.id}>{job.company} · {job.role}</option>)}</select></label>
-      <label className="plan-notes">Notes（可选）<textarea rows={3} value={form.notes} onChange={(event) => setForm({ ...form, notes: event.target.value })} /></label>
-      <div><button className="submit-button" type="submit">保存计划</button><button className="secondary-button" type="button" onClick={() => setShowForm(false)}>取消</button></div>
+      <label className="plan-job-field">关联岗位（可选）<select value={form.job_id} onChange={(event) => setForm({ ...form, job_id: event.target.value })}><option value="">不关联岗位</option>{jobs.map((job) => <option key={job.id} value={job.id}>{job.company} · {job.role}</option>)}</select></label>
+      <label className="plan-notes">备注（可选）<textarea rows={3} value={form.notes} onChange={(event) => setForm({ ...form, notes: event.target.value })} placeholder="补充准备重点或提醒…" /></label>
+      <div className="plan-form-actions"><button className="submit-button" type="submit">保存计划</button><button className="secondary-button" type="button" onClick={() => setShowForm(false)}>取消</button></div>
     </form>}
     <PlanGroup title="今天" values={grouped.today} onToggle={(item) => void toggle(item)} onDelete={(item) => void remove(item)} />
     <PlanGroup title="接下来" values={grouped.upcoming} onToggle={(item) => void toggle(item)} onDelete={(item) => void remove(item)} />
