@@ -1,0 +1,329 @@
+{
+  "generated_at": "2026-08-23T07:36:37.680817+00:00",
+  "source": "bytedance",
+  "target_roles": [
+    {
+      "name": "AI产品经理",
+      "priority": "primary",
+      "effective_role_family": "ai_product"
+    },
+    {
+      "name": "FinTech / 金融科技产品经理",
+      "priority": "primary",
+      "effective_role_family": "fintech_product"
+    },
+    {
+      "name": "数据产品经理",
+      "priority": "secondary",
+      "effective_role_family": "data_product"
+    },
+    {
+      "name": "策略产品经理",
+      "priority": "exploratory",
+      "effective_role_family": "strategy_product"
+    },
+    {
+      "name": "平台 / ToB 产品经理",
+      "priority": "exploratory",
+      "effective_role_family": "platform_product"
+    }
+  ],
+  "funnel": {
+    "total_discovered": 406,
+    "no_explicit_blocker": 376,
+    "possibly_eligible": 2,
+    "ineligible": 28,
+    "unknown_eligibility": 0,
+    "primary_target": 215,
+    "secondary_target": 11,
+    "exploratory": 57,
+    "low_not_target_unknown": 123,
+    "worth_analyzing": 209,
+    "low_priority": 148,
+    "excluded": 49,
+    "already_deep_matched": 0,
+    "priority": 0,
+    "apply": 0,
+    "consider": 0,
+    "skip": 0,
+    "claude_api_calls": 0
+  },
+  "samples": {
+    "worth_analyzing": [
+      {
+        "job_id": 69,
+        "role": "AI产品经理（智能对话与AI员工）-抖音生活服务",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 181,
+        "role": "搜索安全产品Leader（AI方向）-TikTok安全产品",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 219,
+        "role": "语音产品经理-AI创新业务",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 47,
+        "role": "交易链路AI产品经理-TikTok Shop",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 66,
+        "role": "AI产品经理（电商大模型方向） - 抖音搜索",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 72,
+        "role": "AI产品经理-抖音电商",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 115,
+        "role": "AI商业化产品经理-穿山甲",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 216,
+        "role": "账号产品经理-AI创新业务",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 144,
+        "role": "高级产品经理（大模型数据管理平台）-AI数据与安全",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      },
+      {
+        "job_id": 348,
+        "role": "服务商产品经理（AI智能化建设方向）-TikTok Shop",
+        "role_family": "ai_product",
+        "eligibility": "Eligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "WorthAnalyzing",
+        "reason": "岗位属于核心目标方向，值得进一步匹配分析。"
+      }
+    ],
+    "low_priority": [
+      {
+        "job_id": 257,
+        "role": "医疗大模型安全策略产品经理-小荷健康",
+        "role_family": "strategy_product",
+        "eligibility": "Eligible",
+        "role_fit": "Exploratory",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 147,
+        "role": "大模型策略产品-AI创新业务",
+        "role_family": "strategy_product",
+        "eligibility": "Eligible",
+        "role_fit": "Exploratory",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 389,
+        "role": "隐私项目经理-隐私和数据保护办公室（北京）",
+        "role_family": "unknown",
+        "eligibility": "Eligible",
+        "role_fit": "Unknown",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 370,
+        "role": "AI数据资源开发与管理运营-AI数据与安全",
+        "role_family": "unknown",
+        "eligibility": "Eligible",
+        "role_fit": "Unknown",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 310,
+        "role": "平台产品经理（AI开放方向）-抖音",
+        "role_family": "platform_product",
+        "eligibility": "Eligible",
+        "role_fit": "Exploratory",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 327,
+        "role": "语音大模型数据专家（中文方向） - AI数据与安全",
+        "role_family": "unknown",
+        "eligibility": "Eligible",
+        "role_fit": "Unknown",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 130,
+        "role": "国际化商业AI策略产品经理-AIGC广告创意",
+        "role_family": "strategy_product",
+        "eligibility": "Eligible",
+        "role_fit": "Exploratory",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 183,
+        "role": "商家端产品经理（抖店） - 抖音电商",
+        "role_family": "general_product",
+        "eligibility": "Eligible",
+        "role_fit": "Low",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 193,
+        "role": "闭环电商广告投放策略产品经理-穿山甲（北京/上海）",
+        "role_family": "strategy_product",
+        "eligibility": "Eligible",
+        "role_fit": "Exploratory",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      },
+      {
+        "job_id": 328,
+        "role": "世界模型数据资源运营专家 - AI数据与安全",
+        "role_family": "unknown",
+        "eligibility": "Eligible",
+        "role_fit": "Unknown",
+        "pre_match_decision": "LowPriority",
+        "reason": "当前方向或资格信息不足以列为优先分析岗位。"
+      }
+    ],
+    "exclude": [
+      {
+        "job_id": 340,
+        "role": "AI Agent数据产品经理（开发套件方向）-Data",
+        "role_family": "data_product",
+        "eligibility": "Ineligible",
+        "role_fit": "Secondary",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：3年以上数据平台产品或数据开发经验；"
+      },
+      {
+        "job_id": 161,
+        "role": "高级用户体验设计师-财经",
+        "role_family": "design",
+        "eligibility": "Ineligible",
+        "role_fit": "NotTarget",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：具备5年以上UI产品设计经验，有较强的设计审美和逻辑思考能力；"
+      },
+      {
+        "job_id": 275,
+        "role": "RTOS嵌入式开发工程师 - 移动OS",
+        "role_family": "engineering",
+        "eligibility": "Eligible",
+        "role_fit": "NotTarget",
+        "pre_match_decision": "Exclude",
+        "reason": "岗位不属于当前目标方向。"
+      },
+      {
+        "job_id": 293,
+        "role": "搜索产品运营（AI搜索方向）-TikTok",
+        "role_family": "product_operations",
+        "eligibility": "Ineligible",
+        "role_fit": "Low",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：具备3年及以上在科技互联网、搜索、社交媒体、内容平台或AI产品相关领域从事产品运营/策略运营/用户体验运营/业务运营或产品经理的相关经验；"
+      },
+      {
+        "job_id": 276,
+        "role": "移动端开发工程师-飞书视频会议",
+        "role_family": "engineering",
+        "eligibility": "Eligible",
+        "role_fit": "NotTarget",
+        "pre_match_decision": "Exclude",
+        "reason": "岗位不属于当前目标方向。"
+      },
+      {
+        "job_id": 297,
+        "role": "游戏引擎数据生成工程师（合成数据/具身智能方向）-AI数据与安全",
+        "role_family": "engineering",
+        "eligibility": "Eligible",
+        "role_fit": "NotTarget",
+        "pre_match_decision": "Exclude",
+        "reason": "岗位不属于当前目标方向。"
+      },
+      {
+        "job_id": 223,
+        "role": "AI智能硬件客户端Leader - 移动OS",
+        "role_family": "unknown",
+        "eligibility": "Ineligible",
+        "role_fit": "Unknown",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：5年以上客户端研发工作经验，对客户端底层技术有深入理解，对技术和用户体验充分重视，对性能追求极致；"
+      },
+      {
+        "job_id": 381,
+        "role": "AI产品工程师-大模型评测",
+        "role_family": "ai_product",
+        "eligibility": "Ineligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：有2年以上B端/平台型产品经验，理解平台化思维（抽象、复用、配置化vs定制化的取舍）；"
+      },
+      {
+        "job_id": 55,
+        "role": "AI产品经理（IP创新业务） - 抖音运营",
+        "role_family": "ai_product",
+        "eligibility": "Ineligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：有2年以上AI产品、搜索问答、知识库、开放平台或创作工具相关经验；"
+      },
+      {
+        "job_id": 79,
+        "role": "高级AI产品经理-抖音生活服务",
+        "role_family": "ai_product",
+        "eligibility": "Ineligible",
+        "role_fit": "Primary",
+        "pre_match_decision": "Exclude",
+        "reason": "明确冲突：具备1年及以上团队管理经验，并对结果负责；"
+      }
+    ]
+  }
+}

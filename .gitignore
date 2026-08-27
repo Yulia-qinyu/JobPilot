@@ -1,0 +1,22 @@
+.env
+.env.local
+.env.*.local
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+.DS_Store
+
+# Local editor / notebook artifacts
+.Rhistory
+.ipynb_checkpoints/
+
+# Local editor / notebook artifacts
+.Rhistory
+.ipynb_checkpoints/

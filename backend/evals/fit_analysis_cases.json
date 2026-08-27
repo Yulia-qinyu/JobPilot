@@ -1,0 +1,57 @@
+[
+  {
+    "case_id": "strong_direct_evidence",
+    "requirements": [
+      {"requirement_id": "req_ai", "text": "AI product delivery", "importance": "Critical"}
+    ],
+    "evidence": [
+      {"evidence_source_id": "resume_extracted:fact-1", "text": "Shipped an LLM workflow to production."}
+    ],
+    "expected_matches": {
+      "req_ai": {"match_status": "Strong", "evidence_source_ids": ["resume_extracted:fact-1"]}
+    },
+    "expected_gap_requirement_ids": [],
+    "prediction": {
+      "requirement_matches": [
+        {"requirement_id": "req_ai", "importance": "Critical", "is_hard_requirement": false, "hard_requirement_category": "none", "match_status": "Strong", "reason": "有直接上线证据。", "confidence": "High", "evidence_source_ids": ["resume_extracted:fact-1"]}
+      ]
+    },
+    "latency_seconds": 12.0
+  },
+  {
+    "case_id": "partial_related_skill",
+    "requirements": [
+      {"requirement_id": "req_agent", "text": "Agent product experience", "importance": "Important"}
+    ],
+    "evidence": [
+      {"evidence_source_id": "manual_confirmed:fact-2", "text": "Designed an LLM context workflow."}
+    ],
+    "expected_matches": {
+      "req_agent": {"match_status": "Partial", "evidence_source_ids": ["manual_confirmed:fact-2"]}
+    },
+    "expected_gap_requirement_ids": ["req_agent"],
+    "prediction": {
+      "requirement_matches": [
+        {"requirement_id": "req_agent", "importance": "Important", "is_hard_requirement": false, "hard_requirement_category": "none", "match_status": "Partial", "reason": "存在相关 LLM 工作流经验，但未证明 Agent planning、tool use 或 memory。", "confidence": "High", "evidence_source_ids": ["manual_confirmed:fact-2"]}
+      ]
+    },
+    "latency_seconds": 18.0
+  },
+  {
+    "case_id": "missing_experience_threshold",
+    "requirements": [
+      {"requirement_id": "req_years", "text": "At least 3 years of AI PM experience", "importance": "Critical"}
+    ],
+    "evidence": [],
+    "expected_matches": {
+      "req_years": {"match_status": "Missing", "evidence_source_ids": []}
+    },
+    "expected_gap_requirement_ids": ["req_years"],
+    "prediction": {
+      "requirement_matches": [
+        {"requirement_id": "req_years", "importance": "Critical", "is_hard_requirement": true, "hard_requirement_category": "experience", "match_status": "Missing", "reason": "没有满足明确年限的支持证据。", "confidence": "High", "evidence_source_ids": []}
+      ]
+    },
+    "latency_seconds": 16.0
+  }
+]
