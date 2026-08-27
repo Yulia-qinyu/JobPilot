@@ -71,4 +71,16 @@ describe("PlanningAgentCard", () => {
     expect(empty).toContain("请先添加岗位或计划");
     expect(empty).not.toContain("帮我规划今天</button>");
   });
+
+  it("keeps three focus items prominent and reduces additional advice", () => {
+    const items = Array.from({ length: 5 }, (_, index) => ({
+      ...snapshot.items[0],
+      id: `advice-${index + 1}`,
+      title: `建议 ${index + 1}`,
+    }));
+    const html = renderToStaticMarkup(<PlanningAgentCard planning={{ ...base, snapshot: { ...snapshot, items } }} loading={false} error="" onGenerate={() => undefined} onAddToPlan={() => undefined} />);
+    expect(html.match(/class="advice-number"/g)).toHaveLength(3);
+    expect(html).toContain("还有 2 个可以顺手推进的事项");
+    expect(html).toContain("supporting-advice");
+  });
 });

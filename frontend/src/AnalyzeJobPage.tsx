@@ -132,10 +132,9 @@ export default function AnalyzeJobPage() {
 
   return <main className="analyze-home">
     <section className="analyze-hero">
-      <span className="hero-sparkle" aria-hidden="true">✦</span>
-      <span className="eyebrow">Evidence-grounded job analysis</span>
-      <h1>分析一个岗位</h1>
-      <p>粘贴岗位链接或 JD，快速看懂岗位要求、匹配程度和简历优化方向。</p>
+      <span className="eyebrow">Job analysis</span>
+      <h1>先看看这个岗位适不适合你</h1>
+      <p>粘贴岗位链接或完整 JD，快速看懂岗位要求、匹配程度和简历优化方向。</p>
       <form className="analyze-input-card" onSubmit={submit}>
         <label htmlFor="job-input">岗位链接或完整 JD</label>
         <textarea id="job-input" rows={8} value={input} onChange={(event) => setInput(event.target.value)} placeholder="粘贴岗位链接或完整 JD" maxLength={100000} />

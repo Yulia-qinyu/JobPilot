@@ -78,7 +78,7 @@ export default function PlanPage() {
   }
 
   return <main className="workspace-shell plan-page">
-    <header className="workspace-heading compact"><div><span className="eyebrow">Your application plan</span><h1>我的计划</h1><p>记录准备做什么和已经完成什么，JobPilot 会在未来规划时参考这些真实记录。</p></div><button className="primary-link button-link" onClick={() => setShowForm((value) => !value)}>+ 添加计划</button></header>
+    <header className="workspace-heading compact"><div><span className="eyebrow">My application plan</span><h1>我的计划</h1><p>记录准备做什么和已经完成什么，JobPilot 会在未来规划时参考这些真实记录。</p></div><button className="primary-link button-link" onClick={() => setShowForm((value) => !value)}>+ 添加计划</button></header>
     {error && <div className="error" role="alert">{error}</div>}
     <PlanningAgentCard planning={planning} loading={planningLoading} error={planningError} onGenerate={(force) => void generateAdvice(force)} onAddToPlan={(itemId) => void addAdviceToPlan(itemId)} />
     {showForm && <form className="plan-form" onSubmit={submit}>

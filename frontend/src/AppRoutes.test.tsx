@@ -20,8 +20,8 @@ describe("primary product routes", () => {
     const analyze = renderAt("/analyze");
     const discover = renderAt("/discover");
 
-    expect(home).toContain("分析一个岗位");
-    expect(analyze).toContain("粘贴岗位链接或 JD");
+    expect(home).toContain("先看看这个岗位适不适合你");
+    expect(analyze).toContain("粘贴岗位链接或完整 JD");
     expect(discover).toContain("今天你想搜索什么机会");
     expect(home).not.toContain("发现岗位</a>");
     expect(home).toContain("岗位分析");
@@ -36,5 +36,6 @@ describe("primary product routes", () => {
     expect(APP_PATHS.legacyJobs).toBe("/jobs");
     expect(APP_PATHS.addJob).toBe("/jobs/new");
     expect(APP_PATHS.jobDetail).toBe("/jobs/:id");
+    expect(renderAt("/jobs/123")).toContain('class="active" href="/my-jobs"');
   });
 });

@@ -15,7 +15,7 @@ export function AppNavigation() {
     <Link className="brand" to="/">Job<span>Pilot</span></Link>
     <div className="nav-links">
       <NavLink className={({ isActive }) => isActive || location.pathname === "/" ? "active" : undefined} to="/analyze">岗位分析</NavLink>
-      <NavLink to="/my-jobs">我的岗位</NavLink>
+      <NavLink className={({ isActive }) => isActive || location.pathname.startsWith("/jobs/") ? "active" : undefined} to="/my-jobs">我的岗位</NavLink>
       <NavLink to="/plan">计划</NavLink>
       <NavLink to="/profile">求职档案</NavLink>
     </div>
