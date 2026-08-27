@@ -152,16 +152,33 @@ class WorkspaceService:
         ).all()
         return [PlanItemRead.model_validate(item) for item in items]
 
-    def create_plan(self, payload: PlanItemCreate) -> PlanItemRead:
+    def create_plan(
+        self,
+        payload: PlanItemCreate,
+        *,
+        created_by: str = "user",
+        additional_activity: tuple[str, dict] | None = None,
+    ) -> PlanItemRead:
+        if created_by not in {"user", "agent_suggestion"}:
+            raise WorkspaceError("Invalid plan creator.")
         self._validate_job(payload.job_id)
         item = PlanItem(
             user_profile_id=DEFAULT_PROFILE_ID, title=" ".join(payload.title.split()),
             date=payload.date, time_optional=payload.time_optional, job_id=payload.job_id,
-            type=payload.type, status="todo", notes=self._optional(payload.notes), created_by="user",
+            type=payload.type, status="todo", notes=self._optional(payload.notes),
+            created_by=created_by,
         )
         self.db.add(item)
         self.db.flush()
         self.activity.record("plan_added", job_id=item.job_id, plan_item_id=item.id, metadata={"plan_type": item.type})
+        if additional_activity is not None:
+            event_type, metadata = additional_activity
+            self.activity.record(
+                event_type,
+                job_id=item.job_id,
+                plan_item_id=item.id,
+                metadata=metadata,
+            )
         self.db.commit()
         return self._plan_read(item.id)
 

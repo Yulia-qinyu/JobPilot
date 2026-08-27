@@ -26,6 +26,7 @@ import type {
   JobSearchStrategy,
   PlanItem,
   PlanType,
+  PlanningToday,
 } from "./types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
@@ -231,6 +232,19 @@ export const workspaceApi = {
   createPlan: (payload: { title: string; date: string; time_optional?: string | null; job_id?: number | null; type: PlanType; notes?: string | null }) => apiRequest<PlanItem>("/api/workspace/plan-items", { method: "POST", body: JSON.stringify(payload) }),
   updatePlan: (id: number, payload: Partial<{ title: string; date: string; time_optional: string | null; job_id: number | null; type: PlanType; status: "todo" | "done"; notes: string | null }>) => apiRequest<PlanItem>(`/api/workspace/plan-items/${id}`, { method: "PATCH", body: JSON.stringify(payload) }),
   deletePlan: (id: number) => apiRequest<void>(`/api/workspace/plan-items/${id}`, { method: "DELETE" }),
+};
+
+export const planningApi = {
+  today: () => apiRequest<PlanningToday>("/api/planning/today"),
+  generate: (force_regenerate = false) => apiRequest<PlanningToday>("/api/planning/today", {
+    method: "POST",
+    body: JSON.stringify({ force_regenerate }),
+  }),
+  addToPlan: (snapshotId: number, itemId: string, values?: { title?: string; date?: string }) =>
+    apiRequest<PlanItem>(`/api/planning/snapshots/${snapshotId}/items/${encodeURIComponent(itemId)}/add-to-plan`, {
+      method: "POST",
+      body: JSON.stringify(values ?? {}),
+    }),
 };
 
 export const jobImportsApi = {

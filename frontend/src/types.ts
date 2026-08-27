@@ -370,6 +370,13 @@ export interface ApplicationStatusDefinition { id: number; key: string; label: s
 export type PlanType = "application" | "resume" | "interview_prep" | "job_search" | "follow_up" | "other";
 export interface PlanItem { id: number; title: string; date: string; time_optional: string | null; job_id: number | null; type: PlanType; status: "todo" | "done"; notes: string | null; created_by: "user" | "agent_suggestion"; completed_at: string | null; created_at: string; updated_at: string; job: { id: number; company: string; role: string } | null; }
 
+export type AdvicePriority = "high" | "medium" | "low";
+export type AdviceActionType = "apply" | "resume" | "interview_prep" | "job_search" | "follow_up" | "review" | "plan" | "other";
+export interface PlanningSignals { days_since_last_job_added: number | null; days_since_last_application: number | null; pending_application_count: number; jobs_ready_to_apply_count: number; jobs_without_tailored_resume_count: number; upcoming_interview_count: number; overdue_plan_count: number; today_plan_load: number; recent_completed_plan_count: number; }
+export interface DailyAdviceItem { id: string; priority: AdvicePriority; action_type: AdviceActionType; title: string; reason: string; related_job_id: number | null; suggested_plan_type: PlanType | null; suggested_date: string | null; added_plan_item_id: number | null; }
+export interface DailyAdviceSnapshot { id: number; advice_date: string; summary: string; items: DailyAdviceItem[]; generated_at: string; model: string; input_tokens: number | null; output_tokens: number | null; latency_ms: number | null; status: "Generated" | "Fallback"; }
+export interface PlanningToday { snapshot: DailyAdviceSnapshot | null; is_stale: boolean; empty_context: boolean; empty_message: string | null; timezone: string; as_of: string; signals: PlanningSignals; }
+
 export type DiscoveryState = "NeedsClarification" | "NeedsRefinement" | "Ready" | "Searching" | "Completed" | "Partial" | "Failed" | "Expired";
 export type DiscoveryRelevance = "High" | "Medium" | "Low";
 

@@ -1,7 +1,8 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
-import { jobsApi, workspaceApi } from "./api";
-import type { JobListItem, PlanItem, PlanType } from "./types";
+import { jobsApi, planningApi, workspaceApi } from "./api";
+import PlanningAgentCard from "./PlanningAgentCard";
+import type { JobListItem, PlanItem, PlanningToday, PlanType } from "./types";
 
 const TYPE_LABELS: Record<PlanType, string> = {
   application: "投递", resume: "简历", interview_prep: "面试准备",
@@ -25,21 +26,25 @@ function PlanGroup({ title, values, onToggle, onDelete }: {
 }
 
 export default function PlanPage() {
-  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const [items, setItems] = useState<PlanItem[]>([]);
   const [jobs, setJobs] = useState<JobListItem[]>([]);
   const [form, setForm] = useState({ title: "", date: today, time_optional: "", job_id: "", type: "other" as PlanType, notes: "" });
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState("");
+  const [planning, setPlanning] = useState<PlanningToday | null>(null);
+  const [planningLoading, setPlanningLoading] = useState(false);
+  const [planningError, setPlanningError] = useState("");
 
   async function load() {
-    const [plans, jobList] = await Promise.all([workspaceApi.plans(), jobsApi.list()]);
-    setItems(plans); setJobs(jobList);
+    const [plans, jobList, planningState] = await Promise.all([workspaceApi.plans(), jobsApi.list(), planningApi.today()]);
+    setItems(plans); setJobs(jobList); setPlanning(planningState);
   }
   useEffect(() => {
     let active = true;
-    Promise.all([workspaceApi.plans(), jobsApi.list()])
-      .then(([plans, jobList]) => { if (active) { setItems(plans); setJobs(jobList); } })
+    Promise.all([workspaceApi.plans(), jobsApi.list(), planningApi.today()])
+      .then(([plans, jobList, planningState]) => { if (active) { setItems(plans); setJobs(jobList); setPlanning(planningState); } })
       .catch((cause: Error) => { if (active) setError(cause.message); });
     return () => { active = false; };
   }, []);
@@ -59,10 +64,23 @@ export default function PlanPage() {
   }
   async function toggle(item: PlanItem) { await workspaceApi.updatePlan(item.id, { status: item.status === "done" ? "todo" : "done" }); await load(); }
   async function remove(item: PlanItem) { if (!window.confirm(`删除计划「${item.title}」？`)) return; await workspaceApi.deletePlan(item.id); await load(); }
+  async function generateAdvice(force: boolean) {
+    setPlanningLoading(true); setPlanningError("");
+    try { setPlanning(await planningApi.generate(force)); }
+    catch (cause) { setPlanningError(cause instanceof Error ? cause.message : "这次规划没有成功，可以稍后再试。"); }
+    finally { setPlanningLoading(false); }
+  }
+  async function addAdviceToPlan(itemId: string) {
+    if (!planning?.snapshot) return;
+    setPlanningError("");
+    try { await planningApi.addToPlan(planning.snapshot.id, itemId); await load(); }
+    catch (cause) { setPlanningError(cause instanceof Error ? cause.message : "加入计划失败。"); }
+  }
 
   return <main className="workspace-shell plan-page">
     <header className="workspace-heading compact"><div><span className="eyebrow">Your application plan</span><h1>我的计划</h1><p>记录准备做什么和已经完成什么，JobPilot 会在未来规划时参考这些真实记录。</p></div><button className="primary-link button-link" onClick={() => setShowForm((value) => !value)}>+ 添加计划</button></header>
     {error && <div className="error" role="alert">{error}</div>}
+    <PlanningAgentCard planning={planning} loading={planningLoading} error={planningError} onGenerate={(force) => void generateAdvice(force)} onAddToPlan={(itemId) => void addAdviceToPlan(itemId)} />
     {showForm && <form className="plan-form" onSubmit={submit}>
       <label>标题<input required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} /></label>
       <label>日期<input type="date" required value={form.date} onChange={(event) => setForm({ ...form, date: event.target.value })} /></label>

@@ -72,6 +72,9 @@ class UserProfile(TimestampMixin, Base):
     plan_items: Mapped[list["PlanItem"]] = relationship(
         back_populates="user_profile", cascade="all, delete-orphan"
     )
+    daily_advice_snapshots: Mapped[list["DailyAdviceSnapshot"]] = relationship(
+        back_populates="user_profile", cascade="all, delete-orphan"
+    )
 
 
 class Resume(TimestampMixin, Base):
@@ -323,6 +326,40 @@ class ActivityEvent(Base):
     )
     metadata_json: Mapped[dict] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
+class DailyAdviceSnapshot(Base):
+    __tablename__ = "daily_advice_snapshots"
+    __table_args__ = (
+        CheckConstraint(
+            "strategy IN ('high_volume', 'focused', 'balanced', 'interview_first')",
+            name="ck_daily_advice_snapshots_strategy",
+        ),
+        CheckConstraint(
+            "status IN ('Generated', 'Fallback')",
+            name="ck_daily_advice_snapshots_status",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_profile_id: Mapped[int] = mapped_column(
+        ForeignKey("user_profiles.id", ondelete="CASCADE"), index=True
+    )
+    advice_date: Mapped[date] = mapped_column(Date, index=True)
+    planning_context_hash: Mapped[str] = mapped_column(String(64), index=True)
+    strategy: Mapped[str] = mapped_column(String(24))
+    response_json: Mapped[dict] = mapped_column(JSON)
+    generated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=utc_now, index=True
+    )
+    model: Mapped[str] = mapped_column(String(120))
+    input_tokens: Mapped[int | None] = mapped_column(Integer)
+    output_tokens: Mapped[int | None] = mapped_column(Integer)
+    latency_ms: Mapped[int | None] = mapped_column(Integer)
+    status: Mapped[str] = mapped_column(String(16), default="Generated")
+    user_profile: Mapped[UserProfile] = relationship(
+        back_populates="daily_advice_snapshots"
+    )
 
 
 class JobImportSession(TimestampMixin, Base):
