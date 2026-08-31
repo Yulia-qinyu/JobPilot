@@ -33,6 +33,7 @@ from app.services.resume_tailoring_service import (
     AnalysisRequiredError,
     AnalysisStaleError,
     InvalidEvidenceReferenceError,
+    NoMatchableRequirementsError,
     PlanNotConfirmedError,
     ResumeTailoringService,
 )
@@ -158,6 +159,64 @@ def test_analysis_is_required_and_stale_analysis_is_rejected(db: Session) -> Non
     ProfileService(db).add_fact(1, "新的已确认事实。", True)
     with pytest.raises(AnalysisStaleError):
         ResumeTailoringService(db, Settings()).create_plan(job_id)
+
+
+def test_v2_job_without_matchable_requirements_has_no_tailoring_and_no_claude(db: Session) -> None:
+    from app.schemas.analysis import StructuredRequirement
+
+    ProfileService(db).replace_resume(
+        "master.docx",
+        "private resume",
+        ResumeProfile(
+            skills=["LLM"],
+            work_experience=[
+                WorkExperience(company="Acme", title="PM", highlights=["Shipped an LLM feature."])
+            ],
+        ),
+    )
+    knowledge = StructuredRequirement(
+        requirement_id=RequirementCatalogBuilder.stable_requirement_id(
+            source_text="理解 RAG 原理",
+            normalized_requirement="理解 RAG 原理",
+            requirement_type="knowledge",
+            source_section="requirements",
+        ),
+        source_text="理解 RAG 原理",
+        normalized_requirement="理解 RAG 原理",
+        source_section="requirements",
+        requirement_type="knowledge",
+        importance="Important",
+        knowledge_topics=["RAG 原理"],
+    )
+    job = JobService(db, Settings()).create(
+        JobCreate(
+            company="Example",
+            role="AI Researcher",
+            original_jd="A sufficiently detailed fictional knowledge-only JD for safe testing.",
+            structured_jd=JDRequirements(
+                role="AI Researcher",
+                requirement_taxonomy_version="v2",
+                requirements=[knowledge],
+            ),
+        )
+    )
+    matcher = Mock()
+    matcher.client.model = "test-model"
+    matcher.PROMPT_VERSION = "fit-test"
+    matcher.SCHEMA_VERSION = "fit-test"
+    FitAnalysisService(db, Settings()).analyze(job.id, matcher)
+    matcher.analyze.assert_not_called()
+
+    service = ResumeTailoringService(db, Settings())
+    assert service.get_state(job.id).prerequisite == "NoMatchableRequirements"
+
+    rewriter, validator = Mock(), Mock()
+    with pytest.raises(NoMatchableRequirementsError):
+        service.create_plan(job.id)
+    with pytest.raises(NoMatchableRequirementsError):
+        service.generate_draft(job.id, rewriter, validator)
+    rewriter.generate.assert_not_called()
+    validator.semantic_validate.assert_not_called()
 
 
 def test_plan_is_deterministic_includes_manual_add_and_unsupported(db: Session) -> None:

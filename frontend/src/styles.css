@@ -1085,6 +1085,48 @@ input:focus, textarea:focus, select:focus { border-color: var(--color-border-str
   .fact-add { grid-template-columns: 1fr; padding: 18px; }
 }
 
+/* Requirement Taxonomy V2: separate qualification, evidence match, and knowledge. */
+.taxonomy-overview { display: grid; gap: 30px; }
+.taxonomy-section { padding-top: 22px; border-top: 1px solid var(--color-border-default); }
+.taxonomy-section:first-child { padding-top: 0; border-top: 0; }
+.taxonomy-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.taxonomy-heading h3 { margin: 0; font-size: 18px; }
+.taxonomy-heading > span, .taxonomy-group-note { color: var(--color-text-secondary); font-size: 12px; }
+.taxonomy-list, .knowledge-requirements > ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.taxonomy-list li { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--color-border-default); }
+.taxonomy-list li:last-child { border-bottom: 0; }
+.taxonomy-list strong, .knowledge-requirements strong { font-size: 15px; }
+.taxonomy-list p { margin: 5px 0 0; color: var(--color-text-secondary); font-size: 13px; line-height: 1.65; }
+.eligibility-state { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.eligibility-supported { color: var(--color-success); background: var(--color-success-bg); }
+.eligibility-potentialgap { color: var(--color-warning); background: var(--color-warning-bg); }
+.eligibility-unknown { color: var(--color-text-secondary); background: #f3f0f1; }
+.knowledge-requirements > ul li { padding: 12px 0; }
+.knowledge-requirements .topic-tags { margin-top: 8px; }
+.taxonomy-note, .section-supporting-copy { color: var(--color-text-secondary); font-size: 14px; line-height: 1.7; }
+.score-unavailable { padding: 24px; border-radius: 14px; background: var(--color-brand-primary-surface); }
+.score-unavailable strong { color: var(--color-text-primary); }
+.score-unavailable p { margin: 7px 0 0; color: var(--color-text-secondary); line-height: 1.65; }
+.score-is-unavailable .score-ring { background: #f1edef; }
+.taxonomy-result-card { margin-top: 24px; }
+.taxonomy-result-list, .knowledge-result-list { display: grid; gap: 0; margin-top: 20px; }
+.taxonomy-result-list article, .knowledge-result-list article { padding: 17px 0; border-top: 1px solid var(--color-border-default); }
+.taxonomy-result-list article > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.taxonomy-result-list h3, .knowledge-result-list h3 { margin: 0; font-size: 15px; }
+.taxonomy-result-list p { margin: 7px 0 0; color: var(--color-text-secondary); font-size: 14px; line-height: 1.65; }
+.knowledge-result-list .topic-tags { margin-top: 10px; }
+.taxonomy-quick-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.taxonomy-quick-columns .detail-list { margin-top: 12px; }
+.taxonomy-group-note { margin: -8px 0 0; line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .taxonomy-quick-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .taxonomy-heading, .taxonomy-list li, .taxonomy-result-list article > div { align-items: flex-start; flex-direction: column; }
+}
+
 /* Visual Redesign V1 — second-pass typography, density, and layout polish. */
 .analyze-hero > p {
   max-width: 660px;

@@ -421,8 +421,16 @@ class JobAnalysis(TimestampMixin, Base):
     matcher_model: Mapped[str] = mapped_column(String(120))
     matcher_prompt_version: Mapped[str] = mapped_column(String(40))
     matcher_schema_version: Mapped[str] = mapped_column(String(40))
-    match_score: Mapped[int] = mapped_column(Integer)
-    recommendation: Mapped[str] = mapped_column(String(32))
+    match_score: Mapped[int | None] = mapped_column(Integer)
+    recommendation: Mapped[str | None] = mapped_column(String(32))
+
+    @property
+    def score_status(self) -> str:
+        return (
+            "available"
+            if self.match_score is not None
+            else "unavailable_no_matchable_requirements"
+        )
     summary: Mapped[str] = mapped_column(Text)
     requirement_matches: Mapped[list] = mapped_column(JSON)
     strengths: Mapped[list] = mapped_column(JSON)

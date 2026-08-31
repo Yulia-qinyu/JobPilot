@@ -116,7 +116,7 @@ def test_plan_crud_completion_job_relation_and_job_delete_set_null(db: Session) 
 
 class DynamicMatcher:
     PROMPT_VERSION = RequirementMatcher.PROMPT_VERSION
-    SCHEMA_VERSION = "fit-analysis-wire-v1"
+    SCHEMA_VERSION = RequirementMatcher.SCHEMA_VERSION
 
     def __init__(self):
         self.client = Mock(model=get_settings().claude_model)

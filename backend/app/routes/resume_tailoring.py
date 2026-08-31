@@ -19,6 +19,7 @@ from app.services.resume_tailoring_service import (
     AnalysisStaleError,
     InvalidEvidenceReferenceError,
     InvalidRequirementReferenceError,
+    NoMatchableRequirementsError,
     PlanNotConfirmedError,
     ResumeTailoringError,
     ResumeTailoringService,
@@ -49,11 +50,20 @@ def tailoring_error(exc: Exception) -> HTTPException:
         return HTTPException(
             status_code=404, detail={"code": exc.code, "message": "岗位或简历优化不存在。"}
         )
-    if isinstance(exc, (AnalysisRequiredError, AnalysisStaleError, TailoringStaleError)):
+    if isinstance(
+        exc,
+        (
+            AnalysisRequiredError,
+            AnalysisStaleError,
+            TailoringStaleError,
+            NoMatchableRequirementsError,
+        ),
+    ):
         messages = {
             "ANALYSIS_REQUIRED": "请先完成岗位匹配分析，再生成针对性简历。",
             "ANALYSIS_STALE": "当前岗位匹配分析已过期，请先重新分析。",
             "TAILORING_STALE": "主简历、经历事实或岗位分析已变化，请刷新优化方案。",
+            "NO_MATCHABLE_REQUIREMENTS": "该岗位暂无可基于履历优化的要求。",
         }
         return HTTPException(
             status_code=status.HTTP_409_CONFLICT,

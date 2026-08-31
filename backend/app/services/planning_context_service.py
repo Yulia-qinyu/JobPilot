@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session, selectinload
 from app.config import Settings
 from app.db.models import ActivityEvent, Job, PlanItem
 from app.repositories.profile_repository import DEFAULT_PROFILE_ID, ProfileRepository
+from app.schemas.analysis import JDRequirements
 from app.schemas.planning import (
     ApplicationStatusSummary,
     ApplicationSummary,
@@ -18,6 +19,7 @@ from app.schemas.planning import (
     PlanningSignals,
     PlanSummary,
 )
+from app.services.analysis_freshness import analysis_identity_is_current
 from app.services.evidence_catalog import EvidenceCatalogBuilder, canonical_hash
 from app.services.requirement_catalog import RequirementCatalogBuilder
 
@@ -148,13 +150,20 @@ class PlanningContextService:
         def valid_analysis(job: Job) -> bool:
             if job.analysis is None or evidence_hashes is None:
                 return False
-            requirement_hash = RequirementCatalogBuilder().build(
-                job.structured_jd
-            ).structured_jd_hash
+            structured_jd = JDRequirements.model_validate(job.structured_jd)
+            requirement_hash = RequirementCatalogBuilder().build(structured_jd).structured_jd_hash
             return (
-                job.analysis.resume_hash == evidence_hashes[0]
-                and job.analysis.experience_bank_hash == evidence_hashes[1]
-                and job.analysis.structured_jd_hash == requirement_hash
+                job.analysis.match_score is not None
+                and analysis_identity_is_current(
+                    job.analysis,
+                    resume_hash=evidence_hashes[0],
+                    experience_bank_hash=evidence_hashes[1],
+                    structured_jd_hash=requirement_hash,
+                    matcher_model=self.settings.claude_model,
+                    enforce_matcher_version=(
+                        structured_jd.requirement_taxonomy_version == "v2"
+                    ),
+                )
             )
 
         active = [

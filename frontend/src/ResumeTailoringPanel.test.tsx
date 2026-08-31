@@ -18,9 +18,15 @@ const tailoring: ResumeTailoring = {
 
 describe("Resume Tailoring UI", () => {
   it("shows the Phase 3 prerequisite without auto analysis", () => {
-    const html = renderToStaticMarkup(<TailoringPrerequisite stale={false} onGoAnalysis={() => undefined} />);
+    const html = renderToStaticMarkup(<TailoringPrerequisite prerequisite="AnalysisRequired" onGoAnalysis={() => undefined} />);
     expect(html).toContain("请先完成岗位匹配分析");
     expect(html).toContain("前往匹配分析");
+  });
+
+  it("shows an explicit unavailable state when the job has no matchable requirements", () => {
+    const html = renderToStaticMarkup(<TailoringPrerequisite prerequisite="NoMatchableRequirements" onGoAnalysis={() => undefined} />);
+    expect(html).toContain("该岗位暂无可基于履历优化的要求");
+    expect(html).not.toContain("前往匹配分析");
   });
 
   it("shows plan actions, unsupported requirements and omit confirmation", () => {

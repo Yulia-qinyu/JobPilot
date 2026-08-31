@@ -8,7 +8,7 @@ from app.repositories.job_analysis_repository import JobAnalysisRepository
 from app.repositories.job_repository import JobRepository
 from app.repositories.profile_repository import ProfileRepository
 from app.repositories.resume_tailoring_repository import ResumeTailoringRepository
-from app.schemas.analysis import ResumeProfile
+from app.schemas.analysis import JDRequirements, ResumeProfile
 from app.schemas.resume_tailoring import (
     BulletValidation,
     ResumeTailoringRead,
@@ -44,6 +44,11 @@ class AnalysisRequiredError(ResumeTailoringError):
 
 class AnalysisStaleError(ResumeTailoringError):
     code = "ANALYSIS_STALE"
+
+
+class NoMatchableRequirementsError(ResumeTailoringError):
+    code = "NO_MATCHABLE_REQUIREMENTS"
+    reason = "no_matchable_requirements"
 
 
 class TailoringStaleError(ResumeTailoringError):
@@ -83,6 +88,10 @@ class ResumeTailoringService:
         analysis = self.analysis_repo.get_for_job(job_id)
         if analysis is None:
             return ResumeTailoringState(tailoring=None, prerequisite="AnalysisRequired")
+        if self._has_no_matchable_requirements(job):
+            return ResumeTailoringState(
+                tailoring=None, prerequisite="NoMatchableRequirements"
+            )
         if FitAnalysisService(self.db, self.settings).get_state(job_id).is_stale:
             stored = self.repo.get_for_job(job_id)
             return ResumeTailoringState(
@@ -550,11 +559,23 @@ class ResumeTailoringService:
         analysis = self.analysis_repo.get_for_job(job_id)
         if analysis is None:
             raise AnalysisRequiredError("A valid Fit Analysis is required.")
+        if self._has_no_matchable_requirements(job):
+            raise NoMatchableRequirementsError(
+                "This job has no evidence-matchable requirements to tailor against."
+            )
         if FitAnalysisService(self.db, self.settings).get_state(job_id).is_stale:
             raise AnalysisStaleError("Fit Analysis is stale.")
         profile = self.profile_repo.get_full_profile()
         evidence = self.evidence_builder.build(profile)
         return job, analysis, profile, evidence
+
+    def _has_no_matchable_requirements(self, job) -> bool:
+        """V2 jobs with zero matchable requirements have nothing to rewrite a resume
+        against. Knowledge requirements stay preparation topics, never rewrite targets."""
+        structured_jd = JDRequirements.model_validate(job.structured_jd)
+        if structured_jd.requirement_taxonomy_version != "v2":
+            return False
+        return not self.requirement_builder.build(structured_jd).requirements
 
     def _hashes(self, job, analysis, evidence):
         return {

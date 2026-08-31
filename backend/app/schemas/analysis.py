@@ -42,6 +42,40 @@ class KeyRequirement(BaseModel):
     priority: Literal["high", "medium", "low"] = "medium"
 
 
+RequirementType = Literal["eligibility", "matchable", "knowledge"]
+RequirementSourceSection = Literal[
+    "requirements",
+    "preferred",
+    "responsibilities",
+    "education",
+    "experience",
+    "other",
+]
+RequirementImportance = Literal["Critical", "Important", "Preferred"]
+EligibilityCategory = Literal[
+    "degree",
+    "graduation_cohort",
+    "experience_years",
+    "certification",
+    "work_authorization",
+    "language",
+    "other",
+]
+
+
+class StructuredRequirement(BaseModel):
+    """Canonical, source-traceable V2 requirement stored with the structured JD."""
+
+    requirement_id: str
+    source_text: str
+    normalized_requirement: str
+    source_section: RequirementSourceSection
+    requirement_type: RequirementType
+    importance: RequirementImportance
+    eligibility_category: EligibilityCategory | None = None
+    knowledge_topics: list[str] = Field(default_factory=list)
+
+
 class JDRequirements(BaseModel):
     role: str | None = None
     company: str | None = None
@@ -58,6 +92,9 @@ class JDRequirements(BaseModel):
     product_requirements: list[str] = Field(default_factory=list)
     technical_requirements: list[str] = Field(default_factory=list)
     domain_requirements: list[str] = Field(default_factory=list)
+    requirement_taxonomy_version: Literal["legacy-v1", "v2"] = "legacy-v1"
+    requirements: list[StructuredRequirement] = Field(default_factory=list)
+    subjective_expectations: list[str] = Field(default_factory=list)
 
 
 class JDKeyRequirementOutput(BaseModel):
@@ -67,6 +104,27 @@ class JDKeyRequirementOutput(BaseModel):
     explanation: str
     category: str
     priority: Literal["high", "medium", "low"]
+
+
+class JDStructuredRequirementOutput(BaseModel):
+    """Semantic parser suggestion; canonical IDs are assigned by the backend."""
+
+    source_text: str
+    normalized_requirement: str
+    source_section: RequirementSourceSection
+    requirement_type: Literal["eligibility", "matchable", "knowledge", "subjective"]
+    importance: RequirementImportance
+    eligibility_category: Literal[
+        "degree",
+        "graduation_cohort",
+        "experience_years",
+        "certification",
+        "work_authorization",
+        "language",
+        "other",
+        "none",
+    ]
+    knowledge_topics: list[str]
 
 
 class JDRequirementsOutput(BaseModel):
@@ -87,6 +145,7 @@ class JDRequirementsOutput(BaseModel):
     product_requirements: list[str]
     technical_requirements: list[str]
     domain_requirements: list[str]
+    requirements: list[JDStructuredRequirementOutput]
 
 
 class EvidenceItem(BaseModel):

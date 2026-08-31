@@ -41,6 +41,7 @@ def test_jd_parser_prompt_requests_non_personalized_quick_overview() -> None:
         product_requirements=[],
         technical_requirements=[],
         domain_requirements=[],
+        requirements=[],
     )
     result = JDParser(client).parse(None, "A sufficiently detailed fictional job description.")
     prompt = client.generate.call_args.kwargs["prompt"]
@@ -50,4 +51,4 @@ def test_jd_parser_prompt_requests_non_personalized_quick_overview() -> None:
     assert "Never invent" in prompt
     assert result.role == "AI Product Manager"
     assert result.company is None
-    assert result.knowledge_topics == ["LLM"]
+    assert result.knowledge_topics == []

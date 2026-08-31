@@ -197,4 +197,6 @@ class ResumeTailoringRead(BaseModel):
 
 class ResumeTailoringState(BaseModel):
     tailoring: ResumeTailoringRead | None
-    prerequisite: Literal["Ready", "AnalysisRequired", "AnalysisStale"]
+    prerequisite: Literal[
+        "Ready", "AnalysisRequired", "AnalysisStale", "NoMatchableRequirements"
+    ]

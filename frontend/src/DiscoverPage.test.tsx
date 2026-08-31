@@ -36,7 +36,7 @@ const result: DiscoveryResult = {
     company: "字节跳动", role: "AI 产品经理", location: "北京", recruitment_type: "社招",
     source_url: "https://jobs.bytedance.com/job/1", original_jd: "职位描述与职位要求",
     published_date: "2026-08-25",
-    structured_jd: { role: "AI 产品经理", company: "字节跳动", location: "北京", recruitment_type: "社招", published_date: "2026-08-25", role_summary: null, key_requirements: [], knowledge_topics: [], responsibilities: [], required_skills: [], preferred_skills: [], ai_requirements: [], product_requirements: [], technical_requirements: [], domain_requirements: [] },
+    structured_jd: { role: "AI 产品经理", company: "字节跳动", location: "北京", recruitment_type: "社招", published_date: "2026-08-25", role_summary: null, key_requirements: [], knowledge_topics: [], responsibilities: [], required_skills: [], preferred_skills: [], ai_requirements: [], product_requirements: [], technical_requirements: [], domain_requirements: [], requirement_taxonomy_version: "legacy-v1", requirements: [], subjective_expectations: [] },
   },
   deterministic_derived: { role_family: "ai_product", role_confidence: "High", explicit_hard_signals: [{ type: "experience_years", operator: ">=", value: 3, display: "明确要求 3+ 年经验", source_text: "至少3年经验" }], content_hash: "hash", dedupe_key: "bytedance:1" },
   search_derived: { relevance_band: "High", matched_constraints: ["北京", "AI Product"], unresolved_constraints: [], excluded_matches: [], reasons: ["北京", "AI Product", "明确要求 3+ 年经验"], reason_items: [{ kind: "matched", code: "location", label: "北京" }, { kind: "warning", code: "experience_years", label: "明确要求 3+ 年经验" }], excluded_by_current_search: false },

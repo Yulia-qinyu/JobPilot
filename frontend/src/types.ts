@@ -57,13 +57,17 @@ export interface PreparationItem {
 export interface FitAnalysis {
   id: number;
   job_id: number;
-  match_score: number;
-  recommendation: Recommendation;
+  match_score: number | null;
+  score_status: "available" | "unavailable_no_matchable_requirements";
+  recommendation: Recommendation | null;
   summary: string;
   requirement_matches: RequirementMatch[];
   strengths: FitStrength[];
   gaps: FitGap[];
   suggested_preparation: PreparationItem[];
+  eligibility_requirements: EligibilityRequirement[];
+  knowledge_requirements: KnowledgeRequirement[];
+  score_basis: ScoreBasis;
   created_at: string;
   updated_at: string;
 }
@@ -71,7 +75,7 @@ export interface FitAnalysis {
 export interface FitAnalysisState {
   analysis: FitAnalysis | null;
   is_stale: boolean;
-  stale_reasons: ("resume" | "experience_bank" | "job_description")[];
+  stale_reasons: ("resume" | "experience_bank" | "job_description" | "analysis_version")[];
 }
 
 export type FitAnalysisPreview = Omit<FitAnalysis, "id" | "job_id" | "created_at" | "updated_at"> & { artifact_token: string | null; artifact_expires_at: string | null };
@@ -92,7 +96,7 @@ export interface TailoredBullet { plan_item_id: string; experience_id: number; o
 export interface TailoredExperience { experience_id: number; organization: string; title: string; date_range: string; bullets: TailoredBullet[]; }
 export interface TailoredDraft { summary: string; education: Record<string, unknown>[]; skills: string[]; experiences: TailoredExperience[]; }
 export interface ResumeTailoring { id: number; job_id: number; source_resume_id: number; status: TailoringStatus; tailoring_plan: TailoringPlan; generated_draft: TailoredDraft | Record<string, never>; user_edited_draft: TailoredDraft | null; validation_results: Record<string, number>; plan_confirmed_at: string | null; accepted_at: string | null; generation_count: number; is_stale: boolean; stale_reasons: string[]; created_at: string; updated_at: string; }
-export interface ResumeTailoringState { tailoring: ResumeTailoring | null; prerequisite: "Ready" | "AnalysisRequired" | "AnalysisStale"; }
+export interface ResumeTailoringState { tailoring: ResumeTailoring | null; prerequisite: "Ready" | "AnalysisRequired" | "AnalysisStale" | "NoMatchableRequirements"; }
 
 export interface EvidenceItem {
   requirement: string;
@@ -133,6 +137,42 @@ export interface KeyRequirement {
   priority: "high" | "medium" | "low";
 }
 
+export type RequirementType = "eligibility" | "matchable" | "knowledge";
+
+export interface StructuredRequirement {
+  requirement_id: string;
+  source_text: string;
+  normalized_requirement: string;
+  source_section: "requirements" | "preferred" | "responsibilities" | "education" | "experience" | "other";
+  requirement_type: RequirementType;
+  importance: RequirementImportance;
+  eligibility_category: "degree" | "graduation_cohort" | "experience_years" | "certification" | "work_authorization" | "language" | "other" | null;
+  knowledge_topics: string[];
+}
+
+export interface EligibilityRequirement {
+  requirement_id: string;
+  requirement_text: string;
+  status: "Supported" | "PotentialGap" | "Unknown";
+  evidence_ids: string[];
+  reason: string;
+}
+
+export interface KnowledgeRequirement {
+  requirement_id: string;
+  requirement_text: string;
+  source_text: string;
+  importance: RequirementImportance;
+  knowledge_topics: string[];
+  score_included: false;
+}
+
+export interface ScoreBasis {
+  included_requirement_ids: string[];
+  excluded_eligibility_count: number;
+  excluded_knowledge_count: number;
+}
+
 export interface StructuredJD {
   role: string | null;
   company: string | null;
@@ -149,6 +189,9 @@ export interface StructuredJD {
   product_requirements: string[];
   technical_requirements: string[];
   domain_requirements: string[];
+  requirement_taxonomy_version: "legacy-v1" | "v2";
+  requirements: StructuredRequirement[];
+  subjective_expectations: string[];
 }
 
 export interface JobListItem {

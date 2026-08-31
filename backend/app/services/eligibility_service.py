@@ -3,8 +3,10 @@ import re
 from datetime import UTC, datetime
 
 from app.db.models import Job, UserProfile
-from app.schemas.analysis import JDRequirements, ResumeProfile
+from app.schemas.analysis import JDRequirements, ResumeProfile, StructuredRequirement
+from app.schemas.fit_analysis import EligibilityRequirementRead
 from app.schemas.job_decision import EligibilityResult
+from app.services.evidence_catalog import EvidenceCatalogBuilder
 
 SOFT_LANGUAGE = re.compile(
     r"preferred|nice\s+to\s+have|a\s+plus|familiar\s+with|优先|加分|熟悉|有经验者优先",
@@ -47,7 +49,7 @@ DEGREE_LEVELS = {
 
 
 class EligibilityService:
-    VERSION = "eligibility-rules-v1"
+    VERSION = "eligibility-rules-v2"
 
     def evaluate(self, profile: UserProfile, job: Job) -> EligibilityResult:
         if profile.resume is None:
@@ -59,6 +61,9 @@ class EligibilityService:
             return EligibilityResult(
                 status="Unknown", reasons=["候选人档案或岗位要求格式不足以可靠判断。"]
             )
+
+        if jd.requirement_taxonomy_version == "v2":
+            return self._aggregate_v2(self.evaluate_requirements(profile, jd))
 
         requirements = self._requirements(jd)
         if not requirements and not jd.responsibilities:
@@ -151,6 +156,305 @@ class EligibilityService:
         return EligibilityResult(
             status="Eligible",
             reasons=[*reasons, "未发现与候选人已知事实冲突的明确投递门槛。"],
+        )
+
+    def evaluate_requirements(
+        self, profile: UserProfile, jd: JDRequirements
+    ) -> list[EligibilityRequirementRead]:
+        requirements = [
+            item for item in jd.requirements if item.requirement_type == "eligibility"
+        ]
+        if not requirements:
+            return []
+        if profile is None or profile.resume is None:
+            return [
+                self._eligibility_read(
+                    item,
+                    "Unknown",
+                    [],
+                    "缺少主简历，暂无法核验该岗位资格。",
+                )
+                for item in requirements
+            ]
+        try:
+            candidate = ResumeProfile.model_validate(profile.resume.structured_profile)
+            evidence = EvidenceCatalogBuilder().build(profile)
+        except (TypeError, ValueError):
+            return [
+                self._eligibility_read(
+                    item,
+                    "Unknown",
+                    [],
+                    "候选人档案格式不足以可靠核验该岗位资格。",
+                )
+                for item in requirements
+            ]
+        candidate_text = json.dumps(candidate.model_dump(mode="json"), ensure_ascii=False)
+        evidence_ids = {
+            EvidenceCatalogBuilder.catalog_id(item): item for item in evidence.sources
+        }
+        return [
+            self._evaluate_v2_requirement(
+                profile,
+                candidate,
+                candidate_text,
+                evidence_ids,
+                item,
+            )
+            for item in requirements
+        ]
+
+    def _evaluate_v2_requirement(
+        self,
+        profile: UserProfile,
+        candidate: ResumeProfile,
+        candidate_text: str,
+        evidence_by_id: dict,
+        requirement: StructuredRequirement,
+    ) -> EligibilityRequirementRead:
+        text = f"{requirement.source_text} {requirement.normalized_requirement}"
+        category = requirement.eligibility_category or "other"
+        cited: list[str] = []
+
+        cohort = COHORT.search(text)
+        if category == "graduation_cohort" and cohort is None:
+            if profile.candidate_type in {"graduate", "both"}:
+                return self._eligibility_read(
+                    requirement,
+                    "Supported",
+                    ["manual_confirmed:profile:candidate_type"],
+                    "求职档案已确认当前求职身份包含应届 / 校招。",
+                )
+            if profile.candidate_type == "experienced":
+                return self._eligibility_read(
+                    requirement,
+                    "PotentialGap",
+                    ["manual_confirmed:profile:candidate_type"],
+                    "求职档案当前确认的求职身份为社招，与应届 / 校招门槛冲突。",
+                )
+            return self._eligibility_read(
+                requirement,
+                "Unknown",
+                [],
+                "求职档案尚未确认应届 / 校招身份。",
+            )
+        if cohort:
+            required_year = int(cohort.group(1) or cohort.group(2))
+            candidate_year = (
+                profile.graduation_year
+                if profile.candidate_type in {"graduate", "both"}
+                else None
+            )
+            if candidate_year is None:
+                return self._eligibility_read(
+                    requirement,
+                    "Unknown",
+                    [],
+                    f"求职档案尚未确认 {required_year} 届毕业身份。",
+                )
+            if candidate_year != required_year:
+                return self._eligibility_read(
+                    requirement,
+                    "PotentialGap",
+                    ["manual_confirmed:profile:graduation_year"],
+                    f"求职档案确认毕业届别为 {candidate_year} 届，与要求的 {required_year} 届不同。",
+                )
+            cited.extend(
+                [
+                    "manual_confirmed:profile:candidate_type",
+                    "manual_confirmed:profile:graduation_year",
+                ]
+            )
+            required_degree = self._required_degree(text)
+            if required_degree is not None:
+                degree = self._highest_degree(candidate)
+                degree_evidence = self._degree_evidence_ids(evidence_by_id, required_degree)
+                if degree is None:
+                    return self._eligibility_read(
+                        requirement,
+                        "Unknown",
+                        cited,
+                        f"毕业届别已确认；当前证据尚未确认{self._degree_label(required_degree)}及以上学历。",
+                    )
+                if degree < required_degree:
+                    return self._eligibility_read(
+                        requirement,
+                        "PotentialGap",
+                        [*cited, *degree_evidence],
+                        f"毕业届别符合，但已验证学历低于{self._degree_label(required_degree)}及以上门槛。",
+                    )
+                cited.extend(degree_evidence)
+            return self._eligibility_read(
+                requirement,
+                "Supported",
+                cited,
+                "已验证求职身份与教育事实支持该岗位资格。",
+            )
+
+        required_degree = self._required_degree(text)
+        if category == "degree" or required_degree is not None:
+            if required_degree is None:
+                return self._eligibility_read(
+                    requirement, "Unknown", [], "无法从岗位原文确定具体学历层级。"
+                )
+            degree = self._highest_degree(candidate)
+            if degree is None:
+                return self._eligibility_read(
+                    requirement,
+                    "Unknown",
+                    [],
+                    f"当前证据尚未确认{self._degree_label(required_degree)}及以上学历。",
+                )
+            degree_evidence = self._degree_evidence_ids(evidence_by_id, required_degree)
+            if degree < required_degree:
+                return self._eligibility_read(
+                    requirement,
+                    "PotentialGap",
+                    degree_evidence,
+                    f"已验证学历低于{self._degree_label(required_degree)}及以上门槛。",
+                )
+            return self._eligibility_read(
+                requirement,
+                "Supported",
+                degree_evidence,
+                "主简历教育经历支持岗位明确学历门槛。",
+            )
+
+        experience = EXPERIENCE.search(text)
+        if category == "experience_years" or experience:
+            if experience is None:
+                return self._eligibility_read(
+                    requirement, "Unknown", [], "无法从岗位原文确定具体经验年限。"
+                )
+            required_years = int(experience.group(1) or experience.group(2))
+            years = self._professional_years(candidate)
+            year_evidence = self._work_evidence_ids(evidence_by_id)
+            if years is None:
+                return self._eligibility_read(
+                    requirement, "Unknown", [], "当前证据不足以可靠计算职业经验年限。"
+                )
+            if years < required_years:
+                return self._eligibility_read(
+                    requirement,
+                    "PotentialGap",
+                    year_evidence,
+                    f"可验证职业经历约 {years:g} 年，低于岗位要求的 {required_years} 年。",
+                )
+            if RELEVANT_EXPERIENCE.search(text):
+                return self._eligibility_read(
+                    requirement,
+                    "Unknown",
+                    year_evidence,
+                    f"总职业年限不低于 {required_years} 年，但当前证据无法可靠确认其中相关领域经验达到该年限。",
+                )
+            return self._eligibility_read(
+                requirement,
+                "Supported",
+                year_evidence,
+                f"可验证职业经历约 {years:g} 年，不低于岗位要求的 {required_years} 年。",
+            )
+
+        if category in {"work_authorization", "language", "certification"}:
+            if self._candidate_mentions(text, candidate_text):
+                matching_ids = [
+                    catalog_id
+                    for catalog_id, source in evidence_by_id.items()
+                    if any(token.casefold() in source.text.casefold() for token in self._tokens(text))
+                ]
+                return self._eligibility_read(
+                    requirement,
+                    "Supported",
+                    matching_ids,
+                    "已验证候选人事实包含相应资格信息。",
+                )
+            return self._eligibility_read(
+                requirement,
+                "Unknown",
+                [],
+                "当前已验证事实中尚未确认该资格；缺少证据不等于不满足。",
+            )
+
+        return self._eligibility_read(
+            requirement,
+            "Unknown",
+            [],
+            "该明确资格暂无法由现有确定性规则可靠核验。",
+        )
+
+    @staticmethod
+    def _eligibility_read(
+        requirement: StructuredRequirement,
+        status: str,
+        evidence_ids: list[str],
+        reason: str,
+    ) -> EligibilityRequirementRead:
+        return EligibilityRequirementRead(
+            requirement_id=requirement.requirement_id,
+            requirement_text=requirement.normalized_requirement,
+            status=status,
+            evidence_ids=list(dict.fromkeys(evidence_ids)),
+            reason=reason,
+        )
+
+    @staticmethod
+    def _aggregate_v2(results: list[EligibilityRequirementRead]) -> EligibilityResult:
+        if not results:
+            return EligibilityResult(
+                status="Eligible",
+                reasons=["该岗位未提取到明确资格门槛。"],
+            )
+        gaps = [item for item in results if item.status == "PotentialGap"]
+        unknown = [item for item in results if item.status == "Unknown"]
+        supported = [item for item in results if item.status == "Supported"]
+        reasons = [item.reason for item in supported]
+        if gaps:
+            return EligibilityResult(
+                status="Ineligible",
+                reasons=[*reasons, "存在已验证候选人事实与明确投递门槛的冲突。"],
+                blocking_requirements=[item.requirement_text for item in gaps],
+                unknown_requirements=[item.requirement_text for item in unknown],
+            )
+        if unknown:
+            return EligibilityResult(
+                status="PossiblyEligible",
+                reasons=[*reasons, "未发现明确冲突，但仍有资格条件需要确认。"],
+                unknown_requirements=[item.requirement_text for item in unknown],
+            )
+        return EligibilityResult(
+            status="Eligible",
+            reasons=[*reasons, "已验证事实支持全部明确资格门槛。"],
+        )
+
+    @staticmethod
+    def _degree_label(level: int) -> str:
+        return {1: "大专", 2: "本科", 3: "硕士", 4: "博士"}.get(level, "相应")
+
+    @staticmethod
+    def _degree_evidence_ids(evidence_by_id: dict, required_degree: int) -> list[str]:
+        return [
+            catalog_id
+            for catalog_id, source in evidence_by_id.items()
+            if source.context == "教育经历"
+            and any(
+                marker in source.text.casefold() and level >= required_degree
+                for marker, level in DEGREE_LEVELS.items()
+            )
+        ]
+
+    @staticmethod
+    def _work_evidence_ids(evidence_by_id: dict) -> list[str]:
+        return [
+            catalog_id
+            for catalog_id, source in evidence_by_id.items()
+            if source.context == "工作经历"
+        ]
+
+    @staticmethod
+    def _tokens(requirement: str) -> list[str]:
+        return re.findall(
+            r"CET[- ]?[46]|TOEFL|IELTS|雅思|托福|工作许可|work authorization",
+            requirement,
+            re.IGNORECASE,
         )
 
     @staticmethod

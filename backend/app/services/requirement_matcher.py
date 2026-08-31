@@ -7,8 +7,8 @@ from app.services.requirement_catalog import RequirementCatalog
 
 
 class RequirementMatcher:
-    PROMPT_VERSION = "job-fit-v2-candidate-identity"
-    SCHEMA_VERSION = "fit-analysis-wire-v1"
+    PROMPT_VERSION = "job-fit-v3-matchable-only"
+    SCHEMA_VERSION = "fit-analysis-wire-v2"
 
     def __init__(self, client: ClaudeStructuredClient):
         self.client = client
@@ -61,7 +61,8 @@ MATCH RULES:
 IMPORTANCE:
 - Critical: central explicit requirement or essential responsibility.
 - Important: meaningful requirement that is not a strict gate.
-- Preferred: preferred, plus, nice-to-have, familiar-with, 优先, 熟悉, or 加分 language.
+- Preferred: only an explicit preferred, plus, nice-to-have, 优先, or 加分 requirement. Words
+  such as 熟悉/familiar describe proficiency and do not alone make a requirement Preferred.
 
 HARD REQUIREMENTS — BE CONSERVATIVE:
 - Mark hard only when the requirement itself contains explicit mandatory or eligibility language,
@@ -72,6 +73,9 @@ HARD REQUIREMENTS — BE CONSERVATIVE:
 - A hard requirement must use importance Critical.
 - hard_requirement_category must be eligibility, experience, qualification, other, or none.
 - Use none whenever is_hard_requirement is false.
+- Requirements with source_kind=v2_matchable have already passed the V2 taxonomy boundary. They
+  are evidence-matchable capabilities, never eligibility gates; return is_hard_requirement=false
+  and hard_requirement_category=none for them.
 
 OUTPUT:
 - Write summary, reasons, preparation titles, and actions in natural Simplified Chinese.

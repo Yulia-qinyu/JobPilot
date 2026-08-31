@@ -5,8 +5,11 @@ import type { ResumeTailoring, ResumeTailoringState, TailoringAction, TailoringP
 
 const ACTION_LABELS: Record<TailoringAction, string> = { Keep: "保留", Rewrite: "改写", Add: "新增已确认事实", DeEmphasize: "降低强调", Omit: "省略" };
 
-export function TailoringPrerequisite({ stale, onGoAnalysis }: { stale: boolean; onGoAnalysis: () => void }) {
-  return <section className="fit-empty"><span className="eyebrow">针对性简历优化</span><h2>{stale ? "当前匹配分析已过期" : "请先完成岗位匹配分析，再生成针对性简历"}</h2><p>简历优化只使用有效的岗位要求与经历证据，不会自动重新运行匹配分析。</p><button className="primary-link button-link" onClick={onGoAnalysis}>前往匹配分析</button></section>;
+export function TailoringPrerequisite({ prerequisite, onGoAnalysis }: { prerequisite: "AnalysisRequired" | "AnalysisStale" | "NoMatchableRequirements"; onGoAnalysis: () => void }) {
+  if (prerequisite === "NoMatchableRequirements") {
+    return <section className="fit-empty"><span className="eyebrow">针对性简历优化</span><h2>该岗位暂无可基于履历优化的要求</h2><p>这个岗位没有可由履历证据评估的要求，因此没有可改写的简历内容。岗位知识要求仅作为面试准备方向，不是简历改写目标。</p></section>;
+  }
+  return <section className="fit-empty"><span className="eyebrow">针对性简历优化</span><h2>{prerequisite === "AnalysisStale" ? "当前匹配分析已过期" : "请先完成岗位匹配分析，再生成针对性简历"}</h2><p>简历优化只使用有效的岗位要求与经历证据，不会自动重新运行匹配分析。</p><button className="primary-link button-link" onClick={onGoAnalysis}>前往匹配分析</button></section>;
 }
 
 export function EvidenceDrawer({ bullet, plan }: { bullet: TailoredBullet; plan: TailoringPlan }) {
@@ -47,6 +50,6 @@ export default function ResumeTailoringPanel({ jobId, onGoAnalysis }: { jobId: n
   const tailoring = state?.tailoring; const draftReady = useMemo(() => Boolean(tailoring && Object.keys(tailoring.generated_draft).length), [tailoring]);
   if (loading) return <section className="fit-loading"><span className="spinner dark" />正在读取简历优化…</section>;
   if (error && !state) return <section className="fit-empty"><span className="eyebrow">针对性简历优化</span><h2>暂时无法读取简历优化</h2><p className="error" role="alert">{error}</p></section>;
-  if (state?.prerequisite !== "Ready") return <TailoringPrerequisite stale={state?.prerequisite === "AnalysisStale"} onGoAnalysis={onGoAnalysis} />;
+  if (state?.prerequisite !== "Ready") return <TailoringPrerequisite prerequisite={state?.prerequisite ?? "AnalysisRequired"} onGoAnalysis={onGoAnalysis} />;
   return <>{error && <div className="error" role="alert">{error}</div>}{!tailoring && <section className="fit-empty"><span className="eyebrow">针对性简历优化</span><h2>先生成可检查的优化方案</h2><p>系统只选择已有真实证据，生成方案时不会调用 AI。</p><button className="primary-link button-link" disabled={busy} onClick={() => void run(() => resumeTailoringApi.createPlan(jobId))}>{busy ? "正在生成方案…" : "生成简历优化方案"}</button></section>}{tailoring && !draftReady && tailoring.is_stale && <section className="fit-empty"><h2>当前简历优化方案已过期</h2><p>证据与验证边界已更新，请刷新方案后继续。</p><button className="primary-link button-link" disabled={busy} onClick={() => void run(() => resumeTailoringApi.createPlan(jobId))}>刷新简历优化方案</button></section>}{tailoring && !draftReady && !tailoring.is_stale && <TailoringPlanView tailoring={tailoring} busy={busy} onGenerate={(items) => void run(async () => { await resumeTailoringApi.patchPlan(jobId, { items, confirmed: true }); return resumeTailoringApi.generateDraft(jobId); })} />}{tailoring && draftReady && <TailoredDraftView tailoring={tailoring} busy={busy} onEdit={(id, text) => void run(() => resumeTailoringApi.editDraft(jobId, [{ plan_item_id: id, text }]))} onKeep={(id) => void run(() => resumeTailoringApi.editDraft(jobId, [{ plan_item_id: id, text: "保留原文", keep_original: true }]))} onValidate={() => void run(() => resumeTailoringApi.validate(jobId))} onAccept={() => void run(() => resumeTailoringApi.accept(jobId))} onRefreshPlan={() => void run(() => resumeTailoringApi.createPlan(jobId))} />}</>;
 }

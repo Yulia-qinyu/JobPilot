@@ -13,6 +13,7 @@ const analysis: FitAnalysis = {
   id: 1,
   job_id: 2,
   match_score: 82,
+  score_status: "available",
   recommendation: "Apply",
   summary: "具备直接 AI 产品证据，但仍需补充 Agent 经验。",
   requirement_matches: [
@@ -80,6 +81,9 @@ const analysis: FitAnalysis = {
     { title: "准备三", action: "行动三", priority: "Medium", requirement_ids: [] },
     { title: "准备四", action: "行动四", priority: "Low", requirement_ids: [] },
   ],
+  eligibility_requirements: [],
+  knowledge_requirements: [],
+  score_basis: { included_requirement_ids: ["req-critical", "req-partial"], excluded_eligibility_count: 0, excluded_knowledge_count: 0 },
   created_at: "2026-08-22T00:00:00Z",
   updated_at: "2026-08-22T00:00:00Z",
 };

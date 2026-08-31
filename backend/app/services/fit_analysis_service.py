@@ -10,20 +10,24 @@ from app.repositories.job_repository import JobRepository
 from app.repositories.profile_repository import ProfileRepository
 from app.schemas.analysis import JDRequirements
 from app.schemas.fit_analysis import (
+    EligibilityRequirementRead,
     FitAnalysisOutput,
     FitAnalysisPreview,
     FitAnalysisRead,
     FitAnalysisState,
     FitGap,
     FitStrength,
+    KnowledgeRequirementRead,
     PreparationItem,
     RequirementMatch,
+    ScoreBasis,
 )
 from app.services.activity_service import ActivityService
 from app.services.candidate_requirement_evidence import CandidateRequirementEvidenceNormalizer
+from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalog, EvidenceCatalogBuilder
 from app.services.hard_requirements import validate_hard_requirement
-from app.services.match_score import MatchScoreService, NoScorableRequirementsError
+from app.services.match_score import MatchScoreService
 from app.services.preview_analysis_store import new_artifact, preview_analysis_store
 from app.services.requirement_catalog import RequirementCatalog, RequirementCatalogBuilder
 from app.services.requirement_matcher import RequirementMatcher
@@ -58,6 +62,7 @@ class FitAnalysisService:
         self.requirement_builder = RequirementCatalogBuilder()
         self.score_service = MatchScoreService()
         self.candidate_requirement_normalizer = CandidateRequirementEvidenceNormalizer()
+        self.eligibility_service = EligibilityService()
 
     def get_state(self, job_id: int) -> FitAnalysisState:
         job = self.job_repo.get(job_id)
@@ -68,6 +73,7 @@ class FitAnalysisService:
             return FitAnalysisState(analysis=None)
 
         stale_reasons: list[str] = []
+        profile = None
         try:
             profile = self.profile_repo.get_full_profile()
             evidence = self.evidence_builder.build(profile)
@@ -77,11 +83,19 @@ class FitAnalysisService:
                 stale_reasons.append("experience_bank")
         except ValueError:
             stale_reasons.append("resume")
-        jd_hash = self.requirement_builder.build(job.structured_jd).structured_jd_hash
+        structured_jd = JDRequirements.model_validate(job.structured_jd)
+        requirements = self.requirement_builder.build(structured_jd)
+        jd_hash = requirements.structured_jd_hash
         if stored.structured_jd_hash != jd_hash:
             stale_reasons.append("job_description")
+        if structured_jd.requirement_taxonomy_version == "v2" and (
+            stored.matcher_model != self.settings.claude_model
+            or stored.matcher_prompt_version != RequirementMatcher.PROMPT_VERSION
+            or stored.matcher_schema_version != RequirementMatcher.SCHEMA_VERSION
+        ):
+            stale_reasons.append("analysis_version")
         return FitAnalysisState(
-            analysis=FitAnalysisRead.model_validate(stored),
+            analysis=self._analysis_read(stored, structured_jd, profile),
             is_stale=bool(stale_reasons),
             stale_reasons=stale_reasons,
         )
@@ -96,8 +110,12 @@ class FitAnalysisService:
             evidence = self.evidence_builder.build(profile)
         except ValueError as exc:
             raise FitAnalysisPrerequisiteError(str(exc)) from exc
-        requirements = self.requirement_builder.build(job.structured_jd)
-        if not requirements.requirements:
+        structured_jd = JDRequirements.model_validate(job.structured_jd)
+        requirements = self.requirement_builder.build(structured_jd)
+        if (
+            structured_jd.requirement_taxonomy_version == "legacy-v1"
+            and not requirements.requirements
+        ):
             raise FitAnalysisPrerequisiteError("The saved JD has no scorable requirements.")
 
         logger.info(
@@ -108,19 +126,32 @@ class FitAnalysisService:
             len(requirements.requirements),
             len(evidence.sources),
         )
-        output = matcher.analyze(requirements, evidence)
-        (
-            matches,
-            unsupported_evidence_count,
-            hard_downgrade_count,
-            deterministic_adjustment_count,
-        ) = self._normalize_matches(output, requirements, evidence)
-        try:
+        if requirements.requirements:
+            output = matcher.analyze(requirements, evidence)
+            (
+                matches,
+                unsupported_evidence_count,
+                hard_downgrade_count,
+                deterministic_adjustment_count,
+            ) = self._normalize_matches(output, requirements, evidence)
             score = self.score_service.score(matches)
-        except NoScorableRequirementsError as exc:
-            raise FitAnalysisPrerequisiteError(str(exc)) from exc
-        recommendation = self.score_service.recommendation(score, matches)
-        preparation = self._normalize_preparation(output, requirements)
+            recommendation = self.score_service.recommendation(score, matches)
+            preparation = self._normalize_preparation(output, requirements)
+            claude_calls = 1
+        else:
+            output = FitAnalysisOutput(
+                summary="该岗位没有可由履历证据评分的要求。",
+                requirement_matches=[],
+                suggested_preparation=[],
+            )
+            matches = []
+            unsupported_evidence_count = 0
+            hard_downgrade_count = 0
+            deterministic_adjustment_count = 0
+            score = None
+            recommendation = None
+            preparation = []
+            claude_calls = 0
         strengths = self._derive_strengths(matches)
         gaps = self._derive_gaps(matches, preparation)
         stored = self._persist(
@@ -142,7 +173,7 @@ class FitAnalysisService:
         logger.info(
             "Fit analysis completed stage=fit_analysis job_id=%s elapsed_seconds=%.3f "
             "model=%s requirement_count=%s evidence_count=%s unsupported_evidence_count=%s "
-            "hard_classification_downgrades=%s claude_api_calls=1 status=success",
+            "hard_classification_downgrades=%s claude_api_calls=%s status=success",
             job_id,
             perf_counter() - started_at,
             matcher.client.model,
@@ -150,8 +181,11 @@ class FitAnalysisService:
             len(evidence.sources),
             unsupported_evidence_count,
             hard_downgrade_count,
+            claude_calls,
         )
-        return FitAnalysisState(analysis=FitAnalysisRead.model_validate(stored))
+        return FitAnalysisState(
+            analysis=self._analysis_read(stored, structured_jd, profile)
+        )
 
     def analyze_preview(
         self, structured_jd: JDRequirements, matcher: RequirementMatcher
@@ -163,20 +197,37 @@ class FitAnalysisService:
         except ValueError as exc:
             raise FitAnalysisPrerequisiteError(str(exc)) from exc
         requirements = self.requirement_builder.build(structured_jd.model_dump(mode="json"))
-        if not requirements.requirements:
+        eligibility, knowledge, score_basis = self._taxonomy_views(profile, structured_jd)
+        if (
+            structured_jd.requirement_taxonomy_version == "legacy-v1"
+            and not requirements.requirements
+        ):
             raise FitAnalysisPrerequisiteError("The saved JD has no scorable requirements.")
-        output = matcher.analyze(requirements, evidence)
-        matches, _, _, deterministic_adjustment_count = self._normalize_matches(
-            output, requirements, evidence
-        )
-        try:
+        if requirements.requirements:
+            output = matcher.analyze(requirements, evidence)
+            matches, _, _, deterministic_adjustment_count = self._normalize_matches(
+                output, requirements, evidence
+            )
             score = self.score_service.score(matches)
-        except NoScorableRequirementsError as exc:
-            raise FitAnalysisPrerequisiteError(str(exc)) from exc
-        preparation = self._normalize_preparation(output, requirements)
+            recommendation = self.score_service.recommendation(score, matches)
+            preparation = self._normalize_preparation(output, requirements)
+        else:
+            output = FitAnalysisOutput(
+                summary="该岗位没有可由履历证据评分的要求。",
+                requirement_matches=[],
+                suggested_preparation=[],
+            )
+            matches = []
+            deterministic_adjustment_count = 0
+            score = None
+            recommendation = None
+            preparation = []
         preview = FitAnalysisPreview(
             match_score=score,
-            recommendation=self.score_service.recommendation(score, matches),
+            score_status=(
+                "available" if score is not None else "unavailable_no_matchable_requirements"
+            ),
+            recommendation=recommendation,
             summary=self._final_summary(
                 output.summary, matches, deterministic_adjustment_count
             ),
@@ -184,6 +235,9 @@ class FitAnalysisService:
             strengths=self._derive_strengths(matches),
             gaps=self._derive_gaps(matches, preparation),
             suggested_preparation=preparation,
+            eligibility_requirements=eligibility,
+            knowledge_requirements=knowledge,
+            score_basis=score_basis,
         )
         artifact = new_artifact(
             analysis=preview,
@@ -241,6 +295,71 @@ class FitAnalysisService:
         job.recommendation = analysis.recommendation
         preview_analysis_store.consume(token)
         return stored
+
+    def _analysis_read(
+        self,
+        stored: JobAnalysis,
+        structured_jd: JDRequirements,
+        profile,
+    ) -> FitAnalysisRead:
+        eligibility, knowledge, score_basis = self._taxonomy_views(profile, structured_jd)
+        return FitAnalysisRead.model_validate(stored).model_copy(
+            update={
+                "score_status": (
+                    "available"
+                    if stored.match_score is not None
+                    else "unavailable_no_matchable_requirements"
+                ),
+                "eligibility_requirements": eligibility,
+                "knowledge_requirements": knowledge,
+                "score_basis": score_basis,
+            }
+        )
+
+    def _taxonomy_views(
+        self, profile, structured_jd: JDRequirements
+    ) -> tuple[
+        list[EligibilityRequirementRead],
+        list[KnowledgeRequirementRead],
+        ScoreBasis,
+    ]:
+        catalog = self.requirement_builder.build(structured_jd)
+        if structured_jd.requirement_taxonomy_version != "v2":
+            return (
+                [],
+                [],
+                ScoreBasis(
+                    included_requirement_ids=[
+                        item.requirement_id for item in catalog.requirements
+                    ]
+                ),
+            )
+        eligibility = self.eligibility_service.evaluate_requirements(profile, structured_jd)
+        knowledge = [
+            KnowledgeRequirementRead(
+                requirement_id=item.requirement_id,
+                requirement_text=item.normalized_requirement,
+                source_text=item.source_text,
+                importance=item.importance,
+                knowledge_topics=item.knowledge_topics,
+            )
+            for item in structured_jd.requirements
+            if item.requirement_type == "knowledge"
+        ]
+        return (
+            eligibility,
+            knowledge,
+            ScoreBasis(
+                included_requirement_ids=[
+                    item.requirement_id for item in catalog.requirements
+                ],
+                excluded_eligibility_count=sum(
+                    item.requirement_type == "eligibility"
+                    for item in structured_jd.requirements
+                ),
+                excluded_knowledge_count=len(knowledge),
+            ),
+        )
 
     def _normalize_matches(
         self,
@@ -481,8 +600,8 @@ class FitAnalysisService:
         evidence: EvidenceCatalog,
         requirements: RequirementCatalog,
         matches: list[RequirementMatch],
-        score: int,
-        recommendation: str,
+        score: int | None,
+        recommendation: str | None,
         preparation: list[PreparationItem],
         strengths: list[FitStrength],
         gaps: list[FitGap],

@@ -4,6 +4,7 @@ from time import perf_counter
 
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
 from app.db.models import Job, JobAnalysis, JobDecision, UserProfile
 from app.repositories.job_decision_repository import JobDecisionRepository
 from app.repositories.profile_repository import ProfileRepository
@@ -19,6 +20,7 @@ from app.schemas.job_decision import (
     JobDecisionRead,
     PreMatchDecision,
 )
+from app.services.analysis_freshness import analysis_identity_is_current
 from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalogBuilder, canonical_hash
 from app.services.requirement_catalog import RequirementCatalogBuilder
@@ -47,6 +49,7 @@ class JobDecisionService:
         self.role_fit = TargetRoleFitService()
         self.evidence_builder = EvidenceCatalogBuilder()
         self.requirement_builder = RequirementCatalogBuilder()
+        self.settings = get_settings()
 
     def get(self, job_id: int) -> JobDecisionRead:
         decision = self.repo.get(job_id)
@@ -280,11 +283,17 @@ class JobDecisionService:
         if analysis is None or evidence_hashes is None:
             return None, None
         jd_hash = self.requirement_builder.build(job.structured_jd).structured_jd_hash
-        if (
-            analysis.resume_hash != evidence_hashes[0]
-            or analysis.experience_bank_hash != evidence_hashes[1]
-            or analysis.structured_jd_hash != jd_hash
-        ):
+        structured_jd = JDRequirements.model_validate(job.structured_jd)
+        if not analysis_identity_is_current(
+            analysis,
+            resume_hash=evidence_hashes[0],
+            experience_bank_hash=evidence_hashes[1],
+            structured_jd_hash=jd_hash,
+            matcher_model=self.settings.claude_model,
+            enforce_matcher_version=(
+                structured_jd.requirement_taxonomy_version == "v2"
+            ),
+        ) or analysis.match_score is None:
             return None, None
         return (
             canonical_hash(
