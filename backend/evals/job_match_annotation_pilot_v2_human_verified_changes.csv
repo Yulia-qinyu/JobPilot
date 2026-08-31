@@ -1,0 +1,17 @@
+kind,job_id,company,job_title,requirement_id,field,ai_value,human_value,note
+human_match_fit,baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407,百度,AI 产品经理实习生（J103757）,,human_match_fit,5,5,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,tencent:2088450750270324736,腾讯,AI产品经理-AI平台（Agent）方向,,human_match_fit,4,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,tencent:2052527703940313088,腾讯,证券-AI产品经理-金融AI应用体验方向,,human_match_fit,4,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,veeva:8ae64dee-34a9-4e69-84ef-b91bcde3f35f,Veeva,Senior Product Manager - AI Agent,,human_match_fit,3,3,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+requirement_edit,veeva:8ae64dee-34a9-4e69-84ef-b91bcde3f35f,Veeva,Senior Product Manager - AI Agent,reqv2_7d915e68d837899a,human_match_label,Strong,Partial,AI 建议 Strong → 人工改为 Partial；保留原有有效证据。
+human_match_fit,baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8,百度,产品经理实习生（J104146）,,human_match_fit,4,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,tencent:2047239002926510080,腾讯,金融科技-AI数据产品经理-数据开发方向,,human_match_fit,4,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,tencent:1994013057063473152,腾讯,企业微信-基础产品经理,,human_match_fit,3,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53,百度,大模型策略产品经理（J97330）,,human_match_fit,2,2,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,tencent:2083093175941115904,腾讯,腾讯视频-增长产品经理,,human_match_fit,3,4,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+human_match_fit,huawei:28183,华为,AI大模型架构师（训练/推理）,,human_match_fit,1,2,Human Match Fit：仅看已验证经历/技能与 matchable requirements 的匹配程度，忽略资格门槛/招聘类型/投递意愿/城市/公司/薪酬。
+requirement_edit,huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_d9c11895b9f4fefd,human_eligibility_status,Unknown,Supported,AI 建议 Unknown → 人工改为 Supported。
+requirement_edit,huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_a7e657643b65384a,human_match_label,Partial,Partial,保留为 matchable/Partial；同句“独立、主动的学习能力”移出评分，作为 subjective expectation。
+requirement_edit,huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_c2f1c7d80e0cbd8a,human_match_label,Strong,Partial,AI 建议 Strong → 人工改为 Partial；保留 Python 与 C/C++ 证据。
+requirement_edit,huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_1c9199d15075aa37,human_match_label,Partial,Missing,AI 建议 Partial → 人工改为 Missing；human_evidence_ids 清空。
+subjective_added,huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_a7e657643b65384a,subjective_expectations[+],,独立、主动的学习能力,EDIT A：从复合要求拆出主观学习意愿，作为非评分 subjective expectation。
