@@ -1,0 +1,256 @@
+{
+ "benchmark_id": "benchmark-round1-fixed-prompt-model-comparison",
+ "benchmark_type": "fixed_prompt_model_comparison",
+ "status": "design_ready",
+ "created_by_task": "Model Benchmark Round 1 Design (design-only; 0 live calls)",
+ "purpose": "Separate MODEL CAPABILITY from PROMPT EFFECTS by comparing candidate models under the EXACT current JobPilot semantic-matching contract. Prompt tuning is deferred to a later Prompt/Rubric Communication Ablation.",
+
+ "ground_truth_version": "job-match-ground-truth-v2",
+ "ground_truth_file": "backend/evals/job_match_annotation_full_v2_human_verified.json",
+ "ground_truth_sha256": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+ "frozen_eval_commit": "1a31c8d",
+
+ "dataset": "job_match_eval_dataset_v1",
+ "dataset_file": "backend/evals/job_match_eval_dataset_v1.json",
+ "dataset_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+ "dataset_role": "development_model_selection",
+ "dataset_role_warning": "Ground Truth has been inspected, baseline errors analysed, and failure slices designed from observed errors. Any improvement measured here is DEVELOPMENT-SET performance and MUST NOT later be presented as unbiased final test performance.",
+
+ "reference_baseline": {
+  "run_id": "current-claude-baseline-v1-20260901-034331",
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-5-20250929",
+  "artifacts_prefix": "backend/evals/job_match_baseline_claude_current_v1_",
+  "reuse_policy": "REUSE frozen result; do NOT spend 30 new live calls reproducing it. Rerun only if a fairness issue is identified and explicitly approved.",
+  "metrics": {
+   "accuracy_reconciled": 0.6813,
+   "macro_f1": 0.6919,
+   "per_class_f1": {"Strong": 0.7342, "Partial": 0.5915, "Missing": 0.75},
+   "per_class_precision": {"Strong": 0.879, "Partial": 0.477, "Missing": 0.857},
+   "per_class_recall": {"Strong": 0.630, "Partial": 0.778, "Missing": 0.667},
+   "grounding_rate": 1.0,
+   "unsupported_match_rate": 0.0,
+   "raw_schema_parse_success": "30/30",
+   "job_normalization_success": "29/30",
+   "requirement_prediction_coverage": "91/100",
+   "effective_correct_coverage": 0.62,
+   "spearman_match_score_vs_human_match_fit": 0.5373,
+   "gt_match_score_vs_human_match_fit_spearman": 0.845,
+   "gt_match_score_vs_baseline_match_score_spearman": 0.707,
+   "tokens_total": 159061,
+   "latency_mean_ms": 21067.5,
+   "directional_errors": {"Strong->Partial": 17, "Missing->Partial": 6, "Partial->Strong": 4, "Partial->Missing": 2, "Strong->Missing": 0, "Missing->Strong": 0},
+   "or_list_slice_accuracy": 0.44
+  }
+ },
+
+ "fixed_prompt": {
+  "prompt_version": "job-fit-v3-matchable-only",
+  "prompt_schema_version": "fit-analysis-wire-v2",
+  "prompt_source_file": "backend/app/services/requirement_matcher.py",
+  "prompt_source_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "client_source_file": "backend/app/services/claude_client.py",
+  "client_source_sha256": "76d953c4ae852502c0c85b16a53f1f8fcaeb3a7f39c791ff1776a3ed0b729b81",
+  "rule": "Every candidate receives byte-identical semantic instructions. NO OR-list rule, adjacency guardrail, project-vs-work rule, or narrowest-subclaim rule is added to any candidate. Those belong to the deferred Prompt/Rubric Communication Ablation."
+ },
+
+ "schema": "fit-analysis-wire-v2 (FitAnalysisOutput{summary, requirement_matches[], suggested_preparation[]}; RequirementMatchOutput{requirement_id, importance, is_hard_requirement, hard_requirement_category, match_status in {Strong,Partial,Missing}, reason, confidence, evidence_source_ids[]})",
+ "temperature": 0,
+ "max_tokens": 4096,
+ "one_semantic_call_per_job": true,
+ "expected_jobs": 30,
+ "expected_matchable_requirements": 100,
+ "eligibility_rows_excluded": 42,
+ "knowledge_rows_excluded": 16,
+ "subjective_excluded": true,
+ "evaluation_join_key": ["job_id", "requirement_id"],
+
+ "normalization": "production FitAnalysisService._normalize_matches (unchanged) — exact 1:1 requirement-id set, drop out-of-catalog evidence ids, downgrade cite-less Strong/Partial to Missing, whole-job reject on any id-set violation",
+ "match_score": "production MatchScoreService (unchanged) — importance Critical 5 / Important 3 / Preferred 1; match Strong 1.0 / Partial 0.5 / Missing 0.0; round_half_up; matchable only",
+
+ "candidate_models": [
+  {
+   "slot": "REFERENCE_BASELINE",
+   "provider": "anthropic",
+   "model_identifier": "claude-sonnet-4-5-20250929",
+   "candidate_status": "confirmed_available (Baseline V1 completed 30/30 calls)",
+   "availability_source": "backend/app/config.py Settings.claude_model + .env CLAUDE_MODEL + successful Baseline V1 run",
+   "adapter_required": false,
+   "expected_live_calls": 0,
+   "note": "Reused from job_match_baseline_claude_current_v1_* ; not rerun."
+  },
+  {
+   "slot": "ANTHROPIC_HIGHER_TIER",
+   "provider": "anthropic",
+   "model_identifier": "RESOLVE_AT_EXECUTION (Opus-tier)",
+   "candidate_status": "availability_unverified — resolve via anthropic client.models.list() in execution Step 1; drop if no Opus-tier id is returned for this API key",
+   "availability_source": "same anthropic SDK 0.125.0 + same ANTHROPIC_API_KEY; model id is a plain parameter to ClaudeStructuredClient — zero code change",
+   "adapter_required": false,
+   "expected_live_calls": 30,
+   "note": "Tests whether the Strong->Partial compression is model-capacity-bound at the SAME prompt."
+  },
+  {
+   "slot": "ANTHROPIC_SAME_TIER_ALT_BUILD",
+   "provider": "anthropic",
+   "model_identifier": "RESOLVE_AT_EXECUTION (newest Sonnet build / Sonnet-5 if present)",
+   "candidate_status": "availability_unverified — resolve via client.models.list(); include only if a distinct Sonnet id (not claude-sonnet-4-5-20250929) is available",
+   "availability_source": "same SDK + key",
+   "adapter_required": false,
+   "expected_live_calls": 30,
+   "note": "Within-tier variation / newer build check; optional."
+  },
+  {
+   "slot": "ANTHROPIC_COST_EFFICIENT_TIER",
+   "provider": "anthropic",
+   "model_identifier": "RESOLVE_AT_EXECUTION (Haiku-tier, e.g. claude-haiku-4-5-*)",
+   "candidate_status": "availability_unverified — resolve via client.models.list(); drop if no Haiku-tier id is returned",
+   "availability_source": "same SDK + key",
+   "adapter_required": false,
+   "expected_live_calls": 30,
+   "note": "Screens whether a cheaper tier is 'good enough' under the same contract; expected to trade F1 for cost."
+  },
+  {
+   "slot": "CROSS_PROVIDER_OPENAI",
+   "provider": "openai",
+   "model_identifier": "NOT_AVAILABLE_LOCALLY",
+   "candidate_status": "excluded_from_round1 — no openai SDK installed, no OPENAI_API_KEY in env or .env",
+   "availability_source": "none",
+   "adapter_required": true,
+   "expected_live_calls": 0,
+   "note": "Would require: pip install openai + credentials + an eval-only StructuredClient adapter (design in benchmark_round1_design.md §Cross-provider adapter). Deferred to a later round pending user approval."
+  },
+  {
+   "slot": "CROSS_PROVIDER_GEMINI",
+   "provider": "google",
+   "model_identifier": "NOT_AVAILABLE_LOCALLY",
+   "candidate_status": "excluded_from_round1 — no google-generativeai / vertex SDK installed, no GOOGLE/GEMINI credentials",
+   "availability_source": "none",
+   "adapter_required": true,
+   "expected_live_calls": 0,
+   "note": "Same as OpenAI: deferred, adapter design only."
+  }
+ ],
+ "candidate_status_summary": {
+  "confirmed_available": ["claude-sonnet-4-5-20250929 (reference, reused)"],
+  "resolve_at_execution_step1_via_models_list": ["ANTHROPIC_HIGHER_TIER", "ANTHROPIC_SAME_TIER_ALT_BUILD (optional)", "ANTHROPIC_COST_EFFICIENT_TIER"],
+  "excluded_no_local_support": ["openai", "google/gemini"]
+ },
+ "round1_executable_candidate_count": "1 reference (reused) + 2 to 3 new Anthropic models = 3 to 4 total",
+
+ "primary_metric": "Macro F1 on the 100 frozen matchable requirements (reconciled predictions)",
+ "co_primary_system_metric": "Effective Correct Coverage = (correct AND successfully normalized) / 100",
+ "secondary_metrics": [
+  "Accuracy", "Macro Precision", "Macro Recall",
+  "per-class Precision/Recall/F1 (Strong, Partial, Missing)", "confusion matrix",
+  "directional error counts (6 transitions)",
+  "Grounding Rate", "Unsupported Match Rate", "Evidence ID validity rate",
+  "Strong/Partial zero-evidence rate", "Missing-with-evidence anomaly rate",
+  "raw schema parse success", "job normalization success", "requirement prediction coverage",
+  "duplicate requirement ids", "omitted requirement ids", "hallucinated requirement ids", "invalid labels", "retry count", "complete job success rate",
+  "deterministic Match Score per job",
+  "Model Match Score vs GT Match Score: MAE, median abs err, max err, jobs diff>=20, jobs diff>=30, Spearman",
+  "Model Match Score vs Human Match Fit: Spearman",
+  "latency (total wall, model total, mean, median, P90, min, max)",
+  "tokens (input, output, total, avg/job, avg/requirement)",
+  "cost (only if pricing available locally; else COST_PENDING_EXTERNAL_PRICING_LOOKUP)"
+ ],
+ "slice_metrics": {
+  "source": "backend/evals/job_match_baseline_claude_current_v1_error_slices.csv (per-requirement flags) + job_match_baseline_claude_current_v1_score_analysis.csv (matchable_requirement_count) + Dataset V1 role_category",
+  "slices": {
+   "or_list_rows": "source_text contains 或 / 之一 / 等方向 / 等类产品 (is_or_list=true). n=18.",
+   "technology_adjacency_rows": "GT Missing rows where a specialised capability (multimodal / ASR / RL training / foundation-model / AIGC / streaming) is named and only general LLM/RAG/model-eval evidence exists. n~6-10.",
+   "project_based_evidence_rows": "GT or predicted reason references a project/internship (GoFin / KPay / 个人项目 / Product Owner) as main evidence.",
+   "formal_work_experience_rows": "source_text implies a formal professional role, or applies a duration qualifier to a matchable (not eligibility) requirement.",
+   "compound_rows": "is_compound=true (>=2 of: joint subclaim / >=2 dun-listed items / proficiency-completeness qualifier / multi-tool list). n=13.",
+   "proficiency_depth_rows": "source_text contains 熟练 / 精通 / 深入 / 扎实 / proficient / expert, or a multi-tool list requiring depth.",
+   "domain_specific_rows": "requirement names a specific industry/domain (证券 / 金融 / 医疗健康 / battery industry / 内容创作).",
+   "small_matchable_jobs": "matchable_requirement_count <= 3.",
+   "one_requirement_jobs": "matchable_requirement_count == 1.",
+   "mismatched_control_jobs": "Dataset V1 role_category == mismatched_control (huawei:28183, xsolla:252b30e5, tencent:2064981110395420672)."
+  },
+  "per_slice_report": ["n", "accuracy", "Macro F1 (only if slice n >= 12; else report counts only)", "error count", "directional error breakdown"]
+ },
+
+ "screening_criteria": {
+  "note": "Proposed thresholds are justified from Baseline V1 statistics; Round 1 is SCREENING not statistical certification (Dataset V1 n=100 rows / 30 jobs, single run, class-imbalanced 52/30/18).",
+  "hard_gates_all_must_pass": {
+   "macro_f1": ">= 0.75  (baseline 0.692; +0.058 = meaningful improvement threshold)",
+   "effective_correct_coverage": ">= 0.75  (baseline 0.62; guards against high-F1-but-poor-schema models)",
+   "grounding_rate": ">= 0.98",
+   "unsupported_match_rate": "<= 0.02",
+   "no_catastrophic_schema_pattern": "job normalization success >= 28/30 AND no systematic id duplication/omission (>1 job lost = fail)"
+  },
+  "strong_partial_tradeoff_gate_all_must_pass": {
+   "strong_recall": ">= 0.75  (baseline 0.630)",
+   "strong_precision": ">= 0.80  (baseline 0.879; must not collapse to buy recall)",
+   "partial_precision": ">= 0.60  (baseline 0.477; materially above baseline)",
+   "missing_recall": ">= 0.667  (baseline; must not regress)",
+   "strong_to_partial_errors": "< 17 (strictly fewer than baseline)",
+   "missing_to_partial_errors": "<= 6 (must NOT increase while fixing Strong->Partial)"
+  },
+  "schema_reliability_preferred_not_gating": {
+   "job_normalization_success": "30/30 preferred",
+   "requirement_prediction_coverage": "100/100 preferred",
+   "caveat": "single-run zero-error does not prove reliability; repeat-run robustness is a later round"
+  },
+  "improvement_bar_vs_baseline_macro_f1_0.692": {
+   "< +0.02": "noise / not compelling",
+   "+0.02 to +0.05": "small improvement",
+   "+0.05 to +0.10": "meaningful",
+   ">= +0.10": "large",
+   "variance_caveat": "no repeat runs in Round 1; treat a single +0.02..+0.05 as suggestive, not proven"
+  }
+ },
+
+ "run_policy": {
+  "runs_per_new_candidate": 1,
+  "temperature": 0,
+  "repeat_trials": "NONE in Round 1 (deferred to a repeat-run robustness round)",
+  "call_order": "one candidate fully (30 jobs) then the next; persist raw response per job BEFORE any Ground Truth is loaded",
+  "one_call_per_job": true,
+  "batching_change": "forbidden — use the production one-semantic-call-per-job architecture"
+ },
+ "baseline_reuse_policy": "Reference model claude-sonnet-4-5-20250929 metrics come from job_match_baseline_claude_current_v1_*; NOT rerun. Rerun-all only if a fairness defect is found and approved.",
+
+ "cost_policy": "No pricing present in repo config; web pricing lookup disallowed in design and in Round 1 execution. Report token usage per model. Mark cost = COST_PENDING_EXTERNAL_PRICING_LOOKUP for a later explicit pricing task.",
+
+ "contamination_policy": {
+  "model_inputs_may_contain": ["frozen matchable requirement_id + normalized_requirement + source_text (context)", "frozen candidate evidence snapshot (30 items, resume_extracted / manual_confirmed)", "the unchanged production job-fit-v3 prompt + fit-analysis-wire-v2 schema"],
+  "model_inputs_must_never_contain": ["human_match_label", "human_eligibility_status", "human_evidence_ids", "Human Match Fit", "human_grounding_reason / human_notes", "error-analysis buckets or slice names", "known failure cases", "OR-list / project-vs-work / adjacency human adjudication notes", "GoFin C-end / AI-platform / Chinese-native manual facts", "any Ground Truth label"],
+  "ground_truth_load_timing": "AFTER all 30 raw predictions for a candidate are persisted to disk"
+ },
+
+ "expected_live_calls_total": {
+  "reference_baseline": 0,
+  "per_new_anthropic_candidate": 30,
+  "round1_total_if_3_new_candidates": 90,
+  "round1_total_if_2_new_candidates": 60,
+  "note": "Design-only task made 0 calls. Execution is a separate, approval-gated task."
+ },
+
+ "future_dataset_v2_policy": "Dataset V1 is now development/model-selection data. A held-out Dataset V2 is required for unbiased validation, with more campus/new-grad roles, more company diversity (reduce Tencent+Baidu concentration from 87%), broader requirement-type distribution, and it must NOT be inspected before its use as a test set.",
+
+ "prompt_ablation_deferred": "After Round 1 selects a model, a separate Prompt/Rubric Communication Ablation compares job-fit-v3 vs a rubric-aligned prompt (OR-list rule, adjacency guardrail, project-vs-work guidance, narrowest-unmet-subclaim) ON THE SELECTED MODEL ONLY.",
+
+ "planned_output_files": [
+  "backend/evals/benchmark_round1/benchmark_round1_manifest.json  (this file)",
+  "backend/evals/benchmark_round1/benchmark_round1_design.md",
+  "backend/evals/benchmark_round1/benchmark_round1_candidate_matrix.csv",
+  "backend/evals/benchmark_round1/benchmark_round1_execution_plan.md",
+  "backend/evals/benchmark_round1/benchmark_round1_metrics.csv        (execution output — not created in design task)",
+  "backend/evals/benchmark_round1/benchmark_round1_metrics.json       (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_model_comparison.md (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_predictions_<model_slug>.json (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_predictions_<model_slug>.csv  (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_job_scores.csv     (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_slice_metrics.csv  (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_errors.csv         (execution output)",
+  "backend/evals/benchmark_round1/benchmark_round1_latency_tokens.csv (execution output)"
+ ],
+
+ "no_live_calls_confirmation": {
+  "anthropic_calls": 0, "openai_calls": 0, "gemini_calls": 0, "any_llm_calls": 0, "web_calls": 0,
+  "production_code_changed": false, "prompt_changed": false, "ground_truth_changed": false,
+  "dataset_changed": false, "candidate_evidence_changed": false, "normalization_changed": false, "match_score_changed": false
+ }
+}

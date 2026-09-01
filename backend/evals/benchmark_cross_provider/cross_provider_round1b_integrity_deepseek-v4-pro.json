@@ -1,0 +1,32 @@
+{
+ "provider": "deepseek",
+ "model_id_exact": "deepseek-v4-pro",
+ "expected_model_calls": 30,
+ "actual_model_calls": 30,
+ "total_retries": 0,
+ "raw_outputs_persisted_before_gt_load": true,
+ "ground_truth_loaded_only_after_persist": true,
+ "prompt_drift_detected": false,
+ "fixed_input_sha256": {
+  "requirement_matcher.py": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "claude_client.py": "76d953c4ae852502c0c85b16a53f1f8fcaeb3a7f39c791ff1776a3ed0b729b81",
+  "match_score.py": "8ae2d59389da7f3ae783bb57daca81c6611cd5c009a95005e6d772bc6c8dfad2",
+  "ground_truth": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+  "dataset_v1": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558"
+ },
+ "section_a_source": "captured verbatim from unchanged production RequirementMatcher (SHA-guarded)",
+ "section_d": "canonical 4-field output contract (transport-validated); OUTPUT-CONTRACT-ONLY",
+ "transport_normalization_mapping_applied": true,
+ "product_code_mutated": false,
+ "manual_reruns": 0,
+ "retry_policy_changed": false,
+ "extra_semantic_instructions_added": false,
+ "temperature": 0,
+ "max_tokens": 4096,
+ "reasoning_comparability_flag": true,
+ "temperature_comparability_flag": false,
+ "schema_parse_success": "19/30",
+ "job_normalization_success": "19/30",
+ "catastrophic_infrastructure_problem": false,
+ "verdict": "INTEGRITY_OK"
+}

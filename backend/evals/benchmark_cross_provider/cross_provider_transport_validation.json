@@ -1,0 +1,359 @@
+{
+ "task": "final_cross_provider_transport_validation",
+ "attempt": 3,
+ "synthetic_only": true,
+ "prompt_assembly": "SECTION A (frozen job-fit-v3-matchable-only) + SECTION D (canonical FitAnalysisOutput field contract, output-contract-only)",
+ "inference_calls": 4,
+ "call_cap": 4,
+ "retries_performed": 0,
+ "anthropic_calls": 0,
+ "gemini_calls": 0,
+ "dataset_v1_used": false,
+ "ground_truth_used": false,
+ "real_candidate_evidence_used": false,
+ "quality_metrics_computed": false,
+ "final_pool": {
+  "REFERENCE": "claude-sonnet-4-5-20250929 (reuse; 0 calls)",
+  "QWEN_HIGH_CAPABILITY": "qwen3.8-max",
+  "QWEN_COST_QUALITY": "qwen3.8-flash",
+  "DEEPSEEK_HIGH_VALUE": "deepseek-v4-pro",
+  "KIMI_CHINESE_HIGH_CAPABILITY": "kimi-k3",
+  "gemini": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY"
+ },
+ "synthetic_request": {
+  "job_requirements": [
+   {
+    "requirement_id": "synthetic_req_001",
+    "normalized_requirement": "Has experience using SQL for product analytics.",
+    "context": "Synthetic Product Manager role — transport validation only.",
+    "importance_hint": "medium",
+    "source_kind": "v2_matchable"
+   }
+  ],
+  "candidate_evidence": [
+   {
+    "evidence_source_id": "synthetic_ev_001",
+    "source_type": "resume_extracted",
+    "text": "Built a small analytics dashboard using SQL to analyse product usage.",
+    "context": "Synthetic Company · Synthetic Intern"
+   }
+  ],
+  "transport_serialization_only_line": "Return the response as JSON.",
+  "line_scoped_to": [
+   "alibaba_qwen_dashscope",
+   "deepseek",
+   "moonshot"
+  ]
+ },
+ "tokens": {
+  "input": 1690,
+  "output": 500,
+  "reasoning": 105,
+  "total": 2190
+ },
+ "cost": "PENDING_OFFICIAL_PRICING_VERIFICATION (not benchmark cost; not computed)",
+ "candidates": [
+  {
+   "provider": "alibaba_qwen_dashscope",
+   "model_id": "qwen3.8-max",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+   "http_status": 200,
+   "latency_ms": 3608.9,
+   "transport": {
+    "temperature_sent": 0,
+    "response_format": "json_object",
+    "section_a_included": true,
+    "section_d_included": true,
+    "json_serialization_line_added": true,
+    "json_serialization_line_scope": "alibaba_qwen_dashscope",
+    "extra_body": {
+     "enable_thinking": false
+    }
+   },
+   "usage": {
+    "input_tokens": 539,
+    "output_tokens": 146,
+    "reasoning_tokens": null,
+    "total_tokens": 685
+   },
+   "finish_reason": "stop",
+   "reasoning_content_present": false,
+   "checks": {
+    "parseable": true,
+    "top_level_keys": [
+     "requirement_matches",
+     "suggested_preparation",
+     "summary"
+    ],
+    "top_level_all_present": true,
+    "top_level_exact": true,
+    "requirement_matches_is_list": true,
+    "item_keys": [
+     "evidence_ids",
+     "match_label",
+     "reason",
+     "requirement_id"
+    ],
+    "item_canonical_fields_present": true,
+    "item_extra_keys": [],
+    "item_alias_fields_present": [],
+    "requirement_id_preserved": true,
+    "match_label": "Strong",
+    "match_label_valid": true,
+    "evidence_ids_is_list": true,
+    "reason_is_str": true,
+    "suggested_preparation_is_list": true,
+    "no_semantic_alias_remap_needed": true,
+    "canonical_ok": true
+   },
+   "response_excerpt": "{\n  \"summary\": \"The candidate demonstrates direct experience using SQL for product analytics through the creation of an analytics dashboard to analyze product usage during an internship. This evidence fully satisfies the requirement.\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synthetic_req_001\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"synthetic_ev_001\"\n      ],\n      \"reason\": \"The candidate explicitly built an analytics dashboard using SQL to analyze product usage, which directly matches the requirement for SQL experience in product analytics.\"\n    }\n  ],\n  \"suggested_preparation\": []\n}",
+   "structured_output_class": "JSON_OBJECT_ONLY",
+   "pass": true
+  },
+  {
+   "provider": "alibaba_qwen_dashscope",
+   "model_id": "qwen3.8-flash",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+   "http_status": 200,
+   "latency_ms": 2226.4,
+   "transport": {
+    "temperature_sent": 0,
+    "response_format": "json_object",
+    "section_a_included": true,
+    "section_d_included": true,
+    "json_serialization_line_added": true,
+    "json_serialization_line_scope": "alibaba_qwen_dashscope",
+    "extra_body": {
+     "enable_thinking": false
+    }
+   },
+   "usage": {
+    "input_tokens": 539,
+    "output_tokens": 133,
+    "reasoning_tokens": null,
+    "total_tokens": 672
+   },
+   "finish_reason": "stop",
+   "reasoning_content_present": false,
+   "checks": {
+    "parseable": true,
+    "top_level_keys": [
+     "requirement_matches",
+     "suggested_preparation",
+     "summary"
+    ],
+    "top_level_all_present": true,
+    "top_level_exact": true,
+    "requirement_matches_is_list": true,
+    "item_keys": [
+     "evidence_ids",
+     "match_label",
+     "reason",
+     "requirement_id"
+    ],
+    "item_canonical_fields_present": true,
+    "item_extra_keys": [],
+    "item_alias_fields_present": [],
+    "requirement_id_preserved": true,
+    "match_label": "Strong",
+    "match_label_valid": true,
+    "evidence_ids_is_list": true,
+    "reason_is_str": true,
+    "suggested_preparation_is_list": true,
+    "no_semantic_alias_remap_needed": true,
+    "canonical_ok": true
+   },
+   "response_excerpt": "{\n  \"summary\": \"The candidate has direct evidence of using SQL for product analytics, satisfying the requirement.\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synthetic_req_001\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"synthetic_ev_001\"\n      ],\n      \"reason\": \"The candidate explicitly states they built an analytics dashboard using SQL to analyze product usage, which directly matches the requirement for experience using SQL for product analytics.\"\n    }\n  ],\n  \"suggested_preparation\": []\n}",
+   "structured_output_class": "JSON_OBJECT_ONLY",
+   "pass": true
+  },
+  {
+   "provider": "deepseek",
+   "model_id": "deepseek-v4-pro",
+   "base_url": "https://api.deepseek.com",
+   "http_status": 200,
+   "latency_ms": 4888.6,
+   "transport": {
+    "temperature_sent": 0,
+    "response_format": "json_object",
+    "section_a_included": true,
+    "section_d_included": true,
+    "json_serialization_line_added": true,
+    "json_serialization_line_scope": "deepseek",
+    "extra_body": {}
+   },
+   "usage": {
+    "input_tokens": 612,
+    "output_tokens": 221,
+    "reasoning_tokens": 105,
+    "total_tokens": 833
+   },
+   "finish_reason": "stop",
+   "reasoning_content_present": true,
+   "checks": {
+    "parseable": true,
+    "top_level_keys": [
+     "requirement_matches",
+     "suggested_preparation",
+     "summary"
+    ],
+    "top_level_all_present": true,
+    "top_level_exact": true,
+    "requirement_matches_is_list": true,
+    "item_keys": [
+     "evidence_ids",
+     "match_label",
+     "reason",
+     "requirement_id"
+    ],
+    "item_canonical_fields_present": true,
+    "item_extra_keys": [],
+    "item_alias_fields_present": [],
+    "requirement_id_preserved": true,
+    "match_label": "Strong",
+    "match_label_valid": true,
+    "evidence_ids_is_list": true,
+    "reason_is_str": true,
+    "suggested_preparation_is_list": true,
+    "no_semantic_alias_remap_needed": true,
+    "canonical_ok": true
+   },
+   "response_excerpt": "{\n  \"summary\": \"The candidate's resume evidence shows direct experience building a product analytics dashboard using SQL, which strongly satisfies the requirement.\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synthetic_req_001\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"synthetic_ev_001\"],\n      \"reason\": \"The candidate built an analytics dashboard using SQL to analyze product usage, which directly demonstrates experience using SQL for product analytics.\"\n    }\n  ],\n  \"suggested_preparation\": []\n}",
+   "structured_output_class": "JSON_OBJECT_ONLY",
+   "pass": true,
+   "reasoning_mode": "mandatory",
+   "reasoning_comparability_flag": true
+  },
+  {
+   "provider": "moonshot",
+   "model_id": "kimi-k3",
+   "base_url": "https://api.moonshot.cn/v1",
+   "http_status": 400,
+   "latency_ms": 1283.6,
+   "transport": {
+    "temperature_sent": 0,
+    "response_format": "json_object",
+    "section_a_included": true,
+    "section_d_included": true,
+    "json_serialization_line_added": true,
+    "json_serialization_line_scope": "moonshot",
+    "extra_body": {
+     "reasoning_effort": "low"
+    }
+   },
+   "error": {
+    "message": "invalid temperature: only 1 is allowed for this model",
+    "type": "invalid_request_error"
+   },
+   "structured_output_class": "TRANSPORT_BLOCKED",
+   "checks": {},
+   "pass": false,
+   "reasoning_mode": "mandatory",
+   "reasoning_comparability_flag": true,
+   "requested_reasoning_effort": "low",
+   "reasoning_effort_param_name": "reasoning_effort (OpenAI-compatible; metadata key reasoning_efforts, valid low/high/max)",
+   "reasoning_effort_accepted": false
+  }
+ ],
+ "pass_count": 3,
+ "all_pass": false,
+ "kimi_k3_final_revalidation_attempt_3b": {
+  "task": "kimi_k3_final_transport_revalidation",
+  "attempt": "3b (single approved call)",
+  "synthetic_only": true,
+  "prompt_assembly": "SECTION A (frozen job-fit-v3-matchable-only) + SECTION D (canonical output-contract-only)",
+  "inference_calls": 1,
+  "call_cap": 1,
+  "retries_performed": 0,
+  "dataset_v1_used": false,
+  "ground_truth_used": false,
+  "real_candidate_evidence_used": false,
+  "quality_metrics_computed": false,
+  "synthetic_request": {
+   "job_requirements": [
+    {
+     "requirement_id": "synthetic_req_001",
+     "normalized_requirement": "Has experience using SQL for product analytics.",
+     "context": "Synthetic Product Manager role — transport validation only.",
+     "importance_hint": "medium",
+     "source_kind": "v2_matchable"
+    }
+   ],
+   "candidate_evidence": [
+    {
+     "evidence_source_id": "synthetic_ev_001",
+     "source_type": "resume_extracted",
+     "text": "Built a small analytics dashboard using SQL to analyse product usage.",
+     "context": "Synthetic Company · Synthetic Intern"
+    }
+   ],
+   "transport_serialization_only_line": "Return the response as JSON."
+  },
+  "candidate": {
+   "provider": "moonshot",
+   "model_id": "kimi-k3",
+   "base_url": "https://api.moonshot.cn/v1",
+   "http_status": 200,
+   "latency_ms": 13601.3,
+   "temperature_requested": 1,
+   "temperature_policy": "MODEL_REQUIRED_VALUE",
+   "temperature_comparability_flag": true,
+   "temperature_accepted": true,
+   "reasoning_mode": "mandatory",
+   "reasoning_effort_requested": "low",
+   "reasoning_effort_param_name": "reasoning_effort (OpenAI-compatible; metadata key reasoning_efforts; valid low/high/max)",
+   "transport": {
+    "response_format": "json_object",
+    "section_a_included": true,
+    "section_d_included": true,
+    "json_serialization_line_added": true,
+    "json_serialization_line_scope": "moonshot",
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY"
+   },
+   "finish_reason": "stop",
+   "reasoning_content_present": true,
+   "reasoning_effort_accepted": true,
+   "observed_reasoning_effort": "not_returned_by_api",
+   "usage": {
+    "input_tokens": 636,
+    "output_tokens": 320,
+    "reasoning_tokens": 170,
+    "total_tokens": 956
+   },
+   "checks": {
+    "parseable": true,
+    "top_level_keys": [
+     "requirement_matches",
+     "suggested_preparation",
+     "summary"
+    ],
+    "top_level_exact": true,
+    "top_level_all_present": true,
+    "requirement_matches_is_list": true,
+    "item_keys": [
+     "evidence_ids",
+     "match_label",
+     "reason",
+     "requirement_id"
+    ],
+    "item_canonical_fields_present": true,
+    "item_extra_keys": [],
+    "item_alias_fields_present": [],
+    "requirement_id_preserved": true,
+    "match_label": "Strong",
+    "match_label_valid": true,
+    "evidence_ids_is_list": true,
+    "reason_is_str": true,
+    "suggested_preparation_is_list": true,
+    "no_semantic_alias_remap_needed": true,
+    "canonical_ok": true
+   },
+   "canonical_field_adherence": "EXACT",
+   "requirement_id_preserved": true,
+   "structured_output_class": "JSON_OBJECT_ONLY",
+   "response_excerpt": "{\"summary\":\"The candidate has direct evidence of using SQL for product analytics through building an analytics dashboard to analyze product usage.\",\"requirement_matches\":[{\"requirement_id\":\"synthetic_req_001\",\"match_label\":\"Strong\",\"evidence_ids\":[\"synthetic_ev_001\"],\"reason\":\"The evidence explicitly describes using SQL to analyze product usage in an analytics dashboard, which directly matches experience using SQL for product analytics.\"}],\"suggested_preparation\":[{\"title\":\"Prepare a concise SQL analytics example\",\"action\":\"Be ready to explain the dashboard metrics, SQL queries used, and how insights influenced a product decision.\",\"priority\":\"Medium\",\"requirement_ids\":[\"synthetic_req_001\"]}]}",
+   "pass": true
+  },
+  "pass": true
+ }
+}

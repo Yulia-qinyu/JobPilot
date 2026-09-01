@@ -1,0 +1,174 @@
+{
+ "run_id": "current-claude-baseline-v1-20260901-034331",
+ "run_timestamp_utc": "2026-09-01T03:43:31.361370+00:00",
+ "git_commit": "1a31c8d065d087d0d4530ed64580c07282cc230b",
+ "git_working_tree": "M README.md\n?? backend/evals/scripts/",
+ "model": {
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-5-20250929",
+  "temperature": 0,
+  "max_tokens": 4096,
+  "structured_output": "anthropic messages.parse output_format=FitAnalysisOutput",
+  "matcher_prompt_version": "job-fit-v3-matchable-only",
+  "matcher_schema_version": "fit-analysis-wire-v2",
+  "matcher_source_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "retry_policy": "Anthropic SDK default (max_retries=2); no eval-added retries",
+  "timeout": "Anthropic SDK default",
+  "prompt_source": "app/services/requirement_matcher.py (unmodified)"
+ },
+ "frozen_inputs": {
+  "ground_truth_v2_sha256": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+  "dataset_v1_json_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+  "dataset_v1_csv_sha256": "5d05580595f2f7b92707857a05ac48a93ad32c845bb0b4d4cd06a0734e788d6b",
+  "candidate_evidence_resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+  "candidate_evidence_experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+  "candidate_evidence_catalog_version": "candidate-evidence-v2",
+  "candidate_evidence_catalog_size": 30
+ },
+ "matchable_requirements": 100,
+ "model_calls": 30,
+ "reconciliation": {
+  "expected": 100,
+  "reconciled_by_job_id_requirement_id": 91,
+  "unreconciled": 9,
+  "join_key": [
+   "job_id",
+   "requirement_id"
+  ]
+ },
+ "ground_truth_label_distribution": {
+  "Partial": 30,
+  "Strong": 52,
+  "Missing": 18
+ },
+ "classification": {
+  "accuracy": 0.6813,
+  "macro_precision": 0.7377,
+  "macro_recall": 0.6916,
+  "macro_f1": 0.6919,
+  "per_class": {
+   "Strong": {
+    "precision": 0.8788,
+    "recall": 0.6304,
+    "f1": 0.7342,
+    "tp": 29,
+    "fp": 4,
+    "fn": 17
+   },
+   "Partial": {
+    "precision": 0.4773,
+    "recall": 0.7778,
+    "f1": 0.5915,
+    "tp": 21,
+    "fp": 23,
+    "fn": 6
+   },
+   "Missing": {
+    "precision": 0.8571,
+    "recall": 0.6667,
+    "f1": 0.75,
+    "tp": 12,
+    "fp": 2,
+    "fn": 6
+   }
+  },
+  "confusion_matrix": {
+   "rows_ground_truth": [
+    "Strong",
+    "Partial",
+    "Missing"
+   ],
+   "cols_prediction": [
+    "Strong",
+    "Partial",
+    "Missing"
+   ],
+   "matrix": [
+    [
+     29,
+     17,
+     0
+    ],
+    [
+     4,
+     21,
+     2
+    ],
+    [
+     0,
+     6,
+     12
+    ]
+   ]
+  }
+ },
+ "grounding": {
+  "grounding_rate": 1.0,
+  "unsupported_match_rate": 0.0,
+  "evidence_id_validity_rate": 1.0,
+  "missing_with_evidence_rate": 0.0,
+  "matched_with_zero_evidence_rate": 0.0,
+  "predicted_strong_partial_rows": 77
+ },
+ "human_evidence_agreement_secondary": {
+  "exact_set_match_rate": 0.1429,
+  "mean_jaccard": 0.5119,
+  "at_least_one_overlap_rate": 0.9091
+ },
+ "schema": {
+  "schema_success_rate": 1.0,
+  "normalization_success_rate": 0.9667,
+  "complete_job_call_success_rate": 0.9667,
+  "omitted_requirements": 9,
+  "duplicate_predictions": 1,
+  "hallucinated_requirement_ids": 0,
+  "invalid_labels": 0,
+  "retry_count": "not exposed by SDK"
+ },
+ "latency": {
+  "total_runtime_ms": 632496.8,
+  "total_model_latency_ms": 632026.1,
+  "mean_ms": 21067.5,
+  "median_ms": 19858.0,
+  "p90_ms": 30584.1,
+  "min_ms": 8681.0,
+  "max_ms": 35982.8,
+  "model_calls": 30
+ },
+ "tokens": {
+  "input": 127696,
+  "output": 31365,
+  "total": 159061,
+  "avg_per_job": 5302.0,
+  "avg_per_requirement": 1590.6
+ },
+ "cost": {
+  "total": null,
+  "avg_per_job": null,
+  "currency": "USD",
+  "availability": "unavailable — no model pricing present in repo config; web pricing lookup disallowed by task"
+ },
+ "job_level": {
+  "spearman_match_score_vs_human_match_fit": 0.5373,
+  "pearson_optional": 0.5675,
+  "jobs_scored": 29,
+  "match_score_meaning": "verified career-evidence coverage of matchable requirements ONLY; not overall applicant suitability; eligibility separate"
+ },
+ "determinism": "single run (Baseline V1); temperature=0; no repeats; variance not measured",
+ "error_analysis": {
+  "total_wrong_of_100": 38,
+  "reconciled_misclassifications": 29,
+  "unreconciled_predictions": 9,
+  "buckets": {
+   "L_schema_normalization_failure_job_level_duplicate_id": 9,
+   "B_partial_overprediction_GT_strong_generic_conservatism": 8,
+   "E_technology_or_domain_adjacency_over_credited_GT_missing": 6,
+   "D_project_experience_under_credited_vs_GT_formal_role": 6,
+   "J_proficiency_depth_scope_overclaim_GT_partial": 4,
+   "G_or_list_one_satisfied_alternative_not_credited": 3,
+   "I_available_adjacent_evidence_missed_GT_partial": 2
+  },
+  "dominant_pattern": "Partial overprediction: 23 of 44 predicted-Partial rows are false positives (17 GT-Strong downgraded, 6 GT-Missing upgraded). Model is systematically more conservative than the human rubric on Strong, and over-credits technology adjacency into Partial on Missing.",
+  "note": "Grounding is fully reliable post-normalization (grounding_rate 1.0, unsupported_match_rate 0.0). The only hard failure mode is a single job whose raw output repeated one requirement_id, which production _normalize_matches rejects wholesale -> 9 requirements unscored and that job unscorable."
+ }
+}

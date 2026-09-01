@@ -1,0 +1,12 @@
+model,slice,n,n_reconciled,accuracy,macro_f1,errors,unreconciled,directional
+deepseek-v4-pro,or_list,18,9,0.5556,,4,9,Missing->Partial=3;Partial->Strong=1
+deepseek-v4-pro,technology_adjacency,5,4,0.0,,4,1,Missing->Partial=4
+deepseek-v4-pro,project_based_evidence,21,21,0.7619,0.6448,5,0,Missing->Partial=2;Partial->Strong=2;Strong->Partial=1
+deepseek-v4-pro,formal_work_experience,11,8,0.5,,4,3,Missing->Partial=3;Partial->Strong=1
+deepseek-v4-pro,compound,13,3,0.3333,,2,10,Missing->Partial=1;Partial->Strong=1
+deepseek-v4-pro,proficiency_depth,11,2,1.0,,0,9,
+deepseek-v4-pro,domain_specific,11,5,0.8,,1,6,Missing->Partial=1
+deepseek-v4-pro,small_matchable_jobs,51,40,0.775,0.5793,9,11,Missing->Partial=5;Partial->Strong=2;Strong->Partial=2
+deepseek-v4-pro,one_requirement_jobs,4,4,1.0,,0,0,
+deepseek-v4-pro,mismatched_control_jobs,13,5,0.6,,2,8,Partial->Strong=1;Missing->Partial=1
+deepseek-v4-pro,chinese_jd,93,40,0.8,0.6788,8,53,Missing->Partial=5;Partial->Strong=1;Strong->Partial=2

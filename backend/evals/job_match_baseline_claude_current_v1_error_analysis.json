@@ -1,0 +1,710 @@
+{
+ "analysis_id": "current-claude-baseline-v1-error-analysis",
+ "offline": true,
+ "anthropic_calls": 0,
+ "llm_calls": 0,
+ "web_calls": 0,
+ "production_matcher_calls": 0,
+ "inputs": {
+  "baseline_predictions": "job_match_baseline_claude_current_v1_predictions.json",
+  "ground_truth": "job_match_annotation_full_v2_human_verified.json (frozen, read-only)",
+  "ground_truth_version": "job-match-ground-truth-v2",
+  "rubric_id": "annotation-rubric-v2",
+  "frozen_eval_commit": "1a31c8d"
+ },
+ "summary": {
+  "accounting": {
+   "total_expected": 100,
+   "correct_reconciled": 62,
+   "incorrect_reconciled": 29,
+   "unreconciled_system_failure": 9
+  },
+  "effective_correct_coverage": 0.62,
+  "macro_f1": 0.6919,
+  "accuracy_on_91_reconciled": 0.6813,
+  "headline": "Only 62/100 frozen matchable requirements end up with a correct usable prediction (Effective Correct Coverage 0.62). Of the 38 shortfalls: 9 are a single job lost to production normalization, and 29 are label errors dominated by Strong->Partial (17)."
+ },
+ "classification_errors": {
+  "accounting": {
+   "total_expected": 100,
+   "correct_reconciled": 62,
+   "incorrect_reconciled": 29,
+   "unreconciled_system_failure": 9
+  },
+  "effective_correct_coverage": 0.62
+ },
+ "directional_errors": {
+  "matrix": {
+   "Strong->Partial": {
+    "count": 17,
+    "pct_of_all_errors": 0.5862,
+    "pct_of_gt_class": 0.3269
+   },
+   "Strong->Missing": {
+    "count": 0,
+    "pct_of_all_errors": 0.0,
+    "pct_of_gt_class": 0.0
+   },
+   "Partial->Strong": {
+    "count": 4,
+    "pct_of_all_errors": 0.1379,
+    "pct_of_gt_class": 0.1333
+   },
+   "Partial->Missing": {
+    "count": 2,
+    "pct_of_all_errors": 0.069,
+    "pct_of_gt_class": 0.0667
+   },
+   "Missing->Strong": {
+    "count": 0,
+    "pct_of_all_errors": 0.0,
+    "pct_of_gt_class": 0.0
+   },
+   "Missing->Partial": {
+    "count": 6,
+    "pct_of_all_errors": 0.2069,
+    "pct_of_gt_class": 0.3333
+   }
+  },
+  "dominant": "Strong->Partial",
+  "dominant_count": 17,
+  "dominant_pct_of_errors": 0.5862,
+  "dominant_pct_of_gt_strong": 0.3269,
+  "bias": "The matcher compresses toward Partial: it under-credits direct evidence (Strong->Partial 17) far more than it over-credits (Partial->Strong 4), and it never crosses two steps (0 Strong<->Missing)."
+ },
+ "partial_analysis": {
+  "predicted_partial": 44,
+  "true_partial_reconciled": 27,
+  "tp": 21,
+  "fp": 23,
+  "fn": 6,
+  "precision": 0.4773,
+  "recall": 0.7778,
+  "f1": 0.5915,
+  "fp_from_gt_strong": 17,
+  "fp_from_gt_missing": 6,
+  "fp_from_gt_strong_pct": 0.7391,
+  "fp_from_gt_missing_pct": 0.2609,
+  "interpretation": "Partial is used as a broad uncertainty bucket: of 44 predicted-Partial rows, 23 are false positives (17 GT-Strong under-credited + 6 GT-Missing over-credited via adjacency). Only 21 of 44 predicted-Partial rows are genuinely Partial."
+ },
+ "strong_underprediction": {
+  "total": 17,
+  "groups": {
+   "project_or_internship_underweighted": {
+    "count": 2,
+    "examples": [
+     "reqv2_7c8882c717660066",
+     "reqv2_9149c4b1d212048c"
+    ]
+   },
+   "completeness_or_fullflow_demanded": {
+    "count": 5,
+    "examples": [
+     "reqv2_377262a20b779d20",
+     "reqv2_9149c4b1d212048c",
+     "reqv2_5dfabc3bf0e9566f"
+    ]
+   },
+   "no_metric_or_outcome_downgrade": {
+    "count": 6,
+    "examples": [
+     "reqv2_e913e8618fce3ef0",
+     "reqv2_5dfabc3bf0e9566f",
+     "reqv2_2aa26881dbfb4a32"
+    ]
+   },
+   "specific_product_type_not_credited": {
+    "count": 2,
+    "examples": [
+     "reqv2_379e8bc24f903143",
+     "reqv2_23a50d8ef3c57335"
+    ]
+   },
+   "unclassified": {
+    "count": 5,
+    "examples": [
+     "reqv2_e3eb1e145f323224",
+     "reqv2_d51e7d995d268f8f",
+     "reqv2_ddd61beb368e5153"
+    ]
+   }
+  },
+  "primary_owner": "PROMPT_RULE_COMMUNICATION"
+ },
+ "missing_to_partial": {
+  "total": 6,
+  "groups": {
+   "technology_adjacency": {
+    "count": 4,
+    "examples": [
+     "reqv2_c5c5a841f5fb83b6",
+     "reqv2_8e1b2b33ed5b36a1",
+     "reqv2_1c9199d15075aa37"
+    ]
+   },
+   "domain_adjacency": {
+    "count": 1,
+    "examples": [
+     "reqv2_f982055a8756f25d"
+    ]
+   },
+   "general_model_experience_credited": {
+    "count": 4,
+    "examples": [
+     "reqv2_c5c5a841f5fb83b6",
+     "reqv2_8e1b2b33ed5b36a1",
+     "reqv2_1c9199d15075aa37"
+    ]
+   },
+   "partial_tool_overlap": {
+    "count": 0,
+    "examples": []
+   }
+  },
+  "adjacency": {
+   "gt_missing_predicted_partial": 6,
+   "adjacency_driven": 5,
+   "adjacency_share_of_missing_errors": 0.8333,
+   "hypothesis_test": "Conceptual/technical adjacency is treated as sufficient evidence for Partial.",
+   "verdict": "CONFIRMED — 5/6 GT-Missing->Partial rows cite general/adjacent evidence for a specialised capability the candidate has no direct evidence for."
+  }
+ },
+ "partial_to_strong": {
+  "total": 4,
+  "groups": {
+   "skill_list_as_deep_proficiency": {
+    "count": 2,
+    "examples": [
+     "reqv2_eb1153f86b18ee41",
+     "reqv2_866eff0ae6a7bf23"
+    ]
+   },
+   "project_overgeneralized": {
+    "count": 4,
+    "examples": [
+     "reqv2_331e5372454cf54a",
+     "reqv2_eb1153f86b18ee41",
+     "reqv2_866eff0ae6a7bf23"
+    ]
+   },
+   "compound_only_partly_covered": {
+    "count": 1,
+    "examples": [
+     "reqv2_eb1153f86b18ee41"
+    ]
+   }
+  },
+  "compound_involved": 0
+ },
+ "project_vs_work": {
+  "project_under_credited": {
+   "count": 6,
+   "examples": [
+    {
+     "rid": "reqv2_7c8882c717660066",
+     "job": "AI产品经理",
+     "req": "独立完成需求分析、产品设计、项目推进与数据迭代",
+     "transition": "Strong->Partial"
+    },
+    {
+     "rid": "reqv2_377262a20b779d20",
+     "job": "AI产品经理-AI平台（Agent）方向",
+     "req": "具有完整 AI 产品落地经历",
+     "transition": "Strong->Partial"
+    },
+    {
+     "rid": "reqv2_9149c4b1d212048c",
+     "job": "QQ-Agent产品经理",
+     "req": "AI Agent、大模型应用或智能助手类产品经验",
+     "transition": "Strong->Partial"
+    },
+    {
+     "rid": "reqv2_5dfabc3bf0e9566f",
+     "job": "证券-AI产品经理-金融AI应用体验方向",
+     "req": "具有 AI 原生或 Agent 产品完整落地经验",
+     "transition": "Strong->Partial"
+    },
+    {
+     "rid": "reqv2_2c48e151d8271b86",
+     "job": "企业微信-基础产品经理",
+     "req": "产品设计与功能策划经验",
+     "transition": "Strong->Partial"
+    },
+    {
+     "rid": "reqv2_02360706ab26d285",
+     "job": "腾讯视频-增长产品经理",
+     "req": "增长方法论与项目落地经验",
+     "transition": "Strong->Partial"
+    }
+   ]
+  },
+  "project_over_credited": {
+   "count": 8,
+   "examples": [
+    {
+     "rid": "reqv2_c5c5a841f5fb83b6",
+     "job": "AI产品经理（J84006）",
+     "req": "多模态大模型应用 / AIGC / 社交娱乐类产品经验",
+     "transition": "Missing->Partial"
+    },
+    {
+     "rid": "reqv2_8e1b2b33ed5b36a1",
+     "job": "AI产品经理（J84492）",
+     "req": "语音交互大模型方向工作或科研经历",
+     "transition": "Missing->Partial"
+    },
+    {
+     "rid": "reqv2_331e5372454cf54a",
+     "job": "微信输入法-AI产品经理",
+     "req": "系统性思考、问题拆解与从 0 到 1",
+     "transition": "Partial->Strong"
+    },
+    {
+     "rid": "reqv2_eb1153f86b18ee41",
+     "job": "Data Product Manager",
+     "req": "data analysis tools (Tableau/PowerBI/FineBI/SQL)",
+     "transition": "Partial->Strong"
+    },
+    {
+     "rid": "reqv2_f982055a8756f25d",
+     "job": "腾讯云-经营系统产品经理",
+     "req": "熟悉企业经营管理流程",
+     "transition": "Missing->Partial"
+    },
+    {
+     "rid": "reqv2_866eff0ae6a7bf23",
+     "job": "AI-First Engineering Intern",
+     "req": "already uses AI tooling to build/ship faster",
+     "transition": "Partial->Strong"
+    }
+   ]
+  },
+  "principle": "Frozen adjudication: project experience can be matchable evidence; when JD implies formal professional-role experience a project alone normally supports Partial; when JD asks related direction / delivery / productization a complete direct project may support Strong."
+ },
+ "or_list": {
+  "or_list_rows_total": 18,
+  "or_list_correct": 8,
+  "or_list_incorrect": 10,
+  "or_list_unreconciled": 0,
+  "or_list_accuracy_reconciled": 0.4444,
+  "mistakes": [
+   {
+    "rid": "reqv2_c5c5a841f5fb83b6",
+    "job": "AI产品经理（J84006）",
+    "req": "多模态大模型应用 / AIGC / 社交娱乐类产品经验",
+    "source_text": "具有 2 年及以上产品设计经验，有多模态大模型应用、AIGC、或社交娱乐类产品经验者优先",
+    "transition": "Missing->Partial",
+    "reason": "候选人在中国电子云有AI大模型实习经验，参与过LLM集成和RAG应用开发，但缺少多模态、AIGC或社交娱乐产品的直接经验，且实习经历未达2年产品设计要求。"
+   },
+   {
+    "rid": "reqv2_8e1b2b33ed5b36a1",
+    "job": "AI产品经理（J84492）",
+    "req": "语音交互大模型方向工作或科研经历",
+    "source_text": "国内重点院校本科/研究生毕业，有语音交互大模型等相关方向工作经验或科研项目经历优先",
+    "transition": "Missing->Partial",
+    "reason": "候选人有AI大模型实习经历和LLM应用开发经验，但缺乏语音交互方向的具体工作或科研项目。现有经验集中在通用大模型应用、RAG和对话系统，未涉及语音模态。"
+   },
+   {
+    "rid": "reqv2_e3eb1e145f323224",
+    "job": "AI产品经理（J98328）",
+    "req": "熟悉 AI 领域或医疗健康行业",
+    "source_text": "本科及以上学历，拥有1年及以上产品工作经验优先，熟悉AI领域或者医疗健康行业者优先",
+    "transition": "Strong->Partial",
+    "reason": "候选人在AI领域有实践经验，包括AI大模型实习、LLM集成、RAG应用和NLP项目，但在医疗健康行业方面没有直接经验。"
+   },
+   {
+    "rid": "reqv2_377262a20b779d20",
+    "job": "AI产品经理-AI平台（Agent）方向",
+    "req": "具有完整 AI 产品落地经历",
+    "source_text": "一年以上 AI/Agent 产品经验，有完整落地项目经历；计算机科学或相关技术领域的本科及以上学历；",
+    "transition": "Strong->Partial",
+    "reason": "候选人在GoFin项目中负责LLM集成和RAG应用,并在中国电子云参与大模型产品需求讨论,但缺少从需求定义、开发到上线运营的完整AI产品落地全流程证据。"
+   },
+   {
+    "rid": "reqv2_9149c4b1d212048c",
+    "job": "QQ-Agent产品经理",
+    "req": "AI Agent、大模型应用或智能助手类产品经验",
+    "source_text": "1.本科及以上学历，3年以上产品经理工作经验，有AI Agent、大模型应用或智能助手类产品经验者优先；",
+    "transition": "Strong->Partial",
+    "reason": "候选人在中国电子云参与大模型应用方向探索,在GoFin项目中负责LLM集成和RAG实现,简历显示具备大语言模型应用开发和RAG文件分析经验。但经验主要来自实习和个人项目,缺少完整的AI Agent或智能助手类产品从0到1的产品经理经验。"
+   },
+   {
+    "rid": "reqv2_5dfabc3bf0e9566f",
+    "job": "证券-AI产品经理-金融AI应用体验方向",
+    "req": "具有 AI 原生或 Agent 产品完整落地经验",
+    "source_text": "有Ai原生产品、Agent应用或复杂C端工具/内容产品的完整落地经验。",
+    "transition": "Strong->Partial",
+    "reason": "候选人在 GoFin 项目中负责 LLM 集成和 RAG 应用,具备 AI 产品开发经验,但未明确展示完整的 AI 原生或 Agent 产品从 0 到 1 落地全流程与可验证成果。"
+   },
+   {
+    "rid": "reqv2_f982055a8756f25d",
+    "job": "腾讯云-经营系统产品经理",
+    "req": "熟悉企业经营管理流程",
+    "source_text": "1.本科及以上学历，3年及以上ToB互联网产品策划经验，熟悉企业经营管理流程，参与建立或优化企业合同管理流程及合同管理系统设计的优先；",
+    "transition": "Missing->Partial",
+    "reason": "候选人在KPay Group设计过渠道伙伴增长策略与运营框架，具备一定ToB业务理解，但简历中未体现对企业经营管理流程的系统性认知或实践经验。"
+   },
+   {
+    "rid": "reqv2_23a50d8ef3c57335",
+    "job": "腾讯会议-评测产品经理",
+    "req": "ASR / 大模型 / 智能对话 / AI 搜索 / 语音助手方向经验",
+    "source_text": "2.具备AI 产品经理、策略产品经理或评测产品相关经验，有ASR、大模型、智能对话、AI搜索、语音助手等方向经验者优先；",
+    "transition": "Strong->Partial",
+    "reason": "候选人有大模型应用开发和RAG文件分析经验,在中国电子云参与过大模型应用方向探索。但简历中未体现ASR、智能对话、AI搜索或语音助手等具体方向的直接项目经验。"
+   },
+   {
+    "rid": "reqv2_1c9199d15075aa37",
+    "job": "AI大模型架构师（训练/推理）",
+    "req": "大模型精度调优、基模或强化学习训练经验",
+    "source_text": "5. 有大模型精度调优经验，有基模训练经验或者RL训练经验",
+    "transition": "Missing->Partial",
+    "reason": "候选人有模型训练评估和性能评估经验,但缺少大模型精度调优、基模训练或强化学习训练的直接证据。"
+   },
+   {
+    "rid": "reqv2_b741297aa944df7f",
+    "job": "腾讯视频-增长产品经理",
+    "req": "用户增长、增长运营或内容平台产品经验",
+    "source_text": "有用户增长、增长运营或内容平台产品经验优先；",
+    "transition": "Strong->Partial",
+    "reason": "候选人在KPay Group担任增长运营实习生,设计渠道伙伴增长策略并支持支付业务增长,具备增长运营经验。但缺乏明确的用户增长或内容平台产品经验的直接证据。"
+   }
+  ],
+  "mistake_directions": {
+   "Strong->Partial (one alternative met, others penalised)": 6,
+   "Missing->Partial (no alternative met, adjacency over-credited)": 4
+  },
+  "pattern": "OR-list handling fails in BOTH directions: (a) over-strict — one clearly-satisfied alternative is downgraded to Partial because other non-required alternatives are absent (GT Strong->Partial); (b) over-lenient — an OR-list of capabilities the candidate has NONE of is lifted to Partial via adjacency (GT Missing->Partial). OR-list reconciled accuracy ~0.44 vs 0.68 overall."
+ },
+ "compound_requirements": {
+  "compound_rows": 13,
+  "non_compound_rows": 87,
+  "compound_error_rate_reconciled": 0.25,
+  "non_compound_error_rate_reconciled": 0.3291,
+  "errors_involving_incomplete_compound_coverage": 3,
+  "note": "Heuristic compound detector (subclaim/qualifier/tool-list/ownership markers >= 2); sample is small, treat rates as indicative."
+ },
+ "grounding_semantics": {
+  "grounding_rate": 1.0,
+  "unsupported_match_rate": 0.0,
+  "incorrect_strong_or_partial_predictions": 27,
+  "of_which_used_only_valid_evidence": 27,
+  "share": 1.0,
+  "distinction": {
+   "A_evidence_validity": "1.000 — every cited id exists in the frozen 30-item catalog (also enforced by _normalize_matches).",
+   "B_evidence_relevance_sufficiency": "WEAK — 27 incorrect Strong/Partial rows cite valid but insufficient/adjacent evidence.",
+   "C_final_label_correctness": "0.681 accuracy — valid grounding does NOT imply a correct semantic label."
+  },
+  "product_implication": "A displayed 'evidence-backed' match can still be the wrong strength. Grounding rate is a safety metric, not a quality metric."
+ },
+ "schema_failure": {
+  "job_id": "tencent:2047239002926510080",
+  "job_title": "金融科技-AI数据产品经理-数据开发方向",
+  "matchable_requirements": 9,
+  "raw_rows_returned": 10,
+  "duplicated_requirement_id": [
+   "reqv2_a6ad3fd74c22598d"
+  ],
+  "omitted_requirement_ids": [],
+  "hallucinated_requirement_ids": [],
+  "all_other_raw_rows_valid": true,
+  "potentially_usable_predictions_lost": 9,
+  "ownership": {
+   "MODEL_CAPABILITY": "emitted requirement_id reqv2_a6ad3fd74c22598d twice (identical duplicate row) despite 'no duplicates' instruction.",
+   "PRODUCTION_NORMALIZATION": "_normalize_matches rejects the ENTIRE job on any id-set violation; 8 otherwise-valid predictions are discarded with no partial recovery."
+  },
+  "job_loss_rate": "1 / 30 jobs (3.3%)"
+ },
+ "system_reliability": {
+  "funnel": {
+   "raw_schema_parse_success": "30 / 30",
+   "job_normalization_success": "29 / 30",
+   "requirement_prediction_coverage": "91 / 100",
+   "effective_correct_coverage": "62 / 100"
+  },
+  "stage_losses": {
+   "parse": 0,
+   "normalize": 9,
+   "wrong_label": 29,
+   "usable_correct": 62
+  }
+ },
+ "score_propagation": {
+  "jobs_comparable": 29,
+  "mae_gt_vs_baseline": 13.45,
+  "median_abs_err": 12,
+  "max_abs_err": 50,
+  "jobs_score_diff_ge_20": 8,
+  "jobs_score_diff_ge_30": 2,
+  "rank_correlation_gt_vs_baseline_spearman": 0.7071,
+  "note": "GT Match Score = frozen canonical importance x Human label. Baseline (production) = model-predicted importance x model label. The failed job has no baseline score and is excluded."
+ },
+ "correlation_decomposition": {
+  "gt_match_score_vs_human_match_fit_spearman_all29": 0.8437,
+  "gt_match_score_vs_human_match_fit_pearson_all29": 0.8721,
+  "baseline_match_score_vs_human_match_fit_spearman_all29": 0.5373,
+  "baseline_match_score_vs_human_match_fit_pearson_all29": 0.5675,
+  "on_common_comparable_set": {
+   "gt_vs_hmf_spearman": 0.8452,
+   "baseline_vs_hmf_spearman": 0.5373,
+   "correlation_loss_from_matcher_errors": 0.3079
+  },
+  "interpretation": "GT Match Score vs Human Match Fit Spearman 0.845 (construct is sound with perfect labels); Baseline Match Score vs Human Match Fit Spearman 0.537; ~0.31 rank-correlation is lost purely to matcher label errors. Matcher quality is the dominant lever, not scoring design."
+ },
+ "small_n_volatility": {
+  "by_bucket": {
+   "1": {
+    "jobs": 4,
+    "mean_human_match_fit": 4.5,
+    "mean_gt_match_score": 100,
+    "mean_baseline_abs_err": 12.5,
+    "one_important_label_flip_score_delta_pts_approx": 50.0
+   },
+   "2": {
+    "jobs": 7,
+    "mean_human_match_fit": 3.71,
+    "mean_gt_match_score": 76.9,
+    "mean_baseline_abs_err": 14.1,
+    "one_important_label_flip_score_delta_pts_approx": 25.0
+   },
+   "3": {
+    "jobs": 11,
+    "mean_human_match_fit": 3.36,
+    "mean_gt_match_score": 67,
+    "mean_baseline_abs_err": 12.5,
+    "one_important_label_flip_score_delta_pts_approx": 16.7
+   },
+   "4-5": {
+    "jobs": 4,
+    "mean_human_match_fit": 3.5,
+    "mean_gt_match_score": 57.2,
+    "mean_baseline_abs_err": 14.8,
+    "one_important_label_flip_score_delta_pts_approx": 12.5
+   },
+   "6+": {
+    "jobs": 4,
+    "mean_human_match_fit": 3.5,
+    "mean_gt_match_score": 68,
+    "mean_baseline_abs_err": 14.7,
+    "one_important_label_flip_score_delta_pts_approx": 8.3
+   }
+  },
+  "jobs_where_one_flip_moves_score_ge_25pts": [
+   {
+    "job": "AI产品经理（J84006）",
+    "matchable": 2,
+    "gt_score": 50,
+    "baseline_score": 75,
+    "abs_err": 25
+   },
+   {
+    "job": "AI产品经理",
+    "matchable": 2,
+    "gt_score": 75,
+    "baseline_score": 38,
+    "abs_err": 37
+   },
+   {
+    "job": "QQ-Agent产品经理",
+    "matchable": 1,
+    "gt_score": 100,
+    "baseline_score": 50,
+    "abs_err": 50
+   },
+   {
+    "job": "AI-First Engineering Intern",
+    "matchable": 2,
+    "gt_score": 75,
+    "baseline_score": 100,
+    "abs_err": 25
+   }
+  ],
+  "classification": "DETERMINISTIC_SCORING / UX robustness — not a matcher-quality issue."
+ },
+ "human_match_fit_construct": {
+  "note": "These use GT (human) labels, so they are NOT matcher errors — they show the matchable-only Match Score construct vs holistic Human Match Fit.",
+  "outliers": [
+   {
+    "job": "AI产品经理（J84492）",
+    "human_match_fit": 3,
+    "gt_match_score": 80,
+    "matchable_requirement_count": 3,
+    "rank_gap": 9.5
+   },
+   {
+    "job": "腾讯会议-评测产品经理",
+    "human_match_fit": 4,
+    "gt_match_score": 70,
+    "matchable_requirement_count": 3,
+    "rank_gap": 9.5
+   },
+   {
+    "job": "大模型应用平台产品经理（J85776）",
+    "human_match_fit": 4,
+    "gt_match_score": 71,
+    "matchable_requirement_count": 3,
+    "rank_gap": 8.5
+   },
+   {
+    "job": "AI产品经理（J96736）",
+    "human_match_fit": 4,
+    "gt_match_score": 100,
+    "matchable_requirement_count": 1,
+    "rank_gap": 8.0
+   },
+   {
+    "job": "产品经理实习生（J104146）",
+    "human_match_fit": 4,
+    "gt_match_score": 100,
+    "matchable_requirement_count": 1,
+    "rank_gap": 8.0
+   },
+   {
+    "job": "企业微信-基础产品经理",
+    "human_match_fit": 4,
+    "gt_match_score": 100,
+    "matchable_requirement_count": 3,
+    "rank_gap": 8.0
+   }
+  ],
+  "explanations": [
+   "matchable-only: Match Score ignores eligibility (42 rows) and knowledge (16 rows); a job can be capability-strong but eligibility-blocked, or vice versa.",
+   "small requirement sets: 1-3 matchable rows -> coarse 0/50/100-ish scores that cannot express a nuanced 1-5 fit.",
+   "role/domain mismatch: mismatched-control jobs (Xsolla, 微信语音识别算法) have few matchable PM-style rows; the candidate can 'cover' those while being wrong for the role.",
+   "subjective holistic perception: Human Match Fit integrates seniority realism and role shape that individual matchable requirements do not encode."
+  ]
+ },
+ "ownership": {
+  "per_family": {
+   "Strong->Partial (17)": {
+    "primary": "PROMPT_RULE_COMMUNICATION",
+    "secondary": "MODEL_CAPABILITY",
+    "rationale": "Frozen rubric rules (complete direct project can be Strong; OR-list; no-outcome != downgrade) are not in job-fit-v3; the model defaults to strict reading."
+   },
+   "Missing->Partial (6)": {
+    "primary": "PROMPT_RULE_COMMUNICATION",
+    "secondary": "MODEL_CAPABILITY",
+    "rationale": "No explicit 'adjacent technology is not partial support' guardrail; model credits general AI experience toward specialised capability."
+   },
+   "Partial->Strong (4)": {
+    "primary": "PROMPT_RULE_COMMUNICATION",
+    "secondary": "MODEL_CAPABILITY",
+    "rationale": "No 'match the narrowest unmet sub-claim' rule; skill-list / project evidence over-generalised."
+   },
+   "Partial->Missing (2)": {
+    "primary": "MODEL_CAPABILITY",
+    "rationale": "Model failed to connect an available adjacent evidence id it had access to."
+   },
+   "Unreconciled job (9)": {
+    "primary": "PRODUCTION_NORMALIZATION",
+    "secondary": "MODEL_CAPABILITY",
+    "rationale": "Model emitted a duplicate id (capability); production discards the whole job with no partial recovery (normalization design)."
+   },
+   "Match Score volatility": {
+    "primary": "DETERMINISTIC_SCORING",
+    "rationale": "1-3 matchable requirements make the deterministic score jump 25-50 pts per label flip."
+   },
+   "GT-score vs Human-Match-Fit gap": {
+    "primary": "EVALUATION_DATA_LIMITATION",
+    "secondary": "DETERMINISTIC_SCORING",
+    "rationale": "matchable-only construct + small-N + mismatched controls; not a matcher issue."
+   }
+  },
+  "primary_counts": {
+   "PROMPT_RULE_COMMUNICATION": 3,
+   "MODEL_CAPABILITY": 1,
+   "PRODUCTION_NORMALIZATION": 1,
+   "DETERMINISTIC_SCORING": 1,
+   "EVALUATION_DATA_LIMITATION": 1
+  }
+ },
+ "benchmark_relevant_issues": [
+  "Strong/Partial calibration (17 Strong->Partial, Strong recall 0.63)",
+  "Technology/domain adjacency reasoning (6 Missing->Partial)",
+  "OR / alternative-list reasoning (OR-list mistakes)",
+  "Compound requirement partial coverage",
+  "Project-vs-formal-work-experience semantics",
+  "Proficiency/scope overclaim (4 Partial->Strong)",
+  "Schema adherence / duplicate-id emission rate across models & temperatures"
+ ],
+ "not_solvable_by_model_selection": [
+  "All-or-nothing _normalize_matches (production normalization robustness) — a code decision, not a model choice",
+  "Small-N deterministic Match Score volatility (scoring/UX) — needs a confidence caveat or min-requirement handling",
+  "Evaluation dataset representativeness (27/30 Chinese, 22/30 experienced, 腾讯+百度 = 87%) — Dataset V2 scope",
+  "Match Score construct vs holistic Human Match Fit gap — product semantics / documentation, not model quality"
+ ],
+ "benchmark_hypotheses": [
+  {
+   "id": "H1",
+   "name": "Strong/Partial calibration via rubric rule communication",
+   "baseline_evidence": "Strong recall 0.630; 17 GT-Strong->Partial; 8 'generic conservatism' + 6 'project under-credited' + 3 OR-list.",
+   "target_metric": "Strong recall (up from 0.63), Macro F1 (up from 0.692)",
+   "failure_slice": "project_evidence_rows + or_list_rows + strong_to_partial",
+   "improvement_bar": "Strong recall >= 0.80 AND Strong precision >= 0.80 AND Missing->Partial errors do not increase (<=6)."
+  },
+  {
+   "id": "H2",
+   "name": "Technology/domain adjacency guardrail",
+   "baseline_evidence": "6/6 GT-Missing->Partial are adjacency-driven (general AI -> multimodal/ASR/RL/AIGC).",
+   "target_metric": "Missing recall (up from 0.667), Partial precision (up from 0.477)",
+   "failure_slice": "technology_adjacency_rows",
+   "improvement_bar": "Missing recall >= 0.83 AND no drop in Strong recall."
+  },
+  {
+   "id": "H3",
+   "name": "OR / alternative-list reasoning",
+   "baseline_evidence": "10 OR-list mistakes; all GT-Strong downgraded to Partial for missing non-required alternatives.",
+   "target_metric": "OR-list slice accuracy",
+   "failure_slice": "or_list_rows",
+   "improvement_bar": "OR-list slice accuracy >= 0.90."
+  },
+  {
+   "id": "H4",
+   "name": "Compound-requirement narrowest-unmet-subclaim rule",
+   "baseline_evidence": "3 errors involve compound rows; 4 Partial->Strong over-credit partly-covered compounds.",
+   "target_metric": "compound-slice accuracy; Partial precision",
+   "failure_slice": "compound_rows",
+   "improvement_bar": "compound-slice error rate <= non-compound error rate."
+  },
+  {
+   "id": "H5",
+   "name": "Duplicate-id / schema adherence across models & temperature",
+   "baseline_evidence": "1/30 jobs lost to a duplicated requirement_id in raw output.",
+   "target_metric": "job normalization success rate (up from 29/30); duplicate-id emission count",
+   "failure_slice": "all jobs (schema adherence)",
+   "improvement_bar": "30/30 normalization success across 3 repeats; 0 duplicate ids."
+  },
+  {
+   "id": "H6",
+   "name": "Model tier comparison (capacity vs prompt-bound)",
+   "baseline_evidence": "Strong->Partial compression could be capacity- or prompt-bound; not separable from one run.",
+   "target_metric": "Macro F1 delta at fixed prompt across Claude tiers",
+   "failure_slice": "full 100",
+   "improvement_bar": "identify whether a larger tier closes >50% of the Strong recall gap at the SAME prompt."
+  },
+  {
+   "id": "H7",
+   "name": "Repeat-run determinism check",
+   "baseline_evidence": "Single run at temp 0; determinism assumed, not verified.",
+   "target_metric": "label stability across 3 identical runs",
+   "failure_slice": "full 100",
+   "improvement_bar": ">= 98% label agreement across repeats."
+  }
+ ],
+ "benchmark_slices": {
+  "project_based_evidence_rows": "GT or predicted reason references a project/internship (GoFin/KPay/个人项目/Product Owner) as the main evidence.",
+  "formal_work_experience_rows": "source_text implies a formal professional role or a duration qualifier applied to a matchable (not eligibility) requirement.",
+  "or_list_rows": "source_text contains 或 / slash-joined alternatives / '等方向' / '之一' (is_or_list=true in error_slices.csv).",
+  "compound_rows": "is_compound=true: >=2 of {joint subclaim, >=2 '、' list, proficiency/completeness qualifier, multi-tool list}.",
+  "technology_adjacency_rows": "GT Missing where predicted reason credits general/adjacent tech (multimodal/ASR/RL/AIGC/LLM) toward a specialised capability.",
+  "proficiency_depth_rows": "source_text contains 熟练/精通/深入/扎实/proficient/expert or a multi-tool list requiring depth.",
+  "domain_specific_rows": "requirement names a specific industry/domain (证券/金融/医疗健康/battery industry/内容创作).",
+  "one_requirement_jobs": "matchable_requirement_count == 1.",
+  "small_matchable_jobs": "matchable_requirement_count <= 3.",
+  "mismatched_control_jobs": "role_category == mismatched_control in Dataset V1 (huawei:28183, xsolla:252b30e5, tencent:2064981110395420672)."
+ },
+ "baseline_decision": {
+  "keep_as_reference_baseline": "YES — honestly measured, fully reproducible, grounding/schema-format reliable; it is the anchor for Benchmark Round 1.",
+  "keep_as_model_candidate": "CONDITIONAL — Macro F1 0.692 and Partial precision 0.477 are below a comfortable production bar, and 1/30 jobs produced no usable output. Retain as a candidate ONLY if Benchmark Round 1 (prompt-rule communication for H1-H4) lifts Macro F1 materially and closes the duplicate-id job-loss; otherwise compare against a higher Claude tier.",
+  "drop_as_model_candidate": "NOT YET — no evidence it is worse than alternatives; alternatives have not been run."
+ }
+}

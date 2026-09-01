@@ -1,0 +1,12 @@
+model,slice,n,n_reconciled,accuracy,macro_f1,errors,unreconciled,directional
+qwen3.8-flash,or_list,18,18,0.4444,0.4583,10,0,Missing->Partial=4;Strong->Partial=5;Partial->Strong=1
+qwen3.8-flash,technology_adjacency,5,5,0.2,,4,0,Missing->Partial=4
+qwen3.8-flash,project_based_evidence,67,67,0.6418,0.5604,24,0,Partial->Strong=11;Missing->Partial=7;Strong->Partial=6
+qwen3.8-flash,formal_work_experience,11,11,0.4545,,6,0,Missing->Partial=4;Strong->Partial=2
+qwen3.8-flash,compound,13,13,0.4615,0.3357,7,0,Missing->Partial=2;Strong->Partial=2;Partial->Strong=3
+qwen3.8-flash,proficiency_depth,11,11,0.6364,,4,0,Partial->Strong=3;Missing->Partial=1
+qwen3.8-flash,domain_specific,11,11,0.4545,,6,0,Missing->Partial=3;Strong->Partial=3
+qwen3.8-flash,small_matchable_jobs,51,51,0.6863,0.5366,16,0,Partial->Strong=6;Missing->Partial=7;Strong->Partial=3
+qwen3.8-flash,one_requirement_jobs,4,4,1.0,,0,0,
+qwen3.8-flash,mismatched_control_jobs,13,13,0.7692,0.7685,3,0,Partial->Strong=1;Strong->Partial=1;Missing->Partial=1
+qwen3.8-flash,chinese_jd,93,93,0.6989,0.6717,28,0,Missing->Partial=8;Strong->Partial=11;Partial->Strong=9

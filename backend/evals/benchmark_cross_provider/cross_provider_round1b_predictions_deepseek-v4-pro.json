@@ -1,0 +1,4436 @@
+{
+ "run_id": "round1b-deepseek-v4-pro-20260901-072528",
+ "provider": "deepseek",
+ "model": "deepseek-v4-pro",
+ "calls": [
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "veeva:8ae64dee-34a9-4e69-84ef-b91bcde3f35f",
+   "job_title": "Senior Product Manager - AI Agent",
+   "company": "Veeva",
+   "requirement_ids_submitted": [
+    "reqv2_7d915e68d837899a",
+    "reqv2_9c1610fa5e9a8954"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:26:07.602179+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在 AI 产品与平台产品方面有一定相关经历，但两项要求均缺少明确、完整的直接证据，建议补充 AI Agent 与企业 SaaS/多租户方向的实践或可证明的理解。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_7d915e68d837899a",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人有 AI 产品相关经历：作为 Product Owner 负责 LLM 集成、RAG 与对话式目标创建，并有模型性能评估经验，但缺少 AI Agent 设计交付、上下文工程及人机协同流程的直接证据，因此为部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:resume:1:ai_experience:11",
+       "resume_extracted:30",
+       "resume_extracted:21"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_9c1610fa5e9a8954",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人有智能财务目标管理平台的产品负责人经历，属于平台型产品，但证据未明确体现企业 SaaS、可配置平台或多租户环境，因此为部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充 AI Agent 设计交付与上下文工程实践",
+      "action": "通过个人项目或课程项目完成一个 AI Agent 原型，覆盖 prompt/context 工程、人机协同流程与质量评估，并记录可展示的指标。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_7d915e68d837899a"
+      ]
+     },
+     {
+      "title": "补充企业 SaaS/多租户平台理解",
+      "action": "研究主流企业 SaaS 与多租户架构案例，在现有平台产品经历中梳理租户隔离、配置化与权限设计逻辑，形成可陈述的认知。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_9c1610fa5e9a8954"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_7d915e68d837899a",
+     "requirement_text": "AI Agent 设计交付、上下文工程、人机协同与质量评估的动手经验",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人有 AI 产品相关经历：作为 Product Owner 负责 LLM 集成、RAG 与对话式目标创建，并有模型性能评估经验，但缺少 AI Agent 设计交付、上下文工程及人机协同流程的直接证据，因此为部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:11",
+       "text": "模型性能评估",
+       "context": "主简历 · AI 经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "30",
+       "text": "使用 Python 处理百万级数据，开展 EDA、模型训练评估和可视化。",
+       "context": "银行账户欺诈数据分析 · 项目负责人"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_9c1610fa5e9a8954",
+     "requirement_text": "企业 SaaS、可配置平台或多租户产品经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人有智能财务目标管理平台的产品负责人经历，属于平台型产品，但证据未明确体现企业 SaaS、可配置平台或多租户环境，因此为部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 38829.4,
+   "input_tokens": 2811,
+   "output_tokens": 2735,
+   "reasoning_tokens": 2231,
+   "total_tokens": 5546,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407",
+   "job_title": "AI 产品经理实习生（J103757）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_c947d1b13c08af32",
+    "reqv2_ab313b520bea36f1"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:26:39.896070+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备计算机/人工智能相关教育背景，并在AI大模型实习与产品负责经历中展现了AI产品深度使用经验，两项要求均匹配充分。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_c947d1b13c08af32",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "教育经历包含厦门大学软件工程学士与UNSW信息技术（AI）方向双硕士，属于计算机及人工智能相关专业。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0",
+       "resume_extracted:resume:1:education:1"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_ab313b520bea36f1",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "在中国电子云AI大模型实习及GoFin产品负责经历中，参与LLM应用探索、数据支持、竞品分析，并主导LLM集成与RAG落地，体现深度使用AI产品。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:21",
+       "resume_extracted:22",
+       "resume_extracted:23",
+       "resume_extracted:28"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充具体AI产品使用案例与影响",
+      "action": "在面试或简历中补充使用主流AI产品解决实际问题的具体场景、频率和产出，突出个人使用深度与热情。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_ab313b520bea36f1"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_c947d1b13c08af32",
+     "requirement_text": "计算机或人工智能相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "教育经历包含厦门大学软件工程学士与UNSW信息技术（AI）方向双硕士，属于计算机及人工智能相关专业。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_ab313b520bea36f1",
+     "requirement_text": "具有 AI 产品深度使用经验",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "在中国电子云AI大模型实习及GoFin产品负责经历中，参与LLM应用探索、数据支持、竞品分析，并主导LLM集成与RAG落地，体现深度使用AI产品。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "22",
+       "text": "执行数据清洗与特征工程，为模型训练提供数据支持。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "23",
+       "text": "从产品功能、技术实现和用户体验维度开展竞品分析。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 32288.2,
+   "input_tokens": 2770,
+   "output_tokens": 2207,
+   "reasoning_tokens": 1830,
+   "total_tokens": 4977,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:7d5223fc-87b7-41ab-aef9-73aede246b65",
+   "job_title": "AI产品经理（J84006）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_0431fe88ab60c3c3",
+    "reqv2_c5c5a841f5fb83b6"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:27:12.625348+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备计算机/人工智能相关专业背景，符合专业要求；但在多模态大模型应用/AIGC/社交娱乐类产品经验方面仅有 LLM 相关的产品与实习经历，支撑不足，建议优先补充对口项目案例。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_0431fe88ab60c3c3",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "厦门大学软件工程学士属计算机相关专业，UNSW 信息技术（AI）双硕士进一步支撑人工智能相关专业背景。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:1",
+       "resume_extracted:resume:1:education:0"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_c5c5a841f5fb83b6",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人具备 GoFin 产品的 LLM/RAG 集成与产品负责人经历，以及 AI 大模型实习中的产品需求探索，但现有证据未体现多模态、AIGC 内容生成或社交娱乐类产品的直接经验，因此为部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21",
+       "resume_extracted:resume:1:ai_experience:0"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充多模态/AIGC产品项目经历",
+      "action": "围绕多模态大模型或 AIGC 工具策划一个产品项目，记录需求分析、PRD、交付与效果评估，作为求职作品集补充。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_c5c5a841f5fb83b6"
+      ]
+     },
+     {
+      "title": "整理现有AI产品经验并突出与岗位相关度",
+      "action": "将 GoFin 的 LLM/RAG 产品设计、AI 实习中的大模型应用探索整理成结构化案例，说明产品设计流程与结果，弥补缺少社交娱乐类经验的不足。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_c5c5a841f5fb83b6"
+      ]
+     },
+     {
+      "title": "确认专业方向与学历材料",
+      "action": "在简历中突出软件工程学士和信息技术（AI）双硕士，确保计算机/人工智能相关专业清晰可见。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_0431fe88ab60c3c3"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_0431fe88ab60c3c3",
+     "requirement_text": "计算机或人工智能相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "厦门大学软件工程学士属计算机相关专业，UNSW 信息技术（AI）双硕士进一步支撑人工智能相关专业背景。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_c5c5a841f5fb83b6",
+     "requirement_text": "多模态大模型应用 / AIGC / 社交娱乐类产品经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人具备 GoFin 产品的 LLM/RAG 集成与产品负责人经历，以及 AI 大模型实习中的产品需求探索，但现有证据未体现多模态、AIGC 内容生成或社交娱乐类产品的直接经验，因此为部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:0",
+       "text": "大语言模型应用开发",
+       "context": "主简历 · AI 经历"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 32727.0,
+   "input_tokens": 2795,
+   "output_tokens": 2428,
+   "reasoning_tokens": 1828,
+   "total_tokens": 5223,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5",
+   "job_title": "AI产品经理（J84492）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_8e1b2b33ed5b36a1",
+    "reqv2_4ac50e528b3f51b6",
+    "reqv2_63b051ca5b06efc5"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:28:12.024235+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在商业分析、数据洞察和规律总结方面有较扎实的实习经历，能够较好匹配用户行为研究/商业分析经验及洞察总结能力要求；语音交互大模型方向仅有通用大模型应用与对话式目标创建相关证据，缺乏语音交互专项经历，建议补充相关项目或研究以增强匹配。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_8e1b2b33ed5b36a1",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人具备大模型应用探索和LLM集成、RAG、对话式目标创建等通用大模型方向经历，但未体现语音交互（如ASR/TTS/语音对话）专项工作或科研经历，因此仅部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:21",
+       "resume_extracted:28"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_4ac50e528b3f51b6",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "KPay实习中构建业务分析报告、搭建KPI监控与绩效分析体系、优化转化路径并设计渠道伙伴增长策略，直接体现商业分析经验；另有客户反馈分析等关联经历。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:20",
+       "resume_extracted:19",
+       "resume_extracted:16"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_63b051ca5b06efc5",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "通过业务分析报告输出数据洞察，并设计行业细分与伙伴分层框架，同时建立KPI体系优化转化路径，体现了较强的洞察与规律总结能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:20",
+       "resume_extracted:16",
+       "resume_extracted:19"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充语音交互大模型专项经历",
+      "action": "基于现有LLM/RAG经验，设计一个语音交互导向的小型项目或研究（如语音客服、语音指令理解等），明确语音数据、交互流程与评估指标，补足语音交互方向证据。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_8e1b2b33ed5b36a1"
+      ]
+     },
+     {
+      "title": "准备商业分析与洞察面试案例",
+      "action": "梳理KPay等实习中的分析项目，准备包含数据洞察、规律总结及业务影响的STAR描述，并准备具体指标和结论以应对面试深挖。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_4ac50e528b3f51b6",
+       "reqv2_63b051ca5b06efc5"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_8e1b2b33ed5b36a1",
+     "requirement_text": "语音交互大模型方向工作或科研经历",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人具备大模型应用探索和LLM集成、RAG、对话式目标创建等通用大模型方向经历，但未体现语音交互（如ASR/TTS/语音对话）专项工作或科研经历，因此仅部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_4ac50e528b3f51b6",
+     "requirement_text": "用户行为研究或商业分析经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "KPay实习中构建业务分析报告、搭建KPI监控与绩效分析体系、优化转化路径并设计渠道伙伴增长策略，直接体现商业分析经验；另有客户反馈分析等关联经历。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_63b051ca5b06efc5",
+     "requirement_text": "洞察与规律总结能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "通过业务分析报告输出数据洞察，并设计行业细分与伙伴分层框架，同时建立KPI体系优化转化路径，体现了较强的洞察与规律总结能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 59396.4,
+   "input_tokens": 2881,
+   "output_tokens": 3915,
+   "reasoning_tokens": 3258,
+   "total_tokens": 6796,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:6182a4d3-51af-4396-af24-a3d690326bff",
+   "job_title": "AI产品经理（J96736）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_43b703bc49720527"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:28:28.475136+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备计算机/人工智能相关专业背景，匹配该要求。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_43b703bc49720527",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "教育经历中厦门大学软件工程学士属于计算机相关专业，UNSW 信息技术（AI）双硕士进一步支持人工智能相关背景，直接满足专业要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0",
+       "resume_extracted:resume:1:education:1"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "保持学历证明材料可用",
+      "action": "无需额外补充；可确保成绩单、学位证书等材料能验证软件工程/AI专业背景。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_43b703bc49720527"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_43b703bc49720527",
+     "requirement_text": "计算机、人工智能或数学相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "教育经历中厦门大学软件工程学士属于计算机相关专业，UNSW 信息技术（AI）双硕士进一步支持人工智能相关背景，直接满足专业要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 16448.7,
+   "input_tokens": 2700,
+   "output_tokens": 1031,
+   "reasoning_tokens": 806,
+   "total_tokens": 3731,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+   "job_title": "AI产品经理（J98328）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_5cfb41f2e516a713",
+    "reqv2_e3eb1e145f323224",
+    "reqv2_1dbe0ee8f6b62193"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:29:01.152298+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "根据提供的简历证据，候选人在AI领域和逻辑思维/问题解决能力方面与要求强匹配；但一年以上产品工作经验仅部分匹配，因为候选人为应届/校招，产品经验以实习/项目为主，缺少1年正式产品工作证明。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_5cfb41f2e516a713",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人具有产品相关经验（如Product Owner、产品需求讨论、跨职能协调、产品迭代），但未体现1年以上正式产品工作经验，且求职身份为应届/校招，故为部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21",
+       "resume_extracted:resume:1:product_experience:5",
+       "resume_extracted:resume:1:product_experience:9"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_e3eb1e145f323224",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人有AI领域实习、项目、技能等多方面直接证据，满足要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:21",
+       "resume_extracted:29",
+       "resume_extracted:resume:1:ai_experience:0",
+       "resume_extracted:resume:1:ai_experience:4"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_1dbe0ee8f6b62193",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人在多个实习和项目中展现出逻辑分析、数据驱动决策和解决实际问题的能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:16",
+       "resume_extracted:19",
+       "resume_extracted:20",
+       "resume_extracted:30"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "明确产品工作时长与性质",
+      "action": "在简历中补充GoFin Product Owner等产品经历的起止时间、是否全职及具体成果，以证明满足1年产品经验要求。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_5cfb41f2e516a713"
+      ]
+     },
+     {
+      "title": "梳理AI项目深度",
+      "action": "整理AI领域实习/项目的具体技术细节、模型效果和业务影响，便于面试展示。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_e3eb1e145f323224"
+      ]
+     },
+     {
+      "title": "准备逻辑问题案例",
+      "action": "准备1-2个能体现逻辑思维和问题解决的具体案例（如欺诈数据分析、增长策略），使用STAR法则描述。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_1dbe0ee8f6b62193"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_5cfb41f2e516a713",
+     "requirement_text": "一年以上产品工作经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人具有产品相关经验（如Product Owner、产品需求讨论、跨职能协调、产品迭代），但未体现1年以上正式产品工作经验，且求职身份为应届/校招，故为部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:product_experience:5",
+       "text": "跨职能团队协调（前端、后端、AI、数据库、测试）",
+       "context": "主简历 · 产品经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:product_experience:9",
+       "text": "产品迭代交付",
+       "context": "主简历 · 产品经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_e3eb1e145f323224",
+     "requirement_text": "熟悉 AI 领域或医疗健康行业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人有AI领域实习、项目、技能等多方面直接证据，满足要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:0",
+       "text": "大语言模型应用开发",
+       "context": "主简历 · AI 经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:4",
+       "text": "RAG 文件分析",
+       "context": "主简历 · AI 经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_1dbe0ee8f6b62193",
+     "requirement_text": "逻辑思维与问题解决能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人在多个实习和项目中展现出逻辑分析、数据驱动决策和解决实际问题的能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "30",
+       "text": "使用 Python 处理百万级数据，开展 EDA、模型训练评估和可视化。",
+       "context": "银行账户欺诈数据分析 · 项目负责人"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 32665.9,
+   "input_tokens": 2856,
+   "output_tokens": 2332,
+   "reasoning_tokens": 1638,
+   "total_tokens": 5188,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+   "job_title": "北京-AI产品经理(J100665)",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_48610f0c3e734912"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:29:19.267013+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备计算机及人工智能相关专业背景，满足该专业要求。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_48610f0c3e734912",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "教育经历显示厦门大学软件工程学士（计算机相关）和UNSW信息技术（AI）双硕士在读，专业方向与计算机、人工智能要求直接匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0",
+       "resume_extracted:resume:1:education:1"
+      ]
+     }
+    ],
+    "suggested_preparation": []
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_48610f0c3e734912",
+     "requirement_text": "计算机、人工智能或信息管理相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "教育经历显示厦门大学软件工程学士（计算机相关）和UNSW信息技术（AI）双硕士在读，专业方向与计算机、人工智能要求直接匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 18109.9,
+   "input_tokens": 2703,
+   "output_tokens": 1115,
+   "reasoning_tokens": 961,
+   "total_tokens": 3818,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+   "job_title": "大模型产品经理（J72652）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_07af529c4484028b",
+    "reqv2_c3091ed2eca6d9f3",
+    "reqv2_7ed2b166528d9d17",
+    "reqv2_49c9c07f1ba12d7b"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:30:31.461179+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 72192.5,
+   "input_tokens": 2954,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7050,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049",
+   "job_title": "大模型应用平台产品经理（J85776）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_7e3a449a4232300b",
+    "reqv2_f7ca00a2f542fb78",
+    "reqv2_d154fbace582cc6a"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:31:34.807972+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Unterminated string starting at: line 41 column 9 (char 1319)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 63344.1,
+   "input_tokens": 2861,
+   "output_tokens": 4096,
+   "reasoning_tokens": 3589,
+   "total_tokens": 6957,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2092538895714664448",
+   "job_title": "AI产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_7c4b6a0fd084f77d",
+    "reqv2_7c8882c717660066"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:32:40.080422+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Unterminated string starting at: line 21 column 17 (char 721)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 65267.2,
+   "input_tokens": 2806,
+   "output_tokens": 4096,
+   "reasoning_tokens": 3805,
+   "total_tokens": 6902,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2088450750270324736",
+   "job_title": "AI产品经理-AI平台（Agent）方向",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_377262a20b779d20",
+    "reqv2_f10bb045c924ce66",
+    "reqv2_17b2403b35e713d3",
+    "reqv2_2f350c257de37080",
+    "reqv2_e0d891d785e65c39"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:33:40.492563+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 60407.6,
+   "input_tokens": 3083,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7179,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2077347119940939776",
+   "job_title": "QQ-Agent产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_9149c4b1d212048c"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:34:07.705919+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在AI大模型产品方向有直接经历：担任GoFin智能财务目标管理平台Product Owner，负责LLM集成、RAG与对话式目标创建，并有中国电子云AI大模型实习中探索大模型应用方向，整体满足AI Agent、大模型应用或智能助手类产品经验。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_9149c4b1d212048c",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "GoFin Product Owner经历明确包含LLM集成、RAG与对话式目标创建，直接支撑智能助手/大模型应用类产品经验；中国电子云AI大模型实习中亦参与产品需求讨论并探索大模型应用方向。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "梳理AI Agent/大模型产品案例",
+      "action": "以GoFin的LLM集成、RAG与对话式目标创建为核心，准备2-3个可量化的产品决策与效果说明，突出AI Agent/智能助手产品经验。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_9149c4b1d212048c"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_9149c4b1d212048c",
+     "requirement_text": "AI Agent、大模型应用或智能助手类产品经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "GoFin Product Owner经历明确包含LLM集成、RAG与对话式目标创建，直接支撑智能助手/大模型应用类产品经验；中国电子云AI大模型实习中亦参与产品需求讨论并探索大模型应用方向。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 27205.4,
+   "input_tokens": 2723,
+   "output_tokens": 1870,
+   "reasoning_tokens": 1561,
+   "total_tokens": 4593,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:1978467627152072704",
+   "job_title": "微信输入法-AI产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_aca2f21646c44438",
+    "reqv2_379e8bc24f903143",
+    "reqv2_e402249eb2353772",
+    "reqv2_9fcda4bdee2f02df",
+    "reqv2_331e5372454cf54a",
+    "reqv2_8fde0b9d53173e67",
+    "reqv2_3d113582071bb486",
+    "reqv2_0d2628dae4ed1e9d"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:35:08.250064+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 60539.9,
+   "input_tokens": 3379,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7475,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2036621556322562048",
+   "job_title": "腾讯会议-AI产品经理-ASR方向",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_5685d10f28aca7c2",
+    "reqv2_1125bb9c519be4f4",
+    "reqv2_e913e8618fce3ef0"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:35:46.358327+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在用户感知与问题发现解决方面有较扎实的客户反馈与体验优化证据，但在语音交互技术和语音产品性能评估上缺少直接的 ASR/TTS 及语音产品评估经验，建议后续重点补充语音领域知识与评估方法实践。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_5685d10f28aca7c2",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "证据中有 NLP 情感分析/语义抽取、大模型应用方向探索和 LLM 对话式集成，可部分支撑语义理解能力，但未涉及 ASR 或 TTS，语音交互整体经验不完整。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:29",
+       "resume_extracted:21",
+       "resume_extracted:28"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_1125bb9c519be4f4",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "有模型训练评估和模型性能评估相关经历，但未体现语音产品（ASR/TTS 等）专门的性能评估方法，仅能部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:29",
+       "resume_extracted:30",
+       "resume_extracted:resume:1:ai_experience:11"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_e913e8618fce3ef0",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "客户反馈分析与体验优化建议、竞品 UX 维度分析、产品 Owner 期间客户反馈处理以及用户场景探索，均直接体现了敏锐的用户感知和主动发现并解决问题的能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:27",
+       "resume_extracted:23",
+       "resume_extracted:28",
+       "resume_extracted:21"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充语音交互与语音产品评估知识",
+      "action": "系统学习 ASR、语义理解、TTS 原理和语音产品性能评估指标（如 WER、MOS 等），并结合现有 NLP/模型评估经验做迁移实践。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_5685d10f28aca7c2",
+       "reqv2_1125bb9c519be4f4"
+      ]
+     },
+     {
+      "title": "强化用户感知案例沉淀",
+      "action": "将现有客户反馈与体验优化项目整理成可复用的用户问题发现与解决案例，突出实际影响和产品迭代结果。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_e913e8618fce3ef0"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_5685d10f28aca7c2",
+     "requirement_text": "熟悉语音交互相关技术（ASR / 语义理解 / TTS）",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "证据中有 NLP 情感分析/语义抽取、大模型应用方向探索和 LLM 对话式集成，可部分支撑语义理解能力，但未涉及 ASR 或 TTS，语音交互整体经验不完整。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_1125bb9c519be4f4",
+     "requirement_text": "掌握语音产品性能评估方法",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "有模型训练评估和模型性能评估相关经历，但未体现语音产品（ASR/TTS 等）专门的性能评估方法，仅能部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "30",
+       "text": "使用 Python 处理百万级数据，开展 EDA、模型训练评估和可视化。",
+       "context": "银行账户欺诈数据分析 · 项目负责人"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:11",
+       "text": "模型性能评估",
+       "context": "主简历 · AI 经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_e913e8618fce3ef0",
+     "requirement_text": "用户感知力与问题发现解决能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "客户反馈分析与体验优化建议、竞品 UX 维度分析、产品 Owner 期间客户反馈处理以及用户场景探索，均直接体现了敏锐的用户感知和主动发现并解决问题的能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "27",
+       "text": "分析客户反馈并提出客户服务体验优化建议。",
+       "context": "中国光大银行昆明分行 · 金融服务实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "23",
+       "text": "从产品功能、技术实现和用户体验维度开展竞品分析。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 38105.6,
+   "input_tokens": 2885,
+   "output_tokens": 2629,
+   "reasoning_tokens": 1991,
+   "total_tokens": 5514,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2052527703940313088",
+   "job_title": "证券-AI产品经理-金融AI应用体验方向",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_5dfabc3bf0e9566f",
+    "reqv2_8a7ced10d1e674e6",
+    "reqv2_062e201cf241f5a9",
+    "reqv2_d51e7d995d268f8f",
+    "reqv2_2aa26881dbfb4a32",
+    "reqv2_07a1d9a0a5524dc6"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:36:46.595209+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 60232.6,
+   "input_tokens": 3101,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7197,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "greenhouse:4186650005",
+   "job_title": "Data Product Manager",
+   "company": "SES AI",
+   "requirement_ids_submitted": [
+    "reqv2_8b7d40841783169e",
+    "reqv2_b6366022b1c1d5ae",
+    "reqv2_eb1153f86b18ee41"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:37:51.956911+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 65359.7,
+   "input_tokens": 2905,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7001,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2077246089718837248",
+   "job_title": "光子 AI-数据平台产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_f2105cecb6db9371",
+    "reqv2_5b0126d99d34bf17"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:38:36.033134+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备B端/AI产品与数据相关经验，如GoFin智能财务目标管理平台Product Owner经历及大模型应用探索；在结构化思维方面有产品Backlog/User Stories和数据流程拆解证据，但权限关系拆解的直接证据不足。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_f2105cecb6db9371",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "GoFin智能财务目标管理平台Product Owner经历直接展示B端/AI产品经验（LLM集成、RAG、Backlog等），且在中国电子云参与产品需求讨论并探索大模型应用方向，满足要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_5b0126d99d34bf17",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "Product Owner经历中的Backlog/User Stories与数据ETL、数据架构设计展示了业务拆解为产品模块和数据流程的能力，但未见权限关系拆解的直接证据，因此为部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:18",
+       "resume_extracted:resume:1:technical_experience:8"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充权限拆解与权限体系设计案例",
+      "action": "回顾并整理曾参与或学习的权限控制设计（如角色、数据权限），准备用STAR法则说明如何将业务规则拆解为权限关系，以弥补结构化思维中的权限证据不足。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_5b0126d99d34bf17"
+      ]
+     },
+     {
+      "title": "强化B端/AI产品经验表达",
+      "action": "围绕GoFin智能财务目标管理平台，清晰阐述B端定位、数据流程与AI能力（LLM、RAG），并准备量化成果，进一步巩固产品经验匹配。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_f2105cecb6db9371"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_f2105cecb6db9371",
+     "requirement_text": "B 端 / 数据 / AI / 研发效能平台或企业内部系统产品经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "GoFin智能财务目标管理平台Product Owner经历直接展示B端/AI产品经验（LLM集成、RAG、Backlog等），且在中国电子云参与产品需求讨论并探索大模型应用方向，满足要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_5b0126d99d34bf17",
+     "requirement_text": "结构化思维：将复杂业务拆解为产品模块 / 数据流程 / 权限",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "Product Owner经历中的Backlog/User Stories与数据ETL、数据架构设计展示了业务拆解为产品模块和数据流程的能力，但未见权限关系拆解的直接证据，因此为部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:technical_experience:8",
+       "text": "数据架构设计",
+       "context": "主简历 · 技术经历"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 44070.6,
+   "input_tokens": 2832,
+   "output_tokens": 2727,
+   "reasoning_tokens": 2210,
+   "total_tokens": 5559,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2013806539382611968",
+   "job_title": "大数据产品经理（深圳/北京）",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_91500289fe78e7b4",
+    "reqv2_d9a6fa37fdf720f1",
+    "reqv2_5ec2efa78f7f63d9"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:39:35.514492+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在数据开发、SQL、指标体系和跨研发协作方面具备直接证据，但在元数据、数据血缘、数据质量以及数据工作流产品化抽象能力方面证据不足。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_91500289fe78e7b4",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人有数据开发（ETL/SQL触发器）、指标体系（KPI监控）、数据分析和数据清洗的实习证据，但未体现元数据、数据血缘、数据质量等具体实践。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:18",
+       "resume_extracted:19",
+       "resume_extracted:20",
+       "resume_extracted:22"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_d9a6fa37fdf720f1",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人具备产品需求拆解（Backlog/User Stories）和数据开发经历，但缺少将数据工作流抽象为可执行、可评估产品方案的直接案例。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21",
+       "resume_extracted:18"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_5ec2efa78f7f63d9",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人明确拥有跨职能团队协调经验，覆盖前端、后端、AI、数据库、测试等研发角色，直接体现技术沟通与跨研发协作能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:product_experience:5",
+       "resume_extracted:28"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充数据治理实操案例",
+      "action": "通过项目或学习补充元数据管理、数据血缘追踪、数据质量校验（如 DataHub、Great Expectations）的实践，并整理成可展示的案例。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_91500289fe78e7b4"
+      ]
+     },
+     {
+      "title": "准备数据工作流产品化案例",
+      "action": "围绕已有 ETL/数据分析经历，梳理从需求抽象、PRD/User Story、执行方案到评估指标的完整产品化过程，形成可讲解的案例。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_d9a6fa37fdf720f1"
+      ]
+     },
+     {
+      "title": "整理跨研发协作事例",
+      "action": "总结跨前端、后端、AI、数据库、测试等角色协作的具体沟通与推进事例，用于面试展示技术沟通能力。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_5ec2efa78f7f63d9"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_91500289fe78e7b4",
+     "requirement_text": "数据开发 / 分析 / SQL / 指标体系 / 元数据 / 数据血缘 / 数据质量",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人有数据开发（ETL/SQL触发器）、指标体系（KPI监控）、数据分析和数据清洗的实习证据，但未体现元数据、数据血缘、数据质量等具体实践。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "22",
+       "text": "执行数据清洗与特征工程，为模型训练提供数据支持。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_d9a6fa37fdf720f1",
+     "requirement_text": "将数据工作流抽象为可执行可评估的产品方案",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人具备产品需求拆解（Backlog/User Stories）和数据开发经历，但缺少将数据工作流抽象为可执行、可评估产品方案的直接案例。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_5ec2efa78f7f63d9",
+     "requirement_text": "技术沟通与跨研发协作能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人明确拥有跨职能团队协调经验，覆盖前端、后端、AI、数据库、测试等研发角色，直接体现技术沟通与跨研发协作能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:product_experience:5",
+       "text": "跨职能团队协调（前端、后端、AI、数据库、测试）",
+       "context": "主简历 · 产品经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 59474.2,
+   "input_tokens": 2895,
+   "output_tokens": 4016,
+   "reasoning_tokens": 3344,
+   "total_tokens": 6911,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2047239002926510080",
+   "job_title": "金融科技-AI数据产品经理-数据开发方向",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_a6ad3fd74c22598d",
+    "reqv2_b6da57f753507117",
+    "reqv2_b6cf969fde1203cf",
+    "reqv2_8e372cde74f05aee",
+    "reqv2_ffe28d59054b4e26",
+    "reqv2_468aa07a31e8d40c",
+    "reqv2_892a54d1bde059a0",
+    "reqv2_dc5ab6550342d109",
+    "reqv2_c69557b2d2e39287"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:40:35.716141+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 60190.6,
+   "input_tokens": 3250,
+   "output_tokens": 4096,
+   "reasoning_tokens": 4096,
+   "total_tokens": 7346,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8",
+   "job_title": "产品经理实习生（J104146）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_4221bc9552f276d2"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:41:05.772893+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "该候选人的实习经历覆盖互联网相关业务，包括中国电子云 AI 大模型实习和 KPay Group 支付增长运营实习，能够支持“互联网相关实习经历”这一优先要求。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_4221bc9552f276d2",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人有中国电子云 AI 大模型实习生（如参与产品需求讨论、探索大模型应用）和 KPay Group 数据分析/增长运营实习生经历，均属于互联网相关实习，直接满足该优先要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:21",
+       "resume_extracted:22",
+       "resume_extracted:16"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "突出互联网实习项目成果",
+      "action": "整理 KPay 和中国电子云实习中涉及互联网产品、数据或 AI 的具体项目，准备量化成果和业务影响，以增强面试表达。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_4221bc9552f276d2"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_4221bc9552f276d2",
+     "requirement_text": "互联网相关实习经历",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人有中国电子云 AI 大模型实习生（如参与产品需求讨论、探索大模型应用）和 KPay Group 数据分析/增长运营实习生经历，均属于互联网相关实习，直接满足该优先要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "22",
+       "text": "执行数据清洗与特征工程，为模型训练提供数据支持。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 29985.7,
+   "input_tokens": 2694,
+   "output_tokens": 1801,
+   "reasoning_tokens": 1525,
+   "total_tokens": 4495,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:1270fb70-730e-4569-9385-b013690e607d",
+   "job_title": "北京-用户产品经理(J100806)",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_3961432f6ab7ec4d",
+    "reqv2_780704b34f49eddb"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:41:41.682206+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "针对2项岗位要求完成证据匹配：计算机相关专业背景有直接教育经历支持；用户同理心与数据洞察能力有相关实习/项目证据支持。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_3961432f6ab7ec4d",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "教育经历包含厦门大学软件工程学士和UNSW信息技术（AI）硕士，符合计算机相关专业要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0",
+       "resume_extracted:resume:1:education:1"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_780704b34f49eddb",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "实习和项目经历中包括客户反馈分析、用户场景分析、用户体验竞品分析和业务数据洞察，能体现用户同理心与从数据发现需求的能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:27",
+       "resume_extracted:21",
+       "resume_extracted:20",
+       "resume_extracted:23"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "准备专业背景与相关课程描述",
+      "action": "面试前梳理软件工程和信息技术专业中与岗位相关的课程、项目，用具体案例说明计算机/信息管理能力。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_3961432f6ab7ec4d"
+      ]
+     },
+     {
+      "title": "准备用户洞察案例",
+      "action": "从客户反馈分析、用户场景分析和数据洞察经历中各准备一个具体案例，结构化说明如何从数据发现用户需求并推动优化。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_780704b34f49eddb"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_3961432f6ab7ec4d",
+     "requirement_text": "计算机或信息管理相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "教育经历包含厦门大学软件工程学士和UNSW信息技术（AI）硕士，符合计算机相关专业要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_780704b34f49eddb",
+     "requirement_text": "用户同理心与数据洞察用户需求",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "实习和项目经历中包括客户反馈分析、用户场景分析、用户体验竞品分析和业务数据洞察，能体现用户同理心与从数据发现需求的能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "27",
+       "text": "分析客户反馈并提出客户服务体验优化建议。",
+       "context": "中国光大银行昆明分行 · 金融服务实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "23",
+       "text": "从产品功能、技术实现和用户体验维度开展竞品分析。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 35898.8,
+   "input_tokens": 2770,
+   "output_tokens": 2383,
+   "reasoning_tokens": 1938,
+   "total_tokens": 5153,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:1994013057063473152",
+   "job_title": "企业微信-基础产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_2c48e151d8271b86",
+    "reqv2_593ead863ea05b72",
+    "reqv2_595484b60afecce0"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:42:33.758976+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在产品功能策划、观察分析与逻辑抽象三方面均有直接实习/项目证据支撑，三项要求均达到 Strong。建议结合具体案例强化结构化表达，以应对后续面试深挖。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_2c48e151d8271b86",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "GoFin 平台担任 Product Owner，明确负责需求、产品流程、Backlog 与 User Stories，直接体现产品功能策划经验；中国电子云实习参与产品需求讨论并分析用户场景，进一步佐证相关能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:21"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_593ead863ea05b72",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "竞品分析、客户反馈分析、数据驱动的转化路径优化以及业务分析报告等经历，均体现了观察、分析并识别关键问题的能力，且能据此提出优化建议。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:23",
+       "resume_extracted:27",
+       "resume_extracted:19",
+       "resume_extracted:20"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_595484b60afecce0",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "设计渠道伙伴增长策略与运营框架、搭建潜客数据架构并设计 SQL 触发器和归因逻辑，直接体现了逻辑抽象与系统化框架思考能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:16",
+       "resume_extracted:18"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "结构化梳理产品策划经历",
+      "action": "用 STAR 法则准备 GoFin 产品功能策划与迭代案例，突出需求分析、Backlog 和跨职能协作，应对产品设计与功能策划的追问。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_2c48e151d8271b86"
+      ]
+     },
+     {
+      "title": "准备观察分析与关键问题识别案例",
+      "action": "从竞品分析、客户反馈和转化路径优化中提炼1-2个案例，说明如何发现关键问题并推动优化。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_593ead863ea05b72"
+      ]
+     },
+     {
+      "title": "强化逻辑抽象与系统框架表达",
+      "action": "整理渠道伙伴增长框架和数据架构设计案例，用图表展示分层、归因与系统思考逻辑。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_595484b60afecce0"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_2c48e151d8271b86",
+     "requirement_text": "产品设计与功能策划经验",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "GoFin 平台担任 Product Owner，明确负责需求、产品流程、Backlog 与 User Stories，直接体现产品功能策划经验；中国电子云实习参与产品需求讨论并分析用户场景，进一步佐证相关能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "21",
+       "text": "参与产品需求讨论，分析用户场景并探索大模型应用方向。",
+       "context": "中国电子云 · AI大模型实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_593ead863ea05b72",
+     "requirement_text": "观察分析并识别关键问题",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "竞品分析、客户反馈分析、数据驱动的转化路径优化以及业务分析报告等经历，均体现了观察、分析并识别关键问题的能力，且能据此提出优化建议。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "23",
+       "text": "从产品功能、技术实现和用户体验维度开展竞品分析。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "27",
+       "text": "分析客户反馈并提出客户服务体验优化建议。",
+       "context": "中国光大银行昆明分行 · 金融服务实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_595484b60afecce0",
+     "requirement_text": "逻辑抽象与系统思考能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "设计渠道伙伴增长策略与运营框架、搭建潜客数据架构并设计 SQL 触发器和归因逻辑，直接体现了逻辑抽象与系统化框架思考能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 52054.8,
+   "input_tokens": 2840,
+   "output_tokens": 3541,
+   "reasoning_tokens": 2892,
+   "total_tokens": 6381,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2078278970276753408",
+   "job_title": "腾讯云-经营系统产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_f982055a8756f25d",
+    "reqv2_797f42487cad1cf5",
+    "reqv2_bee05a7871209904"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:43:36.334865+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "共匹配3项需求：1项强匹配（沟通协调与跨团队沟通能力）、1项部分匹配（熟悉企业经营管理流程）、1项缺失（企业合同管理流程/系统设计经验）。候选人具备增长运营、KPI体系与跨职能交付证据，但缺少合同管理相关实践。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_f982055a8756f25d",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人设计了渠道伙伴增长策略与运营框架、建立KPI监控和绩效分析体系，并输出业务分析报告，与企业经营管理流程相关；但证据集中于增长运营场景，未覆盖通用企业经营管理流程，且为实习/项目经历，范围有限。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:16",
+       "resume_extracted:19",
+       "resume_extracted:20"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_797f42487cad1cf5",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Missing",
+      "reason": "候选证据中未出现企业合同管理流程或合同管理系统设计的任何经历或项目。",
+      "confidence": "Medium",
+      "evidence_source_ids": []
+     },
+     {
+      "requirement_id": "reqv2_bee05a7871209904",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人在GoFin平台负责跨职能交付，并在产品经历中明确协调前端、后端、AI、数据库、测试团队，同时向增长、合作和运营团队提供数据洞察，直接证明跨团队沟通协调能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:resume:1:product_experience:5",
+       "resume_extracted:20"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充合同管理流程与系统设计知识",
+      "action": "通过学习企业合同管理（CLM）流程、合同审批/履约/归档等模块，并结合产品策划视角进行模拟需求分析或个人项目，以便未来能关联合同管理系统设计。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_797f42487cad1cf5"
+      ]
+     },
+     {
+      "title": "深化企业经营管理流程理解",
+      "action": "结合增长运营和KPI体系经验，系统梳理企业经营管理流程（如财务、采购、销售、合同等）并有意识积累相关案例或项目，强化对企业经营管理流程的说明。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_f982055a8756f25d"
+      ]
+     },
+     {
+      "title": "保持并量化跨团队沟通成果",
+      "action": "在后续经历中继续记录跨团队协调案例，准备具体协作场景和结果，以确保面试时能清晰举证。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_bee05a7871209904"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_f982055a8756f25d",
+     "requirement_text": "熟悉企业经营管理流程",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人设计了渠道伙伴增长策略与运营框架、建立KPI监控和绩效分析体系，并输出业务分析报告，与企业经营管理流程相关；但证据集中于增长运营场景，未覆盖通用企业经营管理流程，且为实习/项目经历，范围有限。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "16",
+       "text": "设计渠道伙伴增长策略与运营框架，并通过行业细分和伙伴分层支持支付业务增长。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_797f42487cad1cf5",
+     "requirement_text": "企业合同管理流程 / 系统设计经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Missing",
+     "reason": "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。",
+     "confidence": "Medium",
+     "evidence_sources": []
+    },
+    {
+     "requirement_id": "reqv2_bee05a7871209904",
+     "requirement_text": "沟通协调与跨团队沟通能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人在GoFin平台负责跨职能交付，并在产品经历中明确协调前端、后端、AI、数据库、测试团队，同时向增长、合作和运营团队提供数据洞察，直接证明跨团队沟通协调能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:product_experience:5",
+       "text": "跨职能团队协调（前端、后端、AI、数据库、测试）",
+       "context": "主简历 · 产品经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 62562.5,
+   "input_tokens": 2884,
+   "output_tokens": 4090,
+   "reasoning_tokens": 3416,
+   "total_tokens": 6974,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2041409199149314048",
+   "job_title": "腾讯会议-评测产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_6907a4e2deac1add",
+    "reqv2_2a8d6b3110257858",
+    "reqv2_23a50d8ef3c57335"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:44:41.436635+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Unterminated string starting at: line 49 column 9 (char 1538)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 65099.5,
+   "input_tokens": 2931,
+   "output_tokens": 4096,
+   "reasoning_tokens": 3488,
+   "total_tokens": 7027,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "xsolla:252b30e5-ce58-4a32-88b3-07ee83d06e67",
+   "job_title": "AI-First Engineering Intern",
+   "company": "Xsolla",
+   "requirement_ids_submitted": [
+    "reqv2_866eff0ae6a7bf23",
+    "reqv2_c6d51578e66e9757"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:45:14.022860+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在AI工具加速构建和自主个人项目方面均有直接证据支持，两项要求均匹配为Strong。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_866eff0ae6a7bf23",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人在GoFin产品中负责LLM集成与RAG并推动跨职能交付，同时完成NLP个人项目，证明其已使用AI技术构建和交付产品。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:28",
+       "resume_extracted:29",
+       "resume_extracted:resume:1:ai_experience:0",
+       "resume_extracted:resume:1:ai_experience:4"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_c6d51578e66e9757",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人有明确的个人项目“电商评论情感分析（NLP）”，属于自行发起和完成的项目，满足 side project/self-shipped personal project 要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:29"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "深化AI工具加速交付与个人项目证据",
+      "action": "梳理并补充个人项目中使用AI工具提效的具体场景、过程和结果，以进一步支撑“already uses AI tooling to build/ship faster”和“side projects / self-shipped personal projects”。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_866eff0ae6a7bf23",
+       "reqv2_c6d51578e66e9757"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_866eff0ae6a7bf23",
+     "requirement_text": "already uses AI tooling to build/ship faster",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人在GoFin产品中负责LLM集成与RAG并推动跨职能交付，同时完成NLP个人项目，证明其已使用AI技术构建和交付产品。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "28",
+       "text": "负责需求、产品流程、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成、RAG 和对话式目标创建。",
+       "context": "GoFin 智能财务目标管理平台 · Product Owner"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:0",
+       "text": "大语言模型应用开发",
+       "context": "主简历 · AI 经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:ai_experience:4",
+       "text": "RAG 文件分析",
+       "context": "主简历 · AI 经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_c6d51578e66e9757",
+     "requirement_text": "side projects / self-shipped personal projects",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人有明确的个人项目“电商评论情感分析（NLP）”，属于自行发起和完成的项目，满足 side project/self-shipped personal project 要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 32583.7,
+   "input_tokens": 2792,
+   "output_tokens": 2185,
+   "reasoning_tokens": 1785,
+   "total_tokens": 4977,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "huawei:28183",
+   "job_title": "AI大模型架构师（训练/推理）",
+   "company": "华为",
+   "requirement_ids_submitted": [
+    "reqv2_c88202cea56f40e4",
+    "reqv2_760a977b196001a0",
+    "reqv2_a7e657643b65384a",
+    "reqv2_c2f1c7d80e0cbd8a",
+    "reqv2_1c9199d15075aa37",
+    "reqv2_80ee520d35aba9cc",
+    "reqv2_add5785a52626200",
+    "reqv2_c9a1b9d71f995b37"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:46:11.135501+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Unterminated string starting at: line 81 column 9 (char 2346)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 57107.8,
+   "input_tokens": 3241,
+   "output_tokens": 4096,
+   "reasoning_tokens": 3231,
+   "total_tokens": 7337,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2064981110395420672",
+   "job_title": "微信-语音识别算法工程师",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_ddd61beb368e5153",
+    "reqv2_ffe72039c28ab86a",
+    "reqv2_db1d8efa4071bf5f"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:47:07.372172+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人具备计算机/人工智能相关专业背景和硕士学历，但在流式语音识别模型研发经验上仅有通用模型训练基础，需补充语音识别专项实践。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_ddd61beb368e5153",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人硕士为信息技术（AI）方向，本科为软件工程，符合计算机/人工智能相关专业要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0",
+       "resume_extracted:resume:1:education:1"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_ffe72039c28ab86a",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "教育经历明确显示UNSW商学（金融科技）/信息技术（AI）双硕士，满足硕士及以上学历要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:0"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_db1d8efa4071bf5f",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Partial",
+      "reason": "候选人具备通用模型训练与评估经验（如NLP情感分析、欺诈数据分析、AI大模型数据支持），但缺少流式语音识别、流式解码和延迟优化相关经历，因此仅部分匹配。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:22",
+       "resume_extracted:29",
+       "resume_extracted:30"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充流式语音识别项目经验",
+      "action": "通过开源框架（如WeNet/Kaldi）完成一个流式语音识别小项目，实践流式解码、状态缓存与延迟优化，并整理成可展示的成果。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_db1d8efa4071bf5f"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_ddd61beb368e5153",
+     "requirement_text": "计算机 / 人工智能 / 语音信号处理相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人硕士为信息技术（AI）方向，本科为软件工程，符合计算机/人工智能相关专业要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_ffe72039c28ab86a",
+     "requirement_text": "硕士及以上学历",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "教育经历明确显示UNSW商学（金融科技）/信息技术（AI）双硕士，满足硕士及以上学历要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_db1d8efa4071bf5f",
+     "requirement_text": "流式语音识别模型研发经验（模型训练 / 流式解码 / 延迟优化）",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Partial",
+     "reason": "候选人具备通用模型训练与评估经验（如NLP情感分析、欺诈数据分析、AI大模型数据支持），但缺少流式语音识别、流式解码和延迟优化相关经历，因此仅部分匹配。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "22",
+       "text": "执行数据清洗与特征工程，为模型训练提供数据支持。",
+       "context": "中国电子云 · AI大模型实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "29",
+       "text": "完成评论数据采集清洗、模型训练评估、情感分析和方面抽取。",
+       "context": "电商评论情感分析（NLP） · 个人项目"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "30",
+       "text": "使用 Python 处理百万级数据，开展 EDA、模型训练评估和可视化。",
+       "context": "银行账户欺诈数据分析 · 项目负责人"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 56230.0,
+   "input_tokens": 2875,
+   "output_tokens": 3965,
+   "reasoning_tokens": 3506,
+   "total_tokens": 6840,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+   "job_title": "北京-策略产品经理(J100784)",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_11b4fc87edba9c18",
+    "reqv2_3d6e9ecaea7fb1e3",
+    "reqv2_9aba33d812261db8"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:47:46.999894+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人在专业背景、数据分析能力和SQL使用方面均具备直接相关证据，三项要求均匹配为Strong；建议在面试中进一步准备具体项目细节和量化成果。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_11b4fc87edba9c18",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人拥有厦门大学软件工程学士和UNSW信息技术（AI）相关硕士，均为计算机相关专业，满足本科及以上学历的计算机相关专业要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:resume:1:education:1",
+       "resume_extracted:resume:1:education:0"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_3d6e9ecaea7fb1e3",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "候选人在KPay增长运营实习中承担数据架构、ETL、KPI监控与分析报告工作，并在银行账户欺诈项目中完成百万级数据EDA和模型评估，具备较强的数据分析能力。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:18",
+       "resume_extracted:19",
+       "resume_extracted:20",
+       "resume_extracted:30"
+      ]
+     },
+     {
+      "requirement_id": "reqv2_9aba33d812261db8",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Strong",
+      "reason": "简历技能中明确列出SQL，且实习经历中包含设计SQL触发器和归因逻辑，证明熟练使用SQL。",
+      "confidence": "Medium",
+      "evidence_source_ids": [
+       "resume_extracted:18",
+       "resume_extracted:resume:1:skills:4"
+      ]
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "梳理数据分析项目细节与量化成果",
+      "action": "回顾KPay增长运营、银行账户欺诈分析等项目中SQL、ETL和数据分析的具体实现，准备可量化的业务影响与关键指标。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_3d6e9ecaea7fb1e3",
+       "reqv2_9aba33d812261db8"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_11b4fc87edba9c18",
+     "requirement_text": "计算机 / 统计学 / 数学相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人拥有厦门大学软件工程学士和UNSW信息技术（AI）相关硕士，均为计算机相关专业，满足本科及以上学历的计算机相关专业要求。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:1",
+       "text": "厦门大学软件工程学士，2019.09–2024.7。",
+       "context": "教育经历"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:education:0",
+       "text": "UNSW 商学（金融科技）/信息技术（AI）双硕士，2024.09–2026.9。",
+       "context": "教育经历"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_3d6e9ecaea7fb1e3",
+     "requirement_text": "较强的数据分析能力",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "候选人在KPay增长运营实习中承担数据架构、ETL、KPI监控与分析报告工作，并在银行账户欺诈项目中完成百万级数据EDA和模型评估，具备较强的数据分析能力。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "19",
+       "text": "通过数据分析优化转化路径，建立 KPI 监控和绩效分析体系。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "20",
+       "text": "构建业务分析报告，为增长、合作和运营团队提供数据洞察。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "30",
+       "text": "使用 Python 处理百万级数据，开展 EDA、模型训练评估和可视化。",
+       "context": "银行账户欺诈数据分析 · 项目负责人"
+      }
+     ]
+    },
+    {
+     "requirement_id": "reqv2_9aba33d812261db8",
+     "requirement_text": "熟练使用 SQL 等数据工具",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Strong",
+     "reason": "简历技能中明确列出SQL，且实习经历中包含设计SQL触发器和归因逻辑，证明熟练使用SQL。",
+     "confidence": "Medium",
+     "evidence_sources": [
+      {
+       "source_type": "resume_extracted",
+       "source_id": "18",
+       "text": "搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑。",
+       "context": "KPay Group · 数据分析/增长运营实习生"
+      },
+      {
+       "source_type": "resume_extracted",
+       "source_id": "resume:1:skills:4",
+       "text": "SQL",
+       "context": "主简历 · 技能"
+      }
+     ]
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 39624.4,
+   "input_tokens": 2840,
+   "output_tokens": 2740,
+   "reasoning_tokens": 2236,
+   "total_tokens": 5580,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53",
+   "job_title": "大模型策略产品经理（J97330）",
+   "company": "百度",
+   "requirement_ids_submitted": [
+    "reqv2_8c4d70d605961309",
+    "reqv2_6357d38814ca4445",
+    "reqv2_0b5191a0696ab0a6",
+    "reqv2_625b09ad16b202a8"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:48:26.259894+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": {
+    "summary": "候选人为2027届应届生，背景偏数据分析、AI产品与金融科技，证据中未覆盖岗位要求的内容创作、文学专业或短剧行业经验。",
+    "requirement_matches": [
+     {
+      "requirement_id": "reqv2_8c4d70d605961309",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Missing",
+      "reason": "候选人教育经历为软件工程学士与金融科技/信息技术硕士，未提供戏剧影视文学、创意写作或文学相关专业证据。",
+      "confidence": "Medium",
+      "evidence_source_ids": []
+     },
+     {
+      "requirement_id": "reqv2_6357d38814ca4445",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Missing",
+      "reason": "候选人经历聚焦数据分析、AI产品与金融运营，未提供小说、剧本或直播脚本创作全流程的理解证据。",
+      "confidence": "Medium",
+      "evidence_source_ids": []
+     },
+     {
+      "requirement_id": "reqv2_0b5191a0696ab0a6",
+      "importance": "Important",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Missing",
+      "reason": "候选人证据中无内容审美直觉或内容方法论相关经历，仅有产品与数据分析能力，无法支撑该要求。",
+      "confidence": "Medium",
+      "evidence_source_ids": []
+     },
+     {
+      "requirement_id": "reqv2_625b09ad16b202a8",
+      "importance": "Preferred",
+      "is_hard_requirement": false,
+      "hard_requirement_category": "none",
+      "match_status": "Missing",
+      "reason": "候选人无短视频、短剧或漫剧行业从业经验证据。",
+      "confidence": "Medium",
+      "evidence_source_ids": []
+     }
+    ],
+    "suggested_preparation": [
+     {
+      "title": "补充内容创作与脚本方法知识",
+      "action": "系统学习小说、剧本、直播脚本的创作流程，并通过个人项目或作品集展示对内容审美及方法论的拆解能力。",
+      "priority": "High",
+      "requirement_ids": [
+       "reqv2_6357d38814ca4445",
+       "reqv2_0b5191a0696ab0a6"
+      ]
+     },
+     {
+      "title": "积累短视频/短剧行业案例研究",
+      "action": "研究短视频、短剧或漫剧行业典型案例，整理内容拆解报告，作为加分项准备。",
+      "priority": "Medium",
+      "requirement_ids": [
+       "reqv2_625b09ad16b202a8"
+      ]
+     },
+     {
+      "title": "补充文学相关课程或学历背景",
+      "action": "考虑选修创意写作、戏剧影视文学相关课程或获取认证，补齐专业背景。",
+      "priority": "Low",
+      "requirement_ids": [
+       "reqv2_8c4d70d605961309"
+      ]
+     }
+    ]
+   },
+   "schema_notes": {
+    "parseable": true,
+    "alias_fields_seen": [],
+    "top_level_exact": true,
+    "invalid_labels": 0,
+    "missing_item_fields": 0,
+    "dup_ids": 0,
+    "hallucinated_ids": 0
+   },
+   "normalized_backend_output": [
+    {
+     "requirement_id": "reqv2_8c4d70d605961309",
+     "requirement_text": "戏剧影视文学、创意写作或文学相关专业",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Missing",
+     "reason": "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。",
+     "confidence": "Medium",
+     "evidence_sources": []
+    },
+    {
+     "requirement_id": "reqv2_6357d38814ca4445",
+     "requirement_text": "理解小说、剧本及直播脚本的创作全流程",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Missing",
+     "reason": "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。",
+     "confidence": "Medium",
+     "evidence_sources": []
+    },
+    {
+     "requirement_id": "reqv2_0b5191a0696ab0a6",
+     "requirement_text": "内容审美直觉与可拆解方法论",
+     "importance": "Important",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Missing",
+     "reason": "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。",
+     "confidence": "Medium",
+     "evidence_sources": []
+    },
+    {
+     "requirement_id": "reqv2_625b09ad16b202a8",
+     "requirement_text": "短视频、短剧或漫剧行业资深从业经验",
+     "importance": "Preferred",
+     "is_hard_requirement": false,
+     "hard_requirement_category": "none",
+     "match_status": "Missing",
+     "reason": "当前已验证的简历与经历事实中，暂未找到支持该要求的证据。",
+     "confidence": "Medium",
+     "evidence_sources": []
+    }
+   ],
+   "schema_parse_success": true,
+   "normalization_success": true,
+   "normalization_error": null,
+   "latency_ms": 39257.6,
+   "input_tokens": 2941,
+   "output_tokens": 2503,
+   "reasoning_tokens": 1914,
+   "total_tokens": 5444,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  },
+  {
+   "provider": "deepseek",
+   "model": "deepseek-v4-pro",
+   "job_id": "tencent:2083093175941115904",
+   "job_title": "腾讯视频-增长产品经理",
+   "company": "腾讯",
+   "requirement_ids_submitted": [
+    "reqv2_b741297aa944df7f",
+    "reqv2_02360706ab26d285",
+    "reqv2_55b9c7ddc30bd02b",
+    "reqv2_7ed93fe4bb09d26f",
+    "reqv2_cd8c089c6f3c4688"
+   ],
+   "evidence_catalog_submitted_ids": [
+    "manual_confirmed:profile:candidate_type",
+    "manual_confirmed:profile:graduation_year",
+    "resume_extracted:16",
+    "resume_extracted:18",
+    "resume_extracted:19",
+    "resume_extracted:20",
+    "resume_extracted:21",
+    "resume_extracted:22",
+    "resume_extracted:23",
+    "resume_extracted:24",
+    "resume_extracted:26",
+    "resume_extracted:27",
+    "resume_extracted:28",
+    "resume_extracted:29",
+    "resume_extracted:30",
+    "resume_extracted:resume:1:ai_experience:0",
+    "resume_extracted:resume:1:ai_experience:11",
+    "resume_extracted:resume:1:ai_experience:4",
+    "resume_extracted:resume:1:domain_experience:0",
+    "resume_extracted:resume:1:domain_experience:3",
+    "resume_extracted:resume:1:education:0",
+    "resume_extracted:resume:1:education:1",
+    "resume_extracted:resume:1:product_experience:5",
+    "resume_extracted:resume:1:product_experience:7",
+    "resume_extracted:resume:1:product_experience:9",
+    "resume_extracted:resume:1:skills:0",
+    "resume_extracted:resume:1:skills:1",
+    "resume_extracted:resume:1:skills:16",
+    "resume_extracted:resume:1:skills:4",
+    "resume_extracted:resume:1:technical_experience:8"
+   ],
+   "request_timestamp": "2026-09-01T07:49:30.469288+00:00",
+   "transport_metadata": {
+    "base_url": "https://api.deepseek.com",
+    "temperature": 0,
+    "extra_body": {},
+    "response_format": "json_object",
+    "json_serialization_line": true,
+    "json_serialization_line_class": "TRANSPORT_SERIALIZATION_ONLY",
+    "http_status": 200,
+    "retry_count": 0
+   },
+   "raw_model_output_parsed": null,
+   "schema_notes": {
+    "json_parse_error": "JSONDecodeError: Unterminated string starting at: line 63 column 17 (char 1815)"
+   },
+   "normalized_backend_output": null,
+   "schema_parse_success": false,
+   "normalization_success": false,
+   "normalization_error": "schema_build_failed",
+   "latency_ms": 64207.5,
+   "input_tokens": 2974,
+   "output_tokens": 4096,
+   "reasoning_tokens": 3412,
+   "total_tokens": 7070,
+   "retry_count": 0,
+   "error": null,
+   "ground_truth_state_during_prediction": "GROUND_TRUTH_NOT_LOADED_YET"
+  }
+ ]
+}

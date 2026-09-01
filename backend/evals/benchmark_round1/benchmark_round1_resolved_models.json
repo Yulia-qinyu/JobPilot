@@ -1,0 +1,92 @@
+{
+ "resolution_task": "Resolve Round 1 Anthropic Candidates Only",
+ "resolved_at_utc": "2026-09-01",
+ "api_operation_used": "anthropic client.models.list(limit=100)  — ONLY",
+ "messages_create_calls": 0,
+ "messages_parse_calls": 0,
+ "matcher_calls": 0,
+ "benchmark_prediction_calls": 0,
+ "model_listing_succeeded": true,
+ "models_returned": 10,
+
+ "available_models_relevant": [
+  {"id": "claude-opus-5", "display_name": "Claude Opus 5", "tier": "Opus", "dated_id": false,
+   "created_at": "2026-07-24", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "type": "model", "available_to_current_key": true,
+   "messages_api_suitable": true,
+   "thinking": {"supported": true, "adaptive": true, "enabled": false}},
+  {"id": "claude-opus-4-8", "display_name": "Claude Opus 4.8", "tier": "Opus", "dated_id": false,
+   "created_at": "2026-05-28", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true},
+  {"id": "claude-opus-4-7", "display_name": "Claude Opus 4.7", "tier": "Opus", "dated_id": false,
+   "created_at": "2026-04-14", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true},
+  {"id": "claude-opus-4-6", "display_name": "Claude Opus 4.6", "tier": "Opus", "dated_id": false,
+   "created_at": "2026-02-04", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true},
+  {"id": "claude-opus-4-5-20251101", "display_name": "Claude Opus 4.5", "tier": "Opus", "dated_id": true,
+   "created_at": "2025-11-24", "max_input_tokens": 200000, "max_tokens": 64000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "note": "older Opus, smaller context; superseded by 4.6/4.7/4.8/5"},
+
+  {"id": "claude-sonnet-5", "display_name": "Claude Sonnet 5", "tier": "Sonnet", "dated_id": false,
+   "created_at": "2026-06-29", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "note": "NOT recommended for Round 1 per task instruction (no second Sonnet candidate)."},
+  {"id": "claude-sonnet-4-6", "display_name": "Claude Sonnet 4.6", "tier": "Sonnet", "dated_id": false,
+   "created_at": "2026-02-17", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "note": "NOT recommended for Round 1 (no second Sonnet candidate)."},
+  {"id": "claude-sonnet-4-5-20250929", "display_name": "Claude Sonnet 4.5", "tier": "Sonnet", "dated_id": true,
+   "created_at": "2025-09-29", "max_input_tokens": 1000000, "max_tokens": 64000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "note": "REFERENCE BASELINE — already run in Current Claude Baseline V1; WILL NOT be rerun."},
+
+  {"id": "claude-haiku-4-5-20251001", "display_name": "Claude Haiku 4.5", "tier": "Haiku", "dated_id": true,
+   "created_at": "2025-10-15", "max_input_tokens": 200000, "max_tokens": 64000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "thinking": {"supported": true, "adaptive": false, "enabled": true},
+   "note": "ONLY Haiku-tier model returned."},
+
+  {"id": "claude-fable-5", "display_name": "Claude Fable 5", "tier": "other (Fable)", "dated_id": false,
+   "created_at": "2026-06-07", "max_input_tokens": 1000000, "max_tokens": 128000,
+   "structured_outputs_supported": true, "available_to_current_key": true, "messages_api_suitable": true,
+   "note": "not an Opus/Sonnet/Haiku tier; out of scope for the higher-capability / cost-efficient spectrum test."}
+ ],
+
+ "recommended_round1_candidates": {
+  "REFERENCE": {
+   "model_id": "claude-sonnet-4-5-20250929",
+   "action": "REUSE — 0 new calls",
+   "artifacts": "backend/evals/job_match_baseline_claude_current_v1_*"
+  },
+  "NEW_CANDIDATE_A_opus_tier": {
+   "model_id": "claude-opus-5",
+   "display_name": "Claude Opus 5",
+   "tier": "Opus",
+   "why": "newest Opus-tier model available (created 2026-07-24); undated stable alias (no dated Opus 5 id offered); structured_outputs supported; 1M input / 128k max_tokens; not preview/deprecated.",
+   "planned_live_calls": 30
+  },
+  "NEW_CANDIDATE_B_haiku_tier": {
+   "model_id": "claude-haiku-4-5-20251001",
+   "display_name": "Claude Haiku 4.5",
+   "tier": "Haiku",
+   "why": "the only Haiku-tier model returned; dated stable id (not preview); structured_outputs supported; 200k input / 64k max_tokens (4096 request well within limits).",
+   "planned_live_calls": 30
+  }
+ },
+ "second_sonnet_candidate": "NOT included this round, per instruction. No compatibility reason blocks Opus 5 or Haiku 4.5.",
+
+ "structured_output_compatibility": {
+  "production_flow": "ClaudeStructuredClient.generate -> client.messages.parse(model=<id>, max_tokens=4096, temperature=0, messages=[user], output_format=FitAnalysisOutput)",
+  "claude-opus-5": "capabilities.structured_outputs.supported = true. 4096 max_tokens << 128000 cap. temperature=0 supported. No `thinking` param is passed by production code, so default behaviour applies. NOTE (not a blocker): Opus 5 default thinking is `adaptive`; it may spend more latency/output tokens than Sonnet 4.5 on the same prompt — this is measured, not a compatibility failure.",
+  "claude-haiku-4-5-20251001": "capabilities.structured_outputs.supported = true. 4096 max_tokens << 64000 cap. temperature=0 supported. `thinking.enabled` available but not invoked by production code.",
+  "verdict": "No compatibility concern with messages.parse / structured output for either candidate. Both are Messages-API + structured-outputs capable and available to the current API key."
+ },
+
+ "pricing_status": "pricing_not_available_from_local_model_listing — the models endpoint returned only id / display_name / type / created_at / max_input_tokens / max_tokens / capabilities; no price fields.",
+
+ "planned_benchmark_calls_after_approval": 60,
+ "reference_sonnet_rerun": false,
+ "benchmark_calls_this_task": 0
+}

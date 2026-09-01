@@ -1,0 +1,19 @@
+{
+ "model_id_exact": "claude-opus-5",
+ "run_status": "INVALID_NOT_EXECUTABLE_UNDER_FIXED_CONTRACT",
+ "expected_model_calls": 30,
+ "attempted_model_calls": 30,
+ "successful_model_calls": 0,
+ "all_calls_rejected": true,
+ "http_status": 400,
+ "anthropic_error_type": "invalid_request_error",
+ "sanitized_error_message": "`temperature` is deprecated for this model.",
+ "root_cause": "Production ClaudeStructuredClient.generate() sends temperature=0 on every messages.parse request (hard-coded in app/services/claude_client.py). claude-opus-5 rejects any request that includes the temperature parameter. The fixed production matcher contract therefore cannot be sent to claude-opus-5 without modifying production code.",
+ "classification": "CATASTROPHIC_INFRASTRUCTURE_CONFIGURATION_PROBLEM (task section 4) — NOT a model-quality failure",
+ "action_taken": "STOPPED. No silent fix. No retry. No production code change. No manual rerun. Opus 5 excluded from Round 1 results.",
+ "tokens_billed_by_failed_requests": 0,
+ "product_code_mutated": false,
+ "ground_truth_loaded": false,
+ "raw_predictions_file": "benchmark_round1_predictions_opus-5.json (contains 30 rejected-call records, no model output)",
+ "future_inclusion_note": "To benchmark claude-opus-5 later, an eval-only client variant that omits temperature for models that require it would be needed. That changes the API request shape, so it is a TRANSPORT-level difference from the Sonnet baseline / Haiku run and would require its own re-baseline before any cross-model claim. Not built here."
+}

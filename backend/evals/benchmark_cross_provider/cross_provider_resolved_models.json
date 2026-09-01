@@ -1,0 +1,277 @@
+{
+ "resolution_task": "Cross-Provider Credential & Model Availability Resolution (Gemini + Qwen + DeepSeek)",
+ "resolved_on": "2026-09-01",
+ "inference_calls": 0,
+ "operations_performed": [
+  "local: credential NAME presence check (env + .env), values never read/printed",
+  "network GET https://generativelanguage.googleapis.com/v1beta/models (Gemini model list, paginated)",
+  "network GET https://api.deepseek.com/models (DeepSeek model list)",
+  "network GET https://dashscope-intl.aliyuncs.com/compatible-mode/v1/models (Qwen region probe -> 401, wrong region)",
+  "network GET https://dashscope.aliyuncs.com/compatible-mode/v1/models (Qwen model list -> 200, region resolved)"
+ ],
+ "generation_endpoints_called": [],
+
+ "credential_presence": {
+  "ANTHROPIC_API_KEY": "present",
+  "GEMINI_API_KEY": "present",
+  "DASHSCOPE_API_KEY": "present",
+  "DEEPSEEK_API_KEY": "present",
+  "OPENAI_API_KEY": "missing (excluded by user operational policy — intentionally not requested)"
+ },
+
+ "gemini": {
+  "model_list_status": 200,
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+  "auth": "x-goog-api-key: GEMINI_API_KEY",
+  "total_models_returned": 52,
+  "relevant_stable_text_generation_models": [
+   {"id": "gemini-3.7-flash", "display": "Gemini 3.7 Flash", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-3.6-flash", "display": "Gemini 3.6 Flash", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-3.5-flash", "display": "Gemini 3.5 Flash", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-3.5-flash-lite", "display": "Gemini 3.5 Flash Lite", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-3.1-flash-lite", "display": "Gemini 3.1 Flash Lite", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-2.5-pro", "display": "Gemini 2.5 Pro", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-2.5-flash", "display": "Gemini 2.5 Flash", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-2.5-flash-lite", "display": "Gemini 2.5 Flash-Lite", "status": "stable", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-pro-latest", "display": "Gemini Pro Latest", "status": "stable_floating_alias", "input_token_limit": 1048576, "output_token_limit": 65536, "generateContent": true},
+   {"id": "gemini-flash-latest", "display": "Gemini Flash Latest", "status": "stable_floating_alias", "generateContent": true},
+   {"id": "gemini-flash-lite-latest", "display": "Gemini Flash-Lite Latest", "status": "stable_floating_alias", "generateContent": true}
+  ],
+  "preview_only_pro_tier": ["gemini-3.1-pro-preview", "gemini-3.1-pro-preview-customtools", "gemini-3-flash-preview", "gemini-3.1-flash-lite-preview"],
+  "excluded_categories": "tts / image / embedding / vision-only / gemma open-weights / transcribe / omni / robotics / computer-use / deep-research / lyria",
+  "reasoning_note": "Gemini 2.5+ are thinking models. thinkingBudget=0 (true single-pass) is accepted on Flash / Flash-Lite. On gemini-2.5-pro thinkingBudget cannot be set to 0 (adaptive thinking is not fully disableable) -> comparability caveat.",
+  "recommendation": {
+   "GEMINI_HIGH_CAPABILITY": {
+    "model_id": "gemini-3.7-flash",
+    "rationale": "Strongest CURRENT STABLE Gemini text model; newest generation (3.7); 1M input / 65k output; supports generateContent + responseSchema; can run true single-pass via thinkingConfig.thinkingBudget=0, giving clean reasoning-parity with the Anthropic reference. Preview Pro (gemini-3.1-pro-preview) is excluded per the avoid-preview-when-stable-exists rule.",
+    "alternative_if_pro_tier_wanted": "gemini-2.5-pro (only STABLE Pro-tier id) — accept a comparability caveat: adaptive thinking is not fully disableable on 2.5-pro.",
+    "alternative_higher_ceiling_preview": "gemini-3.1-pro-preview (PREVIEW — use only if the user accepts preview status)"
+   },
+   "GEMINI_COST_QUALITY": {
+    "model_id": "gemini-3.5-flash-lite",
+    "rationale": "Newest STABLE Flash-Lite (cost/latency tier), same 1M/65k envelope, generateContent + responseSchema, single-pass capable (thinkingBudget=0). Clearly the lower-cost/faster class vs the high-capability pick; not an ultra-small model.",
+    "alternative_even_cheaper": "gemini-2.5-flash-lite"
+   }
+  }
+ },
+
+ "qwen": {
+  "region_resolution": {
+   "international_endpoint": {"base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1", "models_status": 401, "meaning": "credential NOT valid for the international endpoint"},
+   "mainland_china_endpoint": {"base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1", "models_status": 200, "meaning": "RESOLVED — credential belongs to Alibaba Cloud Model Studio (mainland China / DashScope)"}
+  },
+  "resolved_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "api_compatibility": "OpenAI-compatible (compatible-mode): messages, temperature, max_tokens, response_format",
+  "model_list_status": 200,
+  "auth": "Authorization: Bearer DASHSCOPE_API_KEY",
+  "total_models_returned": 249,
+  "qwen_ids_returned": 183,
+  "relevant_general_chat_families_available": [
+   "qwen3.8-max", "qwen3.8-flash", "qwen3.8-27b", "qwen3.8-2.4t-a95b",
+   "qwen3.7-max", "qwen3.7-max-2026-06-08", "qwen3.7-plus", "qwen3.7-flash",
+   "qwen3.6-max-preview", "qwen3.6-plus", "qwen3.6-flash", "qwen3.6-27b", "qwen3.6-35b-a3b",
+   "qwen3.5-plus", "qwen3.5-flash", "qwen3.5-27b", "qwen3.5-122b-a10b", "qwen3.5-397b-a17b", "qwen3.5-35b-a3b",
+   "qwen3-max", "qwen3-max-2026-01-23", "qwen3-max-preview", "qwen3-32b", "qwen3-14b", "qwen3-8b",
+   "qwen3-235b-a22b", "qwen3-235b-a22b-instruct-2507", "qwen3-next-80b-a3b-instruct",
+   "qwen-max", "qwen-plus", "qwen-flash", "qwen-turbo", "qwen-long"
+  ],
+  "excluded_categories": "coder / math / vl / omni / tts / asr / image / image-edit / mt (translate) / embedding / rerank / audio / livetranslate / character / deep-research / distill / s2s",
+  "reasoning_note": "The standard qwen3.x-max / qwen3.x-flash ids are non-thinking by default via compatible-mode. Explicit -thinking ids (e.g. qwen3-235b-a22b-thinking-2507) are separate and NOT selected. Some Qwen3 models honour extra_body={'enable_thinking': false} to force non-thinking — set it defensively.",
+  "recommendation": {
+   "QWEN_HIGH_CAPABILITY": {
+    "model_id": "qwen3.8-max",
+    "rationale": "Strongest CURRENT STABLE Qwen family (3.8 generation, Max tier); Chinese-native; OpenAI-compatible via compatible-mode; standard non-thinking production inference. Chosen over -thinking variants and over smaller dense open-weights.",
+    "alternative_pinned_build": "qwen3.7-max-2026-06-08 (dated / more reproducible if an undated -max pointer is a concern)"
+   },
+   "QWEN_COST_QUALITY": {
+    "model_id": "qwen3.8-flash",
+    "rationale": "Newest STABLE Qwen Flash tier (cost/quality), same 3.8 generation as the high-capability pick, strong Chinese semantics, OpenAI-compatible. Not qwen-turbo / the tiny dense variants (below the 'not merely smallest' rule).",
+    "alternative": "qwen-flash (stable alias) or qwen3.7-flash"
+   }
+  }
+ },
+
+ "deepseek": {
+  "model_list_status": 200,
+  "endpoint": "https://api.deepseek.com/models",
+  "auth": "Authorization: Bearer DEEPSEEK_API_KEY",
+  "base_url": "https://api.deepseek.com",
+  "api_compatibility": "OpenAI-compatible: messages, temperature, max_tokens, response_format={type: json_object}",
+  "models_returned": [
+   {"id": "deepseek-v4-pro", "owned_by": "deepseek"},
+   {"id": "deepseek-v4-flash", "owned_by": "deepseek"},
+   {"id": "deepseek-v4-flash-vision-exp", "owned_by": "deepseek", "note": "experimental vision — excluded"}
+  ],
+  "reasoning_note": "The model list does not expose whether deepseek-v4-pro applies mandatory/default extended reasoning. To verify WITHOUT inference is not possible from /models alone; confirm at execution Step 3 via the model's documented parameters. If reasoning is mandatory and non-disableable, record reasoning_mode=mandatory and flag comparability.",
+  "recommendation": {
+   "DEEPSEEK_HIGH_VALUE": {
+    "model_id": "deepseek-v4-pro",
+    "rationale": "Flagship non-experimental DeepSeek chat model; strong general reasoning + Chinese capability; standard production OpenAI-compatible API. ONE variant only (deepseek-v4-flash not added — role is HIGH_VALUE, and deepseek-v4-flash-vision-exp is experimental).",
+    "alternative_cheaper": "deepseek-v4-flash (only if the user prefers the cost tier for the single DeepSeek slot)"
+   }
+  }
+ },
+
+ "moonshot": {
+  "resolved_on": "2026-09-01",
+  "inference_calls": 0,
+  "credential_presence": {"MOONSHOT_API_KEY": "present"},
+  "region_resolution": {
+   "mainland_china_endpoint": {"base_url": "https://api.moonshot.cn/v1", "models_status": 200, "meaning": "RESOLVED — credential belongs to the Moonshot mainland platform"},
+   "international_endpoint": {"base_url": "https://api.moonshot.ai/v1", "models_status": 401, "meaning": "credential NOT valid for the international endpoint"}
+  },
+  "resolved_base_url": "https://api.moonshot.cn/v1",
+  "endpoint": "https://api.moonshot.cn/v1/models",
+  "auth": "Authorization: Bearer MOONSHOT_API_KEY",
+  "api_compatibility": "OpenAI-compatible (GET /v1/models; object=model; data[] list)",
+  "model_list_status": 200,
+  "total_models_returned": 4,
+  "models_returned": [
+   {"id": "kimi-k3", "owned_by": "moonshot", "context_length": 1048576, "supports_reasoning": true, "supports_thinking_type": "only", "think_efforts": {"support": true, "valid_efforts": ["low", "high", "max"], "default_effort": "max"}, "reasoning_efforts": {"support": true, "valid_efforts": ["low", "high", "max"], "default_effort": "max"}, "supports_dynamic_tools": true, "supports_image_in": true, "supports_video_in": true},
+   {"id": "kimi-k2.6", "owned_by": "moonshot", "context_length": 262144, "supports_reasoning": true},
+   {"id": "kimi-k2.7-code-highspeed", "owned_by": "moonshot", "context_length": 262144, "supports_reasoning": true, "note": "coding-specialised — excluded"},
+   {"id": "kimi-k2.7-code", "owned_by": "moonshot", "context_length": 262144, "supports_reasoning": true, "note": "coding-specialised — excluded"}
+  ],
+  "metadata_not_exposed": ["output_token_limit", "stable/preview/deprecated tag", "json_object / json_schema support flags", "pricing"],
+  "reasoning_note": "kimi-k3 supports_thinking_type='only' -> reasoning is MANDATORY / non-disableable; default_effort='max'. reasoning_comparability_flag=true. Eval adapter to request reasoning_effort='low' for parity (if accepted); never high/max; do not compensate other candidates. Same handling class as deepseek-v4-pro.",
+  "recommendation": {
+   "KIMI_CHINESE_HIGH_CAPABILITY": {
+    "model_id": "kimi-k3",
+    "rationale": "Newest generation (k3 vs k2.x); 1,048,576-token context (4x the kimi-k2.6 alternative); dedicated reasoning-effort control (low/high/max); OpenAI-compatible; NOT a coding-specialised variant (kimi-k2.7-code* excluded per selection criterion 10); strong Chinese-native model — direct product-fit for the 90%-Chinese Dataset V1. Capability gap vs kimi-k2.6 is substantial, so the HIGH_CAPABILITY slot takes k3 despite no explicit stable/preview marker in /models metadata.",
+    "alternative_lower_capability": "kimi-k2.6 (prior generation; 262,144 context; reasoning appears optional)"
+   }
+  },
+  "structured_output": "JSON_OBJECT_ONLY (attempt 3b: Section D honoured exactly at HTTP 200 — exact canonical top-level + item fields, no aliases, no adapter semantic repair). Strict json_schema not asserted.",
+  "transport": {"style": "OpenAI-compatible POST /v1/chat/completions", "temperature": "temperature=1 (MODEL_REQUIRED_VALUE) ACCEPTED at attempt 3b (HTTP 200); temperature=0 was rejected at attempt 3. temperature_comparability_flag=true — kimi-k3 runs Round 1B at temperature=1 while all others run temperature=0.", "json_mechanism": "response_format json_object + Section D in-prompt + 'Return the response as JSON.' (Moonshot scope)", "system_user": "OpenAI messages (system + user)", "output_token_control": "max_tokens", "reasoning_effort_param": "reasoning_effort='low' — ACCEPTED at attempt 3b (HTTP 200; observed effort not echoed by API)", "usage_path": "usage.prompt_tokens / completion_tokens / total_tokens + completion_tokens_details.reasoning_tokens (=170 at attempt 3b)"},
+  "adapter_complexity": "LOW (Qwen/DeepSeek OpenAI-compatible pattern applies; extras: reasoning_effort='low' + temperature=1)",
+  "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION",
+  "transport_validation": "ATTEMPT 3 (2026-09-01): TRANSPORT_BLOCKED (HTTP 400, temperature=0). ATTEMPT 3b (2026-09-01, 1 approved call): TRANSPORT_VALIDATED — temperature=1 + reasoning_effort='low' both accepted at HTTP 200; Section D honoured exactly; req_id preserved; match_label 'Strong'; reasoning_tokens=170; latency 13601.3 ms.",
+  "detail_file": "cross_provider_candidate_replacement.md"
+ },
+
+ "gemini_pool_status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (2026-09-01). Both Gemini candidates removed from the Round 1B pool by the user on operational-cost grounds; also historically blocked HTTP 429 (AI Studio prepayment credits depleted). NOT a model-quality judgment. Historical transport records preserved in cross_provider_transport_validation.{json,md} and the manifest. Do NOT re-enable / request billing / re-probe Gemini.",
+
+ "final_recommended_new_candidates": [
+  {"provider": "moonshot", "model_id": "kimi-k3", "role": "KIMI_CHINESE_HIGH_CAPABILITY",
+   "base_url": "https://api.moonshot.cn/v1",
+   "credential_env": "MOONSHOT_API_KEY",
+   "structured_output": "UNKNOWN_PENDING_TRANSPORT_VALIDATION (attempt 3 blocked by temperature before JSON contract evaluated)",
+   "reasoning_mode_policy": "mandatory (supports_thinking_type='only'; reasoning_comparability_flag=true; adapter requests reasoning_effort='low' for parity — acceptance UNKNOWN, blocked by temperature)",
+   "transport": {"temperature": "temperature=0 REJECTED (HTTP 400); kimi-k3 requires temperature=1 (Opus-5 class)", "json_mechanism": "response_format json_object + Section D in-prompt + 'Return the response as JSON.' (Moonshot scope)", "system_user": "OpenAI messages", "output_token_control": "max_tokens", "reasoning_effort_param": "reasoning_effort='low'"},
+   "adapter_complexity": "LOW",
+   "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "recommended": true,
+   "transport_validation_status": "ATTEMPT 3 TRANSPORT_BLOCKED — HTTP 400 'invalid temperature: only 1 is allowed for this model'. Not retried, not substituted. One approved single re-call with temperature=1 (or omitted) required; then verify reasoning_effort='low' + Section D adherence + section-15 bar."},
+
+  {"provider": "google_gemini", "model_id": "gemini-3.1-pro-preview", "role": "GEMINI_HIGH_CAPABILITY (EXCLUDED)",
+   "base_url": "https://generativelanguage.googleapis.com/v1beta",
+   "release_status": "preview", "operational_stability_flag": true,
+   "structured_output": "STRICT_SCHEMA_SUPPORTED (intended; never confirmed)",
+   "reasoning_mode_policy": "model_native (thinkingConfig NOT sent)",
+   "transport": {"temperature": "accepted (0..2)", "json_mechanism": "responseSchema", "system_user": "system_instruction + user", "output_token_control": "maxOutputTokens"},
+   "pricing_status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (was PENDING_OFFICIAL_PRICING_VERIFICATION)", "recommended": false,
+   "revalidation_status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY. HISTORICAL: HTTP 429 RESOURCE_EXHAUSTED (prepayment credits depleted); replaced gemini-2.5-pro (HTTP 404 attempt 1). Record preserved; do NOT re-enable."},
+
+  {"provider": "google_gemini", "model_id": "gemini-3.7-flash", "role": "GEMINI_COST_QUALITY (EXCLUDED)",
+   "base_url": "https://generativelanguage.googleapis.com/v1beta",
+   "structured_output": "STRICT_SCHEMA_SUPPORTED (intended; never confirmed)",
+   "reasoning_mode_policy": "standard_single_pass (thinkingConfig.thinkingBudget=0)",
+   "transport": {"temperature": "accepted", "json_mechanism": "responseSchema", "system_user": "system_instruction + user", "output_token_control": "maxOutputTokens"},
+   "pricing_status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (was PENDING_OFFICIAL_PRICING_VERIFICATION)", "recommended": false,
+   "revalidation_status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY. HISTORICAL: HTTP 429 RESOURCE_EXHAUSTED (same account); attempt-1 HTTP 503 transient; gemini-3.5-flash-lite dropped from the pool earlier. Record preserved; do NOT re-enable."},
+
+  {"provider": "alibaba_qwen_dashscope", "model_id": "qwen3.8-max", "role": "QWEN_HIGH_CAPABILITY",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1  (mainland China — RESOLVED)",
+   "structured_output": "JSON_OBJECT_ONLY (response_format={type: json_object}; strict json_schema PENDING_VERIFICATION at Step 3)",
+   "reasoning_mode_policy": "standard_single_pass (extra_body={'enable_thinking': false} set defensively)",
+   "transport": {"temperature": "accepted", "json_mechanism": "response_format json_object", "system_user": "OpenAI messages (system + user)", "output_token_control": "max_tokens", "region_base_url_required": true},
+   "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "recommended": true},
+
+  {"provider": "alibaba_qwen_dashscope", "model_id": "qwen3.8-flash", "role": "QWEN_COST_QUALITY",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1  (mainland China — RESOLVED)",
+   "structured_output": "JSON_OBJECT_ONLY (strict json_schema PENDING_VERIFICATION)",
+   "reasoning_mode_policy": "standard_single_pass (enable_thinking=false)",
+   "transport": {"temperature": "accepted", "json_mechanism": "response_format json_object", "system_user": "OpenAI messages", "output_token_control": "max_tokens", "region_base_url_required": true},
+   "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "recommended": true},
+
+  {"provider": "deepseek", "model_id": "deepseek-v4-pro", "role": "DEEPSEEK_HIGH_VALUE",
+   "base_url": "https://api.deepseek.com",
+   "structured_output": "JSON_OBJECT_ONLY (response_format={type: json_object}; prompt must contain the token 'json' -> shared transport-only line for all providers)",
+   "reasoning_mode_policy": "standard_single_pass (VERIFY at Step 3 whether extended reasoning is mandatory; if so record reasoning_mode=mandatory + comparability flag)",
+   "transport": {"temperature": "accepted", "json_mechanism": "response_format json_object", "system_user": "OpenAI messages", "output_token_control": "max_tokens"},
+   "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "recommended": true}
+ ],
+
+ "reference": {"provider": "anthropic", "model_id": "claude-sonnet-4-5-20250929", "role": "REFERENCE", "planned_calls": 0, "recommended": "reuse only"},
+
+ "candidate_resolution_complete": true,
+ "kimi_candidate_resolution": "complete (2026-09-01; kimi-k3 recommended, approved, and TRANSPORT_VALIDATED at attempt 3b with temperature=1 + reasoning_effort='low')",
+ "transport_validation_status": "transport_validation_complete (all 4 new candidates: qwen3.8-max, qwen3.8-flash, deepseek-v4-pro, kimi-k3). benchmark_execution_approved = false.",
+ "expected_future_inference_calls": 120,
+ "expected_future_inference_calls_note": "4 new candidates x 30 = 120 (qwen3.8-max, qwen3.8-flash, deepseek-v4-pro, kimi-k3). Reference Sonnet 0. Gemini x2 EXCLUDED (was 60).",
+ "note": "STOP here. All 4 new candidates transport-validated. Round 1B NOT started — needs explicit execution approval. Transport validation is NOT permission to run the 120-call benchmark.",
+ "kimi_resolution_2026_09_01": {
+  "credential": "MOONSHOT_API_KEY present",
+  "base_url": "https://api.moonshot.cn/v1 (mainland; .ai international -> HTTP 401)",
+  "model_list": "HTTP 200, 4 models",
+  "relevant_general_chat_models": ["kimi-k3", "kimi-k2.6"],
+  "excluded_coding_models": ["kimi-k2.7-code-highspeed", "kimi-k2.7-code"],
+  "recommended": "kimi-k3",
+  "reasoning_mode": "mandatory (supports_thinking_type='only'); reasoning_comparability_flag=true",
+  "structured_output_class": "JSON_OBJECT_ONLY (confirmed at attempt 3b)",
+  "adapter_complexity": "LOW",
+  "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION",
+  "inference_calls_at_resolution": 0,
+  "detail_file": "cross_provider_candidate_replacement.md"
+ },
+ "kimi_k3_transport_validation_2026_09_01_attempt_3b": {
+  "scope": "kimi-k3 only — single approved re-call",
+  "inference_calls": 1,
+  "retries_performed": 0,
+  "result": "PASS (all 12 section-8 criteria)",
+  "temperature_requested": 1,
+  "temperature_policy": "MODEL_REQUIRED_VALUE",
+  "temperature_accepted": true,
+  "temperature_comparability_flag": true,
+  "reasoning_effort_requested": "low",
+  "reasoning_effort_accepted": true,
+  "observed_reasoning_effort": "not returned by the API",
+  "reasoning_mode": "mandatory",
+  "reasoning_comparability_flag": true,
+  "structured_output_class": "JSON_OBJECT_ONLY (Section D honoured exactly)",
+  "canonical_field_adherence": "EXACT",
+  "requirement_id_preserved": true,
+  "match_label": "Strong",
+  "usage": {"input_tokens": 636, "output_tokens": 320, "reasoning_tokens": 170, "total_tokens": 956},
+  "latency_ms": 13601.3,
+  "manifest_status": "transport_validation_complete; candidate_resolution_complete=true; benchmark_execution_approved=false"
+ },
+ "final_transport_validation_2026_09_01_attempt_3": {
+  "prompt_assembly": "SECTION A (frozen) + SECTION D (canonical output-field contract, output-contract-only)",
+  "inference_calls": 4,
+  "retries_performed": 0,
+  "gemini_calls": 0,
+  "anthropic_calls": 0,
+  "tokens_billed": {"input": 1690, "output": 500, "reasoning": 105, "total": 2190},
+  "result": "3 / 4 PASS",
+  "qwen3.8-max": "PASS — HTTP 200; exact canonical fields; no aliases; req_id preserved; match_label 'Strong'; single-pass; latency 3608.9 ms",
+  "qwen3.8-flash": "PASS — HTTP 200; same; latency 2226.4 ms",
+  "deepseek-v4-pro": "PASS — HTTP 200; same; reasoning_mode=mandatory (reasoning_tokens=105); latency 4888.6 ms",
+  "kimi-k3": "FAIL / TRANSPORT_BLOCKED — HTTP 400 'invalid temperature: only 1 is allowed for this model'; requires temperature=1 (Opus-5 class); not retried; not substituted; reasoning_effort='low' acceptance UNKNOWN",
+  "section_d_finding": "Section D eliminated the attempt-2 alias problem — all 3 HTTP-200 models used exact canonical field names with no adapter-side semantic repair. JSON_OBJECT_ONLY + Section D sufficient.",
+  "manifest_status": "transport_validation_incomplete (kimi-k3 blocked); candidate NOT replaced"
+ },
+ "transport_revalidation_2026_09_01": {
+  "attempt": 2,
+  "inference_calls": 5,
+  "tokens_billed": 1896,
+  "retries_performed": 0,
+  "deepseek_account_readiness": "GET /user/balance -> HTTP 200, is_available=true (boolean only; non-inference)",
+  "result": "0 / 5 fully passed the section-10 bar",
+  "gemini-3.1-pro-preview": "BLOCKED — HTTP 429 prepayment credits depleted (user must fund the Gemini account)",
+  "gemini-3.7-flash": "BLOCKED — HTTP 429 same Gemini account",
+  "qwen3.8-max": "TRANSPORT VALIDATED (HTTP 200; json-token fix works); SCHEMA_ADHERENCE_PENDING (label key 'match_level' — smoke prompt omitted Section D)",
+  "qwen3.8-flash": "TRANSPORT VALIDATED (HTTP 200); SCHEMA_ADHERENCE_PENDING (label key 'match_status')",
+  "deepseek-v4-pro": "TRANSPORT VALIDATED (account funded; HTTP 200); SCHEMA_ADHERENCE_PENDING (label key 'match_grade'); reasoning_mode=MANDATORY (reasoning_tokens=408) — comparability flag",
+  "next": "User funds Gemini account; re-validation smoke harness assembles Section A + Section D (fixed output contract, identical for all providers) + strict json_schema where supported; re-run <=5 calls; require full section-10 pass."
+ }
+}

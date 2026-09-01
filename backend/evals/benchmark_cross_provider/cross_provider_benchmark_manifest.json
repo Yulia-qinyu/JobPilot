@@ -1,0 +1,706 @@
+{
+ "benchmark_id": "benchmark-round1b-cross-provider-screening",
+ "benchmark_type": "cross_provider_fixed_semantic_contract_screening",
+ "status": "model_selection_dataset_v1_complete_checkpoint_frozen",
+ "model_selection_checkpoint": {
+  "frozen_on": "2026-09-01",
+  "model_selection_dataset_v1_status": "complete",
+  "model_selection_top_quality": "kimi-k3",
+  "model_selection_cost_quality": "qwen3.8-max",
+  "model_selection_control": "claude-sonnet-4-5-20250929",
+  "conditional_low_cost": "qwen3.8-flash (pending Prompt Ablation)",
+  "eliminated": "deepseek-v4-pro (reliability failure: coverage 44/100, ECC 0.35, 19/30 usable jobs; mandatory reasoning frequently exhausted the fixed 4096-token output budget; reconciled-only Macro F1 NOT ranked against full-coverage models; record preserved, not hidden)",
+  "prompt_ablation_status": "not_started",
+  "dataset_v1_role": "development_model_selection",
+  "dataset_v2_role": "future_held_out_validation",
+  "same_contract_key_results": {
+   "kimi-k3": {"macro_f1": 0.7396, "ecc": 0.74, "chinese_jd_macro_f1": 0.7515, "score_vs_hmf_spearman": 0.723},
+   "qwen3.8-max": {"macro_f1": 0.7016, "ecc": 0.71, "chinese_jd_macro_f1": 0.7087, "score_vs_hmf_spearman": 0.609},
+   "sonnet_round1b_comparable_control": {"macro_f1": 0.6757, "ecc": 0.66, "chinese_jd_macro_f1": 0.6694, "score_vs_hmf_spearman": 0.647}
+  },
+  "sonnet_records_kept_separate": "SONNET_PRODUCTION_BASELINE (Baseline V1, full 7-field schema) and SONNET_ROUND1B_COMPARABLE_CONTROL (lean Section D, this task) are distinct records and MUST NOT be merged.",
+  "prompt_bottleneck_status": "HYPOTHESIS_STRENGTHENED (NOT proven). Cross-model error convergence strengthens the hypothesis that rubric/task communication is an important bottleneck. NOT stated as proven dominant cause. NO ~93% causal attribution claimed. To be tested in Prompt Ablation.",
+  "no_product_behavior_created": true,
+  "next": "Prompt / Rubric Communication Ablation (NOT started in this checkpoint task)."
+ },
+ "round1b_execution": {
+  "executed_on": "2026-09-01",
+  "new_inference_calls": 150,
+  "new_inference_calls_breakdown": "120 (4 new models x 30) + 30 (SONNET_ROUND1B_COMPARABLE_CONTROL, this task, approved)",
+  "reference_calls": 0,
+  "models": ["qwen3.8-max", "qwen3.8-flash", "deepseek-v4-pro", "kimi-k3", "claude-sonnet-4-5-20250929 (COMPARABLE_CONTROL)"],
+  "two_sonnet_records": {
+   "SONNET_PRODUCTION_BASELINE": "Baseline V1 (job_match_baseline_claude_current_v1). FULL 7-field production schema. NOT rerun / NOT modified / NEVER merged. Purpose: current production-system state. Macro F1 0.6919, ECC 0.62, coverage 91/100, job_norm 29/30, grounding 1.0, S->P 17, M->P 6, MS-MAE 13.45, rho(score,HMF) 0.537, mean latency 21068ms, tokens 159061, cost $0.854 (verified).",
+   "SONNET_ROUND1B_COMPARABLE_CONTROL": "NEW 30-call run under the SAME lean Section A + Section D 4-field contract + TRANSPORT_NORMALIZATION_MAPPING as the new candidates. Anthropic messages.parse binding the lean Section-D schema (_FitLean); temperature=0; max_tokens=4096; no thinking param; NO json-token line (Anthropic binds schema). Purpose: apples-to-apples model comparison. Macro F1 0.6757, ECC 0.66, Accuracy 0.66, coverage 100/100, job_norm 30/30, grounding 1.0/unsupported 0.0, Strong P/R/F1 0.936/0.558/0.699, Partial 0.462/0.800/0.585, Missing 0.765/0.722/0.743, S->P 23, M->P 5, P->S 2, P->M 4, OR-list acc/mF1 0.333/0.300, adjacency acc 0.40, project acc 0.645, compound acc 0.692, Chinese-JD Macro F1 0.6694, MS-MAE 14.87, rho(score,GT) 0.746, rho(score,HMF) 0.647, mean latency 18865ms P90 24226ms, tokens in 125266/out 25998/total 151264, cost $0.766 (Anthropic public pricing verified 2026-09-01), retries 0, INTEGRITY_OK, GT-load guard clean.",
+   "policy": "NEVER merge these two records. All model-to-model ranking uses the COMPARABLE_CONTROL; the PRODUCTION_BASELINE is shown separately for product-current-state reference."
+  },
+  "sonnet_contract_sensitivity_finding": "Holding the model fixed and swapping ONLY the output contract (7-field production schema -> 4-field Section D) shifted Sonnet Macro F1 by -0.016 (0.692 -> 0.676), Strong recall -0.072 (0.630 -> 0.558), Strong->Partial +6 (17 -> 23); it also removed the 91/100 normalization gap (100/100) and raised rho(score,HMF) +0.110 (0.537 -> 0.647). Under the identical lean contract the new candidates' advantage over Sonnet is LARGER, not an artefact of an easier contract.",
+  "gemini_glm_haiku_opus_calls": 0,
+  "prompt_assembly": "Section A (captured verbatim from unchanged production RequirementMatcher, SHA e99ed027...) + Section D (canonical 4-field output contract: summary / requirement_matches[requirement_id,match_label,evidence_ids,reason] / suggested_preparation)",
+  "transport_normalization_mapping": "match_label->match_status, evidence_ids->evidence_source_ids, reason->reason; importance := frozen canonical requirement importance (== importance_hint; JD property, not GT label); is_hard_requirement := False + hard_requirement_category := none (production prompt mandates this for v2_matchable); confidence := Medium constant. Non-semantic; identical for all 4 new models. Unchanged _normalize_matches + MatchScoreService then run.",
+  "comparability_note": "Reference Sonnet (Baseline V1) faced the FULL 7-field production schema; the 4 new models faced the leaner 4-field Section D. deepseek-v4-pro and kimi-k3 run mandatory non-disableable reasoning (reasoning_comparability_flag); kimi-k3 also runs temperature=1 (temperature_comparability_flag) vs temperature=0 for all others.",
+  "delta_basis": "SONNET_ROUND1B_COMPARABLE_CONTROL (Macro F1 0.6757) — the apples-to-apples reference.",
+  "results": {
+   "SONNET_ROUND1B_COMPARABLE_CONTROL": {"role": "MODEL_CONTROL (same contract)", "macro_f1": 0.6757, "ecc": 0.66, "accuracy": 0.66, "coverage": "100/100", "job_norm": "30/30", "grounding": 1.0, "unsupported": 0.0, "strong_p_r_f1": [0.936, 0.558, 0.699], "partial_p_r_f1": [0.462, 0.800, 0.585], "missing_p_r_f1": [0.765, 0.722, 0.743], "strong_to_partial": 23, "missing_to_partial": 5, "or_list_macro_f1": 0.300, "chinese_jd_macro_f1": 0.6694, "match_score_mae": 14.87, "score_vs_gt_spearman": 0.746, "score_vs_hmf_spearman": 0.647, "mean_latency_ms": 18865, "p90_latency_ms": 24226, "total_tokens": 151264, "reasoning_tokens": 0, "retries": 0, "integrity": "INTEGRITY_OK", "cost_usd_30_jobs": 0.766, "cost_status": "VERIFIED (Anthropic public pricing 2026-09-01)"},
+   "qwen3.8-max": {"macro_f1": 0.7016, "delta_vs_sonnet_ctrl": 0.026, "band": "small", "ecc": 0.71, "coverage": "100/100", "job_norm": "30/30", "grounding": 1.0, "strong_f1": 0.788, "partial_f1": 0.603, "missing_f1": 0.714, "chinese_jd_macro_f1": 0.7087, "chinese_jd_delta_vs_ctrl": 0.039, "strong_to_partial": 13, "missing_to_partial": 8, "match_score_mae": 11.5, "score_vs_hmf_spearman": 0.609, "score_vs_hmf_delta_vs_ctrl": -0.038, "mean_latency_ms": 13609, "total_tokens": 108549, "reasoning_tokens": 0, "retries": 0, "integrity": "INTEGRITY_OK", "cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION"},
+   "qwen3.8-flash": {"macro_f1": 0.659, "delta_vs_sonnet_ctrl": -0.017, "band": "REGRESSION", "ecc": 0.68, "coverage": "100/100", "job_norm": "30/30", "grounding": 1.0, "strong_f1": 0.781, "partial_f1": 0.529, "missing_f1": 0.667, "chinese_jd_macro_f1": 0.6717, "strong_to_partial": 11, "missing_to_partial": 9, "match_score_mae": 12.83, "score_vs_hmf_spearman": 0.667, "mean_latency_ms": 11397, "total_tokens": 106550, "reasoning_tokens": 0, "retries": 0, "integrity": "INTEGRITY_OK", "cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION"},
+   "deepseek-v4-pro": {"macro_f1_on_answered": 0.7063, "delta_vs_sonnet_ctrl": 0.031, "ecc": 0.35, "coverage": "44/100", "job_norm": "19/30", "grounding": 1.0, "strong_f1_on_answered": 0.926, "chinese_jd_macro_f1_on_answered": 0.6788, "match_score_mae_19j": 8.89, "score_vs_hmf_spearman_19j": 0.700, "mean_latency_ms": 48049, "total_tokens": 182241, "reasoning_tokens": 82971, "retries": 0, "integrity": "INTEGRITY_OK", "cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "verdict": "RELIABILITY FAILURE — mandatory non-disableable reasoning exhausts the fixed 4096-token output budget on all >=3-requirement jobs (11/30 jobs emit reasoning but no answer). Plus repeated multi-minute HTTP transport stalls (4 launch attempts). Per section 7: recorded, NOT silently repaired (max_tokens NOT raised). Macro F1 on 44 reconciled requirements MUST NOT be ranked against 100-requirement full-coverage models. ELIMINATED from the shortlist regardless of the Sonnet comparable-control result. A bounded HTTP-client timeout+retry setting (ROUND1B_HTTP_TIMEOUT=90/ROUND1B_MAX_RETRIES=6) was used for DeepSeek only to let the run finish — HTTP-client operational setting, not a model-request change."},
+   "kimi-k3": {"macro_f1": 0.7396, "delta_vs_sonnet_ctrl": 0.064, "band": "meaningful", "ecc": 0.74, "ecc_delta_vs_ctrl": 0.08, "coverage": "100/100", "job_norm": "30/30", "grounding": 1.0, "strong_f1": 0.804, "partial_f1": 0.567, "missing_f1": 0.849, "chinese_jd_macro_f1": 0.7515, "chinese_jd_delta_vs_ctrl": 0.082, "strong_to_partial": 9, "missing_to_partial": 4, "match_score_mae": 10.43, "score_vs_hmf_spearman": 0.723, "score_vs_hmf_delta_vs_ctrl": 0.076, "mean_latency_ms": 28125, "total_tokens": 107576, "reasoning_tokens": 3370, "retries": 1, "integrity": "INTEGRITY_OK", "cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION", "note": "best on this dataset; margin over the SAME-contract Sonnet grew from +0.048 (vs production baseline) to +0.064 (meaningful) vs the comparable control; reasoning_comparability_flag + temperature_comparability_flag(temp=1)"}
+  },
+  "quality_gate": "NO model passes the primary gate (Macro F1 >= 0.75 AND ECC >= 0.75) — the SONNET_ROUND1B_COMPARABLE_CONTROL included (0.676 / 0.66). kimi-k3 nearest (0.740 / 0.74). All full-coverage models pass grounding >= 0.98 and unsupported <= 0.02 (1.00 / 0.00). NO model reaches Partial precision 0.60 — six records (4 providers + BOTH Sonnet output contracts) cluster 0.42-0.57.",
+  "category_leaders_rechecked_vs_comparable_control": {"top_quality": "kimi-k3 (CONFIRMED; margin grew to +0.064 meaningful)", "best_cost_quality": "qwen3.8-max (CONFIRMED; now a genuine +0.026 small Macro F1 gain, plus faster+lighter than the Sonnet control, no transport caveat)", "best_chinese_product_fit": "kimi-k3 (CONFIRMED; Chinese-JD Macro F1 0.752, +0.082; only model meeting the 0.75 sub-target)", "most_reliable": "kimi-k3 (ECC 0.74, ECC-led); qwen3.8-max the zero-caveat alternative (ECC 0.71, 0 retries). The Sonnet control is now LAST on ECC among full-coverage models (0.66).", "sonnet_dominated": "weakly non-dominated (survives only via niche edges: latency vs kimi-k3; Missing recall + rho(score,HMF) + Strong precision vs qwen3.8-max). NOT a quality contender: weakest full-coverage model on Macro F1 except qwen3.8-flash, and last on ECC."},
+  "top_3_shortlist": ["kimi-k3", "qwen3.8-max", "SONNET_ROUND1B_COMPARABLE_CONTROL (incumbent model control)"],
+  "conditional": "qwen3.8-flash retained ONLY pending the Prompt Ablation (still a regression, -0.017 vs the comparable control). deepseek-v4-pro ELIMINATED.",
+  "prompt_bottleneck_status": "HYPOTHESIS_STRENGTHENED (NOT proven). Cross-model error convergence — six records (4 providers + BOTH Sonnet output contracts) share a Partial-precision ceiling of 0.42-0.57 and the same over-prediction of Partial — PLUS the sensitivity of a fixed model to the output-contract shape (Sonnet 7-field -> 4-field shifted Macro F1 -0.016 and Strong->Partial 17 -> 23) strengthens the hypothesis that rubric / task communication is an important bottleneck. The causal share of errors attributable to prompt communication is NOT established and must be tested directly in the Prompt Ablation. No ~93% causal attribution is claimed. Next high-value experiment = Prompt / Rubric Communication Ablation on kimi-k3 + qwen3.8-max + the Sonnet control, then Dataset V2 held-out validation. No prompt change implemented. No production change.",
+  "dataset_governance": "Dataset V1 is DEVELOPMENT / MODEL-SELECTION data, NOT a final unbiased held-out test. Dataset V2 remains held-out.",
+  "artifacts": ["cross_provider_round1b_comparison.md", "cross_provider_round1b_pareto.md", "cross_provider_round1b_shortlist.md", "cross_provider_round1b_metrics.json", "cross_provider_round1b_metrics.csv", "cross_provider_round1b_{predictions,metrics,job_scores,slice_metrics,errors,latency_tokens,integrity}_<slug>.* (<slug> includes sonnet-comparable)"],
+  "no_prompt_ablation_performed": true,
+  "no_production_change": true,
+  "baseline_v1_and_round1a_not_overwritten": true
+ },
+ "created_by_task": "Cross-Provider Model Screening Readiness Audit (design only; 0 inference calls)",
+ "positioning": "Round 1B follows Round 1A (Anthropic tier screening). Purpose: which provider/model best fits JobPilot requirement-level matching under the SAME semantic task contract. NOT a generic LLM leaderboard, NOT a prompt-optimisation experiment, NOT a production routing implementation, NOT a final held-out test.",
+ "reference_model": "claude-sonnet-4-5-20250929",
+ "reference_reuse_policy": "REUSE Round 1A / Baseline V1 results for claude-sonnet-4-5-20250929. 0 new Anthropic calls in Round 1B.",
+ "openai_status": "excluded_by_user_operational_policy",
+ "provider_exclusion_reason": "user_operational_policy",
+ "openai_notes": "The user has intentionally disabled OpenAI API usage for this round. NOT a model-quality judgment. Do not request OPENAI_API_KEY, do not install the OpenAI SDK, do not configure OpenAI, do not treat its absence as a blocker.",
+ "gemini_status": "excluded_by_user_operational_cost_policy",
+ "gemini_exclusion_reason": "user_operational_cost_policy",
+ "gemini_notes": "The user has removed Gemini from the Round 1B pool on operational-cost grounds (both Gemini candidates were also blocked HTTP 429 — AI Studio prepayment credits depleted — see transport_validation.attempt_2_revalidation). NOT a model-quality judgment. Historical Gemini transport records (attempt 1 HTTP 404/503, attempt 2 HTTP 429) are PRESERVED below. Do NOT re-enable Gemini, do NOT request Gemini billing, do NOT perform further Gemini metadata calls.",
+ "ground_truth_version": "job-match-ground-truth-v2",
+ "ground_truth_file": "backend/evals/job_match_annotation_full_v2_human_verified.json",
+ "ground_truth_sha256": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+ "dataset": "job_match_eval_dataset_v1",
+ "dataset_file": "backend/evals/job_match_eval_dataset_v1.json",
+ "dataset_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+ "dataset_role": "development_model_selection",
+ "dataset_role_warning": "Ground Truth inspected, baseline errors analysed, failure slices derived from observed errors, and models are now being compared on it. Any Round 1B improvement is DEVELOPMENT-SET performance and MUST NOT be presented as unbiased final test performance.",
+ "frozen_eval_commit": "1a31c8d",
+ "fixed_semantic_contract": {
+  "jobs": 30,
+  "matchable_requirements": 100,
+  "eligibility_excluded": 42,
+  "knowledge_excluded": 16,
+  "subjective_excluded": true,
+  "candidate_evidence": "frozen candidate_evidence_snapshot embedded in the Ground Truth (30 items; resume_extracted / manual_confirmed; resume_hash a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f)",
+  "labels": [
+   "Strong",
+   "Partial",
+   "Missing"
+  ],
+  "evidence_contract": "predicted evidence ids must be exact frozen catalog ids ({source_type}:{source_id})",
+  "calls_per_job": 1,
+  "evaluation_join_key": [
+   "job_id",
+   "requirement_id"
+  ],
+  "normalization": "production FitAnalysisService._normalize_matches (unchanged) — exact 1:1 requirement-id set, drop out-of-catalog evidence, cite-less Strong/Partial -> Missing, whole-job reject on id-set violation",
+  "match_score": "production MatchScoreService (unchanged) — Critical 5 / Important 3 / Preferred 1; Strong 1.0 / Partial 0.5 / Missing 0.0; round_half_up; matchable only",
+  "ground_truth_load_timing": "AFTER every raw prediction for a candidate is persisted to disk"
+ },
+ "fixed_semantic_prompt": {
+  "prompt_version": "job-fit-v3-matchable-only",
+  "prompt_schema_version": "fit-analysis-wire-v2",
+  "source_file": "backend/app/services/requirement_matcher.py",
+  "source_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "rule": "Byte-identical semantic instruction text for every provider (see cross_provider_prompt_parity.md). NO OR-list / adjacency / project-vs-work / narrowest-unmet-subclaim rule, NO benchmark failure cases, NO human adjudication notes added to any candidate. Those belong to the later Prompt/Rubric Communication Ablation.",
+  "round_1b_question": "Which model performs better under the CURRENT task specification?"
+ },
+ "fixed_inputs_sha256": {
+  "requirement_matcher.py": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "claude_client.py": "76d953c4ae852502c0c85b16a53f1f8fcaeb3a7f39c791ff1776a3ed0b729b81",
+  "match_score.py": "8ae2d59389da7f3ae783bb57daca81c6611cd5c009a95005e6d772bc6c8dfad2",
+  "ground_truth": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+  "dataset_v1": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558"
+ },
+ "candidate_slots": [
+  {
+   "slot": "REFERENCE",
+   "provider": "anthropic",
+   "model_id": "claude-sonnet-4-5-20250929",
+   "role": "production baseline / reference",
+   "planned_calls": 0,
+   "status": "available_confirmed (Round 1A)",
+   "adapter": "existing ClaudeStructuredClient (or thin eval wrapper); no change"
+  },
+  {
+   "slot": "GEMINI_HIGH_CAPABILITY",
+   "provider": "google_gemini",
+   "model_id": "gemini-3.1-pro-preview",
+   "role": "HIGH_CAPABILITY — quality ceiling for a strong Google model",
+   "planned_calls": 0,
+   "status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY — removed from the Round 1B pool by the user on operational-cost grounds. Historical transport record PRESERVED: attempt 1 model_id gemini-2.5-pro HTTP 404 (not callable) -> substituted gemini-3.1-pro-preview; attempt 2 HTTP 429 RESOURCE_EXHAUSTED (AI Studio prepayment credits depleted). NOT a model-quality judgment. Do NOT re-enable / do NOT request billing / do NOT re-probe.",
+   "release_status": "preview",
+   "operational_stability_flag": true,
+   "quality_candidate": true,
+   "production_stability_candidate": "conditional",
+   "resolution_method": "provider-recommended in the gemini-2.5-pro 404 body; only Pro-tier id in the Gemini model list",
+   "adapter": "GeminiBenchmarkAdapter (eval-only; httpx REST or google-genai SDK) — NOT to be run",
+   "base_url": "https://generativelanguage.googleapis.com/v1beta",
+   "structured_output": "STRICT_SCHEMA_SUPPORTED (intended; never confirmed — blocked then excluded)",
+   "reasoning_mode_policy": "model_native (thinkingConfig NOT sent)",
+   "temperature": "accepted (0); omit-if-rejected fallback retained in adapter design"
+  },
+  {
+   "slot": "GEMINI_COST_QUALITY",
+   "provider": "google_gemini",
+   "model_id": "gemini-3.7-flash",
+   "role": "COST_QUALITY — faster/cheaper Gemini tier that may preserve semantic quality",
+   "planned_calls": 0,
+   "status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY — removed from the Round 1B pool by the user on operational-cost grounds. Historical transport record PRESERVED: attempt 1 HTTP 503 transient; attempt 2 HTTP 429 RESOURCE_EXHAUSTED (same Gemini account). NOT a model-quality judgment. Do NOT re-enable / do NOT request billing / do NOT re-probe.",
+   "resolution_method": "same model-list endpoint; pick the current cost-tier id (non-thinking / flash-class)",
+   "adapter": "GeminiBenchmarkAdapter — NOT to be run",
+   "base_url": "https://generativelanguage.googleapis.com/v1beta",
+   "structured_output": "STRICT_SCHEMA_SUPPORTED (intended; never confirmed — blocked then excluded)",
+   "reasoning_mode_policy": "standard_single_pass (thinkingBudget=0)",
+   "temperature": "accepted (0); omit-if-rejected fallback retained in adapter design"
+  },
+  {
+   "slot": "KIMI_CHINESE_HIGH_CAPABILITY",
+   "provider": "moonshot",
+   "model_id": "kimi-k3",
+   "role": "CHINESE_HIGH_CAPABILITY — strong Chinese-native reasoning model for Chinese JD requirement matching (Kimi / Moonshot AI)",
+   "planned_calls": 30,
+   "status": "TRANSPORT_VALIDATED (attempt 3b, single approved re-call) — Section A + Section D with temperature=1 (MODEL_REQUIRED_VALUE) + reasoning_effort='low' -> HTTP 200 PASS. Exact canonical top-level {summary,requirement_matches,suggested_preparation} + item {requirement_id,match_label,evidence_ids,reason}; no aliases; req_id synthetic_req_001 preserved; match_label 'Strong'; evidence_ids ['synthetic_ev_001']; reason non-empty; no adapter semantic repair. reasoning_effort='low' accepted (observed effort not echoed by API); reasoning_content present; reasoning_tokens=170. usage in=636/out=320/reasoning=170/total=956; latency 13601.3 ms. temperature=0 had been REJECTED in attempt 3 (HTTP 400).",
+   "resolution_method": "Moonshot OpenAI-compatible GET /v1/models with MOONSHOT_API_KEY. Mainland base https://api.moonshot.cn/v1 -> 200; international https://api.moonshot.ai/v1 -> 401 (credential not valid there).",
+   "adapter": "MoonshotBenchmarkAdapter (eval-only; httpx OpenAI-compatible /chat/completions) — pattern identical to Qwen/DeepSeek adapters; complexity LOW",
+   "base_url": "https://api.moonshot.cn/v1",
+   "credential_env": "MOONSHOT_API_KEY",
+   "openai_compatible": true,
+   "model_metadata": {
+    "context_length": 1048576,
+    "output_limit": "PENDING_PROVIDER_METADATA (not exposed by /models)",
+    "supports_reasoning": true,
+    "supports_thinking_type": "only",
+    "think_efforts": {"support": true, "valid_efforts": ["low", "high", "max"], "default_effort": "max"},
+    "reasoning_efforts": {"support": true, "valid_efforts": ["low", "high", "max"], "default_effort": "max"},
+    "supports_dynamic_tools": true,
+    "supports_image_in": true,
+    "supports_video_in": true,
+    "stable_preview_deprecated": "not exposed by /models; no preview/deprecated marker returned -> treated as current/available (PENDING_PROVIDER_METADATA for a definitive stable tag)"
+   },
+   "structured_output": "JSON_OBJECT_ONLY (attempt 3b: Section D honoured exactly at HTTP 200 — exact canonical top-level + item fields, no aliases, no adapter semantic repair). response_format=json_object + Section D in-prompt + 'Return the response as JSON.' (Moonshot scope). Strict json_schema not asserted.",
+   "reasoning_mode_policy": "mandatory (supports_thinking_type='only' — thinking cannot be disabled). reasoning_comparability_flag=true. Adapter requests `reasoning_effort='low'` (OpenAI-compatible param; metadata key reasoning_efforts, valid low/high/max, default max). ATTEMPT 3b: reasoning_effort='low' ACCEPTED at HTTP 200 (observed effort not echoed by API); reasoning_content present; reasoning_tokens=170. Do NOT enable 'high'/'max'; do NOT compensate other candidates.",
+   "temperature": "temperature=1 (MODEL_REQUIRED_VALUE) ACCEPTED at HTTP 200 (attempt 3b). temperature=0 was REJECTED at attempt 3 (HTTP 400 'invalid temperature: only 1 is allowed for this model'). temperature_policy=MODEL_REQUIRED_VALUE; temperature_comparability_flag=true — kimi-k3 runs Round 1B at temperature=1 while every other candidate runs at temperature=0.",
+   "usage_metadata_path": "OpenAI-compatible usage.prompt_tokens / completion_tokens / total_tokens; reasoning-token path (completion_tokens_details.reasoning_tokens) PENDING transport validation",
+   "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION (no pricing fields in /models)"
+  },
+  {
+   "slot": "QWEN_HIGH_CAPABILITY",
+   "provider": "alibaba_qwen_dashscope",
+   "model_id": "qwen3.8-max",
+   "role": "CHINESE_HIGH_CAPABILITY — strong Chinese-language model for Chinese JD matching",
+   "planned_calls": 30,
+   "status": "TRANSPORT_VALIDATED (attempt 3, final gate) — Section A + Section D -> HTTP 200 PASS. Exact canonical top-level {summary,requirement_matches,suggested_preparation} + item {requirement_id,match_label,evidence_ids,reason}; no aliases; req_id preserved; match_label 'Strong'; evidence_ids list; reason string; no adapter semantic repair. usage in=539/out=146; latency 3608.9 ms.",
+   "resolution_method": "Alibaba Model Studio / DashScope model catalogue or OpenAI-compatible /models endpoint after DASHSCOPE_API_KEY + base URL are set",
+   "adapter": "QwenBenchmarkAdapter (eval-only; httpx OpenAI-compatible endpoint or dashscope SDK)",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+   "structured_output": "JSON_OBJECT_ONLY (Section D honoured exactly at HTTP 200; strict json_schema not asserted — optional Round 1B probe)",
+   "reasoning_mode_policy": "standard_single_pass (enable_thinking=false accepted; reasoning_content absent; reasoning_tokens=null)",
+   "temperature": "accepted (0) at HTTP 200",
+   "transport_serialization_only": "Qwen adapter appends 'Return the response as JSON.' — mandated by DashScope json_object mode; NOT propagated to Gemini/Anthropic"
+  },
+  {
+   "slot": "QWEN_COST_QUALITY",
+   "provider": "alibaba_qwen_dashscope",
+   "model_id": "qwen3.8-flash",
+   "role": "CHINESE_COST_QUALITY — lower-cost Qwen with strong Chinese semantics",
+   "planned_calls": 30,
+   "status": "TRANSPORT_VALIDATED (attempt 3, final gate) — Section A + Section D -> HTTP 200 PASS. Exact canonical top-level + item fields; no aliases; req_id preserved; match_label 'Strong'; evidence_ids list; reason string; no adapter semantic repair. usage in=539/out=133; latency 2226.4 ms.",
+   "resolution_method": "same DashScope catalogue; pick the current cost-tier id",
+   "adapter": "QwenBenchmarkAdapter",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+   "structured_output": "JSON_OBJECT_ONLY (Section D honoured exactly at HTTP 200; strict json_schema not asserted)",
+   "reasoning_mode_policy": "standard_single_pass (enable_thinking=false; reasoning_content absent; reasoning_tokens=null)",
+   "temperature": "accepted (0) at HTTP 200",
+   "transport_serialization_only": "Qwen adapter appends 'Return the response as JSON.' — mandated by DashScope json_object mode; NOT propagated to Gemini/Anthropic"
+  },
+  {
+   "slot": "DEEPSEEK_HIGH_VALUE",
+   "provider": "deepseek",
+   "model_id": "deepseek-v4-pro",
+   "role": "CHINESE_HIGH_VALUE — high value on reasoning / Chinese capability; ONE variant only",
+   "planned_calls": 30,
+   "status": "TRANSPORT_VALIDATED + REASONING_MANDATORY (attempt 3, final gate) — Section A + Section D -> HTTP 200 PASS. Exact canonical top-level + item fields; no aliases; req_id preserved; match_label 'Strong'; evidence_ids ['synthetic_ev_001']; reason string; no adapter semantic repair. reasoning_content present; reasoning_tokens=105. usage in=612/out=221/reasoning=105; latency 4888.6 ms.",
+   "resolution_method": "DeepSeek OpenAI-compatible /models endpoint after DEEPSEEK_API_KEY is set; choose the standard chat model unless the high-value variant is a mandatory-CoT model (record if so)",
+   "adapter": "DeepSeekBenchmarkAdapter (eval-only; httpx OpenAI-compatible endpoint)",
+   "notes": "Do not add redundant DeepSeek variants. deepseek-v4-pro forces chain-of-thought that cannot be disabled: reasoning_mode=mandatory (revalidation: reasoning_tokens=408, reasoning_content present). Do NOT grant other candidates a compensating high-compute mode. Carry this comparability flag into Round 1B.",
+   "base_url": "https://api.deepseek.com",
+   "structured_output": "JSON_OBJECT_ONLY (confirmed at HTTP 200)",
+   "reasoning_mode_policy": "mandatory (confirmed at re-validation; not disableable; comparability flag)",
+   "temperature": "accepted (0) at HTTP 200",
+   "transport_serialization_only": "DeepSeek adapter appends 'Return the response as JSON.' — mandated by DeepSeek json_object mode; NOT propagated to Gemini/Anthropic",
+   "account_readiness_probe": "GET https://api.deepseek.com/user/balance -> HTTP 200, is_available=true (boolean only; monetary amounts intentionally not recorded; non-inference metadata call)"
+  }
+ ],
+ "expected_screening_pool_size": 5,
+ "expected_screening_pool_size_note": "REFERENCE (claude-sonnet-4-5-20250929, reuse) + qwen3.8-max + qwen3.8-flash + deepseek-v4-pro + kimi-k3. Gemini x2 EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (records preserved).",
+ "new_candidate_models": 4,
+ "transport_policy": {
+  "rule": "Cross-provider comparison does NOT require byte-identical API transport. Provider/model-specific transport differences are permitted ONLY where technically necessary and are classified TRANSPORT_SERIALIZATION_ONLY. They must add NO semantic guidance; the model-facing semantic task must remain equivalent.",
+  "permitted_transport_differences": [
+   "Anthropic: messages.parse output_format=<pydantic model>",
+   "Gemini: generateContent responseMimeType=application/json + responseSchema (or the OpenAI-compatible /v1beta/openai/ endpoint with response_format json_schema)",
+   "Qwen: OpenAI-compatible response_format json_schema / json_object, DashScope base URL + region",
+   "DeepSeek: OpenAI-compatible response_format json_object (DeepSeek json mode historically requires the literal token 'json' somewhere in the prompt and disallows combining function-calling with json mode)",
+   "omit the temperature parameter for any model whose API rejects/deprecates it (LESSON FROM OPUS 5)"
+  ],
+  "opus_5_lesson": "Semantic-contract parity != transport-parameter identity. Production code hard-codes temperature=0; claude-opus-5 rejects that parameter. Cross-provider evaluation must isolate the SEMANTIC CONTRACT from the PROVIDER/MODEL TRANSPORT ADAPTER. No production code change in Round 1B — eval-only adapters only.",
+  "temperature_policy": "Send temperature=0 where accepted; omit it where the model rejects/deprecates it; record which per candidate in transport_metadata."
+ },
+ "reasoning_policy": {
+  "rule": "Approximate normal production usage: single-pass structured classification WITHOUT explicit premium / max-compute / extended-thinking modes.",
+  "per_provider": {
+   "anthropic": "no thinking parameter passed (production default)",
+   "google_gemini": "use the standard model or the non-thinking variant; do NOT set a thinking budget / do NOT enable flash-thinking",
+   "alibaba_qwen": "do NOT enable enable_thinking; use standard chat mode",
+   "deepseek": "use the standard chat model; avoid the mandatory-CoT reasoner unless it IS the chosen high-value model, in which case record reasoning_mode=mandatory and do not compensate other candidates"
+  },
+  "record": "reasoning_mode_policy per candidate in cross_provider_candidate_readiness.csv"
+ },
+ "structured_output_parity": {
+  "required_semantics": {
+   "summary": "string",
+   "requirement_matches[]": {
+    "requirement_id": "string",
+    "match_label": "Strong|Partial|Missing",
+    "evidence_ids": "string[] (frozen catalog ids)",
+    "reason": "string"
+   },
+   "suggested_preparation[]": {
+    "title": "string",
+    "action": "string",
+    "priority": "High|Medium|Low",
+    "requirement_ids": "string[]"
+   }
+  },
+  "note": "Do NOT reduce output requirements for smaller/cheaper models. Do NOT give examples to one provider without giving equivalent examples to all. If a provider cannot guarantee strict schema, record structured_output_limitation and measure it as a reliability metric (schema parse success, invalid labels, id-set violations)."
+ },
+ "metrics": {
+  "primary": "Macro F1 on the 100 frozen matchable requirements",
+  "system_co_primary": "Effective Correct Coverage = (correct AND successfully normalized) / 100",
+  "classification": [
+   "Accuracy",
+   "Macro Precision",
+   "Macro Recall",
+   "Macro F1",
+   "per-class P/R/F1 (Strong, Partial, Missing)",
+   "confusion matrix"
+  ],
+  "directional": [
+   "Strong->Partial",
+   "Strong->Missing",
+   "Partial->Strong",
+   "Partial->Missing",
+   "Missing->Strong",
+   "Missing->Partial"
+  ],
+  "reliability": [
+   "raw schema parse success",
+   "job normalization success",
+   "requirement coverage",
+   "duplicate requirement ids",
+   "omitted ids",
+   "hallucinated ids",
+   "invalid labels",
+   "invalid evidence ids"
+  ],
+  "grounding": [
+   "Grounding Rate",
+   "Unsupported Match Rate",
+   "Evidence ID validity",
+   "Strong/Partial zero-evidence rate",
+   "Missing-with-evidence anomaly rate"
+  ],
+  "slices": [
+   "or_list",
+   "technology_adjacency",
+   "project_based_evidence",
+   "formal_work_experience",
+   "compound",
+   "proficiency_depth",
+   "domain_specific",
+   "small_matchable_jobs",
+   "one_requirement_jobs",
+   "mismatched_control_jobs"
+  ],
+  "job_level_score": [
+   "Match Score MAE vs GT Match Score",
+   "median abs err",
+   "max abs err",
+   "jobs diff >= 20",
+   "jobs diff >= 30",
+   "Spearman(model score, GT score)",
+   "Spearman(model score, Human Match Fit)"
+  ],
+  "efficiency": [
+   "total wall time",
+   "mean/median/P90/min/max latency",
+   "input tokens",
+   "output tokens",
+   "total tokens",
+   "avg tokens/job",
+   "verified cost/job"
+  ],
+  "slice_definitions_source": "REUSED verbatim from backend/evals/job_match_baseline_claude_current_v1_error_slices.csv + job_match_baseline_claude_current_v1_score_analysis.csv + Dataset V1 role_category. NOT re-derived after seeing Round 1B results."
+ },
+ "reference_values_preserved": {
+  "model": "claude-sonnet-4-5-20250929",
+  "macro_f1": 0.692,
+  "effective_correct_coverage": 0.62,
+  "strong_f1": 0.734,
+  "partial_f1": 0.591,
+  "missing_f1": 0.75,
+  "strong_recall": 0.63,
+  "partial_precision": 0.477,
+  "grounding_rate": 1.0,
+  "unsupported_match_rate": 0.0,
+  "job_normalization_success": "29/30",
+  "requirement_coverage": "91/100",
+  "match_score_vs_human_match_fit_spearman": 0.537,
+  "gt_match_score_vs_human_match_fit_spearman": 0.845,
+  "round1a_haiku_4_5": {
+   "macro_f1": 0.679,
+   "ecc": 0.65,
+   "strong_recall": 0.5,
+   "cost_multiple_vs_sonnet": "~0.32x (3.1x cheaper)",
+   "latency_multiple": "~0.49x (2x faster)"
+  },
+  "round1a_opus_5": "BLOCKED — temperature parameter rejected under the fixed production transport"
+ },
+ "screening_funnel": [
+  "Current Production Baseline (claude-sonnet-4-5-20250929)",
+  "+ Cross-Provider Candidate Pool (Qwen x2, DeepSeek x1, Kimi x1) — Gemini x2 EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY",
+  "-> Round 1B Cross-Provider Screening (fixed semantic contract, current prompt)",
+  "-> Top 3 candidates (Pareto review across quality / reliability / efficiency / product fit)",
+  "-> deeper model benchmark / robustness review (repeat runs, variance)",
+  "-> Prompt/Rubric Communication Ablation on Top 1-2 models",
+  "-> Dataset V2 held-out validation",
+  "-> final production model selection / routing decision"
+ ],
+ "shortlist_policy": {
+  "rule": "NO arbitrary weighted score yet. Pareto-style review only, AFTER completed benchmark inference.",
+  "axes": {
+   "QUALITY": [
+    "Macro F1",
+    "Strong Recall",
+    "Partial Precision",
+    "Missing Recall",
+    "critical failure slices (or_list, technology_adjacency, project_based_evidence)"
+   ],
+   "RELIABILITY": [
+    "Effective Correct Coverage",
+    "requirement coverage",
+    "schema success",
+    "grounding"
+   ],
+   "EFFICIENCY": [
+    "mean latency",
+    "verified cost/job"
+   ],
+   "PRODUCT_FIT": [
+    "Chinese-JD subset performance",
+    "provider availability / operational complexity",
+    "structured-output reliability",
+    "stability"
+   ]
+  },
+  "output": "cross_provider_shortlist (Top 3) — created only after Round 1B execution, not in this readiness task"
+ },
+ "why_chinese_providers": {
+  "dataset_v1_chinese_share": "27 / 30 JDs Chinese-dominant (90%)",
+  "product_target": "Chinese job-search workflow",
+  "rationale": "Qwen and DeepSeek are DIRECT production candidates, not extra diversity. Round 1B tests whether models optimised for Chinese tasks improve requirement semantics, Strong/Partial calibration, Chinese OR-list interpretation, domain terminology, project-vs-work nuance, and Chinese evidence grounding."
+ },
+ "contamination_policy": {
+  "model_inputs_may_contain": [
+   "frozen matchable requirement_id + requirement_text (normalized_requirement) + context (source_text) + importance_hint + source_kind",
+   "frozen 30-item candidate evidence payload",
+   "the unchanged job-fit-v3 semantic instruction text"
+  ],
+  "model_inputs_must_never_contain": [
+   "human_match_label",
+   "human_eligibility_status",
+   "human_evidence_ids",
+   "Human Match Fit",
+   "human_grounding_reason / human_notes",
+   "error-analysis buckets",
+   "benchmark slice names",
+   "known baseline failure cases",
+   "OR-list / project-vs-work / adjacency human adjudication notes",
+   "GoFin manual facts",
+   "any Ground Truth label"
+  ],
+  "ground_truth_load_timing": "AFTER every raw prediction for a candidate is persisted"
+ },
+ "pricing_status": {
+  "policy": "Do NOT guess provider pricing. Do NOT web-search pricing in this task. Placeholders below; verify officially before cost is reported.",
+  "fields": [
+   "input_price_per_million",
+   "output_price_per_million",
+   "cached_input_price_per_million",
+   "reasoning_surcharge",
+   "currency",
+   "pricing_source",
+   "pricing_verified_on"
+  ],
+  "per_provider": {
+   "anthropic_reference": {
+    "input_price_per_million": 3.0,
+    "output_price_per_million": 15.0,
+    "currency": "USD",
+    "pricing_source": "Anthropic public pricing",
+    "pricing_verified_on": "2026-09-01",
+    "status": "VERIFIED (historical reference only)"
+   },
+   "anthropic_haiku_4_5": {
+    "input_price_per_million": 1.0,
+    "output_price_per_million": 5.0,
+    "currency": "USD",
+    "pricing_source": "Anthropic public pricing",
+    "pricing_verified_on": "2026-09-01",
+    "status": "VERIFIED"
+   },
+   "google_gemini_high_capability": {
+    "status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (was PENDING_OFFICIAL_PRICING_VERIFICATION)"
+   },
+   "google_gemini_cost_quality": {
+    "status": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY (was PENDING_OFFICIAL_PRICING_VERIFICATION)"
+   },
+   "alibaba_qwen_high_capability": {
+    "status": "PENDING_OFFICIAL_PRICING_VERIFICATION"
+   },
+   "alibaba_qwen_cost_quality": {
+    "status": "PENDING_OFFICIAL_PRICING_VERIFICATION"
+   },
+   "deepseek_high_value": {
+    "status": "PENDING_OFFICIAL_PRICING_VERIFICATION"
+   },
+   "moonshot_kimi_chinese_high_capability": {
+    "status": "PENDING_OFFICIAL_PRICING_VERIFICATION"
+   }
+  },
+  "note_after_resolution": "Gemini/Qwen/DeepSeek/Moonshot model-list endpoints returned NO pricing fields. Active new candidates (qwen3.8-max, qwen3.8-flash, deepseek-v4-pro, kimi-k3) remain PENDING_OFFICIAL_PRICING_VERIFICATION. Gemini pricing moot — excluded."
+ },
+ "future_dataset_v2_policy": "Dataset V2 = held-out validation/test set. Targets: more campus/new-grad roles, greater company diversity, lower Tencent/Baidu concentration, broader role + requirement distribution, preserve Chinese-dominant production realism, retain English controls, retain mismatch controls. Dataset V2 must NOT be used for iterative prompt tuning before final evaluation.",
+ "expected_new_inference_calls": {
+  "qwen_high": 30,
+  "qwen_cost": 30,
+  "deepseek": 30,
+  "kimi_chinese_high": 30,
+  "anthropic_reference": 0,
+  "gemini_high": 0,
+  "gemini_cost": 0,
+  "gemini_note": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY",
+  "total_max": 120
+ },
+ "this_readiness_task_inference_calls": 0,
+ "no_live_inference_confirmation": {
+  "anthropic_inference": 0,
+  "gemini_inference": 0,
+  "qwen_inference": 0,
+  "deepseek_inference": 0,
+  "openai_inference": 0,
+  "openai_configuration_work": 0,
+  "metadata_probes_performed": [
+   "local: pip list (installed SDKs)",
+   "local: read requirements.txt / requirements-dev.txt",
+   "local: env var NAME scan (values redacted)",
+   "local: .env key NAME scan (values redacted)"
+  ],
+  "network_probes_performed": [],
+  "production_code_changed": false,
+  "prompt_changed": false,
+  "ground_truth_changed": false,
+  "dataset_changed": false
+ },
+ "candidate_resolution": {
+  "resolved_on": "2026-09-01",
+  "inference_calls": 0,
+  "credential_presence": {
+   "ANTHROPIC_API_KEY": "present",
+   "GEMINI_API_KEY": "present (provider EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY)",
+   "DASHSCOPE_API_KEY": "present",
+   "DEEPSEEK_API_KEY": "present",
+   "MOONSHOT_API_KEY": "present",
+   "OPENAI_API_KEY": "missing (excluded)"
+  },
+  "model_list_probes": {
+   "gemini": "200 (52 models) — historical; provider now excluded on cost policy",
+   "deepseek": "200 (3 models)",
+   "qwen_intl": "401 (wrong region)",
+   "qwen_mainland": "200 (249 models) — region RESOLVED",
+   "moonshot_cn": "200 (4 models) — region RESOLVED (mainland)",
+   "moonshot_ai_intl": "401 (credential not valid for the international endpoint)"
+  },
+  "qwen_region": "mainland_china",
+  "qwen_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "moonshot_region": "mainland_china",
+  "moonshot_base_url": "https://api.moonshot.cn/v1",
+  "detail_file": "cross_provider_resolved_models.json"
+ },
+ "kimi_candidate_resolution": {
+  "status": "complete",
+  "resolved_on": "2026-09-01",
+  "inference_calls": 0,
+  "provider": "moonshot",
+  "credential_env": "MOONSHOT_API_KEY",
+  "credential_presence": "present",
+  "base_url": "https://api.moonshot.cn/v1",
+  "api_compatibility": "OpenAI-compatible (GET /v1/models; Bearer auth; object=model; data[] list)",
+  "model_list_status": "200 (4 models: kimi-k3, kimi-k2.7-code-highspeed, kimi-k2.6, kimi-k2.7-code)",
+  "relevant_general_chat_models": ["kimi-k3", "kimi-k2.6"],
+  "excluded_from_selection": ["kimi-k2.7-code-highspeed (coding-specialised)", "kimi-k2.7-code (coding-specialised)"],
+  "recommended_candidate": "kimi-k3",
+  "recommendation_rationale": "Newest generation (k3); 1,048,576-token context (4x the k2.6 candidate); dedicated reasoning-effort controls (low/high/max); OpenAI-compatible; not a coding-specialised variant; strong Chinese-native model — direct product-fit for the 90%-Chinese Dataset V1. Capability gap vs kimi-k2.6 is substantial, so the HIGH_CAPABILITY slot takes k3 despite no explicit stable/preview marker in metadata.",
+  "reasoning_mode": "mandatory (supports_thinking_type='only'; default_effort='max'). reasoning_comparability_flag=true. Adapter will request 'low' effort for parity if accepted; not auto-rejected.",
+  "structured_output_class": "UNKNOWN_PENDING_TRANSPORT_VALIDATION",
+  "adapter_complexity": "LOW (another OpenAI-compatible /chat/completions endpoint; Qwen/DeepSeek adapter pattern applies)",
+  "pricing_status": "PENDING_OFFICIAL_PRICING_VERIFICATION",
+  "transport_validation": "COMPLETE (attempt 3b, 2026-09-01, 1 approved call) — TRANSPORT_VALIDATED. temperature=1 (MODEL_REQUIRED_VALUE) + reasoning_effort='low' both accepted at HTTP 200; Section D honoured exactly; req_id preserved; match_label 'Strong'; reasoning_tokens=170; latency 13601.3 ms.",
+  "detail_file": "cross_provider_candidate_replacement.md"
+ },
+ "benchmark_execution_approved": false,
+ "candidate_resolution_complete": true,
+ "transport_validation": {
+  "attempt_1": {
+   "performed_on": "2026-09-01",
+   "inference_calls": 5,
+   "tokens_billed": 0,
+   "result": "0 / 5 passed",
+   "per_candidate": {
+    "gemini-2.5-pro": "FAIL — HTTP 404, not available to this credential (provider: use gemini-3.1-pro-preview). REMOVED from pool.",
+    "gemini-3.7-flash": "FAIL — HTTP 503 transient high-demand.",
+    "qwen3.8-max": "FAIL — HTTP 400: DashScope json_object mode requires the token 'json' in messages.",
+    "qwen3.8-flash": "FAIL — same as qwen3.8-max.",
+    "deepseek-v4-pro": "FAIL — HTTP 402 Insufficient Balance."
+   }
+  },
+  "attempt_2_revalidation": {
+   "performed_on": "2026-09-01",
+   "synthetic_only": true,
+   "inference_calls": 5,
+   "call_cap": 5,
+   "retries_performed": 0,
+   "tokens_billed": 1896,
+   "tokens_billed_breakdown": {"input": 1048, "output": 848, "note": "3 calls returned HTTP 200 (qwen3.8-max, qwen3.8-flash, deepseek-v4-pro); gemini x2 billed 0 (429)"},
+   "dataset_v1_used": false,
+   "ground_truth_used": false,
+   "real_evidence_used": false,
+   "quality_metrics_computed": false,
+   "deepseek_account_readiness": "GET /user/balance -> HTTP 200, is_available=true (boolean only; monetary amounts not recorded; non-inference)",
+   "detail_files": [
+    "cross_provider_transport_validation.json",
+    "cross_provider_transport_validation.md"
+   ],
+   "result": "0 / 5 candidates fully passed the section-10 bar. Failure modes split: 2 hard billing blockers (Gemini account), 3 transport-validated with a schema-key adherence gap.",
+   "per_candidate": {
+    "gemini-3.1-pro-preview": "FAIL — BLOCKED. HTTP 429 RESOURCE_EXHAUSTED: Gemini/AI Studio project prepayment credits depleted. Request never reached the model. User must fund the Gemini account. release_status=preview; operational_stability_flag=true.",
+    "gemini-3.7-flash": "FAIL — BLOCKED. HTTP 429 RESOURCE_EXHAUSTED, same Gemini account. Attempt-1 503 was transient; real state is no account credits. Unblocks with the HIGH_CAPABILITY slot on funding.",
+    "qwen3.8-max": "FAIL (section 10) — TRANSPORT VALIDATED (json-token fix works: HTTP 400 -> 200; req_id synthetic_req_001 preserved; enum value 'Strong'; cited synthetic_ev_001; usage in=324/out=153; latency 4096.1 ms). Gap: minimal smoke prompt omitted Section D, model emitted label key 'match_level'. Needs one Section D re-validation.",
+    "qwen3.8-flash": "FAIL (section 10) — TRANSPORT VALIDATED (HTTP 400 -> 200; req_id preserved; usage in=324/out=140; latency 2603.1 ms). Gap: Section D omission -> label key 'match_status'. Needs one Section D re-validation.",
+    "deepseek-v4-pro": "FAIL (section 10) — TRANSPORT VALIDATED (account funded; HTTP 402 -> 200; json-token line works; req_id preserved; enum value 'Strong'; cited synthetic_ev_001; usage in=400/out=555/reasoning=408; latency 8382.1 ms). Gap: Section D omission -> label key 'match_grade'. Plus reasoning_mode=mandatory (reasoning_tokens=408, reasoning_content present; not disableable) -> permanent comparability flag."
+   },
+   "gemini_candidate_change_applied": "gemini-2.5-pro REMOVED (HTTP 404). HIGH_CAPABILITY -> gemini-3.1-pro-preview (provider-recommended; only Pro-tier id in the model list; PREVIEW — quality_candidate=true / production_stability_candidate=conditional). COST_QUALITY -> gemini-3.7-flash (unchanged). No further silent substitution if it fails again.",
+   "json_transport_parity_correction_applied": "CONFIRMED. The blanket 'Respond only with a single JSON object.' line is NOT added to every provider. Semantic prompt stays job-fit-v3-matchable-only. Minimal TRANSPORT_SERIALIZATION_ONLY line 'Return the response as JSON.' added ONLY inside the DeepSeek and Qwen eval adapters (both APIs mandate the token 'json' for json_object mode). Gemini and Anthropic do NOT receive it. Re-validation confirms the fix: Qwen x2 and DeepSeek went from HTTP 400/402 to HTTP 200.",
+   "schema_adherence_finding": "The 3 JSON_OBJECT_ONLY providers each invented their own label key (match_level / match_status / match_grade) because the minimal smoke prompt carried only Section A, not Section D. Section D (the fixed output-field contract, identical wording for every provider) IS part of the Round 1B assembled prompt. Next re-validation must assemble Section A + Section D and, where supported, bind strict json_schema. This is a smoke-harness gap, not a model or transport defect, and not a semantic change.",
+   "temperature": "Not rejected by any provider in either attempt. Qwen x2 and DeepSeek accepted temperature=0 at HTTP 200.",
+   "verdict": "0 / 5 transport-validated to the section-10 bar. Round 1B NOT ready."
+  },
+  "attempt_3_final_gate": {
+   "performed_on": "2026-09-01",
+   "synthetic_only": true,
+   "prompt_assembly": "SECTION A (frozen job-fit-v3-matchable-only semantic instructions, unchanged) + SECTION D (canonical FitAnalysisOutput field contract, OUTPUT-CONTRACT-ONLY — no OR-list / adjacency / project-vs-work / compound / examples / Ground Truth / rubric guidance)",
+   "candidate_pool": ["qwen3.8-max", "qwen3.8-flash", "deepseek-v4-pro", "kimi-k3"],
+   "gemini": "EXCLUDED_BY_USER_OPERATIONAL_COST_POLICY — not queried, not called",
+   "inference_calls": 4,
+   "call_cap": 4,
+   "retries_performed": 0,
+   "anthropic_calls": 0,
+   "gemini_calls": 0,
+   "tokens_billed": {"input": 1690, "output": 500, "reasoning": 105, "total": 2190, "note": "3 HTTP-200 calls; kimi-k3 billed 0"},
+   "dataset_v1_used": false,
+   "ground_truth_used": false,
+   "real_evidence_used": false,
+   "quality_metrics_computed": false,
+   "detail_files": ["cross_provider_transport_validation.json", "cross_provider_transport_validation.md"],
+   "result": "3 / 4 new candidates PASS the section-15 bar. kimi-k3 TRANSPORT_BLOCKED (temperature).",
+   "section_d_finding": "Section D fully eliminated the attempt-2 alias problem. All 3 HTTP-200 models returned the EXACT canonical top-level keys {summary,requirement_matches,suggested_preparation} and the EXACT canonical item keys {requirement_id,match_label,evidence_ids,reason} — no match_level/match_status/match_grade, no evidence_source_ids, no reasons. No adapter-side semantic repair. JSON_OBJECT_ONLY + Section D is sufficient.",
+   "per_candidate": {
+    "qwen3.8-max": "PASS — HTTP 200; exact canonical fields; req_id synthetic_req_001 preserved; match_label 'Strong'; evidence_ids ['synthetic_ev_001']; reason non-empty; single-pass (reasoning_tokens null). usage in=539/out=146/total=685; latency 3608.9 ms.",
+    "qwen3.8-flash": "PASS — HTTP 200; exact canonical fields; req_id preserved; match_label 'Strong'; evidence_ids list; reason string; single-pass. usage in=539/out=133/total=672; latency 2226.4 ms.",
+    "deepseek-v4-pro": "PASS — HTTP 200; exact canonical fields; req_id preserved; match_label 'Strong'; evidence_ids ['synthetic_ev_001']; reason string. reasoning_mode=MANDATORY (reasoning_content present; reasoning_tokens=105) -> reasoning_comparability_flag=true. usage in=612/out=221/reasoning=105/total=833; latency 4888.6 ms.",
+    "kimi-k3": "FAIL / TRANSPORT_BLOCKED — HTTP 400 'invalid temperature: only 1 is allowed for this model'. temperature=0 rejected; kimi-k3 mandates temperature=1 (Opus-5-class transport-parameter incompatibility). Blocked at parameter validation BEFORE reasoning_effort='low' or the JSON/Section D contract could be evaluated. reasoning_effort acceptance UNKNOWN; structured-output class UNKNOWN. NOT retried, NOT substituted. latency 1283.6 ms; 0 tokens billed."
+   },
+   "structured_output_class": {
+    "qwen3.8-max": "JSON_OBJECT_ONLY (Section D honoured)",
+    "qwen3.8-flash": "JSON_OBJECT_ONLY (Section D honoured)",
+    "deepseek-v4-pro": "JSON_OBJECT_ONLY (Section D honoured)",
+    "kimi-k3": "TRANSPORT_BLOCKED (not reached)"
+   },
+   "reasoning_mode": {
+    "qwen3.8-max": "standard_single_pass (enable_thinking=false)",
+    "qwen3.8-flash": "standard_single_pass (enable_thinking=false)",
+    "deepseek-v4-pro": "mandatory (reasoning_comparability_flag=true)",
+    "kimi-k3": "mandatory (metadata; effort request not yet accepted; reasoning_comparability_flag=true)"
+   },
+   "temperature": {
+    "qwen3.8-max": "temperature=0 accepted (HTTP 200)",
+    "qwen3.8-flash": "temperature=0 accepted (HTTP 200)",
+    "deepseek-v4-pro": "temperature=0 accepted (HTTP 200)",
+    "kimi-k3": "temperature=0 REJECTED — HTTP 400; requires temperature=1"
+   },
+   "transport_serialization_only_line": "'Return the response as JSON.' appended per-adapter (Qwen, DeepSeek, Moonshot scopes) — provider APIs mandate the literal token 'json' for response_format=json_object. NOT propagated to Gemini/Anthropic. Confirmed working for Qwen x2 + DeepSeek at HTTP 200.",
+   "remaining_blockers": {
+    "kimi-k3": "temperature=0 rejected (needs temperature=1 or omission) — one explicitly-approved single synthetic re-call required; then re-check reasoning_effort='low' acceptance + Section D adherence + req_id/label/evidence/reason + usage + reasoning tokens + latency against the section-15 bar. -> RESOLVED in attempt_3b_kimi."
+   },
+   "verdict": "3 / 4 transport-validated. 1 blocked (kimi-k3, temperature). -> superseded by attempt_3b_kimi (4/4)."
+  },
+  "attempt_3b_kimi": {
+   "performed_on": "2026-09-01",
+   "synthetic_only": true,
+   "scope": "kimi-k3 ONLY — single explicitly-approved re-call",
+   "prompt_assembly": "SECTION A (frozen) + SECTION D (canonical output-contract-only)",
+   "inference_calls": 1,
+   "call_cap": 1,
+   "retries_performed": 0,
+   "fallbacks": 0,
+   "substitutions": 0,
+   "tokens_billed": {"input": 636, "output": 320, "reasoning": 170, "total": 956},
+   "dataset_v1_used": false,
+   "ground_truth_used": false,
+   "real_evidence_used": false,
+   "quality_metrics_computed": false,
+   "detail_files": ["cross_provider_transport_validation.json", "cross_provider_transport_validation.md"],
+   "result": "PASS — all 12 section-8 criteria met.",
+   "kimi-k3": {
+    "http_status": 200,
+    "temperature_requested": 1,
+    "temperature_policy": "MODEL_REQUIRED_VALUE",
+    "temperature_accepted": true,
+    "temperature_comparability_flag": true,
+    "reasoning_mode": "mandatory",
+    "reasoning_effort_requested": "low",
+    "reasoning_effort_param_name": "reasoning_effort (OpenAI-compatible; metadata key reasoning_efforts)",
+    "reasoning_effort_accepted": true,
+    "observed_reasoning_effort": "not returned by the API",
+    "reasoning_comparability_flag": true,
+    "structured_output_class": "JSON_OBJECT_ONLY (Section D honoured exactly)",
+    "canonical_field_adherence": "EXACT — top-level {summary,requirement_matches,suggested_preparation}; item {requirement_id,match_label,evidence_ids,reason}; no aliases; no extra keys; no adapter semantic repair",
+    "requirement_id_preserved": true,
+    "match_label": "Strong",
+    "evidence_ids": "['synthetic_ev_001'] (canonical list; no evidence_source_ids alias)",
+    "usage": {"input_tokens": 636, "output_tokens": 320, "reasoning_tokens": 170, "total_tokens": 956},
+    "latency_ms": 13601.3
+   },
+   "verdict": "4 / 4 new candidates transport-validated. status = transport_validation_complete. candidate_resolution_complete = true. benchmark_execution_approved = false.",
+   "round1b_pool": ["claude-sonnet-4-5-20250929 (reference; 0 calls)", "qwen3.8-max", "qwen3.8-flash", "deepseek-v4-pro", "kimi-k3"],
+   "future_new_inference_calls": 120,
+   "comparability_flags_into_round1b": {
+    "deepseek-v4-pro": "reasoning_comparability_flag=true (mandatory reasoning)",
+    "kimi-k3": "reasoning_comparability_flag=true (mandatory reasoning at 'low' effort) + temperature_comparability_flag=true (temperature=1 vs temperature=0 for all others)"
+   }
+  }
+ }
+}

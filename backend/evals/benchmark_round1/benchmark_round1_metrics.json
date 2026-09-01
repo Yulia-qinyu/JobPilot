@@ -1,0 +1,360 @@
+{
+ "benchmark_id": "benchmark-round1-fixed-prompt-model-comparison",
+ "reference_gt_match_score_vs_human_match_fit_spearman": 0.845,
+ "quality_gates": {
+  "macro_f1": 0.75,
+  "ecc": 0.75,
+  "grounding_rate": 0.98,
+  "unsupported_match_rate": 0.02,
+  "strong_recall": 0.75,
+  "strong_precision": 0.8,
+  "partial_precision": 0.6,
+  "missing_recall": 0.667
+ },
+ "improvement_bands_vs_sonnet_macro_f1_0.692": {
+  "<+0.02": "not compelling",
+  "+0.02..0.05": "small",
+  "+0.05..0.10": "meaningful",
+  ">=+0.10": "large"
+ },
+ "models": {
+  "claude-sonnet-4-5-20250929": {
+   "reconciled": 91,
+   "unreconciled": 9,
+   "accuracy": 0.6813,
+   "macro": {
+    "precision": 0.7377,
+    "recall": 0.6916,
+    "f1": 0.6919
+   },
+   "per_class": {
+    "Strong": {
+     "precision": 0.8788,
+     "recall": 0.6304,
+     "f1": 0.7342,
+     "tp": 29,
+     "fp": 4,
+     "fn": 17
+    },
+    "Partial": {
+     "precision": 0.4773,
+     "recall": 0.7778,
+     "f1": 0.5915,
+     "tp": 21,
+     "fp": 23,
+     "fn": 6
+    },
+    "Missing": {
+     "precision": 0.8571,
+     "recall": 0.6667,
+     "f1": 0.75,
+     "tp": 12,
+     "fp": 2,
+     "fn": 6
+    }
+   },
+   "confusion": [
+    [
+     29,
+     17,
+     0
+    ],
+    [
+     4,
+     21,
+     2
+    ],
+    [
+     0,
+     6,
+     12
+    ]
+   ],
+   "directional": {
+    "Strong->Partial": 17,
+    "Strong->Missing": 0,
+    "Partial->Strong": 4,
+    "Partial->Missing": 2,
+    "Missing->Strong": 0,
+    "Missing->Partial": 6
+   },
+   "effective_correct_coverage": 0.62,
+   "grounding": {
+    "grounding_rate": 1.0,
+    "unsupported_match_rate": 0.0
+   },
+   "match_score": {
+    "jobs_scored": 29,
+    "mae_vs_gt_score": 13.45,
+    "median_abs_err": 12,
+    "max_abs_err": 50,
+    "jobs_diff_ge_20": 8,
+    "jobs_diff_ge_30": 2,
+    "spearman_model_vs_gt_score": 0.7071,
+    "spearman_model_vs_human_match_fit": 0.5373
+   },
+   "slices": {
+    "or_list": {
+     "n": 18,
+     "n_reconciled": 18,
+     "accuracy": 0.4444,
+     "errors": 10
+    },
+    "technology_adjacency": {
+     "n": 5,
+     "n_reconciled": 5,
+     "accuracy": 0.2,
+     "errors": 4
+    },
+    "project_based_evidence": {
+     "n": 71,
+     "n_reconciled": 63,
+     "accuracy": 0.6508,
+     "errors": 22
+    },
+    "formal_work_experience": {
+     "n": 11,
+     "n_reconciled": 11,
+     "accuracy": 0.3636,
+     "errors": 7
+    },
+    "compound": {
+     "n": 13,
+     "n_reconciled": 12,
+     "accuracy": 0.75,
+     "errors": 3
+    },
+    "proficiency_depth": {
+     "n": 11,
+     "n_reconciled": 9,
+     "accuracy": 0.6667,
+     "errors": 3
+    },
+    "domain_specific": {
+     "n": 11,
+     "n_reconciled": 10,
+     "accuracy": 0.5,
+     "errors": 5
+    },
+    "small_matchable_jobs": {
+     "n": 51,
+     "n_reconciled": 51,
+     "accuracy": 0.6863,
+     "errors": 16
+    },
+    "one_requirement_jobs": {
+     "n": 4,
+     "n_reconciled": 4,
+     "accuracy": 0.75,
+     "errors": 1
+    },
+    "mismatched_control_jobs": {
+     "n": 13,
+     "n_reconciled": 13,
+     "accuracy": 0.6154,
+     "errors": 5
+    }
+   },
+   "adjacency_false_positives": 4,
+   "project_under": 8,
+   "project_over": 8,
+   "gt_match_score_vs_human_match_fit_spearman_reference": 0.8437,
+   "model": "claude-sonnet-4-5-20250929",
+   "slug": "REFERENCE",
+   "latency": {
+    "total_runtime_ms": 632496.8,
+    "mean_ms": 21067.5,
+    "median_ms": 19858.0,
+    "p90_ms": 30584.1,
+    "min_ms": 8681.0,
+    "max_ms": 35982.8
+   },
+   "tokens": {
+    "input": 127696,
+    "output": 31365,
+    "total": 159061,
+    "avg_per_job": 5302.0,
+    "avg_per_requirement": 1590.6
+   },
+   "cost": {
+    "input_usd": 0.3831,
+    "output_usd": 0.4705,
+    "total_usd": 0.8536,
+    "rate_input_per_mtok_usd": 3.0,
+    "rate_output_per_mtok_usd": 15.0,
+    "source": "Anthropic public pricing, verified 2026-09-01 (reference historical)",
+    "cost_status": "VERIFIED"
+   }
+  },
+  "claude-haiku-4-5-20251001": {
+   "reconciled": 100,
+   "unreconciled": 0,
+   "accuracy": 0.65,
+   "macro": {
+    "precision": 0.7505,
+    "recall": 0.6963,
+    "f1": 0.6785
+   },
+   "per_class": {
+    "Strong": {
+     "precision": 0.9286,
+     "recall": 0.5,
+     "f1": 0.65,
+     "tp": 26,
+     "fp": 2,
+     "fn": 26
+    },
+    "Partial": {
+     "precision": 0.4561,
+     "recall": 0.8667,
+     "f1": 0.5977,
+     "tp": 26,
+     "fp": 31,
+     "fn": 4
+    },
+    "Missing": {
+     "precision": 0.8667,
+     "recall": 0.7222,
+     "f1": 0.7879,
+     "tp": 13,
+     "fp": 2,
+     "fn": 5
+    }
+   },
+   "confusion": [
+    [
+     26,
+     26,
+     0
+    ],
+    [
+     2,
+     26,
+     2
+    ],
+    [
+     0,
+     5,
+     13
+    ]
+   ],
+   "directional": {
+    "Strong->Partial": 26,
+    "Strong->Missing": 0,
+    "Partial->Strong": 2,
+    "Partial->Missing": 2,
+    "Missing->Strong": 0,
+    "Missing->Partial": 5
+   },
+   "effective_correct_coverage": 0.65,
+   "grounding": {
+    "grounding_rate": 1.0,
+    "unsupported_match_rate": 0.0
+   },
+   "match_score": {
+    "jobs_scored": 30,
+    "mae_vs_gt_score": 15.83,
+    "median_abs_err": 16.5,
+    "max_abs_err": 50,
+    "jobs_diff_ge_20": 12,
+    "jobs_diff_ge_30": 5,
+    "spearman_model_vs_gt_score": 0.8066,
+    "spearman_model_vs_human_match_fit": 0.7063
+   },
+   "slices": {
+    "or_list": {
+     "n": 18,
+     "n_reconciled": 18,
+     "accuracy": 0.6111,
+     "errors": 7
+    },
+    "technology_adjacency": {
+     "n": 5,
+     "n_reconciled": 5,
+     "accuracy": 0.6,
+     "errors": 2
+    },
+    "project_based_evidence": {
+     "n": 67,
+     "n_reconciled": 67,
+     "accuracy": 0.597,
+     "errors": 27
+    },
+    "formal_work_experience": {
+     "n": 11,
+     "n_reconciled": 11,
+     "accuracy": 0.5455,
+     "errors": 5
+    },
+    "compound": {
+     "n": 13,
+     "n_reconciled": 13,
+     "accuracy": 0.4615,
+     "errors": 7
+    },
+    "proficiency_depth": {
+     "n": 11,
+     "n_reconciled": 11,
+     "accuracy": 0.7273,
+     "errors": 3
+    },
+    "domain_specific": {
+     "n": 11,
+     "n_reconciled": 11,
+     "accuracy": 0.5455,
+     "errors": 5
+    },
+    "small_matchable_jobs": {
+     "n": 51,
+     "n_reconciled": 51,
+     "accuracy": 0.6471,
+     "errors": 18
+    },
+    "one_requirement_jobs": {
+     "n": 4,
+     "n_reconciled": 4,
+     "accuracy": 0.75,
+     "errors": 1
+    },
+    "mismatched_control_jobs": {
+     "n": 13,
+     "n_reconciled": 13,
+     "accuracy": 0.7692,
+     "errors": 3
+    }
+   },
+   "adjacency_false_positives": 2,
+   "project_under": 12,
+   "project_over": 7,
+   "gt_match_score_vs_human_match_fit_spearman_reference": 0.8437,
+   "model": "claude-haiku-4-5-20251001",
+   "slug": "haiku-4-5",
+   "latency": {
+    "total_runtime_ms": 310865.1,
+    "mean_ms": 10336.7,
+    "median_ms": 9636.9,
+    "p90_ms": 14090.4,
+    "min_ms": 4939.3,
+    "max_ms": 18862.8,
+    "model_calls": 30
+   },
+   "tokens": {
+    "input": 127696,
+    "output": 29870,
+    "total": 157566,
+    "avg_per_job": 5252.2,
+    "avg_per_requirement": 1575.7
+   },
+   "cost": {
+    "input_usd": 0.1277,
+    "output_usd": 0.1494,
+    "total_usd": 0.277,
+    "avg_per_job_usd": 0.00923,
+    "rate_input_per_mtok_usd": 1.0,
+    "rate_output_per_mtok_usd": 5.0,
+    "source": "Anthropic public pricing, verified 2026-09-01",
+    "cost_status": "VERIFIED"
+   }
+  }
+ }
+}
