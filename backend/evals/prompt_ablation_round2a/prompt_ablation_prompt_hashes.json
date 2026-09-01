@@ -1,0 +1,10 @@
+{
+ "prompt_control_id": "job-fit-v3-matchable-only",
+ "prompt_treatment_id": "job-fit-v3-rubric-aligned-v1",
+ "control_instruction_block_sha256": "abacf2cffd27d596cc55d9113a7dd70f8a176e6c414521ecd36904410c2f37ad",
+ "treatment_instruction_block_sha256": "4ff452b969b8d82c45c1ddf8c9fc8281b9de5822b9068dfead9b1a923dcafc3a",
+ "production_requirement_matcher_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+ "insertion_anchor": "IMPORTANCE:",
+ "added_char_count": 3442,
+ "base_is_byte_identical_outside_insert": true
+}

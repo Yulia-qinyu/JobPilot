@@ -1,0 +1,12 @@
+model,slice,n,n_reconciled,accuracy,macro_f1,errors,unreconciled,directional
+claude-sonnet-4-5-20250929,or_list,18,18,0.5556,0.5535,8,0,Missing->Partial=2;Strong->Partial=5;Strong->Missing=1
+claude-sonnet-4-5-20250929,technology_adjacency,5,5,0.8,,1,0,Missing->Partial=1
+claude-sonnet-4-5-20250929,project_based_evidence,69,69,0.7246,0.7053,19,0,Partial->Missing=2;Missing->Partial=2;Strong->Partial=11;Partial->Strong=3;Strong->Missing=1
+claude-sonnet-4-5-20250929,formal_work_experience,11,11,0.4545,,6,0,Missing->Partial=2;Strong->Partial=3;Partial->Missing=1
+claude-sonnet-4-5-20250929,compound,13,13,0.6154,0.5778,5,0,Missing->Partial=1;Strong->Partial=1;Partial->Missing=1;Partial->Strong=1;Strong->Missing=1
+claude-sonnet-4-5-20250929,proficiency_depth,11,11,0.9091,,1,0,Strong->Partial=1
+claude-sonnet-4-5-20250929,domain_specific,11,11,0.7273,,3,0,Missing->Partial=1;Strong->Partial=2
+claude-sonnet-4-5-20250929,small_matchable_jobs,51,51,0.6863,0.6808,16,0,Partial->Missing=2;Strong->Partial=11;Missing->Partial=2;Strong->Missing=1
+claude-sonnet-4-5-20250929,one_requirement_jobs,4,4,0.75,,1,0,Strong->Partial=1
+claude-sonnet-4-5-20250929,mismatched_control_jobs,13,13,0.7692,0.746,3,0,Strong->Partial=2;Partial->Strong=1
+claude-sonnet-4-5-20250929,chinese_jd,93,93,0.6989,0.7026,28,0,Strong->Partial=17;Missing->Partial=2;Partial->Missing=5;Partial->Strong=3;Strong->Missing=1

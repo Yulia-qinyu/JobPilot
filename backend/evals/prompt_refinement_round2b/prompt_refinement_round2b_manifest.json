@@ -1,0 +1,117 @@
+{
+ "benchmark": "prompt-refinement-round2b",
+ "title": "Prompt Refinement Round 2B (FINAL Dataset V1 prompt iteration)",
+ "executed_on": "2026-09-01",
+ "checkpoint_status": {
+  "frozen_on": "2026-09-01",
+  "checkpoint": "POST-PROMPT-DEVELOPMENT / PRE-DATASET-V2-HELDOUT-VALIDATION",
+  "dataset_v1_prompt_development_status": "complete_frozen",
+  "dataset_v1_stop_rule": "mandatory",
+  "round2a_status": "complete",
+  "round2b_status": "complete",
+  "primary_dataset_v2_finalist_model": "qwen3.8-max",
+  "primary_dataset_v2_finalist_prompt": "job-fit-v3-rubric-refined-v2",
+  "secondary_dataset_v2_finalist_model": "kimi-k3",
+  "secondary_dataset_v2_finalist_prompt": "job-fit-v3-matchable-only",
+  "dataset_v2_status": "not_started",
+  "dataset_v2_role": "held_out_validation_test",
+  "prompt_bottleneck_status": "REAL_BUT_PARTIAL_LEVER",
+  "claim_discipline": "Round 2A causally demonstrated that changing rubric communication changes model behaviour. Round 2B demonstrated that a smaller, targeted prompt can materially improve qwen3.8-max on Dataset V1 (+0.084 Macro F1). NOT claimed: prompt is the sole bottleneck; prompt is the dominant cause of all matcher errors; Dataset V1 gains prove generalisation; qwen3.8-max + Prompt C is production-proven. The +0.084 development-set improvement MUST be validated on held-out Dataset V2.",
+  "no_product_behavior_created": true,
+  "pre_ablation_checkpoint_commit": "793a101"
+ },
+ "purpose": "Test whether a SMALLER rubric-aligned prompt (Prompt C) retains the useful Round 2A gains without the regressions of the full Prompt B. FINAL allowed iterative prompt-development round on Dataset V1.",
+ "pre_ablation_checkpoint_commit": "793a101",
+ "prompt_a_control": "job-fit-v3-matchable-only",
+ "prompt_b_rejected": "job-fit-v3-rubric-aligned-v1 (Round 2A; 5 rule groups incl. OR-list + compound)",
+ "prompt_c_refined": "job-fit-v3-rubric-refined-v2 (Round 2B; 3 compact rule groups: Technology Adjacency + Project-vs-Formal-Work + Strong/Partial/Missing Calibration ONLY)",
+ "prompt_c_instruction_sha256": "7625ac3759eaa329a21dee1eb7665f3cc1f0f8cd083458846b7bf7eaeaac1196",
+ "control_instruction_sha256": "abacf2cffd27d596cc55d9113a7dd70f8a176e6c414521ecd36904410c2f37ad",
+ "prompt_b_instruction_sha256": "4ff452b969b8d82c45c1ddf8c9fc8281b9de5822b9068dfead9b1a923dcafc3a",
+ "production_requirement_matcher_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+ "prompt_c_is_base_plus_one_inserted_block": true,
+ "prompt_c_added_char_count": 1808,
+ "prompt_b_added_char_count": 3442,
+ "prompt_c_rules_kept": [
+  "A. Technology Adjacency — adjacent tech is not automatic Partial; general AI/LLM/RAG is not automatic credit for multimodal / ASR / RL-training / fine-tuning / training-infra / specialised rec-search; general-or-neighbouring-only -> Missing.",
+  "B. Project vs Formal Work Experience — a direct and complete project may support Strong for practical / implementation / delivery / productisation / hands-on requirements; when formal professional-role experience / job-function years / seniority / tenure / ownership scope is explicitly requested, project alone is not equivalent — Partial at most.",
+  "C. Strong / Partial / Missing Calibration — Strong = direct sufficiently-complete at the requested level; Partial = meaningful but materially incomplete; Missing = no meaningful or only general/adjacent evidence; do not use Partial merely because the model is uncertain."
+ ],
+ "prompt_c_rules_removed_vs_b": [
+  "OR / alternative-list rule — Round 2A mixed (Sonnet ++, qwen +, kimi-k3 materially REGRESSED on the OR-list slice). Finalists are kimi-k3 and qwen3.8-max; Prompt C is not optimised for Sonnet. REMOVED.",
+  "Compound requirement / narrowest-unmet-subclaim rule — Round 2A: compound slice REGRESSED for all three tested models. Rejected in its current wording. REMOVED."
+ ],
+ "no_new_rules": "no OR replacement, no compound replacement, no examples, no few-shot, no Dataset V1 cases, no Ground Truth labels, no candidate/company guidance, no new scoring rules. Prompt C is a REDUCTION of Prompt B.",
+ "models": ["kimi-k3", "qwen3.8-max"],
+ "control_source": "reused Round 1B same-contract results; NO control rerun",
+ "new_inference_calls": 60,
+ "execution_order": ["qwen3.8-max (sequential first)", "kimi-k3 (background)"],
+ "fixed_contract": "Dataset V1, 30 jobs, 100 matchable requirements, Ground Truth V2, frozen candidate evidence, Section D 4-field output contract, TRANSPORT_NORMALIZATION_MAPPING, one call/job, join key (job_id, requirement_id), _normalize_matches, MatchScoreService, transport, reasoning mode, temperature, max_tokens=4096. ONLY the instruction block changed. Raw persisted before GT load (guard GROUND_TRUTH_NOT_LOADED_YET on all 60 records).",
+ "transport": {
+  "kimi-k3": "Moonshot https://api.moonshot.cn/v1; temperature=1; reasoning_mode=mandatory; reasoning_effort=low; response_format=json_object + Section D + 'Return the response as JSON.' (Moonshot scope)",
+  "qwen3.8-max": "DashScope mainland https://dashscope.aliyuncs.com/compatible-mode/v1; temperature=0; enable_thinking=false; response_format=json_object + Section D + 'Return the response as JSON.' (Qwen scope)"
+ },
+ "prompt_bottleneck_status": "REAL_BUT_PARTIAL_LEVER (Round 2A causally demonstrated rubric communication affects behaviour; NOT the sole/dominant cause; no ~93%-causal claim). Round 2B refines that: for qwen3.8-max the refined prompt yields a large development-set gain; for kimi-k3 any added rubric block is net-negative.",
+ "results": {
+  "kimi-k3": {
+   "A_control": {"macro_f1": 0.7396, "ecc": 0.74, "coverage": "100/100", "job_norm": "30/30", "partial_p": 0.567, "S_to_P": 9, "M_to_P": 4, "grounding": "1.0/0.0", "chinese_jd_mf1": 0.7515, "score_vs_hmf": 0.723},
+   "B_full_rubric": {"macro_f1_on_reconciled": 0.7661, "ecc": 0.69, "coverage": "91/100", "job_norm": "29/30", "note": "REJECTED — 1-job coverage failure; OR-list slice regressed"},
+   "C_refined": {"macro_f1": 0.7225, "ecc": 0.75, "accuracy": 0.75, "coverage": "100/100", "job_norm": "30/30", "grounding": "1.0/0.0", "unsupported": 0.0, "strong_p_r_f1": [0.783, 0.904, 0.839], "partial_p_r_f1": [0.609, 0.467, 0.528], "missing_p_r_f1": [0.824, 0.778, 0.800], "S_to_P": 5, "M_to_P": 4, "P_to_S": 13, "match_score_mae": 9.87, "score_vs_gt": 0.756, "score_vs_hmf": 0.734, "chinese_jd_mf1": 0.7437, "adjacency_slice_acc": 0.80, "adjacency_fp": 1, "or_list_slice_mf1": 0.630, "compound_slice_mf1": 0.626, "mean_latency_ms": 29236, "total_tokens": 121284, "reasoning_tokens": 5630, "retries": 0, "integrity": "INTEGRITY_OK"},
+   "delta_macro_f1_C_vs_A": -0.0171,
+   "hypothesis_support_C_vs_A": "NOT_SUPPORTED / negligible (regression)",
+   "coverage_failure_recurred": false,
+   "partial_precision_ge_060": true,
+   "verdict": "Prompt C RESTORED full coverage (100/100, the Round 2A failure did NOT recur) and pushed Partial precision above 0.60 (0.609), but Macro F1 REGRESSED -0.017 (0.740 -> 0.7225): the explicit rules over-push kimi-k3 toward Strong (Strong recall 0.83 -> 0.90) and collapse Partial recall (0.567 -> 0.467). kimi-k3's calibration was already good; any added rubric block destabilises its Partial/Strong boundary, and its OR-list slice stays below control even without the OR-list rule.",
+   "kimi_decision_rule": "prefer C over control ONLY if coverage=100/100 AND ECC>=0.74 AND Macro F1>=0.740 AND grounding not degraded",
+   "kimi_decision_rule_met": false,
+   "kimi_final_v1_prompt": "job-fit-v3-matchable-only"
+  },
+  "qwen3.8-max": {
+   "A_control": {"macro_f1": 0.7016, "ecc": 0.71, "coverage": "100/100", "job_norm": "30/30", "partial_p": 0.512, "S_to_P": 13, "M_to_P": 8, "grounding": "1.0/0.0", "chinese_jd_mf1": 0.7087, "score_vs_hmf": 0.609},
+   "B_full_rubric": {"macro_f1": 0.7142, "ecc": 0.71, "note": "Round 2A: +0.013 only"},
+   "C_refined": {"macro_f1": 0.7858, "ecc": 0.78, "accuracy": 0.78, "coverage": "100/100", "job_norm": "30/30", "grounding": "1.0/0.0", "unsupported": 0.0, "strong_p_r_f1": [0.800, 0.846, 0.822], "partial_p_r_f1": [0.643, 0.600, 0.621], "missing_p_r_f1": [0.941, 0.889, 0.914], "S_to_P": 8, "M_to_P": 2, "P_to_S": 11, "match_score_mae": 7.5, "score_vs_gt": 0.722, "score_vs_hmf": 0.704, "chinese_jd_mf1": 0.7608, "adjacency_slice_acc": 0.80, "adjacency_fp": 1, "or_list_slice_mf1": 0.521, "compound_slice_mf1": 0.510, "mean_latency_ms": 11668, "total_tokens": 118664, "reasoning_tokens": 0, "retries": 0, "integrity": "INTEGRITY_OK"},
+   "delta_macro_f1_C_vs_A": 0.0842,
+   "hypothesis_support_C_vs_A": "SUPPORTED (just below STRONGLY at +0.10)",
+   "partial_precision_ge_060": true,
+   "verdict": "Prompt C is a LARGE development-set win for qwen3.8-max: Macro F1 +0.084 (0.702 -> 0.786), ECC +0.07 (0.71 -> 0.78), Partial precision 0.512 -> 0.643 (crosses 0.60 — first config in the whole benchmark to do so, together with kimi-k3 C), Missing recall 0.556 -> 0.889, Strong->Partial 13 -> 8, Missing->Partial 8 -> 2, Match-Score MAE 11.5 -> 7.5, score-vs-HMF 0.609 -> 0.704, Chinese-JD Macro F1 +0.052 — all with 100/100 coverage, grounding 1.0/0.0 preserved, and only +9% tokens (Prompt C is half the size of Prompt B). The REDUCED prompt beat the full Prompt B (+0.072) decisively, indicating the OR-list and compound rules in B were confusing/counterproductive for qwen3.8-max.",
+   "qwen_decision_rule": "prefer C over control if coverage=100/100 AND ECC>=0.71 AND Macro F1 improves meaningfully AND grounding not degraded",
+   "qwen_decision_rule_met": true,
+   "qwen_final_v1_prompt": "job-fit-v3-rubric-refined-v2"
+  }
+ },
+ "monitoring_slices_after_removing_rules": {
+  "or_list": "kimi-k3: still below control (mF1 0.736 -> 0.630) even though the OR-list RULE was removed — kimi's OR-list handling degrades under ANY added rubric block, not the OR-list rule specifically. qwen3.8-max: fine (0.458 -> 0.521), no regression from removing the rule.",
+  "compound": "kimi-k3: RESTORED to control (mF1 0.626 -> 0.626) after removing the compound rule. qwen3.8-max: still below control (0.627 -> 0.510) — this is dataset difficulty on the compound slice, present even with no compound rule; not caused by Prompt C."
+ },
+ "final_configurations": {
+  "KIMI_FINAL_V1_CONFIGURATION": {
+   "model": "kimi-k3",
+   "prompt_id": "job-fit-v3-matchable-only",
+   "transport": "Moonshot https://api.moonshot.cn/v1; temperature=1 (MODEL_REQUIRED_VALUE); reasoning_mode=mandatory; reasoning_effort=low; response_format=json_object + Section D 4-field contract + 'Return the response as JSON.' (Moonshot scope); max_tokens=4096; one call/job",
+   "expected_v1_metrics": {"macro_f1": 0.7396, "ecc": 0.74, "coverage": "100/100", "chinese_jd_macro_f1": 0.7515, "score_vs_hmf_spearman": 0.723}
+  },
+  "QWEN_FINAL_V1_CONFIGURATION": {
+   "model": "qwen3.8-max",
+   "prompt_id": "job-fit-v3-rubric-refined-v2",
+   "transport": "Alibaba DashScope mainland https://dashscope.aliyuncs.com/compatible-mode/v1; temperature=0; enable_thinking=false; response_format=json_object + Section D 4-field contract + 'Return the response as JSON.' (Qwen scope); max_tokens=4096; one call/job",
+   "expected_v1_metrics": {"macro_f1": 0.7858, "ecc": 0.78, "coverage": "100/100", "chinese_jd_macro_f1": 0.7608, "score_vs_hmf_spearman": 0.704}
+  }
+ },
+ "dataset_v2_finalists": {
+  "PRIMARY_DATASET_V2_FINALIST": "qwen3.8-max + job-fit-v3-rubric-refined-v2",
+  "SECONDARY_DATASET_V2_FINALIST": "kimi-k3 + job-fit-v3-matchable-only",
+  "reversal_note": "This REVERSES the Round 1B/2A primary (kimi-k3). Under each model's FINAL Dataset V1 configuration, qwen3.8-max + Prompt C now leads on Macro F1 (0.786 vs 0.740), ECC (0.78 vs 0.74), and Chinese-JD (0.761 vs 0.752 ~ tied), and it is ~2.5x faster with no reasoning-mandatory / temperature=1 caveat. kimi-k3 retains only the score-vs-HMF-correlation edge (0.723 vs 0.704). The task's 'prefer Kimi as primary unless the refined experiment materially changes the quality/reliability conclusion' condition IS triggered: +0.046 Macro F1 and +0.04 ECC in qwen3.8-max's favour is material.",
+  "caveat": "qwen3.8-max's +0.084 gain is a DEVELOPMENT-SET result on the FINAL tuning iteration; the adjacency/project/calibration rules were shaped from Dataset V1 error analysis. The magnitude MUST be confirmed on held-out Dataset V2. kimi-k3 + control is the robust, un-tuned fallback if the qwen3.8-max gain does not hold on V2."
+ },
+ "dataset_v1_stop_rule": "MANDATORY. This is the FINAL Dataset V1 prompt-development iteration. NO Round 2C. NO further rule tuning against Dataset V1. NO more examples. NO further failure inspection + prompt iteration. Move to Dataset V2 held-out validation.",
+ "dataset_governance": "Dataset V1 = development / model-selection / prompt-development data. NOT unbiased final evaluation. Dataset V2 = future held-out validation/test; NOT used in this task.",
+ "git": "no stage / commit / push. Pre-ablation checkpoint 793a101 intact. README.md untouched. backend/app/** untouched.",
+ "no_production_change": true,
+ "artifacts": [
+  "prompt_refinement_prompt_control.md", "prompt_refinement_prompt_b.md", "prompt_refinement_prompt_c.md",
+  "prompt_refinement_prompt_diff.md", "prompt_refinement_prompt_hashes.json", "prompt_refinement_treatment_instructions.txt",
+  "prompt_refinement_round2b_{predictions,metrics,job_scores,slice_metrics,errors,latency_tokens,integrity}_{moonshot-kimi-k3,qwen-qwen3.8-max}.*",
+  "prompt_refinement_round2b_metrics.json", "prompt_refinement_round2b_comparison.md",
+  "prompt_refinement_round2b_configuration_decision.md", "prompt_refinement_round2b_manifest.json"
+ ]
+}

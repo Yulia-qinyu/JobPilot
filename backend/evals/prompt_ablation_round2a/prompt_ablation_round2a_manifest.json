@@ -1,0 +1,67 @@
+{
+ "benchmark": "prompt-ablation-round2a",
+ "title": "Prompt / Rubric Communication Ablation (Round 2A)",
+ "executed_on": "2026-09-01",
+ "purpose": "Test whether the recurring Strong/Partial/Missing calibration errors are materially reduced when the frozen human adjudication rules are communicated more explicitly in the prompt. Tests a causal hypothesis. Pre-ablation wording is HYPOTHESIS_STRENGTHENED, NOT PROMPT_CAUSE_PROVEN.",
+ "pre_ablation_checkpoint_commit": "793a101",
+ "prompt_control": "job-fit-v3-matchable-only",
+ "prompt_treatment": "job-fit-v3-rubric-aligned-v1 (EVAL-ONLY; production RequirementMatcher NOT modified)",
+ "prompt_control_instruction_sha256": "abacf2cffd27d596cc55d9113a7dd70f8a176e6c414521ecd36904410c2f37ad",
+ "prompt_treatment_instruction_sha256": "4ff452b969b8d82c45c1ddf8c9fc8281b9de5822b9068dfead9b1a923dcafc3a",
+ "production_requirement_matcher_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+ "treatment_is_base_plus_one_inserted_block": true,
+ "treatment_added_char_count": 3442,
+ "rules_added": [
+  "1. OR / alternative-list semantics (branches are alternatives unless wording requires all; independent qualifiers still apply: years, proficiency, ownership scope, formal work experience, seniority, domain depth)",
+  "2. Technology-adjacency guardrail (adjacent tech is not automatic Partial; general LLM/RAG/AI is not automatic credit for multimodal / ASR / RL-training / fine-tuning / training infra / specialised rec-search; else Missing)",
+  "3. Project vs formal work experience (a complete project can support Strong for direction/productisation/implementation/delivery; project alone usually cannot support Strong when formal professional-role experience / job-function years / seniority / tenure / full professional ownership is explicitly requested)",
+  "4. Compound requirement / narrowest unmet subclaim (judge against the least-supported material subclaim; A AND B needs both strong; one partial subclaim -> Partial; unsupported material subclaim -> possibly Missing; do not split the row)",
+  "5. Explicit Strong / Partial / Missing calibration (Strong = direct sufficiently-complete evidence at the requested level; Partial = meaningful but incomplete; Missing = lacking or only general/adjacent; Partial must not be a generic uncertainty bucket)"
+ ],
+ "rules_NOT_added": "no Ground-Truth examples, no benchmark cases, no model-specific hints, no Dataset V1 job/requirement ids, no baseline wrong predictions, no per-model failure examples, no score deltas, no benchmark rankings, no new scoring/eligibility/knowledge logic, no company/title heuristics, no candidate-desirability or application-strategy rules",
+ "models": ["qwen3.8-max", "kimi-k3", "claude-sonnet-4-5-20250929"],
+ "control_source": "reused Round 1B same-contract results (Section A + Section D 4-field); NO control rerun",
+ "new_inference_calls": 90,
+ "execution_order": ["qwen3.8-max", "kimi-k3", "claude-sonnet-4-5-20250929"],
+ "execution_note": "kimi-k3 and claude-sonnet-4-5 treatment runs executed in parallel (different providers: Moonshot vs Anthropic; independent per-model latency accounting; no shared rate limit). qwen3.8-max ran first, sequentially.",
+ "fixed_contract": "Dataset V1, 30 jobs, 100 matchable requirements, Ground Truth V2, frozen candidate evidence, same model ids, same provider transports, same reasoning modes, same temperature policies (kimi temp=1 reasoning_effort=low; qwen temp=0 enable_thinking=false; sonnet temp=0 no thinking), same Section D 4-field output contract, same max_tokens=4096, same one-call-per-job, same normalization (_normalize_matches unchanged), same MatchScoreService, same join key (job_id, requirement_id), same metrics. ONLY the instruction block changed.",
+ "transport_normalization_mapping": "match_label->match_status, evidence_ids->evidence_source_ids, reason->reason; importance := frozen canonical requirement importance; is_hard_requirement := False + hard_requirement_category := none (v2_matchable); confidence := Medium constant. Unchanged for control and treatment.",
+ "contamination_control": "raw predictions persisted BEFORE Ground Truth load (guard GROUND_TRUTH_NOT_LOADED_YET on all 90 records). Treatment rules are generic re-statements of the frozen adjudication rubric, not derived from observed individual errors.",
+ "hypothesis_support_bands": {"lt_0.02_macro_f1": "NOT_SUPPORTED / negligible", "0.02_to_0.05": "WEAKLY_SUPPORTED", "0.05_to_0.10": "SUPPORTED", "ge_0.10": "STRONGLY_SUPPORTED"},
+ "success_criteria": "clearly successful for a model iff Macro F1 improvement >= +0.05 AND no material grounding degradation AND no catastrophic reliability/coverage loss. Very strong: >= +0.10.",
+ "quality_targets": {"macro_f1": 0.75, "ecc": 0.75, "strong_recall": 0.75, "strong_precision": 0.80, "partial_precision": 0.60, "missing_recall": 0.667, "grounding": 0.98, "unsupported": 0.02},
+ "results_summary": {
+  "qwen3.8-max": {"control_macro_f1": 0.7016, "treatment_macro_f1": 0.7142, "delta_macro_f1": 0.0126, "hypothesis_support": "NOT_SUPPORTED / negligible", "control_ecc": 0.71, "treatment_ecc": 0.71, "delta_ecc": 0.0, "coverage": "100/100 -> 100/100", "grounding": "1.0/0.0 -> 1.0/0.0", "delta_missing_recall": 0.222, "delta_missing_to_partial": -4, "delta_partial_recall": -0.10, "delta_partial_precision": 0.002, "treatment_partial_precision": 0.513, "adjacency_slice_acc": "0.40 -> 0.80", "adjacency_fp": "3 -> 1", "compound_slice_macro_f1": "0.627 -> 0.561 (worse)", "delta_score_vs_hmf": -0.053, "delta_chinese_jd_macro_f1": -0.007, "delta_total_tokens": 20528, "integrity": "INTEGRITY_OK", "verdict": "Not clearly successful. Macro F1 gain negligible; class behaviour shifted (Missing->Partial halved, adjacency FP down) but offset by Partial recall loss and a drop in score-vs-HMF correlation. Compound slice regressed."},
+  "kimi-k3": {"control_macro_f1": 0.7396, "treatment_macro_f1_on_reconciled": 0.7661, "delta_macro_f1_on_reconciled": 0.0265, "hypothesis_support": "WEAKLY_SUPPORTED (classification only) — OFFSET by a coverage regression", "control_ecc": 0.74, "treatment_ecc": 0.69, "delta_ecc": -0.05, "coverage": "100/100 -> 91/100 (1 job `tencent:2047239002926510080` returned empty/non-JSON content under the longer treatment prompt; total_retries 0; single-job, not systematic)", "job_normalization": "30/30 -> 29/30", "grounding": "1.0/0.0 -> 1.0/0.0", "delta_partial_f1": 0.078, "delta_partial_recall": 0.174, "delta_partial_to_strong": -6, "treatment_partial_precision": 0.571, "delta_strong_recall": -0.066, "delta_strong_to_partial": 2, "or_list_slice_macro_f1": "0.736 -> 0.562 (worse)", "project_slice_macro_f1": "0.536 -> 0.690 (better)", "delta_chinese_jd_macro_f1": 0.018, "delta_score_vs_hmf": -0.001, "delta_total_tokens": 21954, "integrity": "INTEGRITY_OK", "verdict": "Not clearly successful. Per-label calibration on answered requirements improved (Partial F1 +0.078, Partial->Strong inflation -6), but ECC dropped -0.05 from one job losing its output under the longer prompt, and OR-list regressed. The treatment prompt is a RELIABILITY RISK for kimi-k3 and needs a confirming re-run before adoption."},
+  "claude-sonnet-4-5-20250929": {"control_macro_f1": 0.6757, "treatment_macro_f1": 0.7073, "delta_macro_f1": 0.0316, "hypothesis_support": "WEAKLY_SUPPORTED (cleanest positive)", "control_ecc": 0.66, "treatment_ecc": 0.70, "delta_ecc": 0.04, "coverage": "100/100 -> 100/100", "job_normalization": "30/30 -> 30/30", "grounding": "1.0/0.0 -> 1.0/0.0", "delta_strong_recall": 0.077, "delta_strong_to_partial": -5, "delta_partial_precision": 0.051, "treatment_partial_precision": 0.512, "delta_missing_recall": 0.167, "delta_missing_to_partial": -3, "delta_missing_precision": -0.069, "delta_partial_recall": -0.10, "or_list_slice": "acc 0.333 -> 0.556 ; macro_f1 0.300 -> 0.554 (+0.254)", "adjacency_slice_acc": "0.40 -> 0.80", "adjacency_fp": "3 -> 1", "project_slice_macro_f1": "0.638 -> 0.705 (better)", "compound_slice_macro_f1": "0.683 -> 0.578 (worse)", "delta_ms_mae": -2.84, "delta_score_vs_gt": 0.068, "delta_score_vs_hmf": 0.032, "delta_chinese_jd_macro_f1": 0.033, "delta_total_tokens": 23065, "cost_usd_30jobs": "0.766 -> 0.846 (verified)", "integrity": "INTEGRITY_OK", "verdict": "Directionally the hypothesis holds best here: Macro F1 +0.032, ECC +0.04, Strong recall +0.077, Missing recall +0.167, OR-list Macro F1 +0.254, adjacency FP -2, Match-Score MAE -2.84, score-vs-HMF +0.032 — all with no coverage/grounding loss. Still below the +0.05 'clearly successful' threshold and still below the quality gate."}
+ },
+ "cross_model_answers": {
+  "A_all_three_improve": "On Macro F1 all three move positive but small: Sonnet +0.032, kimi-k3 +0.027 (on reconciled), qwen3.8-max +0.013. None reaches +0.05. kimi-k3's gain is offset by a -0.05 ECC coverage regression.",
+  "B_benefits_most": "claude-sonnet-4-5-20250929 (largest Macro F1 gain +0.032, largest ECC gain +0.04, largest OR-list gain +0.254 Macro F1, no downside on coverage/grounding).",
+  "C_kimi_still_top_quality": "On reconciled Macro F1 yes (0.766, still highest). But under the treatment prompt kimi-k3's ECC fell to 0.69 (coverage 91/100) — below qwen3.8-max (0.71) and Sonnet (0.70). Under the CONTROL prompt kimi-k3 is a clean 100/100 at Macro F1 0.740. Top-Quality on classification: yes; on the control prompt only, pending a coverage-confirming re-run of the treatment.",
+  "D_qwen_max_closes_gap": "No. Reconciled Macro F1 gap kimi-qwen widened slightly (0.038 -> 0.052). But qwen3.8-max now leads ECC (0.71 vs kimi 0.69), stays ~2.5x faster and has no reasoning/temperature caveat — so it is a stronger practical option than the raw quality gap implies.",
+  "E_sonnet_recovers": "Partially. +0.032 Macro F1 / +0.04 ECC closes roughly half the distance to qwen3.8-max, but Sonnet stays 3rd of 3 and below the quality gate.",
+  "F_rule_errors_materially_reduced": "Adjacency: YES for 2/3 (qwen3.8-max & Sonnet 0.40->0.80; kimi flat). Project-vs-work: YES for 2/3 (kimi & Sonnet up; qwen3.8-max flat). OR-list: mixed (Sonnet up sharply, qwen3.8-max slightly up, kimi DOWN). Compound: WORSE for all 3 (~0.62 -> 0.54-0.62). Not a clean across-the-board reduction.",
+  "G_partial_precision_exceeds_060": "NO for any model. Best is kimi-k3 treatment 0.571 (from 0.567). Sonnet had the biggest absolute gain (0.462 -> 0.512) but still 0.512. The 0.60 ceiling holds under the treatment prompt."
+ },
+ "causal_interpretation": "CAUSALLY_SUPPORTED_BUT_SMALL / PARTIAL. The ablation is direct causal evidence that clearer rubric communication shifts model calibration in the predicted direction on specific error types (adjacency FP down 2/3 models; Missing->Partial down for qwen3.8-max and Sonnet; Sonnet OR-list Macro F1 +0.254; Sonnet Strong recall +0.077). The effect on the primary metric (Macro F1) is small (+0.01 to +0.03) and NO model becomes 'clearly successful' (>= +0.05) or clears the quality gate. Compound requirements regressed for all three; kimi-k3 lost coverage. Rubric communication is a REAL, causally-demonstrated, and partially-addressable contributor to the calibration errors, but clearer rubric wording ALONE does not close the gap. NOT claimed as the dominant / sole cause. NOT PROMPT_CAUSE_PROVEN.",
+ "post_ablation_recommendation": {
+  "top_quality": "kimi-k3 (control prompt: Macro F1 0.740 / ECC 0.74 / 100 coverage)",
+  "best_cost_quality": "qwen3.8-max (Macro F1 0.70-0.71 either prompt, ECC 0.71, ~2.5x faster, no caveats; unaffected by the rubric)",
+  "incumbent_control": "claude-sonnet-4-5-20250929 (rubric-responsive: +0.032 Macro F1 / +0.04 ECC)",
+  "finalists_for_dataset_v2": ["kimi-k3", "qwen3.8-max"],
+  "prompt_recommendation": "Primary prompt for Dataset V2 = the CONTROL (job-fit-v3-matchable-only). Carry job-fit-v3-rubric-aligned-v1 as a SECONDARY factor to test on Dataset V2 (it helps Sonnet materially, is neutral/slightly-positive for qwen3.8-max, and needs a coverage-confirming re-run for kimi-k3). Do NOT adopt the treatment prompt to production from this task.",
+  "no_automatic_production_change": true
+ },
+ "dataset_governance": "Dataset V1 remains DEVELOPMENT / MODEL-SELECTION / PROMPT-DEVELOPMENT data. This ablation is NOT unbiased final evaluation. Dataset V2 remains the future held-out validation/test set and was NOT used.",
+ "git": "no stage / no commit / no push in this task. Pre-ablation checkpoint 793a101 remains the clean boundary. README.md untouched. backend/app/** untouched.",
+ "artifacts": [
+  "prompt_ablation_prompt_control.md", "prompt_ablation_prompt_treatment.md", "prompt_ablation_prompt_diff.md",
+  "prompt_ablation_prompt_hashes.json", "prompt_ablation_treatment_instructions.txt",
+  "prompt_ablation_round2a_{predictions,metrics,job_scores,slice_metrics,errors,latency_tokens,integrity}_{qwen-qwen3.8-max,moonshot-kimi-k3,sonnet-comparable}.*",
+  "prompt_ablation_round2a_metrics.json", "prompt_ablation_round2a_metrics.csv",
+  "prompt_ablation_round2a_comparison.md", "prompt_ablation_round2a_rule_slices.md",
+  "prompt_ablation_round2a_model_interaction.md", "prompt_ablation_round2a_recommendation.md",
+  "prompt_ablation_round2a_manifest.json"
+ ]
+}

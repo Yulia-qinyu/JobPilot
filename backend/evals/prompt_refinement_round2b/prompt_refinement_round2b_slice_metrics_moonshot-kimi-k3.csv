@@ -1,0 +1,12 @@
+model,slice,n,n_reconciled,accuracy,macro_f1,errors,unreconciled,directional
+kimi-k3,or_list,18,18,0.6667,0.6301,6,0,Missing->Partial=3;Strong->Partial=1;Partial->Strong=2
+kimi-k3,technology_adjacency,5,5,0.8,,1,0,Missing->Partial=1
+kimi-k3,project_based_evidence,63,63,0.6667,0.589,21,0,Partial->Strong=13;Partial->Missing=1;Missing->Partial=3;Strong->Partial=4
+kimi-k3,formal_work_experience,11,11,0.6364,,4,0,Missing->Partial=3;Partial->Strong=1
+kimi-k3,compound,13,13,0.6154,0.6263,5,0,Missing->Partial=1;Strong->Partial=1;Partial->Strong=3
+kimi-k3,proficiency_depth,11,11,0.7273,,3,0,Partial->Strong=2;Missing->Partial=1
+kimi-k3,domain_specific,11,11,0.8182,,2,0,Missing->Partial=1;Strong->Partial=1
+kimi-k3,small_matchable_jobs,51,51,0.7451,0.6078,13,0,Partial->Strong=7;Partial->Missing=2;Missing->Partial=3;Strong->Partial=1
+kimi-k3,one_requirement_jobs,4,4,1.0,,0,0,
+kimi-k3,mismatched_control_jobs,13,13,0.9231,0.9153,1,0,Partial->Strong=1
+kimi-k3,chinese_jd,93,93,0.7742,0.7437,21,0,Missing->Partial=4;Partial->Strong=10;Partial->Missing=2;Strong->Partial=5

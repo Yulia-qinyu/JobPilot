@@ -1,0 +1,603 @@
+{
+ "benchmark": "prompt-refinement-round2b",
+ "prompt_a_control": "job-fit-v3-matchable-only",
+ "prompt_b_rejected": "job-fit-v3-rubric-aligned-v1 (Round 2A; OR-list + compound rules)",
+ "prompt_c_refined": "job-fit-v3-rubric-refined-v2 (Round 2B; adjacency + project-vs-work + calibration only)",
+ "prompt_c_instruction_sha256": "7625ac3759eaa329a21dee1eb7665f3cc1f0f8cd083458846b7bf7eaeaac1196",
+ "models": [
+  "kimi-k3",
+  "qwen3.8-max"
+ ],
+ "control_source": "reused Round 1B same-contract results; NO control rerun",
+ "new_inference_calls": 60,
+ "dataset_governance": "FINAL Dataset V1 prompt-development iteration. Development-set only. Dataset V2 held-out, NOT used.",
+ "prompt_bottleneck_status": "REAL_BUT_PARTIAL_LEVER (Round 2A causally demonstrated rubric communication affects behaviour; NOT the sole/dominant cause; no ~93%-causal claim).",
+ "hypothesis_support_bands": {
+  "lt_0.02": "NOT_SUPPORTED",
+  "0.02_0.05": "WEAKLY_SUPPORTED",
+  "0.05_0.10": "SUPPORTED",
+  "ge_0.10": "STRONGLY_SUPPORTED"
+ },
+ "models_detail": [
+  {
+   "model": "kimi-k3",
+   "A_control": {
+    "macro_f1": 0.7396,
+    "ecc": 0.74,
+    "accuracy": 0.74,
+    "coverage": "100/100",
+    "job_norm": "30/30",
+    "strong": [
+     0.7818,
+     0.8269,
+     0.8037
+    ],
+    "partial": [
+     0.5667,
+     0.5667,
+     0.5667
+    ],
+    "missing": [
+     0.9333,
+     0.7778,
+     0.8485
+    ],
+    "confusion": [
+     [
+      43,
+      9,
+      0
+     ],
+     [
+      12,
+      17,
+      1
+     ],
+     [
+      0,
+      4,
+      14
+     ]
+    ],
+    "S_to_P": 9,
+    "M_to_P": 4,
+    "P_to_S": 12,
+    "P_to_M": 1,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 10.43,
+    "score_vs_gt": 0.6516,
+    "score_vs_hmf": 0.7234,
+    "chinese_jd_mf1": 0.7515,
+    "mean_latency_ms": 28124.7,
+    "total_tokens": 107576,
+    "reasoning_tokens": 3370,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.6,
+      "macro_f1": null,
+      "errors": 2
+     },
+     "project_based_evidence": {
+      "n_reconciled": 63,
+      "accuracy": 0.6508,
+      "macro_f1": 0.5363,
+      "errors": 22
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.7273,
+      "macro_f1": null,
+      "errors": 3
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.7778,
+      "macro_f1": 0.7359,
+      "errors": 4
+     },
+     "compound": {
+      "n_reconciled": 13,
+      "accuracy": 0.6154,
+      "macro_f1": 0.6263,
+      "errors": 5
+     }
+    },
+    "adjacency_fp": 2,
+    "project_over": 16,
+    "project_under": 4
+   },
+   "B_full_rubric": {
+    "macro_f1": 0.7661,
+    "ecc": 0.69,
+    "accuracy": 0.7582,
+    "coverage": "91/100",
+    "job_norm": "29/30",
+    "strong": [
+     0.8537,
+     0.7609,
+     0.8046
+    ],
+    "partial": [
+     0.5714,
+     0.7407,
+     0.6452
+    ],
+    "missing": [
+     0.9333,
+     0.7778,
+     0.8485
+    ],
+    "confusion": [
+     [
+      35,
+      11,
+      0
+     ],
+     [
+      6,
+      20,
+      1
+     ],
+     [
+      0,
+      4,
+      14
+     ]
+    ],
+    "S_to_P": 11,
+    "M_to_P": 4,
+    "P_to_S": 6,
+    "P_to_M": 1,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 10.66,
+    "score_vs_gt": 0.6986,
+    "score_vs_hmf": 0.7223,
+    "chinese_jd_mf1": 0.7698,
+    "mean_latency_ms": 29439.6,
+    "total_tokens": 129530,
+    "reasoning_tokens": 5218,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.6,
+      "macro_f1": null,
+      "errors": 2
+     },
+     "project_based_evidence": {
+      "n_reconciled": 57,
+      "accuracy": 0.7368,
+      "macro_f1": 0.6903,
+      "errors": 15
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.6364,
+      "macro_f1": null,
+      "errors": 4
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.6111,
+      "macro_f1": 0.5624,
+      "errors": 7
+     },
+     "compound": {
+      "n_reconciled": 12,
+      "accuracy": 0.5833,
+      "macro_f1": 0.604,
+      "errors": 5
+     }
+    },
+    "adjacency_fp": 2,
+    "project_over": 9,
+    "project_under": 2
+   },
+   "C_refined": {
+    "macro_f1": 0.7225,
+    "ecc": 0.75,
+    "accuracy": 0.75,
+    "coverage": "100/100",
+    "job_norm": "30/30",
+    "strong": [
+     0.7833,
+     0.9038,
+     0.8393
+    ],
+    "partial": [
+     0.6087,
+     0.4667,
+     0.5283
+    ],
+    "missing": [
+     0.8235,
+     0.7778,
+     0.8
+    ],
+    "confusion": [
+     [
+      47,
+      5,
+      0
+     ],
+     [
+      13,
+      14,
+      3
+     ],
+     [
+      0,
+      4,
+      14
+     ]
+    ],
+    "S_to_P": 5,
+    "M_to_P": 4,
+    "P_to_S": 13,
+    "P_to_M": 3,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 9.87,
+    "score_vs_gt": 0.756,
+    "score_vs_hmf": 0.7343,
+    "chinese_jd_mf1": 0.7437,
+    "mean_latency_ms": 29235.8,
+    "total_tokens": 121284,
+    "reasoning_tokens": 5630,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.8,
+      "macro_f1": null,
+      "errors": 1
+     },
+     "project_based_evidence": {
+      "n_reconciled": 63,
+      "accuracy": 0.6667,
+      "macro_f1": 0.589,
+      "errors": 21
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.6364,
+      "macro_f1": null,
+      "errors": 4
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.6667,
+      "macro_f1": 0.6301,
+      "errors": 6
+     },
+     "compound": {
+      "n_reconciled": 13,
+      "accuracy": 0.6154,
+      "macro_f1": 0.6263,
+      "errors": 5
+     }
+    },
+    "adjacency_fp": 1,
+    "project_over": 16,
+    "project_under": 0
+   },
+   "C_integrity": "INTEGRITY_OK",
+   "C_schema": "30/30",
+   "C_job_norm": "30/30",
+   "C_retries": 0,
+   "delta_macro_f1_C_vs_A": -0.0171,
+   "delta_macro_f1_C_vs_B": -0.0436,
+   "delta_ecc_C_vs_A": 0.01,
+   "delta_accuracy_C_vs_A": 0.01,
+   "hypothesis_support_C_vs_A": "NOT_SUPPORTED / negligible",
+   "delta_strong_r": 0.0769,
+   "delta_strong_p": 0.0015,
+   "delta_partial_p": 0.042,
+   "delta_partial_r": -0.1,
+   "delta_missing_r": 0.0,
+   "C_partial_precision": 0.6087,
+   "partial_precision_ge_060": true,
+   "delta_S_to_P": -4,
+   "delta_M_to_P": 0,
+   "delta_chinese_jd_mf1": -0.0078,
+   "delta_score_vs_hmf": 0.0109,
+   "delta_total_tokens_C_vs_A": 13708,
+   "coverage_full_C": true,
+   "grounding_preserved_C": true,
+   "decision_rule": "coverage=100/100 AND ECC>=0.74 AND MacroF1>=0.740 AND grounding not degraded",
+   "decision_met": false,
+   "final_v1_prompt": "job-fit-v3-matchable-only"
+  },
+  {
+   "model": "qwen3.8-max",
+   "A_control": {
+    "macro_f1": 0.7016,
+    "ecc": 0.71,
+    "accuracy": 0.71,
+    "coverage": "100/100",
+    "job_norm": "30/30",
+    "strong": [
+     0.8298,
+     0.75,
+     0.7879
+    ],
+    "partial": [
+     0.5116,
+     0.7333,
+     0.6027
+    ],
+    "missing": [
+     1.0,
+     0.5556,
+     0.7143
+    ],
+    "confusion": [
+     [
+      39,
+      13,
+      0
+     ],
+     [
+      8,
+      22,
+      0
+     ],
+     [
+      0,
+      8,
+      10
+     ]
+    ],
+    "S_to_P": 13,
+    "M_to_P": 8,
+    "P_to_S": 8,
+    "P_to_M": 0,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 11.5,
+    "score_vs_gt": 0.6766,
+    "score_vs_hmf": 0.6092,
+    "chinese_jd_mf1": 0.7087,
+    "mean_latency_ms": 13608.8,
+    "total_tokens": 108549,
+    "reasoning_tokens": 0,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.4,
+      "macro_f1": null,
+      "errors": 3
+     },
+     "project_based_evidence": {
+      "n_reconciled": 68,
+      "accuracy": 0.6618,
+      "macro_f1": 0.6162,
+      "errors": 23
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.4545,
+      "macro_f1": null,
+      "errors": 6
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.4444,
+      "macro_f1": 0.4583,
+      "errors": 10
+     },
+     "compound": {
+      "n_reconciled": 13,
+      "accuracy": 0.6154,
+      "macro_f1": 0.6274,
+      "errors": 5
+     }
+    },
+    "adjacency_fp": 3,
+    "project_over": 14,
+    "project_under": 4
+   },
+   "B_full_rubric": {
+    "macro_f1": 0.7142,
+    "ecc": 0.71,
+    "accuracy": 0.71,
+    "coverage": "100/100",
+    "job_norm": "30/30",
+    "strong": [
+     0.8261,
+     0.7308,
+     0.7755
+    ],
+    "partial": [
+     0.5135,
+     0.6333,
+     0.5672
+    ],
+    "missing": [
+     0.8235,
+     0.7778,
+     0.8
+    ],
+    "confusion": [
+     [
+      38,
+      14,
+      0
+     ],
+     [
+      8,
+      19,
+      3
+     ],
+     [
+      0,
+      4,
+      14
+     ]
+    ],
+    "S_to_P": 14,
+    "M_to_P": 4,
+    "P_to_S": 8,
+    "P_to_M": 3,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 10.63,
+    "score_vs_gt": 0.7196,
+    "score_vs_hmf": 0.5565,
+    "chinese_jd_mf1": 0.7014,
+    "mean_latency_ms": 11411.6,
+    "total_tokens": 129077,
+    "reasoning_tokens": 0,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.8,
+      "macro_f1": null,
+      "errors": 1
+     },
+     "project_based_evidence": {
+      "n_reconciled": 67,
+      "accuracy": 0.6716,
+      "macro_f1": 0.667,
+      "errors": 22
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.4545,
+      "macro_f1": null,
+      "errors": 6
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.5,
+      "macro_f1": 0.5222,
+      "errors": 9
+     },
+     "compound": {
+      "n_reconciled": 13,
+      "accuracy": 0.5385,
+      "macro_f1": 0.5608,
+      "errors": 6
+     }
+    },
+    "adjacency_fp": 1,
+    "project_over": 10,
+    "project_under": 9
+   },
+   "C_refined": {
+    "macro_f1": 0.7858,
+    "ecc": 0.78,
+    "accuracy": 0.78,
+    "coverage": "100/100",
+    "job_norm": "30/30",
+    "strong": [
+     0.8,
+     0.8462,
+     0.8224
+    ],
+    "partial": [
+     0.6429,
+     0.6,
+     0.6207
+    ],
+    "missing": [
+     0.9412,
+     0.8889,
+     0.9143
+    ],
+    "confusion": [
+     [
+      44,
+      8,
+      0
+     ],
+     [
+      11,
+      18,
+      1
+     ],
+     [
+      0,
+      2,
+      16
+     ]
+    ],
+    "S_to_P": 8,
+    "M_to_P": 2,
+    "P_to_S": 11,
+    "P_to_M": 1,
+    "grounding": 1.0,
+    "unsupported": 0.0,
+    "ms_mae": 7.5,
+    "score_vs_gt": 0.7218,
+    "score_vs_hmf": 0.7036,
+    "chinese_jd_mf1": 0.7608,
+    "mean_latency_ms": 11667.5,
+    "total_tokens": 118664,
+    "reasoning_tokens": 0,
+    "slices": {
+     "technology_adjacency": {
+      "n_reconciled": 5,
+      "accuracy": 0.8,
+      "macro_f1": null,
+      "errors": 1
+     },
+     "project_based_evidence": {
+      "n_reconciled": 68,
+      "accuracy": 0.7353,
+      "macro_f1": 0.7212,
+      "errors": 18
+     },
+     "formal_work_experience": {
+      "n_reconciled": 11,
+      "accuracy": 0.5455,
+      "macro_f1": null,
+      "errors": 5
+     },
+     "or_list": {
+      "n_reconciled": 18,
+      "accuracy": 0.5,
+      "macro_f1": 0.5212,
+      "errors": 9
+     },
+     "compound": {
+      "n_reconciled": 13,
+      "accuracy": 0.4615,
+      "macro_f1": 0.5101,
+      "errors": 7
+     }
+    },
+    "adjacency_fp": 1,
+    "project_over": 13,
+    "project_under": 4
+   },
+   "C_integrity": "INTEGRITY_OK",
+   "C_schema": "30/30",
+   "C_job_norm": "30/30",
+   "C_retries": 0,
+   "delta_macro_f1_C_vs_A": 0.0842,
+   "delta_macro_f1_C_vs_B": 0.0716,
+   "delta_ecc_C_vs_A": 0.07,
+   "delta_accuracy_C_vs_A": 0.07,
+   "hypothesis_support_C_vs_A": "SUPPORTED",
+   "delta_strong_r": 0.0962,
+   "delta_strong_p": -0.0298,
+   "delta_partial_p": 0.1313,
+   "delta_partial_r": -0.1333,
+   "delta_missing_r": 0.3333,
+   "C_partial_precision": 0.6429,
+   "partial_precision_ge_060": true,
+   "delta_S_to_P": -5,
+   "delta_M_to_P": -6,
+   "delta_chinese_jd_mf1": 0.0521,
+   "delta_score_vs_hmf": 0.0944,
+   "delta_total_tokens_C_vs_A": 10115,
+   "coverage_full_C": true,
+   "grounding_preserved_C": true,
+   "decision_rule": "coverage=100/100 AND ECC>=0.71 AND MacroF1 improves meaningfully AND grounding not degraded",
+   "decision_met": true,
+   "final_v1_prompt": "job-fit-v3-rubric-refined-v2"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "prompt_control_id": "job-fit-v3-matchable-only",
+ "prompt_b_id": "job-fit-v3-rubric-aligned-v1 (REJECTED, Round 2A)",
+ "prompt_c_id": "job-fit-v3-rubric-refined-v2",
+ "control_instruction_block_sha256": "abacf2cffd27d596cc55d9113a7dd70f8a176e6c414521ecd36904410c2f37ad",
+ "prompt_b_instruction_block_sha256": "4ff452b969b8d82c45c1ddf8c9fc8281b9de5822b9068dfead9b1a923dcafc3a",
+ "prompt_c_instruction_block_sha256": "7625ac3759eaa329a21dee1eb7665f3cc1f0f8cd083458846b7bf7eaeaac1196",
+ "production_requirement_matcher_sha256": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+ "prompt_c_added_char_count": 1808,
+ "prompt_b_added_char_count": 3442,
+ "prompt_c_base_byte_identical_outside_insert": true,
+ "insertion_anchor": "IMPORTANCE:",
+ "rules_in_c": [
+  "A Technology Adjacency",
+  "B Project vs Formal Work",
+  "C Strong/Partial/Missing Calibration"
+ ],
+ "rules_removed_vs_b": [
+  "OR / alternative-list semantics",
+  "Compound requirement / narrowest unmet subclaim"
+ ]
+}

@@ -105,6 +105,19 @@ class _FitLean(BaseModel):
 PROVIDER = sys.argv[1]
 MODEL_ID = sys.argv[2]
 SLUG = sys.argv[3]
+
+# --- optional Round 2A (Prompt / Rubric Communication Ablation) overrides ---
+# When ROUND2A_TREATMENT_INSTRUCTIONS_FILE is set, the captured production instruction block
+# (everything before "\n\nJOB REQUIREMENTS:\n") is REPLACED by that file's text; the requirement +
+# evidence payloads, Section D, transport, normalization, scoring and metrics are unchanged.
+OUTDIR = Path(os.environ["ROUND2A_OUT_DIR"]) if os.environ.get("ROUND2A_OUT_DIR") else (EVALS / "benchmark_cross_provider")
+FILE_PREFIX = os.environ.get("ROUND2A_FILE_PREFIX", "cross_provider_round1b_")
+TREATMENT_FILE = os.environ.get("ROUND2A_TREATMENT_INSTRUCTIONS_FILE")
+TREATMENT_TEXT = Path(TREATMENT_FILE).read_text() if TREATMENT_FILE else None
+PROMPT_VERSION_LABEL = os.environ.get("ROUND2A_PROMPT_VERSION", "job-fit-v3-matchable-only")
+RUN_TAG = os.environ.get("ROUND2A_RUN_TAG", "round1b")
+OUTDIR.mkdir(parents=True, exist_ok=True)
+
 IMPORTANCE_HINT = {"Critical": "high", "Important": "medium", "Preferred": "low"}
 GT_PATH = EVALS / "job_match_annotation_full_v2_human_verified.json"
 DS_PATH = EVALS / "job_match_eval_dataset_v1.json"
@@ -310,14 +323,24 @@ class _PromptCaptureClient:
         raise _Captured()
 
 
+_REQ_MARKER = "\n\nJOB REQUIREMENTS:\n"
+
+
 def production_section_a(catalog: RequirementCatalog) -> str:
+    """Full prompt exactly as production RequirementMatcher builds it: instruction block +
+    JOB REQUIREMENTS payload + ELIGIBLE CANDIDATE EVIDENCE payload. UNCHANGED when no treatment."""
     cap = _PromptCaptureClient()
     m = RequirementMatcher(cap)
     try:
         m.analyze(catalog, evidence)
     except _Captured:
         pass
-    return cap.captured
+    full = cap.captured
+    if TREATMENT_TEXT is None:
+        return full
+    # Round 2A treatment: replace ONLY the instruction block; keep the payloads byte-identical.
+    idx = full.index(_REQ_MARKER)
+    return TREATMENT_TEXT.rstrip("\n") + full[idx:]
 
 
 # ------------------------------------------------------------------ provider call
@@ -475,7 +498,7 @@ def build_fit_output(parsed, jid, submitted_ids):
 
 # ------------------------------------------------------------------ run
 RUN_TS = datetime.now(timezone.utc)
-RUN_ID = f"round1b-{SLUG}-" + RUN_TS.strftime("%Y%m%d-%H%M%S")
+RUN_ID = f"{RUN_TAG}-{SLUG}-" + RUN_TS.strftime("%Y%m%d-%H%M%S")
 raw_records, pred_rows, job_score_rows = [], [], []
 latencies, tok_in, tok_out, tok_reason = [], 0, 0, 0
 n_calls = schema_ok = norm_ok = 0
@@ -626,7 +649,7 @@ if _SMOKE:
               "notes", rr.get("schema_notes"), "err", rr["error"])
     sys.exit(0)
 
-(OUT / f"cross_provider_round1b_predictions_{SLUG}.json").write_text(
+(OUTDIR / f"{FILE_PREFIX}predictions_{SLUG}.json").write_text(
     json.dumps({"run_id": RUN_ID, "provider": PROVIDER, "model": MODEL_ID, "calls": raw_records},
                ensure_ascii=False, indent=1))
 print(f"\n[persisted raw predictions for {PROVIDER}/{MODEL_ID} — now loading Ground Truth]", flush=True)
@@ -787,8 +810,13 @@ metrics = {
                                  capture_output=True, text=True).stdout.strip(),
     "fixed_inputs_sha256": FIXED_SHA, "fixed_input_drift": prompt_drift,
     "experiment_contract": {
-        "only_variable": "model / provider", "prompt_version": "job-fit-v3-matchable-only",
-        "schema_version": "fit-analysis-wire-v2", "section_a": "captured verbatim from production RequirementMatcher",
+        "only_variable": ("prompt (control vs rubric-aligned treatment)" if TREATMENT_TEXT is not None else "model / provider"),
+        "prompt_version": PROMPT_VERSION_LABEL,
+        "prompt_control": "job-fit-v3-matchable-only",
+        "prompt_treatment": (PROMPT_VERSION_LABEL if TREATMENT_TEXT is not None else None),
+        "treatment_instructions_sha256": (hashlib.sha256(TREATMENT_TEXT.encode()).hexdigest() if TREATMENT_TEXT is not None else None),
+        "schema_version": "fit-analysis-wire-v2",
+        "section_a": ("REPLACED instruction block from treatment file; JOB REQUIREMENTS + EVIDENCE payloads byte-identical to production" if TREATMENT_TEXT is not None else "captured verbatim from production RequirementMatcher"),
         "section_d": "canonical 4-field output contract (summary / requirement_matches[requirement_id,match_label,evidence_ids,reason] / suggested_preparation)",
         "temperature": CFG["temperature"], "max_tokens": 4096, "calls_per_job": 1,
         "join_key": ["job_id", "requirement_id"],
@@ -839,13 +867,13 @@ metrics = {
              {"cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION",
               "note": "no independently verified official pricing for this provider/model; token usage recorded, cost fillable later without rerun"}),
 }
-(OUT / f"cross_provider_round1b_metrics_{SLUG}.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=1))
+(OUTDIR / f"{FILE_PREFIX}metrics_{SLUG}.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=1))
 
 pcols = ["job_id", "job_title", "company", "requirement_id", "normalized_requirement", "ground_truth_label",
          "predicted_label", "correct", "gt_evidence_ids", "predicted_evidence_ids",
          "supported_predicted_evidence_ids", "unsupported_predicted_evidence_ids", "grounding_valid",
          "raw_reason", "normalized_reason", "latency_ms", "input_tokens", "output_tokens", "schema_success", "error"]
-with (OUT / f"cross_provider_round1b_predictions_{SLUG}.csv").open("w", newline="") as fh:
+with (OUTDIR / f"{FILE_PREFIX}predictions_{SLUG}.csv").open("w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=pcols)
     w.writeheader()
     for p in pred_rows:
@@ -854,7 +882,7 @@ with (OUT / f"cross_provider_round1b_predictions_{SLUG}.csv").open("w", newline=
             row[k] = "|".join(p.get(k) or [])
         w.writerow(row)
 
-with (OUT / f"cross_provider_round1b_job_scores_{SLUG}.csv").open("w", newline="") as fh:
+with (OUTDIR / f"{FILE_PREFIX}job_scores_{SLUG}.csv").open("w", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["job_id", "company", "title", "matchable_requirement_count", "human_match_fit",
                 "gt_match_score", "model_match_score", "abs_err_vs_gt_score", "notes"])
@@ -864,14 +892,14 @@ with (OUT / f"cross_provider_round1b_job_scores_{SLUG}.csv").open("w", newline="
         w.writerow([jid, jsr["company"], jsr["title"], jsr["matchable_requirement_count"], hmf[jid],
                     gt_score[jid], model_score[jid], ae, jsr["notes"]])
 
-with (OUT / f"cross_provider_round1b_slice_metrics_{SLUG}.csv").open("w", newline="") as fh:
+with (OUTDIR / f"{FILE_PREFIX}slice_metrics_{SLUG}.csv").open("w", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["model", "slice", "n", "n_reconciled", "accuracy", "macro_f1", "errors", "unreconciled", "directional"])
     for name, m in slice_metrics.items():
         w.writerow([MODEL_ID, name, m["n"], m["n_reconciled"], m["accuracy"], m["macro_f1"], m["errors"], m["unreconciled"],
                     ";".join(f"{k}={v}" for k, v in m["directional"].items())])
 
-with (OUT / f"cross_provider_round1b_errors_{SLUG}.csv").open("w", newline="") as fh:
+with (OUTDIR / f"{FILE_PREFIX}errors_{SLUG}.csv").open("w", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["model", "job_id", "company", "requirement_id", "normalized_requirement",
                 "ground_truth_label", "predicted_label", "gt_evidence_ids", "predicted_evidence_ids",
@@ -884,7 +912,7 @@ with (OUT / f"cross_provider_round1b_errors_{SLUG}.csv").open("w", newline="") a
                         p["grounding_valid"], p["normalized_reason"],
                         "unreconciled" if p["predicted_label"] is None else "misclassification"])
 
-with (OUT / f"cross_provider_round1b_latency_tokens_{SLUG}.csv").open("w", newline="") as fh:
+with (OUTDIR / f"{FILE_PREFIX}latency_tokens_{SLUG}.csv").open("w", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["model", "job_id", "matchable_requirement_count", "latency_ms", "input_tokens",
                 "output_tokens", "reasoning_tokens", "total_tokens", "retry_count", "schema_ok", "norm_ok"])
@@ -900,7 +928,11 @@ integrity = {
     "ground_truth_loaded_only_after_persist": True,
     "prompt_drift_detected": any(prompt_drift.values()),
     "fixed_input_sha256": FIXED_SHA,
-    "section_a_source": "captured verbatim from unchanged production RequirementMatcher (SHA-guarded)",
+    "section_a_source": ("Round 2A TREATMENT: instruction block replaced by " + str(TREATMENT_FILE) +
+                         " (sha256 " + hashlib.sha256(TREATMENT_TEXT.encode()).hexdigest() + "); JOB REQUIREMENTS + EVIDENCE payloads byte-identical to production"
+                         if TREATMENT_TEXT is not None
+                         else "captured verbatim from unchanged production RequirementMatcher (SHA-guarded)"),
+    "prompt_version_label": PROMPT_VERSION_LABEL,
     "section_d": "canonical 4-field output contract (transport-validated); OUTPUT-CONTRACT-ONLY",
     "transport_normalization_mapping_applied": True,
     "product_code_mutated": False, "manual_reruns": 0, "retry_policy_changed": False,
@@ -913,7 +945,7 @@ integrity = {
     "catastrophic_infrastructure_problem": (n_calls != 30) or any(prompt_drift.values()) or (schema_ok == 0),
     "verdict": "INTEGRITY_OK" if (n_calls == 30 and not any(prompt_drift.values()) and schema_ok > 0) else "INTEGRITY_FAIL",
 }
-(OUT / f"cross_provider_round1b_integrity_{SLUG}.json").write_text(json.dumps(integrity, ensure_ascii=False, indent=1))
+(OUTDIR / f"{FILE_PREFIX}integrity_{SLUG}.json").write_text(json.dumps(integrity, ensure_ascii=False, indent=1))
 
 print("\nRUN_ID:", RUN_ID)
 print(json.dumps({"provider": PROVIDER, "model": MODEL_ID, "reconciliation": metrics["reconciliation"],

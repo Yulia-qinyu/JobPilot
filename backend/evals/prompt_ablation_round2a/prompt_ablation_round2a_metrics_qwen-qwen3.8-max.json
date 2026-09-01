@@ -1,0 +1,352 @@
+{
+ "run_id": "round2a-qwen-qwen3.8-max-20260901-100112",
+ "run_timestamp_utc": "2026-09-01T10:01:12.206171+00:00",
+ "provider": "qwen",
+ "model": "qwen3.8-max",
+ "slug": "qwen-qwen3.8-max",
+ "git_commit": "793a101c33567481856e72471097bb7e10b36d2d",
+ "fixed_inputs_sha256": {
+  "requirement_matcher.py": "e99ed02728452d6f50b39867a6dbf5e5a79e0fb9d78b610d66297f5d6a1ad19b",
+  "claude_client.py": "76d953c4ae852502c0c85b16a53f1f8fcaeb3a7f39c791ff1776a3ed0b729b81",
+  "match_score.py": "8ae2d59389da7f3ae783bb57daca81c6611cd5c009a95005e6d772bc6c8dfad2",
+  "ground_truth": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+  "dataset_v1": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558"
+ },
+ "fixed_input_drift": {
+  "requirement_matcher.py": false,
+  "claude_client.py": false,
+  "match_score.py": false,
+  "ground_truth": false,
+  "dataset_v1": false
+ },
+ "experiment_contract": {
+  "only_variable": "prompt (control vs rubric-aligned treatment)",
+  "prompt_version": "job-fit-v3-rubric-aligned-v1",
+  "prompt_control": "job-fit-v3-matchable-only",
+  "prompt_treatment": "job-fit-v3-rubric-aligned-v1",
+  "treatment_instructions_sha256": "4ff452b969b8d82c45c1ddf8c9fc8281b9de5822b9068dfead9b1a923dcafc3a",
+  "schema_version": "fit-analysis-wire-v2",
+  "section_a": "REPLACED instruction block from treatment file; JOB REQUIREMENTS + EVIDENCE payloads byte-identical to production",
+  "section_d": "canonical 4-field output contract (summary / requirement_matches[requirement_id,match_label,evidence_ids,reason] / suggested_preparation)",
+  "temperature": 0,
+  "max_tokens": 4096,
+  "calls_per_job": 1,
+  "join_key": [
+   "job_id",
+   "requirement_id"
+  ],
+  "transport_normalization_mapping": {
+   "match_label->match_status": "direct",
+   "evidence_ids->evidence_source_ids": "direct",
+   "reason->reason": "direct",
+   "importance": "frozen canonical requirement importance (== importance_hint surfaced to every model; JD property, not a GT label)",
+   "is_hard_requirement": "False (production prompt mandates this for source_kind=v2_matchable)",
+   "hard_requirement_category": "none",
+   "confidence": "Medium constant (unused by classification / MatchScoreService)"
+  },
+  "reasoning_mode": "standard_single_pass",
+  "reasoning_comparability_flag": false,
+  "temperature_comparability_flag": false
+ },
+ "matchable_requirements": 100,
+ "model_calls": 30,
+ "total_retries": 0,
+ "reconciliation": {
+  "expected": 100,
+  "reconciled": 100,
+  "unreconciled": 0
+ },
+ "classification": {
+  "accuracy": 0.71,
+  "macro": {
+   "precision": 0.721,
+   "recall": 0.714,
+   "f1": 0.7142
+  },
+  "per_class": {
+   "Strong": {
+    "precision": 0.8261,
+    "recall": 0.7308,
+    "f1": 0.7755,
+    "tp": 38,
+    "fp": 8,
+    "fn": 14
+   },
+   "Partial": {
+    "precision": 0.5135,
+    "recall": 0.6333,
+    "f1": 0.5672,
+    "tp": 19,
+    "fp": 18,
+    "fn": 11
+   },
+   "Missing": {
+    "precision": 0.8235,
+    "recall": 0.7778,
+    "f1": 0.8,
+    "tp": 14,
+    "fp": 3,
+    "fn": 4
+   }
+  },
+  "confusion_matrix": {
+   "rows_ground_truth": [
+    "Strong",
+    "Partial",
+    "Missing"
+   ],
+   "cols_prediction": [
+    "Strong",
+    "Partial",
+    "Missing"
+   ],
+   "matrix": [
+    [
+     38,
+     14,
+     0
+    ],
+    [
+     8,
+     19,
+     3
+    ],
+    [
+     0,
+     4,
+     14
+    ]
+   ]
+  }
+ },
+ "directional_errors": {
+  "Strong->Partial": 14,
+  "Strong->Missing": 0,
+  "Partial->Strong": 8,
+  "Partial->Missing": 3,
+  "Missing->Strong": 0,
+  "Missing->Partial": 4
+ },
+ "system": {
+  "raw_schema_parse_success": "30/30",
+  "job_normalization_success": "30/30",
+  "requirement_prediction_coverage": "100/100",
+  "effective_correct_coverage": 0.71,
+  "duplicate_requirement_ids": 0,
+  "omitted_requirement_ids": 0,
+  "hallucinated_requirement_ids": 0,
+  "invalid_labels": 0
+ },
+ "grounding": {
+  "grounding_rate": 1.0,
+  "unsupported_match_rate": 0.0,
+  "evidence_id_validity_rate": 1.0,
+  "strong_partial_zero_evidence_rate": 0.0,
+  "missing_with_evidence_rate": 0.0
+ },
+ "slice_metrics": {
+  "or_list": {
+   "n": 18,
+   "n_reconciled": 18,
+   "accuracy": 0.5,
+   "macro_f1": 0.5222,
+   "errors": 9,
+   "unreconciled": 0,
+   "directional": {
+    "Missing->Partial": 3,
+    "Strong->Partial": 5,
+    "Partial->Strong": 1
+   }
+  },
+  "technology_adjacency": {
+   "n": 5,
+   "n_reconciled": 5,
+   "accuracy": 0.8,
+   "macro_f1": null,
+   "errors": 1,
+   "unreconciled": 0,
+   "directional": {
+    "Missing->Partial": 1
+   }
+  },
+  "project_based_evidence": {
+   "n": 67,
+   "n_reconciled": 67,
+   "accuracy": 0.6716,
+   "macro_f1": 0.667,
+   "errors": 22,
+   "unreconciled": 0,
+   "directional": {
+    "Partial->Missing": 2,
+    "Strong->Partial": 10,
+    "Missing->Partial": 2,
+    "Partial->Strong": 8
+   }
+  },
+  "formal_work_experience": {
+   "n": 11,
+   "n_reconciled": 11,
+   "accuracy": 0.4545,
+   "macro_f1": null,
+   "errors": 6,
+   "unreconciled": 0,
+   "directional": {
+    "Missing->Partial": 3,
+    "Strong->Partial": 2,
+    "Partial->Missing": 1
+   }
+  },
+  "compound": {
+   "n": 13,
+   "n_reconciled": 13,
+   "accuracy": 0.5385,
+   "macro_f1": 0.5608,
+   "errors": 6,
+   "unreconciled": 0,
+   "directional": {
+    "Missing->Partial": 1,
+    "Strong->Partial": 3,
+    "Partial->Strong": 2
+   }
+  },
+  "proficiency_depth": {
+   "n": 11,
+   "n_reconciled": 11,
+   "accuracy": 1.0,
+   "macro_f1": null,
+   "errors": 0,
+   "unreconciled": 0,
+   "directional": {}
+  },
+  "domain_specific": {
+   "n": 11,
+   "n_reconciled": 11,
+   "accuracy": 0.5455,
+   "macro_f1": null,
+   "errors": 5,
+   "unreconciled": 0,
+   "directional": {
+    "Missing->Partial": 2,
+    "Strong->Partial": 3
+   }
+  },
+  "small_matchable_jobs": {
+   "n": 51,
+   "n_reconciled": 51,
+   "accuracy": 0.7451,
+   "macro_f1": 0.6955,
+   "errors": 13,
+   "unreconciled": 0,
+   "directional": {
+    "Partial->Missing": 2,
+    "Strong->Partial": 6,
+    "Missing->Partial": 3,
+    "Partial->Strong": 2
+   }
+  },
+  "one_requirement_jobs": {
+   "n": 4,
+   "n_reconciled": 4,
+   "accuracy": 0.75,
+   "macro_f1": null,
+   "errors": 1,
+   "unreconciled": 0,
+   "directional": {
+    "Strong->Partial": 1
+   }
+  },
+  "mismatched_control_jobs": {
+   "n": 13,
+   "n_reconciled": 13,
+   "accuracy": 0.9231,
+   "macro_f1": 0.9153,
+   "errors": 1,
+   "unreconciled": 0,
+   "directional": {
+    "Partial->Strong": 1
+   }
+  },
+  "chinese_jd": {
+   "n": 93,
+   "n_reconciled": 93,
+   "accuracy": 0.6989,
+   "macro_f1": 0.7014,
+   "errors": 28,
+   "unreconciled": 0,
+   "directional": {
+    "Strong->Partial": 14,
+    "Missing->Partial": 4,
+    "Partial->Strong": 8,
+    "Partial->Missing": 2
+   }
+  }
+ },
+ "adjacency_false_positives_gt_missing_to_partial_or_strong": 1,
+ "project_under_credited": 9,
+ "project_over_credited": 10,
+ "chinese_jd_subset": {
+  "n_jobs": 27,
+  "job_ids": [
+   "baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407",
+   "baidu:7d5223fc-87b7-41ab-aef9-73aede246b65",
+   "baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5",
+   "baidu:6182a4d3-51af-4396-af24-a3d690326bff",
+   "baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+   "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+   "baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+   "baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049",
+   "tencent:2092538895714664448",
+   "tencent:2088450750270324736",
+   "tencent:2077347119940939776",
+   "tencent:1978467627152072704",
+   "tencent:2036621556322562048",
+   "tencent:2052527703940313088",
+   "tencent:2077246089718837248",
+   "tencent:2013806539382611968",
+   "tencent:2047239002926510080",
+   "baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8",
+   "baidu:1270fb70-730e-4569-9385-b013690e607d",
+   "tencent:1994013057063473152",
+   "tencent:2078278970276753408",
+   "tencent:2041409199149314048",
+   "huawei:28183",
+   "tencent:2064981110395420672",
+   "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+   "baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53",
+   "tencent:2083093175941115904"
+  ],
+  "n_requirements": 93
+ },
+ "match_score": {
+  "jobs_comparable": 30,
+  "mae_vs_gt_score": 10.63,
+  "median_abs_err": 4.0,
+  "max_abs_err": 50,
+  "jobs_diff_ge_20": 7,
+  "jobs_diff_ge_30": 3,
+  "spearman_model_vs_gt_score": 0.7196,
+  "spearman_model_vs_human_match_fit": 0.5565,
+  "reference_gt_score_vs_human_match_fit_spearman": 0.845
+ },
+ "latency": {
+  "total_runtime_ms": 342402.5,
+  "mean_ms": 11411.6,
+  "median_ms": 10449.0,
+  "p90_ms": 18660.9,
+  "min_ms": 3258.1,
+  "max_ms": 21388.9,
+  "model_calls": 30
+ },
+ "tokens": {
+  "input": 105331,
+  "output": 23746,
+  "reasoning": 0,
+  "total": 129077,
+  "avg_per_job": 4302.6,
+  "avg_per_requirement": 1290.8
+ },
+ "cost": {
+  "cost_status": "PENDING_OFFICIAL_PRICING_VERIFICATION",
+  "note": "no independently verified official pricing for this provider/model; token usage recorded, cost fillable later without rerun"
+ }
+}
