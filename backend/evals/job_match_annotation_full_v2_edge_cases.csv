@@ -1,0 +1,7 @@
+job,source_text,rubric_decision,why_hard,category
+baidu:cb813c3a (百度 AI产品经理 J98328),本科及以上学历，拥有1年及以上产品工作经验优先，熟悉AI领域或者医疗健康行业者优先,matchable / Preferred（1年+产品经验按“优先”处理，非 eligibility 门槛）,年限型措辞但带“优先”，与其它岗位的年限门槛表述接近，容易误判为 eligibility。,a) ordinary ambiguity
+tencent:2064981110395420672 (微信 语音识别算法工程师),硕士及以上学历优先,matchable / Preferred（学历层级偏好，非门槛）,学历层级本身是 eligibility 家族概念，但此处为“优先”，冻结规则未逐字覆盖“学历优先”这一形态。,a) ordinary ambiguity
+baidu:6de8b72f (百度 AI产品经理 J84492),有很好的文字品味，洞察能力强，并具有较强的规律总结能力,matchable / Partial（洞察与规律总结可核验；“文字品味”偏审美）,一句话内混合可核验能力与近主观的审美偏好，是否再拆分存在裁量空间。,a) ordinary ambiguity
+tencent:2013806539382611968 (腾讯 大数据产品经理),熟悉数据开发、数据分析、SQL、指标体系、元数据、数据血缘、数据质量等基础概念,matchable / Partial（按数据工程实践熟悉度）,“基础概念”字面偏 knowledge，但 SQL / 数据开发 / 数据分析明确是可核验实践。,a) ordinary ambiguity
+baidu:ff9ed74c (百度 大模型产品经理 J72652),“对大模型底层技术有一定理解优先” 与 “对大模型有基本了解”,两条独立 knowledge 行，均按 JD 原句保留,两句语义相近，存在 requirement duplication 风险；冻结规则未规定近义 knowledge 是否合并。,a) ordinary ambiguity（人工可决定合并）
+xsolla:252b30e5 (Xsolla AI-First Engineering Intern),"You build things because you want to, and that you already use AI to do it faster.",matchable / Partial（取“already use AI to build faster”实践成分）,句子同时是态度宣言与实践主张；冻结的 subjective 示例以中文态度词为主，英文 builder 文化措辞需人工确认。,a) ordinary ambiguity

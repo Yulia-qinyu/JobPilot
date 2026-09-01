@@ -1,0 +1,22 @@
+job_id,company,job_title,requirement_id,requirement_type,normalized_requirement,source_text,ai_label,concern
+baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407,百度,AI 产品经理实习生（J103757）,reqv2_ab313b520bea36f1,matchable,具有 AI 产品深度使用经验,对 AI 产品充满热情，有深度使用经验,Strong,拆分确认：将同句“充满热情”归为 subjective、“有深度使用经验”归为 matchable 是否符合期望。
+baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5,百度,AI产品经理（J84492）,reqv2_63b051ca5b06efc5,matchable,洞察与规律总结能力,有用户行为研究、商业分析等经验优先，有很好的文字品味，洞察能力强，并具有较强的规律总结能力,Partial,matchable vs subjective：“文字品味”成分偏主观。
+baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf,百度,AI产品经理（J98328）,reqv2_5cfb41f2e516a713,matchable,一年以上产品工作经验,本科及以上学历，拥有1年及以上产品工作经验优先，熟悉AI领域或者医疗健康行业者优先,Partial,该年限型要求为“优先”，按 matchable Preferred 处理而非 eligibility。
+baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2,百度,大模型产品经理（J72652）,reqv2_ccbe3a1a50d66430,knowledge,对大模型底层技术有一定理解,-有一定技术背景，对大模型底层技术有一定理解优先,N/A,与“对大模型有基本了解”存在语义相近，需人工确认是否合并。
+baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2,百度,大模型产品经理（J72652）,reqv2_cd46eb037c906aa9,knowledge,对大模型有基本了解,-希望大模型元时代的你能够对大模型有基本了解，对大模型数据质量和数据评估的好坏有自己的品味和喜好,N/A,requirement duplication：与“对大模型底层技术有一定理解”相近。
+tencent:2088450750270324736,腾讯,AI产品经理-AI平台（Agent）方向,reqv2_f25785d85ec31cad,knowledge,深入理解 AI 行业趋势与大模型技术,对AI行业趋势和大模型技术有较为深刻的理解和热情，具备 Agent 评测相关经验者优先，能够与工程师在Agent架构层面有效对焦；,N/A,knowledge vs matchable：候选人有 LLM/RAG 应用经历，可部分体现行业与技术认知；确认是否应保留为纯 knowledge。
+tencent:2088450750270324736,腾讯,AI产品经理-AI平台（Agent）方向,reqv2_17b2403b35e713d3,matchable,能与工程团队在 Agent 架构层面有效对齐,对AI行业趋势和大模型技术有较为深刻的理解和热情，具备 Agent 评测相关经验者优先，能够与工程师在Agent架构层面有效对焦；,Partial,knowledge vs matchable：该项含 Agent 架构理解成分；此处按“跨职能技术对齐能力”归为 matchable。
+tencent:1978467627152072704,腾讯,微信输入法-AI产品经理,reqv2_8fde0b9d53173e67,matchable,为模型制定任务目标与效果标准,5.对文字、语音、内容创作等场景有审美和感受力，能结合用户真实使用场景为模型制定贴合需求的任务目标与效果标准；,Partial,含“审美和感受力”主观成分。
+tencent:2052527703940313088,腾讯,证券-AI产品经理-金融AI应用体验方向,reqv2_062e201cf241f5a9,matchable,理解证券业务,对证券业务有深刻理解或极强的学习意愿；,Partial,compound：同句含“或极强的学习意愿”（subjective）；此处仅取“理解证券业务”为 matchable。
+tencent:2013806539382611968,腾讯,大数据产品经理（深圳/北京）,reqv2_91500289fe78e7b4,matchable,数据开发 / 分析 / SQL / 指标体系 / 元数据 / 数据血缘 / 数据质量,熟悉数据开发、数据分析、SQL、指标体系、元数据、数据血缘、数据质量等基础概念；,Partial,含“基础概念”表述；按数据工程实践熟悉度归 matchable。
+tencent:2047239002926510080,腾讯,金融科技-AI数据产品经理-数据开发方向,reqv2_a6ad3fd74c22598d,matchable,理解数仓架构、熟悉数据开发与治理流程,了解数仓架构，熟悉数据开发和治理流程，熟练应用SQL语言；,Partial,含“了解数仓架构”表述；按数据工程实践熟悉度归为 matchable，确认非 knowledge。
+baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8,百度,产品经理实习生（J104146）,reqv2_2343bb0459a84cdc,eligibility,可连续实习至少五个月,实习时间不少于五个月,Unknown,eligibility_category=other（未来可用性型门槛）；确认应为 Unknown 而非 PotentialGap。
+tencent:1994013057063473152,腾讯,企业微信-基础产品经理,reqv2_2c48e151d8271b86,matchable,产品设计与功能策划经验,对产品设计有饱满热情，在功能策划上有一定经验和能力；,Strong,拆分确认：同句“对产品设计有饱满热情”归 subjective、“功能策划经验和能力”归 matchable。
+xsolla:252b30e5-ce58-4a32-88b3-07ee83d06e67,Xsolla,AI-First Engineering Intern,reqv2_866eff0ae6a7bf23,matchable,already uses AI tooling to build/ship faster,"You build things because you want to, and that you already use AI to do it faster.",Partial,"borderline subjective (""because you want to""); practical part kept as matchable."
+huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_d9c11895b9f4fefd,eligibility,具备简体中文与英语工作能力,"简体中文,英语",Unknown,语言 eligibility：中文能力未结构化记录；确认 Unknown 是否合适（V1 已 flag）。
+huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_a7e657643b65384a,matchable,快速掌握新技术的能力,4. 能快速接受和掌握新技术，有较强的独立、主动的学习能力。,Partial,matchable vs subjective：“独立、主动的学习能力”接近主观态度；此处保留 matchable/Partial 以与 V1 可比。
+huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_e0081ebe3ba8d89c,knowledge,具备计算机系统、软件设计或 AI 模型等专业知识,2. 具备计算机系统、软件设计、AI模型或者集合通信等专业知识中的一种或多种；,N/A,knowledge vs matchable：“软件设计 / AI 模型”能力部分可由项目证明；确认是否应部分归 matchable。
+huawei:28183,华为,AI大模型架构师（训练/推理）,reqv2_1c9199d15075aa37,matchable,大模型精度调优、基模或强化学习训练经验,5. 有大模型精度调优经验，有基模训练经验或者RL训练经验,Partial,matchable Partial vs Missing：一般模型训练与大模型基模/RL 训练的相邻程度需人工确认。
+tencent:2064981110395420672,腾讯,微信-语音识别算法工程师,reqv2_ffe72039c28ab86a,matchable,硕士及以上学历,1.计算机、人工智能、语音信号处理等相关专业，硕士及以上学历优先；,Strong,degree-level 优先：按 matchable Preferred 处理（非 eligibility 门槛）。
+baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53,百度,大模型策略产品经理（J97330）,reqv2_8c4d70d605961309,matchable,戏剧影视文学、创意写作或文学相关专业,-本科及以上学历，戏剧影视文学、创意写作、文学等相关专业优先,Missing,matchable(专业匹配) vs eligibility(学历相邻)；此处按“专业偏好加分”归 matchable Preferred。
+baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53,百度,大模型策略产品经理（J97330）,reqv2_6357d38814ca4445,matchable,理解小说、剧本及直播脚本的创作全流程,-行业理解：深刻理解小说、剧本、直播脚本的创作全流程，,Missing,knowledge(流程理解) vs matchable(创作实操经验)；按“可由创作履历验证的领域经验”归 matchable。

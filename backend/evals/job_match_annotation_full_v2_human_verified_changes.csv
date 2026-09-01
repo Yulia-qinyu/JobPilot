@@ -1,0 +1,55 @@
+kind,job_id,requirement_id,field,from,to,note
+full_review_edit,baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5,reqv2_63b051ca5b06efc5,human_match_label,Partial,Strong,AI Partial → Human Strong；同句“文字品味”拆为非评分 subjective expectation。
+subjective_added,baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5,reqv2_63b051ca5b06efc5,subjective_expectations[+],,文字品味,EDIT F1：从复合要求拆出“文字品味”为非评分 subjective expectation。
+keep_after_review_with_note,baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf,reqv2_5cfb41f2e516a713,human_notes,Partial,Partial,K1：“优先”非资格门槛，故非 eligibility；有相关产品实践但职业时长/角色深度不足，Partial。
+gofin_ai_platform_manual_confirmation,baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049,reqv2_7e3a449a4232300b,human_notes,Partial,Partial,候选人人工确认 GoFin 亦为 AI 平台；因此该 AI 平台 / B 端方向要求不判 Missing，保持 Partial —— GoFin 支持 AI 平台方向，但为项目制而非长期正式平台 PM 工作。此人工事实仅属人工裁定，未新增证据 ID。
+full_review_edit,baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049,reqv2_f7ca00a2f542fb78,human_match_label,Strong,Partial,AI Strong → Human Partial（compound 覆盖不完整）。
+full_review_edit,tencent:2077347119940939776,reqv2_9149c4b1d212048c,human_match_label,Partial,Strong,AI Partial → Human Strong（OR-list：满足其一即可）。
+gofin_c_end_manual_confirmation,tencent:1978467627152072704,reqv2_379e8bc24f903143,human_notes,Strong,Strong,§8：候选人人工确认 GoFin 为 C 端 / consumer-facing AI 产品；冻结证据同时明确支持 LLM / Agent 产品化落地，因此该 requirement 的 Human Ground Truth 为 Strong。此人工事实仅属人工裁定。
+keep_after_review_with_note,tencent:1978467627152072704,reqv2_8fde0b9d53173e67,human_notes,Partial,Partial,K3：“审美和感受力”属非评分主观上下文；可衡量的任务目标/效果标准能力保持 matchable/Partial。
+gofin_ai_platform_manual_confirmation,tencent:2077246089718837248,reqv2_f2105cecb6db9371,human_notes,Partial,Partial,候选人人工确认 GoFin 亦为 AI 平台；因此该 AI 平台 / B 端方向要求不判 Missing，保持 Partial —— GoFin 支持 AI 平台方向，但为项目制而非长期正式平台 PM 工作。此人工事实仅属人工裁定，未新增证据 ID。
+join_key_correction,tencent:2013806539382611968,reqv2_d65a91721a2406a6,requirement_id,reqv2_1a525cde503f66d0,reqv2_d65a91721a2406a6,"Removed duplicate_ordinal=1 workaround. Restored the exact RequirementCatalogBuilder.stable_requirement_id output (ordinal 0). Now shares requirement_id with tencent:1994013057063473152 '三年以上工作经验'; the two rows remain distinct by job_id. Canonical evaluation key = (job_id, requirement_id)."
+keep_after_review_with_note,tencent:2013806539382611968,reqv2_91500289fe78e7b4,human_notes,Partial,Partial,K2：SQL、数据分析、ETL/数据架构有直接实践；元数据、数据血缘等覆盖不足，Partial。
+project_vs_work_experience_adjudication,tencent:2041409199149314048,reqv2_2a8d6b3110257858,human_notes,Partial,Partial,§11：候选人有直接相关的 AI 产品项目经验，但没有 AI PM / 策略 PM / 评测 PM 的正式工作经历；项目证据计入，但角色深度弱于正式职业经验，保持 Partial（不升 Strong）。
+full_review_edit,tencent:2041409199149314048,reqv2_23a50d8ef3c57335,human_match_label,Partial,Strong,AI Partial → Human Strong（OR-list：满足其一即可）。
+pilot_frozen_edit_carried,华为 AI大模型架构师,reqv2_a7e657643b65384a,human_match_label/human_eligibility_status,Partial,Partial,EDIT A (matchable): 标签不变；同句“独立、主动的学习能力”移出评分为 subjective expectation。
+pilot_frozen_edit_carried,华为 AI大模型架构师,reqv2_1c9199d15075aa37,human_match_label/human_eligibility_status,Partial,Missing,EDIT B (matchable): 相邻技术不足以判 Partial；human_evidence_ids 清空。
+pilot_frozen_edit_carried,华为 AI大模型架构师,reqv2_d9c11895b9f4fefd,human_match_label/human_eligibility_status,Unknown,Supported,EDIT C (eligibility): 英语由简历证据支持；中文为人工确认母语；整体门槛 Supported。
+pilot_frozen_edit_carried,Veeva Senior PM - AI Agent,reqv2_7d915e68d837899a,human_match_label/human_eligibility_status,Strong,Partial,EDIT D (matchable): prompt/context engineering 与 human-in-the-loop 覆盖不完整，降为 Partial。
+pilot_frozen_edit_carried,华为 AI大模型架构师,reqv2_c2f1c7d80e0cbd8a,human_match_label/human_eligibility_status,Strong,Partial,EDIT E (matchable): C/C++ 仅技能声明无项目证据，两类语言未都达‘熟练’，降为 Partial。
+pilot_frozen_subjective_carried,huawei:28183,reqv2_a7e657643b65384a,subjective_expectations[+],,独立、主动的学习能力,Pilot EDIT A subjective addition carried from frozen Pilot V2 human-verified.
+adjudication_note,,,j72652_knowledge_no_merge,,,K6：百度 J72652 两条 knowledge（“对大模型底层技术有一定理解” 与 “对大模型有基本了解”）代表不同深度语义，保持独立、均为 knowledge / 非评分；歧义标记清除。
+adjudication_note,,,k5_degree_preference_edge_case,,,K5：微信语音识别算法工程师“硕士及以上学历优先”保持 matchable / Preferred / Strong。非阻断性学历偏好不完全是职业能力，记为已知非重大 taxonomy 边界；不改 Rubric V2 / 产品 schema，本任务不做 V2.1。
+adjudication_note,,,project_vs_work_experience_rule,,,项目经验可作为 matchable 证据；若 JD 明确指向正式岗位/职业工作经验，单一项目通常支持 Partial 而非自动 Strong；若 JD 仅要求相关方向/交付/产品化经验，足够直接完整的项目可支持 Strong。此为人工裁定/应用指引，不修改 Rubric V2。
+adjudication_note,,,or_list_rule,,,当 JD 以 OR / “之一” / “等方向” 明确列举可替代方向时，满足其中一个明确允许的方向不应仅因缺少其它方向而降级；但该规则不消除额外限定（正式工作经验、年限、熟练/深度、C 端/B 端限定、ownership/可量化成果）。不修改 Rubric V2。
+adjudication_note,,,join_key,,,"评估 canonical join key = (job_id, requirement_id)。requirement_id 在其 Job 上下文内是 canonical/stable 的；不同 Job 允许产生相同 requirement_id。唯一性在 (job_id, requirement_id) 上强制。"
+human_match_fit,veeva:8ae64dee-34a9-4e69-84ef-b91bcde3f35f,,human_match_fit,,3,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407,,human_match_fit,,5,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,baidu:7d5223fc-87b7-41ab-aef9-73aede246b65,,human_match_fit,,3,new-20: from Full-review adjudication
+human_match_fit,baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5,,human_match_fit,,3,new-20: from Full-review adjudication
+human_match_fit,baidu:6182a4d3-51af-4396-af24-a3d690326bff,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,baidu:423c0fa3-a0f3-4def-a882-7466d3685b79,,human_match_fit,,5,new-20: from Full-review adjudication
+human_match_fit,baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,tencent:2092538895714664448,,human_match_fit,,3,new-20: from Full-review adjudication
+human_match_fit,tencent:2088450750270324736,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,tencent:2077347119940939776,,human_match_fit,,5,new-20: from Full-review adjudication
+human_match_fit,tencent:1978467627152072704,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,tencent:2036621556322562048,,human_match_fit,,3,new-20: from Full-review adjudication
+human_match_fit,tencent:2052527703940313088,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,greenhouse:4186650005,,human_match_fit,,2,new-20: from Full-review adjudication
+human_match_fit,tencent:2077246089718837248,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,tencent:2013806539382611968,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,tencent:2047239002926510080,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,baidu:1270fb70-730e-4569-9385-b013690e607d,,human_match_fit,,5,new-20: from Full-review adjudication
+human_match_fit,tencent:1994013057063473152,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,tencent:2078278970276753408,,human_match_fit,,2,new-20: from Full-review adjudication
+human_match_fit,tencent:2041409199149314048,,human_match_fit,,4,new-20: from Full-review adjudication
+human_match_fit,xsolla:252b30e5-ce58-4a32-88b3-07ee83d06e67,,human_match_fit,,3,new-20: from Full-review adjudication
+human_match_fit,huawei:28183,,human_match_fit,,2,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,tencent:2064981110395420672,,human_match_fit,,2,new-20: from Full-review adjudication
+human_match_fit,baidu:0f336f8e-a440-4ebb-a45a-5554b493e527,,human_match_fit,,5,new-20: from Full-review adjudication
+human_match_fit,baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53,,human_match_fit,,2,pilot: copied from frozen Pilot V2 human-verified
+human_match_fit,tencent:2083093175941115904,,human_match_fit,,4,pilot: copied from frozen Pilot V2 human-verified
