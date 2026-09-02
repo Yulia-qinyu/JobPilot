@@ -1,0 +1,196 @@
+{
+  "artifact": "synthetic_probe_report",
+  "created_at": "2026-09-01T16:02:06.046064+00:00",
+  "source_files_read_only": [
+    "synthetic_jobs.json",
+    "synthetic_requirements.json",
+    "synthetic_gt_draft.json"
+  ],
+  "raw_artifacts_not_modified": [
+    "synthetic_jobs.json",
+    "synthetic_requirements.json",
+    "synthetic_gt_draft.json",
+    "synthetic_human_review.csv",
+    "synthetic_scenario_matrix.json",
+    "synthetic_distribution_report.json",
+    "synthetic_distribution_report.md"
+  ],
+  "is_probe_requirement_definition": "true for a matchable requirement iff its text is NOT one of the 11 shared realism/filler anchor texts reused across jobs for context; false for those anchors.",
+  "counts": {
+    "total_matchable_requirements": 98,
+    "total_probe_matchable_requirements": 59,
+    "total_non_probe_matchable_requirements": 39,
+    "total_eligibility_requirements": 51,
+    "total_eligibility_probe_requirements_B_category": 6,
+    "total_probe_requirements_all_types": 65
+  },
+  "probe_expected_label_distribution_matchable_only": {
+    "Missing": 25,
+    "Partial": 23,
+    "Strong": 11
+  },
+  "probe_expected_label_pct": {
+    "Missing": 0.424,
+    "Partial": 0.39,
+    "Strong": 0.186
+  },
+  "probe_distribution_by_scenario_category_matchable_only": {
+    "technology_adjacency": 14,
+    "partial_missing_boundary": 10,
+    "strong_partial_boundary": 10,
+    "project_vs_formal_work": 8,
+    "role_core_mismatch": 7,
+    "compound": 5,
+    "or_alternative": 5
+  },
+  "probe_distribution_by_scenario_category_incl_eligibility": {
+    "project_vs_formal_work": 14,
+    "technology_adjacency": 14,
+    "partial_missing_boundary": 10,
+    "strong_partial_boundary": 10,
+    "role_core_mismatch": 7,
+    "compound": 5,
+    "or_alternative": 5
+  },
+  "eligibility_probe_rows": [
+    {
+      "scenario_id": "B01",
+      "requirement_text": "3 年以上正式 AI 产品经理工作经验",
+      "expected_label": "PotentialGap"
+    },
+    {
+      "scenario_id": "B02",
+      "requirement_text": "5 年以上产品经验，含 3 年以上团队管理",
+      "expected_label": "PotentialGap"
+    },
+    {
+      "scenario_id": "B04",
+      "requirement_text": "3 年以上 B 端 / 企业级产品经验",
+      "expected_label": "PotentialGap"
+    },
+    {
+      "scenario_id": "B06",
+      "requirement_text": "3 年以上金融科技产品经验",
+      "expected_label": "PotentialGap"
+    },
+    {
+      "scenario_id": "B07",
+      "requirement_text": "至少 1 段 AI 产品实习经验",
+      "expected_label": "Supported"
+    },
+    {
+      "scenario_id": "B08",
+      "requirement_text": "8 年以上产品经验",
+      "expected_label": "PotentialGap"
+    }
+  ],
+  "compound_gt_risk_audit": {
+    "F01": {
+      "risk": "HIGH",
+      "reason": "Requirement is a genuine AND (SQL 且 A/B 实验). SQL subclaim = Strong (real evidence), A/B-testing subclaim = Missing (zero evidence, not merely weak). The mechanical 'narrowest unmet subclaim -> Partial' draft may understate this: under a strict AND reading, a wholly-absent subclaim arguably means the compound requirement is NOT met at all -> Missing is at least as defensible as the drafted Partial. Human adjudication required."
+    },
+    "F02": {
+      "risk": "MEDIUM",
+      "reason": "The 'Agent 设计能力' subclaim was not independently evidenced in the generator (assumed from general LLM delivery), only the 'Agent 专项评测能力' subclaim has a direct Partial evidence mapping. The compound label may be resting on an under-specified first subclaim."
+    },
+    "F03": {
+      "risk": "MEDIUM",
+      "reason": "Neither subclaim ('企业级产品经验' nor '商业化闭环经验') is cleanly Strong in the underlying evidence (both are themselves Partial-grade in the real profile) — the compound Partial label is directionally reasonable but was not derived from a rigorous per-subclaim score."
+    },
+    "F04": {
+      "risk": "HIGH",
+      "reason": "Same structure as F01: LLM-delivery subclaim = Strong, 模型精度调优 subclaim = Missing (zero evidence, adjacency explicitly ruled insufficient elsewhere in this same dataset for the identical capability, e.g. A03/A08/F01-style logic). Mechanical narrowest-subclaim draft = Partial; a strict-AND reading could argue Missing. Human adjudication required."
+    },
+    "F05": {
+      "risk": "LOW",
+      "reason": "Both subclaims ('数据开发经验' and '数据治理全流程经验') have at least partial real evidence (ETL/data-architecture work is real; only the governance breadth is the gap) — the Partial label is the most internally consistent of the five compound cases."
+    }
+  },
+  "data_defect_empty_gt_rationale": {
+    "detected": true,
+    "affected_scenario_ids": [
+      "C02",
+      "D08",
+      "F01",
+      "F04"
+    ],
+    "count": 4,
+    "root_cause": "generator key/label dict-mismatch (evidence key not present under the label's Strong/Partial/Missing bucket) caused CAND[...].get(key, \"\") to silently return an empty string",
+    "action_taken": "flagged HIGH risk in this report and in the focused review; NOT auto-corrected (labels and rationale left exactly as in the raw synthetic_gt_draft.json)"
+  },
+  "high_risk_rows": [
+    {
+      "scenario_id": "C02",
+      "requirement_text": "有 RAG 系统的生产环境部署与调优经验",
+      "reason": "DATA DEFECT: gt_rationale is EMPTY in the raw synthetic_gt_draft.json (generator key/label dict-mismatch — the evidence key used does not exist under the expected Strong/Partial/Missing bucket, so CAND[...].get(key, \"\") silently returned an empty string). The expected_label 'Partial' currently has NO stated evidentiary justification. Human must author a real rationale (or correct the label) before this row can be trusted."
+    },
+    {
+      "scenario_id": "D08",
+      "requirement_text": "有开放平台 / 插件生态 / MCP 建设经验",
+      "reason": "DATA DEFECT: gt_rationale is EMPTY in the raw synthetic_gt_draft.json (generator key/label dict-mismatch — the evidence key used does not exist under the expected Strong/Partial/Missing bucket, so CAND[...].get(key, \"\") silently returned an empty string). The expected_label 'Missing' currently has NO stated evidentiary justification. Human must author a real rationale (or correct the label) before this row can be trusted."
+    },
+    {
+      "scenario_id": "F01",
+      "requirement_text": "熟练使用 SQL 且 具备 A/B 实验设计与执行能力",
+      "reason": "Requirement is a genuine AND (SQL 且 A/B 实验). SQL subclaim = Strong (real evidence), A/B-testing subclaim = Missing (zero evidence, not merely weak). The mechanical 'narrowest unmet subclaim -> Partial' draft may understate this: under a strict AND reading, a wholly-absent subclaim arguably means the compound requirement is NOT met at all -> Missing is at least as defensible as the drafted Partial. Human adjudication required. ALSO: DATA DEFECT: gt_rationale is EMPTY in the raw synthetic_gt_draft.json (generator key/label dict-mismatch — the evidence key used does not exist under the expected Strong/Partial/Missing bucket, so CAND[...].get(key, \"\") silently returned an empty string). The expected_label 'Partial' currently has NO stated evidentiary justification. Human must author a real rationale (or correct the label) before this row can be trusted."
+    },
+    {
+      "scenario_id": "F04",
+      "requirement_text": "具备 LLM 应用交付能力 且 模型精度调优能力",
+      "reason": "Same structure as F01: LLM-delivery subclaim = Strong, 模型精度调优 subclaim = Missing (zero evidence, adjacency explicitly ruled insufficient elsewhere in this same dataset for the identical capability, e.g. A03/A08/F01-style logic). Mechanical narrowest-subclaim draft = Partial; a strict-AND reading could argue Missing. Human adjudication required. ALSO: DATA DEFECT: gt_rationale is EMPTY in the raw synthetic_gt_draft.json (generator key/label dict-mismatch — the evidence key used does not exist under the expected Strong/Partial/Missing bucket, so CAND[...].get(key, \"\") silently returned an empty string). The expected_label 'Partial' currently has NO stated evidentiary justification. Human must author a real rationale (or correct the label) before this row can be trusted."
+    },
+    {
+      "scenario_id": "D03",
+      "requirement_text": "独立承担过大型 AI Infra 系统的设计、开发与调测",
+      "reason": "flagged scenario_requires_manual_review"
+    },
+    {
+      "scenario_id": "D06",
+      "requirement_text": "有大规模标注体系与训练数据闭环的专项经验",
+      "reason": "flagged scenario_requires_manual_review"
+    }
+  ],
+  "focused_review_row_count": 65,
+  "focused_review_tier_counts": {
+    "A_scenario_requires_manual_review": 2,
+    "B_compound_probes": 5,
+    "C_or_alternative_probes": 5,
+    "D_project_vs_formal_work_probes": 14,
+    "E_partial_labelled_probes": 13,
+    "F_remaining_probes": 26
+  },
+  "explicitly_flagged_scenarios_per_task": {
+    "manual_review": [
+      "D03",
+      "D06"
+    ],
+    "compound": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05"
+    ],
+    "or_alternative": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05"
+    ],
+    "project_vs_formal_work": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08"
+    ]
+  },
+  "future_evaluation_reporting_requirement": {
+    "rule": "Synthetic results MUST be reported separately as (A) all-matchable metrics, (B) probe-only metrics, (C) per-scenario-category metrics. Filler/realism anchor requirements must never be allowed to obscure stress-test (probe) performance in any future finalist run on this set.",
+    "also_recorded_in": "synthetic_manifest.json -> future_evaluation_reporting_requirement"
+  }
+}

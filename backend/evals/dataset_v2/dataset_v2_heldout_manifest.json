@@ -1,0 +1,87 @@
+{
+  "artifact": "dataset_v2_heldout_manifest",
+  "created_at": "2026-09-02T12:45:23.079947+00:00",
+  "dataset_roles": {
+    "dataset_v1": "development / model-selection set (used for model screening + prompt ablation; NOT held out).",
+    "dataset_v2_real": "small held-out real-world validation set.",
+    "dataset_v2_synthetic": "behavioral challenge / stress-test set (NOT real-world performance estimation)."
+  },
+  "frozen_finalists": [
+    "qwen3.8-max + job-fit-v3-rubric-refined-v2 (Prompt C)",
+    "kimi-k3 + job-fit-v3-matchable-only (Control / Prompt A)"
+  ],
+  "v2_real": {
+    "job_count": 16,
+    "provenance_level": "B (human_provenance_verified) for all; source_url_missing=true; not source_verified.",
+    "company_known_distribution": {
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "company_unknown_count": 13,
+    "role_family_distribution": {
+      "ai_product": 8,
+      "platform_enterprise_product": 5,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1,
+      "general_product": 1
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 7,
+      "unknown": 8,
+      "experienced": 1
+    },
+    "language_distribution": {
+      "zh": 16
+    },
+    "requirement_candidate_count": 187,
+    "requirement_taxonomy_draft_distribution": {
+      "matchable": 170,
+      "eligibility": 11,
+      "subjective": 5,
+      "knowledge": 1
+    },
+    "matchable_rows_for_gt": 170,
+    "human_reviewed_gt_coverage": "0 / 170 (GT annotation template ready; PENDING lightweight human adjudication of Strong/Partial/Missing)",
+    "no_large_scale_collection_performed": true
+  },
+  "v2_synthetic": {
+    "job_count": 50,
+    "total_probe_count": 65,
+    "human_reviewed_probe_count": 9,
+    "representative_selected_pending_count": 12,
+    "reviewed_or_selected_per_scenario_category": {
+      "strong_partial_boundary": 3,
+      "partial_missing_boundary": 3,
+      "compound": 5,
+      "technology_adjacency": 3,
+      "project_vs_formal_work": 2,
+      "or_alternative": 2,
+      "role_core_mismatch": 3
+    },
+    "scenario_derived_only_probe_count": 56,
+    "gt_frozen_file": "synthetic_gt_frozen.json",
+    "reporting_split": [
+      "all-matchable",
+      "human-reviewed probe subset",
+      "per-scenario-category"
+    ],
+    "separation_rule": "synthetic metrics MUST NOT be merged with V2-Real; behavioral stress-test evidence only."
+  },
+  "limitations": [
+    "V2-Real is small (16 jobs) and provenance-level B (no source URLs); estimates carry wide uncertainty.",
+    "V2-Real human GT is not yet produced — template only; requires a lightweight human pass.",
+    "V2-Real taxonomy and Importance are heuristic drafts pending human confirmation; ambiguous Importance is a known limitation.",
+    "V2-Synthetic: only 9 of 65 probes are human-reviewed; 12 are selected-and-pending; the rest are scenario-derived, not exhaustively human-verified.",
+    "No exhaustive annotation was attempted — this is a credible AI Product Evaluation Case Study, not a production-grade benchmark."
+  ],
+  "files": [
+    "dataset_v2/dataset_v2_real_frozen.json",
+    "dataset_v2/dataset_v2_real_requirements.json",
+    "dataset_v2/dataset_v2_real_gt.json",
+    "dataset_v2_synthetic/synthetic_representative_human_review.json",
+    "dataset_v2_synthetic/synthetic_representative_human_review.csv",
+    "dataset_v2_synthetic/synthetic_gt_frozen.json",
+    "dataset_v2/dataset_v2_heldout_manifest.json",
+    "dataset_v2/dataset_v2_heldout_manifest.md"
+  ]
+}

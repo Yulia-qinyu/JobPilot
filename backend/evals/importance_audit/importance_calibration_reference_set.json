@@ -1,0 +1,326 @@
+{
+  "artifact": "importance_calibration_reference_set",
+  "created_at": "2026-09-02T12:34:18.817237+00:00",
+  "governance": "importance_calibration_reference_set — a SMALL human-calibrated reference set. It does NOT make all Dataset V1 Importance labels human-verified. Every other Importance label retains 'importance_not_explicitly_human_verified' where applicable. These 8 human labels must NOT be extrapolated automatically to other requirements.",
+  "baseline": "dataset_v1_corrected_evaluation_view.json (post 8 targeted taxonomy fixes)",
+  "cases_reviewed": 8,
+  "importance_distribution": {
+    "Critical": 5,
+    "Preferred": 3
+  },
+  "accepted_count": 3,
+  "edited_count": 5,
+  "edited_detail": [
+    {
+      "requirement_id": "reqv2_db1d8efa4071bf5f",
+      "from": "Important",
+      "to": "Critical"
+    },
+    {
+      "requirement_id": "reqv2_7c8882c717660066",
+      "from": "Important",
+      "to": "Critical"
+    },
+    {
+      "requirement_id": "reqv2_5685d10f28aca7c2",
+      "from": "Important",
+      "to": "Critical"
+    },
+    {
+      "requirement_id": "reqv2_cd8c089c6f3c4688",
+      "from": "Important",
+      "to": "Critical"
+    },
+    {
+      "requirement_id": "reqv2_91500289fe78e7b4",
+      "from": "Important",
+      "to": "Critical"
+    }
+  ],
+  "rows": [
+    {
+      "requirement_id": "reqv2_db1d8efa4071bf5f",
+      "job": "微信-语音识别算法工程师",
+      "requirement_text": "流式语音识别模型研发经验（模型训练 / 流式解码 / 延迟优化）",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Important",
+      "human_importance": "Critical",
+      "importance_review_status": "edited",
+      "importance_uncertain": false,
+      "human_importance_notes": "Directly corresponds to the core job responsibilities: streaming ASR model training, decoding, caching and latency optimization. A candidate completely lacking this capability would struggle to perform the main role.",
+      "jd_source_phrase": "2.具备流式语音识别模型研发经验，熟悉模型训练、流式解码、状态缓存和延迟优化；",
+      "current_human_match_label": "Missing",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_7c4b6a0fd084f77d",
+      "job": "AI产品经理",
+      "requirement_text": "开发者工具、研发效能或平台型产品经验",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Preferred",
+      "human_importance": "Preferred",
+      "importance_review_status": "accepted",
+      "importance_uncertain": false,
+      "human_importance_notes": "JD explicitly frames this experience as '优先'. Highly relevant to the Agent/platform context but a bonus background, not a core blocker for the product role.",
+      "jd_source_phrase": "1.本科及以上学历，3 年及以上互联网产品经验，有开发者工具、研发效能或平台型产品经验优先；",
+      "current_human_match_label": "Missing",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_7c8882c717660066",
+      "job": "AI产品经理",
+      "requirement_text": "独立完成需求分析、产品设计、项目推进与数据迭代",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Important",
+      "human_importance": "Critical",
+      "importance_review_status": "edited",
+      "importance_uncertain": false,
+      "human_importance_notes": "The core end-to-end product execution capability required to perform the role. A candidate unable to independently handle these activities could not perform the main PM responsibilities.",
+      "jd_source_phrase": "2.产品基本功扎实，能够独立完成需求分析、产品设计、项目推进及数据迭代；",
+      "current_human_match_label": "Strong",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_c5c5a841f5fb83b6",
+      "job": "AI产品经理（J84006）",
+      "requirement_text": "多模态大模型应用 / AIGC / 社交娱乐类产品经验",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Preferred",
+      "human_importance": "Preferred",
+      "importance_review_status": "accepted",
+      "importance_uncertain": false,
+      "human_importance_notes": "JD explicitly states '经验者优先'. Improves role fit but is not presented as a mandatory or defining capability.",
+      "jd_source_phrase": "具有 2 年及以上产品设计经验，有多模态大模型应用、AIGC、或社交娱乐类产品经验者优先",
+      "current_human_match_label": "Missing",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_5685d10f28aca7c2",
+      "job": "腾讯会议-AI产品经理-ASR方向",
+      "requirement_text": "熟悉语音交互相关技术（ASR / 语义理解 / TTS）",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Important",
+      "human_importance": "Critical",
+      "importance_review_status": "edited",
+      "importance_uncertain": false,
+      "human_importance_notes": "The role directly owns AI voice-product planning, evaluation and optimization. Understanding ASR / semantic understanding / TTS is central to performing the role, not an optional bonus.",
+      "jd_source_phrase": "2.熟悉语音识别、语义理解、语音合成等语音交互相关技术，掌握语音产品性能评估方法；",
+      "current_human_match_label": "Missing",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_cd8c089c6f3c4688",
+      "job": "腾讯视频-增长产品经理",
+      "requirement_text": "通过 AB 实验驱动产品迭代",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Important",
+      "human_importance": "Critical",
+      "importance_review_status": "edited",
+      "importance_uncertain": false,
+      "human_importance_notes": "The role explicitly centers on growth funnels, conversion optimization and data-driven iteration. Controlled experimentation / AB testing is a core method for validating growth interventions and directly supports the main responsibilities.",
+      "jd_source_phrase": "熟练通过数据分析与 AB 实验驱动产品迭代；",
+      "current_human_match_label": "Missing",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_f2105cecb6db9371",
+      "job": "光子 AI-数据平台产品经理",
+      "requirement_text": "B 端 / 数据 / AI / 研发效能平台或企业内部系统产品经验",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Preferred",
+      "human_importance": "Preferred",
+      "importance_review_status": "accepted",
+      "importance_uncertain": false,
+      "human_importance_notes": "Strongly relevant to the platform role, but the JD explicitly states this experience is '优先'. A useful background advantage rather than a core blocker.",
+      "jd_source_phrase": "1.本科及以上学历，3 年以上产品经理经验，有 B 端平台、数据平台、AI 平台、研发效能平台或企业内部系统产品经验优先；",
+      "current_human_match_label": "Partial",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    },
+    {
+      "requirement_id": "reqv2_91500289fe78e7b4",
+      "job": "大数据产品经理（深圳/北京）",
+      "requirement_text": "数据开发 / 分析 / SQL / 指标体系 / 元数据 / 数据血缘 / 数据质量",
+      "requirement_type_in_corrected_view": "matchable",
+      "draft_importance": "Important",
+      "human_importance": "Critical",
+      "importance_review_status": "edited",
+      "importance_uncertain": false,
+      "human_importance_notes": "The role directly designs Data Agent capabilities for data development, analysis, governance and operations. These concepts are foundational to the role's core workflows.",
+      "jd_source_phrase": "熟悉数据开发、数据分析、SQL、指标体系、元数据、数据血缘、数据质量等基础概念；",
+      "current_human_match_label": "Partial",
+      "adjudicated_at": "2026-09-02T12:34:18.817237+00:00"
+    }
+  ],
+  "lightweight_impact": {
+    "note": "Deterministic effect of applying ONLY these 8 Importance decisions (5 edits) on the corrected evaluation view. Match Score formula unchanged. This is NOT a fully human-verified GT Match Score.",
+    "distinct_jobs_touched": 7,
+    "jobs_with_score_delta": [
+      {
+        "job_id": "tencent:2064981110395420672",
+        "job_title": "微信-语音识别算法工程师",
+        "calibration_cases": [
+          1
+        ],
+        "importance_edits_in_job": [
+          "reqv2_db1d8efa4071bf5f"
+        ],
+        "gt_match_score_before_importance_calibration": 25,
+        "gt_match_score_after_importance_calibration": 17,
+        "delta": -8
+      },
+      {
+        "job_id": "tencent:2092538895714664448",
+        "job_title": "AI产品经理",
+        "calibration_cases": [
+          2,
+          3
+        ],
+        "importance_edits_in_job": [
+          "reqv2_7c8882c717660066"
+        ],
+        "gt_match_score_before_importance_calibration": 75,
+        "gt_match_score_after_importance_calibration": 83,
+        "delta": 8
+      },
+      {
+        "job_id": "tencent:2036621556322562048",
+        "job_title": "腾讯会议-AI产品经理-ASR方向",
+        "calibration_cases": [
+          5
+        ],
+        "importance_edits_in_job": [
+          "reqv2_5685d10f28aca7c2"
+        ],
+        "gt_match_score_before_importance_calibration": 25,
+        "gt_match_score_after_importance_calibration": 19,
+        "delta": -6
+      },
+      {
+        "job_id": "tencent:2083093175941115904",
+        "job_title": "腾讯视频-增长产品经理",
+        "calibration_cases": [
+          6
+        ],
+        "importance_edits_in_job": [
+          "reqv2_cd8c089c6f3c4688"
+        ],
+        "gt_match_score_before_importance_calibration": 77,
+        "gt_match_score_after_importance_calibration": 67,
+        "delta": -10
+      },
+      {
+        "job_id": "tencent:2013806539382611968",
+        "job_title": "大数据产品经理（深圳/北京）",
+        "calibration_cases": [
+          8
+        ],
+        "importance_edits_in_job": [
+          "reqv2_91500289fe78e7b4"
+        ],
+        "gt_match_score_before_importance_calibration": 83,
+        "gt_match_score_after_importance_calibration": 77,
+        "delta": -6
+      }
+    ],
+    "per_job": [
+      {
+        "job_id": "tencent:2064981110395420672",
+        "job_title": "微信-语音识别算法工程师",
+        "calibration_cases": [
+          1
+        ],
+        "importance_edits_in_job": [
+          "reqv2_db1d8efa4071bf5f"
+        ],
+        "gt_match_score_before_importance_calibration": 25,
+        "gt_match_score_after_importance_calibration": 17,
+        "delta": -8
+      },
+      {
+        "job_id": "tencent:2092538895714664448",
+        "job_title": "AI产品经理",
+        "calibration_cases": [
+          2,
+          3
+        ],
+        "importance_edits_in_job": [
+          "reqv2_7c8882c717660066"
+        ],
+        "gt_match_score_before_importance_calibration": 75,
+        "gt_match_score_after_importance_calibration": 83,
+        "delta": 8
+      },
+      {
+        "job_id": "baidu:7d5223fc-87b7-41ab-aef9-73aede246b65",
+        "job_title": "AI产品经理（J84006）",
+        "calibration_cases": [
+          4
+        ],
+        "importance_edits_in_job": [],
+        "gt_match_score_before_importance_calibration": 50,
+        "gt_match_score_after_importance_calibration": 50,
+        "delta": 0
+      },
+      {
+        "job_id": "tencent:2036621556322562048",
+        "job_title": "腾讯会议-AI产品经理-ASR方向",
+        "calibration_cases": [
+          5
+        ],
+        "importance_edits_in_job": [
+          "reqv2_5685d10f28aca7c2"
+        ],
+        "gt_match_score_before_importance_calibration": 25,
+        "gt_match_score_after_importance_calibration": 19,
+        "delta": -6
+      },
+      {
+        "job_id": "tencent:2083093175941115904",
+        "job_title": "腾讯视频-增长产品经理",
+        "calibration_cases": [
+          6
+        ],
+        "importance_edits_in_job": [
+          "reqv2_cd8c089c6f3c4688"
+        ],
+        "gt_match_score_before_importance_calibration": 77,
+        "gt_match_score_after_importance_calibration": 67,
+        "delta": -10
+      },
+      {
+        "job_id": "tencent:2077246089718837248",
+        "job_title": "光子 AI-数据平台产品经理",
+        "calibration_cases": [
+          7
+        ],
+        "importance_edits_in_job": [],
+        "gt_match_score_before_importance_calibration": 88,
+        "gt_match_score_after_importance_calibration": 88,
+        "delta": 0
+      },
+      {
+        "job_id": "tencent:2013806539382611968",
+        "job_title": "大数据产品经理（深圳/北京）",
+        "calibration_cases": [
+          8
+        ],
+        "importance_edits_in_job": [
+          "reqv2_91500289fe78e7b4"
+        ],
+        "gt_match_score_before_importance_calibration": 83,
+        "gt_match_score_after_importance_calibration": 77,
+        "delta": -6
+      }
+    ]
+  },
+  "safety": {
+    "other_importance_changed": false,
+    "taxonomy_changed": false,
+    "match_labels_changed": false,
+    "models_run": false,
+    "match_score_redesigned": false,
+    "finalist_metrics_recomputed": false,
+    "raw_frozen_gt_overwritten": false,
+    "staged_committed_pushed": false
+  }
+}

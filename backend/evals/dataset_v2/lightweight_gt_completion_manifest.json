@@ -1,0 +1,65 @@
+{
+  "artifact": "lightweight_gt_completion_manifest",
+  "created_at": "2026-09-02T13:00:29.924578+00:00",
+  "phase": "lightweight held-out GT preparation (pre-adjudication)",
+  "v2_real": {
+    "selected_jobs": 8,
+    "role_family_distribution": {
+      "ai_product": 3,
+      "platform_enterprise_product": 2,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1,
+      "general_product": 1
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 4,
+      "unknown": 3,
+      "experienced": 1
+    },
+    "core_matchable_requirements": 32,
+    "requirements_per_job": {
+      "校招-AI产品经理（人才专项）": 4,
+      "AI策略产品经理": 4,
+      "平台AI产品经理": 4,
+      "增长产品经理（平台经营）": 4,
+      "AI产品经理": 4,
+      "用户增长-用户运营管培生": 4,
+      "产品经理": 4,
+      "游戏AI产品经理（北京）": 4
+    },
+    "blank_human_match_fit_fields": 8,
+    "taxonomy_flags_for_human": [
+      "v2real_df9143338be0"
+    ],
+    "human_reviewed_so_far": 0
+  },
+  "v2_synthetic": {
+    "pending_representative_probes": 12,
+    "category_coverage": {
+      "technology_adjacency": 3,
+      "project_vs_formal_work": 2,
+      "strong_partial_boundary": 2,
+      "or_alternative": 2,
+      "role_core_mismatch": 3
+    },
+    "confirmed_decisions_not_reopened": 9,
+    "no_additional_probes_added": true
+  },
+  "stop_condition_status": {
+    "exactly_8_real_jobs_selected": true,
+    "real_core_matchable_requirements_24_to_32": true,
+    "eight_blank_hmf_fields": true,
+    "exactly_12_pending_synthetic_probes": true,
+    "no_additional_annotation_scope_introduced": true
+  },
+  "next": "human adjudication of these packs → freeze lightweight held-out GT → T5 finalist evaluation.",
+  "safety": {
+    "model_run": false,
+    "gt_label_invented": false,
+    "production_changed": false,
+    "prompt_or_model_tuned": false,
+    "match_score_changed": false,
+    "raw_artifacts_overwritten": false,
+    "staged_committed_pushed": false
+  }
+}

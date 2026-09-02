@@ -1,0 +1,186 @@
+{
+  "artifact": "taxonomy_targeted_fixes_applied",
+  "created_at": "2026-09-02T12:30:56.103657+00:00",
+  "scope": "Applied ONLY the 8 human-confirmed targeted taxonomy corrections into a corrected evaluation view. Raw frozen GT NOT overwritten. Importance unchanged. Strong/Partial/Missing unchanged. No model. No commit.",
+  "raw_source": {
+    "file": "job_match_annotation_full_v2_human_verified.json",
+    "sha256": "52cda176e166146ffc24a85067f13618c5f717cedab506f0ba17fe5e701ba050",
+    "overwritten": false
+  },
+  "confirmed_fixes_applied": 8,
+  "requirement_ids_changed": [
+    "reqv2_ffe72039c28ab86a",
+    "reqv2_e913e8618fce3ef0",
+    "reqv2_d51e7d995d268f8f",
+    "reqv2_a7e657643b65384a",
+    "reqv2_7ed2b166528d9d17",
+    "reqv2_bee05a7871209904",
+    "reqv2_d154fbace582cc6a",
+    "reqv2_1dbe0ee8f6b62193"
+  ],
+  "matchable_to_eligibility_count": 1,
+  "matchable_to_subjective_count": 7,
+  "matchable_to_knowledge_count": 0,
+  "taxonomy_distribution_before": {
+    "eligibility": 42,
+    "matchable": 100,
+    "knowledge": 16
+  },
+  "taxonomy_distribution_after_corrected_view": {
+    "eligibility": 43,
+    "matchable": 92,
+    "knowledge": 16,
+    "subjective": 7
+  },
+  "affected_jobs": [
+    "baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049",
+    "baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+    "baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+    "huawei:28183",
+    "tencent:2036621556322562048",
+    "tencent:2052527703940313088",
+    "tencent:2064981110395420672",
+    "tencent:2078278970276753408"
+  ],
+  "per_job_match_score": [
+    {
+      "job_id": "baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049",
+      "job_title": "大模型应用平台产品经理（J85776）",
+      "corrected_requirement_ids": [
+        "reqv2_d154fbace582cc6a"
+      ],
+      "original_matchable_count": 3,
+      "corrected_matchable_count": 2,
+      "original_gt_match_score": 71,
+      "corrected_gt_match_score": 50,
+      "delta": -21,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+      "job_title": "AI产品经理（J98328）",
+      "corrected_requirement_ids": [
+        "reqv2_1dbe0ee8f6b62193"
+      ],
+      "original_matchable_count": 3,
+      "corrected_matchable_count": 2,
+      "original_gt_match_score": 90,
+      "corrected_gt_match_score": 75,
+      "delta": -15,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+      "job_title": "大模型产品经理（J72652）",
+      "corrected_requirement_ids": [
+        "reqv2_7ed2b166528d9d17"
+      ],
+      "original_matchable_count": 4,
+      "corrected_matchable_count": 3,
+      "original_gt_match_score": 75,
+      "corrected_gt_match_score": 60,
+      "delta": -15,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "huawei:28183",
+      "job_title": "AI大模型架构师（训练/推理）",
+      "corrected_requirement_ids": [
+        "reqv2_a7e657643b65384a"
+      ],
+      "original_matchable_count": 8,
+      "corrected_matchable_count": 7,
+      "original_gt_match_score": 42,
+      "corrected_gt_match_score": 40,
+      "delta": -2,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "tencent:2036621556322562048",
+      "job_title": "腾讯会议-AI产品经理-ASR方向",
+      "corrected_requirement_ids": [
+        "reqv2_e913e8618fce3ef0"
+      ],
+      "original_matchable_count": 3,
+      "corrected_matchable_count": 2,
+      "original_gt_match_score": 50,
+      "corrected_gt_match_score": 25,
+      "delta": -25,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "tencent:2052527703940313088",
+      "job_title": "证券-AI产品经理-金融AI应用体验方向",
+      "corrected_requirement_ids": [
+        "reqv2_d51e7d995d268f8f"
+      ],
+      "original_matchable_count": 6,
+      "corrected_matchable_count": 5,
+      "original_gt_match_score": 75,
+      "corrected_gt_match_score": 70,
+      "delta": -5,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "tencent:2064981110395420672",
+      "job_title": "微信-语音识别算法工程师",
+      "corrected_requirement_ids": [
+        "reqv2_ffe72039c28ab86a"
+      ],
+      "original_matchable_count": 3,
+      "corrected_matchable_count": 2,
+      "original_gt_match_score": 40,
+      "corrected_gt_match_score": 25,
+      "delta": -15,
+      "reaches_zero_matchable": false
+    },
+    {
+      "job_id": "tencent:2078278970276753408",
+      "job_title": "腾讯云-经营系统产品经理",
+      "corrected_requirement_ids": [
+        "reqv2_bee05a7871209904"
+      ],
+      "original_matchable_count": 3,
+      "corrected_matchable_count": 2,
+      "original_gt_match_score": 43,
+      "corrected_gt_match_score": 0,
+      "delta": -43,
+      "reaches_zero_matchable": false
+    }
+  ],
+  "any_job_zero_matchable": [],
+  "jobs_with_corrected_gt_score_zero": [
+    "tencent:2078278970276753408"
+  ],
+  "note_score_zero_vs_zero_matchable": "No job loses all matchable rows (min corrected matchable count = 2). One job (腾讯云-经营系统产品经理) drops to a corrected GT score of 0 because its two remaining matchable requirements are both GT=Missing; the previously-scoring row was the '沟通协调' trait now reclassified subjective.",
+  "not_applied": {
+    "A2_A10": "Education-major preferences ('…相关专业优先') remain under the existing rubric for evaluation close-out consistency, even though taxonomy-borderline. Residual limitation.",
+    "B8_B10": "Remain matchable — work-verifiability boundary is ambiguous and the project is not pursuing exhaustive taxonomy redesign. Residual limitation.",
+    "all_other_requirements": "Unchanged."
+  },
+  "construct_validity": {
+    "spearman_gt_score_vs_human_match_fit": 0.845,
+    "status": "pre-targeted-taxonomy-correction / provisional — NOT recomputed in this task."
+  },
+  "residual_taxonomy_limitations": [
+    "Taxonomy boundaries (eligibility vs matchable vs subjective vs knowledge) are partly subjective judgments.",
+    "Education-major preferences ('计算机/相关专业优先') remain a known edge case, left matchable/Preferred under annotation-rubric-v2 for close-out consistency (candidates A2-A10 not applied).",
+    "Some soft-capability phrases remain matchable where verified career evidence may still operationalize them (candidates B8-B10 not applied).",
+    "Only obvious, high-confidence taxonomy errors were corrected (8 of 20 prepared candidates).",
+    "No exhaustive 158-row taxonomy re-review was attempted.",
+    "Intentional given project scope: a credible AI Product Evaluation Case Study, not a production-grade benchmark."
+  ],
+  "safety_confirmations": {
+    "model_inference_run": false,
+    "prompt_abc_modified": false,
+    "importance_changed": false,
+    "match_labels_changed": false,
+    "match_score_redesigned": false,
+    "eligibility_added_into_match_score": false,
+    "production_backend_modified": false,
+    "frontend_modified": false,
+    "dataset_v2_frozen": false,
+    "raw_frozen_gt_overwritten": false,
+    "staged_committed_pushed": false
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "artifact": "dataset_v2_batch2_balance_report",
+  "created_at": "2026-09-01T15:21:42.547078+00:00",
+  "caveat": "Unknown source/company metadata for 13/16 Batch 2 jobs limits company-diversity and geographic conclusions. City is unknown for 15/16 Batch 2 jobs. All figures are PROVISIONAL.",
+  "A_batch2_alone": {
+    "view": "Batch 2 alone (16 human-pasted)",
+    "candidate_job_count": 16,
+    "unique_known_companies": [
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)"
+    ],
+    "unique_known_company_count": 2,
+    "unknown_company_count": 13,
+    "known_company_distribution": {
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "city_distribution": {
+      "unknown": 14,
+      "北京市": 2
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 7,
+      "unknown": 8,
+      "experienced": 1
+    },
+    "role_family_distribution": {
+      "ai_product": 8,
+      "platform_enterprise_product": 5,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1,
+      "general_product": 1
+    },
+    "language_distribution": {
+      "zh": 16
+    },
+    "ai_subdomain_coverage": {
+      "llm_applications": 9,
+      "agent": 5,
+      "rag_knowledge_systems": 3,
+      "ai_consumer_products": 3,
+      "ai_platform": 3,
+      "enterprise_ai": 4,
+      "ai_productivity": 1,
+      "recommendation_search": 2,
+      "ai_tools": 1,
+      "multimodal": 1
+    },
+    "distinct_ai_subdomains": 10,
+    "duplicates": {
+      "within_batch2_exact": 0,
+      "within_batch2_probable_near": 0,
+      "vs_batch1": 0,
+      "vs_v1": 0
+    },
+    "source_verification_status": {
+      "pending": 16,
+      "verified": 0
+    },
+    "requirement_candidates_heuristic_total": 196
+  },
+  "B_batch1_plus_batch2": {
+    "view": "Batch 1 provisional (10) + Batch 2 provisional (16) = 26",
+    "candidate_job_count": 26,
+    "unique_known_companies": [
+      "京东",
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)",
+      "百度"
+    ],
+    "unique_known_company_count": 4,
+    "unknown_company_count": 13,
+    "known_company_distribution": {
+      "百度": 5,
+      "京东": 5,
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "big_tech_concentration": {
+      "baidu+jd": 0.385,
+      "baidu+jd+bytedance": 0.462
+    },
+    "city_distribution": {
+      "北京市": 9,
+      "上海市": 1,
+      "深圳市": 2,
+      "unknown": 14
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 9,
+      "experienced": 7,
+      "unknown": 10
+    },
+    "role_family_distribution": {
+      "general_product": 3,
+      "platform_enterprise_product": 8,
+      "ai_product": 12,
+      "data_product": 1,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1
+    },
+    "language_distribution": {
+      "zh": 26
+    },
+    "ai_subdomain_coverage": {
+      "recommendation_search": 4,
+      "ai_infrastructure": 1,
+      "ai_platform": 5,
+      "agent": 7,
+      "speech_asr": 2,
+      "ai_consumer_products": 5,
+      "ai_commercialisation": 1,
+      "ai_productivity": 2,
+      "rag_knowledge_systems": 5,
+      "llm_applications": 10,
+      "multimodal": 2,
+      "enterprise_ai": 6,
+      "ai_tools": 1
+    },
+    "distinct_ai_subdomains": 13,
+    "duplicates": {
+      "within_pool_exact": 0,
+      "within_pool_probable_near": 0,
+      "vs_v1_exact": 0
+    },
+    "source_verification_status": {
+      "pending": 26,
+      "verified": 0,
+      "detail": "Batch 1: URL present but JD is WebFetch-rendered (not verbatim). Batch 2: no URL, human-pasted."
+    }
+  },
+  "C_v2real_candidate_pool": {
+    "view": "Potential V2-Real candidate pool after removing known V1 duplicates",
+    "candidate_job_count": 26,
+    "note": "Batch 1's 3 exact V1 duplicates were already rejected; Batch 2 has 0 V1 duplicates. So the V2-Real candidate pool = 26 provisional jobs, 0 source-verified, 0 in the frozen corpus.",
+    "known_companies": [
+      "京东",
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)",
+      "百度"
+    ],
+    "unknown_company_count": 13
+  }
+}

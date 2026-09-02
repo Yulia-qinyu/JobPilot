@@ -1,0 +1,54 @@
+{
+  "artifact": "v2_real_hmf_human_verified",
+  "created_at": "2026-09-02T13:17:06.541286+00:00",
+  "question": "忽略招聘资格门槛、招聘类型和个人投递意愿，只看候选人当前已验证的经历、技能和这个岗位的 matchable requirements，这个岗位与候选人的能力匹配程度如何？ (1 very low – 5 very high fit)",
+  "scale": "1 very low – 5 very high fit",
+  "ratings": [
+    {
+      "job_id": "v2paste:868864e12ac26973",
+      "job_title": "校招-AI产品经理（人才专项）",
+      "human_match_fit": 3
+    },
+    {
+      "job_id": "v2paste:8bd2292a5974ba67",
+      "job_title": "AI策略产品经理",
+      "human_match_fit": 5
+    },
+    {
+      "job_id": "v2paste:ee7963fc9c8e9269",
+      "job_title": "平台AI产品经理",
+      "human_match_fit": 4
+    },
+    {
+      "job_id": "v2paste:703edc23c7fecb6d",
+      "job_title": "增长产品经理（平台经营）",
+      "human_match_fit": 4
+    },
+    {
+      "job_id": "v2paste:2510a8a8dd701350",
+      "job_title": "AI产品经理",
+      "human_match_fit": 3
+    },
+    {
+      "job_id": "v2paste:2bb44a57a387a772",
+      "job_title": "用户增长-用户运营管培生",
+      "human_match_fit": 2
+    },
+    {
+      "job_id": "v2paste:74c7e52f7d3795f1",
+      "job_title": "产品经理",
+      "human_match_fit": 4
+    },
+    {
+      "job_id": "v2paste:1bcbc456132ab15e",
+      "job_title": "游戏AI产品经理（北京）",
+      "human_match_fit": 4
+    }
+  ],
+  "distribution": {
+    "3": 2,
+    "5": 1,
+    "4": 4,
+    "2": 1
+  }
+}

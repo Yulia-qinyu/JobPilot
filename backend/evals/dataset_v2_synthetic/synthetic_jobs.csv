@@ -1,0 +1,51 @@
+job_id,scenario_id,scenario_category,company,title,career_stage,role_family,ai_subdomain_tags,is_synthetic,scenario_requires_manual_review
+synv2:A01,A01,technology_adjacency,星河智能,多模态大模型产品经理,campus_new_grad,ai_product,multimodal|llm_applications,True,False
+synv2:A02,A02,technology_adjacency,云启科技,语音交互产品经理,early_career,ai_product,speech_asr|llm_applications,True,False
+synv2:A03,A03,technology_adjacency,智源数科,模型训练平台产品经理,experienced,platform_enterprise_product,ai_infrastructure|ai_platform,True,False
+synv2:A04,A04,technology_adjacency,澜图科技,推荐策略产品经理,early_career,ai_product,recommendation_search,True,False
+synv2:A05,A05,technology_adjacency,熠芯科技,搜索产品经理,early_career,ai_product,recommendation_search|rag_knowledge_systems,True,False
+synv2:A06,A06,technology_adjacency,鲸落数据,多模态内容生成产品经理,campus_new_grad,ai_product,multimodal|ai_consumer_products,True,False
+synv2:A07,A07,technology_adjacency,天枢智联,语音大模型产品经理,early_career,ai_product,speech_asr,True,False
+synv2:A08,A08,technology_adjacency,谷雨AI,强化学习训练产品经理,experienced,platform_enterprise_product,ai_infrastructure,True,False
+synv2:A09,A09,technology_adjacency,岚山科技,大模型推理引擎产品经理,experienced,platform_enterprise_product,ai_infrastructure|ai_platform,True,False
+synv2:A10,A10,technology_adjacency,序列智能,广告投放策略产品经理,campus_new_grad,ai_product,recommendation_search|ai_commercialisation,True,False
+synv2:B01,B01,project_vs_formal_work,方舟云图,资深 AI 产品经理,experienced,ai_product,llm_applications|agent,True,False
+synv2:B02,B02,project_vs_formal_work,河图数智,AI 产品负责人,experienced,ai_product,agent|ai_commercialisation,True,False
+synv2:B03,B03,project_vs_formal_work,灯塔认知,AI 应用交付产品经理,campus_new_grad,ai_product,llm_applications|rag_knowledge_systems,True,False
+synv2:B04,B04,project_vs_formal_work,昆仑映射,企业 AI 产品经理,early_career,platform_enterprise_product,enterprise_ai,True,False
+synv2:B05,B05,project_vs_formal_work,青萍智算,AI Agent 产品专家,experienced,ai_product,agent|rag_knowledge_systems,True,False
+synv2:B06,B06,project_vs_formal_work,溪流科技,金融 AI 产品经理,early_career,strategy_growth_fintech_product,ai_commercialisation|llm_applications,True,False
+synv2:B07,B07,project_vs_formal_work,白泽智能,AI 产品经理（实习转正）,campus_new_grad,ai_product,llm_applications,True,False
+synv2:B08,B08,project_vs_formal_work,拓扑星野,高级产品经理,experienced,general_product,ai_productivity,True,False
+synv2:C01,C01,strong_partial_boundary,明镜数据,数据分析产品经理,early_career,data_product,enterprise_ai,True,False
+synv2:C02,C02,strong_partial_boundary,涌流科技,RAG 知识库产品经理,campus_new_grad,ai_product,rag_knowledge_systems|llm_applications,True,False
+synv2:C03,C03,strong_partial_boundary,星河智能,数据产品经理,early_career,data_product,enterprise_ai,True,False
+synv2:C04,C04,strong_partial_boundary,云启科技,AI 平台产品经理,experienced,platform_enterprise_product,ai_platform|enterprise_ai,True,False
+synv2:C05,C05,strong_partial_boundary,智源数科,AI Agent 评测产品经理,early_career,ai_product,agent|rag_knowledge_systems,True,False
+synv2:C06,C06,strong_partial_boundary,澜图科技,大模型应用产品经理,campus_new_grad,ai_product,llm_applications,True,False
+synv2:C07,C07,strong_partial_boundary,熠芯科技,技术产品经理,early_career,platform_enterprise_product,ai_infrastructure,True,False
+synv2:C08,C08,strong_partial_boundary,鲸落数据,AI 产品经理（增长方向）,early_career,strategy_growth_fintech_product,ai_commercialisation,True,False
+synv2:D01,D01,partial_missing_boundary,天枢智联,推荐算法产品经理,early_career,ai_product,recommendation_search,True,False
+synv2:D02,D02,partial_missing_boundary,谷雨AI,语音产品经理,campus_new_grad,ai_product,speech_asr,True,False
+synv2:D03,D03,partial_missing_boundary,岚山科技,AI 基础设施产品经理,experienced,platform_enterprise_product,ai_infrastructure|ai_platform,True,True
+synv2:D04,D04,partial_missing_boundary,序列智能,多模态产品经理,early_career,ai_product,multimodal,True,False
+synv2:D05,D05,partial_missing_boundary,方舟云图,内容创作平台产品经理,campus_new_grad,mismatched_control,ai_consumer_products,True,False
+synv2:D06,D06,partial_missing_boundary,河图数智,AI 训练数据产品经理,early_career,data_product,ai_infrastructure|enterprise_ai,True,True
+synv2:D07,D07,partial_missing_boundary,灯塔认知,研究型 AI 产品经理,experienced,ai_product,llm_applications,True,False
+synv2:D08,D08,partial_missing_boundary,昆仑映射,开放平台产品经理,early_career,platform_enterprise_product,ai_platform,True,False
+synv2:E01,E01,or_alternative,青萍智算,行业 AI 产品经理,early_career,strategy_growth_fintech_product,ai_commercialisation|llm_applications,True,False
+synv2:E02,E02,or_alternative,溪流科技,AI 能力产品经理,campus_new_grad,ai_product,agent|rag_knowledge_systems,True,False
+synv2:E03,E03,or_alternative,白泽智能,数据方向产品经理,campus_new_grad,data_product,enterprise_ai,True,False
+synv2:E04,E04,or_alternative,拓扑星野,场景 AI 产品经理,early_career,ai_product,llm_applications|recommendation_search,True,False
+synv2:E05,E05,or_alternative,明镜数据,增长 AI 产品经理,campus_new_grad,strategy_growth_fintech_product,ai_commercialisation|ai_tools,True,False
+synv2:F01,F01,compound,涌流科技,数据实验产品经理,campus_new_grad,data_product,enterprise_ai,True,False
+synv2:F02,F02,compound,星河智能,Agent 产品经理,experienced,ai_product,agent,True,False
+synv2:F03,F03,compound,云启科技,企业 AI 商业化产品经理,experienced,strategy_growth_fintech_product,ai_commercialisation|enterprise_ai,True,False
+synv2:F04,F04,compound,智源数科,全栈 AI 产品经理,early_career,ai_product,llm_applications|ai_infrastructure,True,False
+synv2:F05,F05,compound,澜图科技,数据治理产品经理,experienced,data_product,enterprise_ai,True,False
+synv2:G01,G01,role_core_mismatch,熠芯科技,私域用户运营专员,campus_new_grad,mismatched_control,ai_tools,True,False
+synv2:G02,G02,role_core_mismatch,鲸落数据,商业化销售运营,early_career,mismatched_control,ai_commercialisation,True,False
+synv2:G03,G03,role_core_mismatch,天枢智联,智能硬件产品经理,experienced,mismatched_control,,True,False
+synv2:G04,G04,role_core_mismatch,谷雨AI,通用产品经理（关注 AI）,campus_new_grad,general_product,ai_tools,True,False
+synv2:G05,G05,role_core_mismatch,岚山科技,电商运营产品经理,early_career,mismatched_control,recommendation_search,True,False
+synv2:G06,G06,role_core_mismatch,序列智能,战略与商业分析,experienced,strategy_growth_fintech_product,ai_commercialisation,True,False

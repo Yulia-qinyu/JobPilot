@@ -1,0 +1,137 @@
+{
+  "artifact": "synthetic_match_adjudication_checkpoint",
+  "created_at": "2026-09-02T03:19:28.316783+00:00",
+  "scope": "9 synthetic matchable probe cases explicitly adjudicated by the human evaluator. Raw synthetic_requirements.json / synthetic_gt_draft.json NOT modified — this is a separate, auditable human-decision record.",
+  "no_model_inference": true,
+  "importance_not_adjudicated_here": true,
+  "decisions": [
+    {
+      "scenario_id": "C02",
+      "requirement_id": "synreq_7356f75ca5b3",
+      "requirement_text": "有 RAG 系统的生产环境部署与调优经验",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "Candidate has direct RAG product practice and RAG was integrated into a fully delivered LLM/conversational product covering requirements through launch/iteration. Frozen evidence does NOT explicitly prove independent production-environment RAG deployment, operations, or dedicated production tuning. Meaningful direct overlap exists but is materially incomplete.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "D08",
+      "requirement_id": "synreq_547fc6b8bdef",
+      "requirement_text": "有开放平台 / 插件生态 / MCP 建设经验",
+      "requirement_type": "matchable",
+      "draft_match_label": "Missing",
+      "human_match_label": "Missing",
+      "human_review_status": "accepted",
+      "human_notes": "Candidate has Agent, RAG and AI-tool experience, but no verified evidence of building an open platform, plugin ecosystem, third-party developer access mechanism, or MCP infrastructure. Adjacent AI capabilities that do not demonstrate the requested platform-ecosystem construction capability.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "F01",
+      "requirement_id": "synreq_37d1af10e82c",
+      "requirement_text": "熟练使用 SQL 且 具备 A/B 实验设计与执行能力",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "SQL is directly and strongly evidenced. Candidate also has controlled-experiment / ablation experience through JobPilot evaluation work (controlled model comparisons; fixed Dataset/GT/scoring; Prompt A/B/C ablation; control-variable and comparative experimental design). This is NOT equivalent to real-user randomized online A/B testing, traffic splitting, or production experimentation. The A/B experimentation subclaim therefore has meaningful but incomplete evidence and the combined requirement is Partial. (Do not rewrite JobPilot prompt/model evaluation as production online A/B testing.)",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "F02",
+      "requirement_id": "synreq_1f3464006320",
+      "requirement_text": "具备 Agent 设计能力 且 Agent 专项评测能力",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "Candidate has meaningful Agent/conversational-product delivery experience and model/Agent product evaluation practice, but Agent-specific design depth and a dedicated Agent evaluation/quality-regression system are not fully evidenced. Both subclaims have meaningful but incomplete support.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "F03",
+      "requirement_id": "synreq_47385f8d6c6c",
+      "requirement_text": "有企业级产品经验 且 完整商业化闭环经验",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "Candidate has platform-style/configurable product experience and product ownership from requirements through delivery, but explicit enterprise SaaS/multi-tenant ownership is incomplete and there is no strong frozen evidence of full pricing/conversion/renewal/commercialisation-loop ownership. Meaningful overlap exists but the complete compound capability is not demonstrated.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "F04",
+      "requirement_id": "synreq_fe17a08896da",
+      "requirement_text": "具备 LLM 应用交付能力 且 模型精度调优能力",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "LLM application delivery is strongly evidenced through complete product delivery and LLM-related work. Model performance evaluation/training support exists, but does not prove fine-tuning, model-precision optimization, foundation-model training, RL training, or equivalent model-tuning ownership. One core subclaim is strong while the other remains materially unsupported.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "F05",
+      "requirement_id": "synreq_fe1542987e0f",
+      "requirement_text": "有数据开发经验 且 数据治理全流程经验",
+      "requirement_type": "matchable",
+      "draft_match_label": "Partial",
+      "human_match_label": "Partial",
+      "human_review_status": "accepted",
+      "human_notes": "Data development is directly supported by data architecture, automated ETL, SQL and data-modeling practice. End-to-end data-governance experience — metadata management, lineage, governance process and ownership — is not evidenced. Compound requirement only partially met.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "D03",
+      "requirement_id": "synreq_45f506185cde",
+      "requirement_text": "独立承担过大型 AI Infra 系统的设计、开发与调测",
+      "requirement_type": "matchable",
+      "draft_match_label": "Missing",
+      "human_match_label": "Partial",
+      "human_review_status": "edited",
+      "human_notes": "Candidate has real system-design, LLM backend integration and AI technical delivery experience, which meaningfully overlaps with the requested capability. Insufficient evidence of independent ownership of a large-scale AI infrastructure platform covering design, development and debugging. Scale, infra specialization and ownership remain material gaps.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00"
+    },
+    {
+      "scenario_id": "D06",
+      "requirement_id": "synreq_8f5efb278bff",
+      "requirement_text": "有大规模标注体系与训练数据闭环的专项经验",
+      "requirement_type": "matchable",
+      "draft_match_label": "Missing",
+      "human_match_label": "Partial",
+      "human_review_status": "edited",
+      "human_notes": "Human evaluator confirms real manual data-annotation experience, in addition to training-data/model-evaluation exposure. Current frozen evidence does not demonstrate ownership of a large-scale annotation system, annotation-quality framework, specialist annotation platform, or end-to-end training-data closed loop. Meaningful direct overlap exists but is materially incomplete.",
+      "human_adjudicated_at": "2026-09-02T03:19:28.316783+00:00",
+      "evidence_snapshot_gap": true,
+      "evidence_snapshot_gap_detail": "evidence_snapshot_gap = TRUE. The frozen evidence catalogue contains NO explicit manual-data-annotation item. The D06 human adjudication (Partial) relies partly on a human-confirmed real experience (manual data annotation) that is MISSING from the currently frozen evidence catalogue. Snapshot NOT mutated; no evidence ID fabricated. Adjacent training-data items that DO exist and partially support the 'training-data / model-evaluation exposure' portion: resume_extracted:22, resume_extracted:29, resume_extracted:30."
+    }
+  ],
+  "accepted_count": 7,
+  "edited_count": 2,
+  "edited_rows": [
+    {
+      "scenario_id": "D03",
+      "from": "Missing",
+      "to": "Partial"
+    },
+    {
+      "scenario_id": "D06",
+      "from": "Missing",
+      "to": "Partial"
+    }
+  ],
+  "d06_evidence_snapshot_check": {
+    "evidence_snapshot_gap": true,
+    "checked": "frozen candidate_evidence_snapshot.evidence_catalog (30 items, text_summary + context)",
+    "explicit_manual_annotation_item_found": false,
+    "explicit_manual_annotation_evidence_ids": [],
+    "training_data_adjacent_items_present": [
+      "resume_extracted:22",
+      "resume_extracted:29",
+      "resume_extracted:30"
+    ],
+    "resolution": "evidence_snapshot_gap = TRUE. The frozen evidence catalogue contains NO explicit manual-data-annotation item. The D06 human adjudication (Partial) relies partly on a human-confirmed real experience (manual data annotation) that is MISSING from the currently frozen evidence catalogue. Snapshot NOT mutated; no evidence ID fabricated. Adjacent training-data items that DO exist and partially support the 'training-data / model-evaluation exposure' portion: resume_extracted:22, resume_extracted:29, resume_extracted:30."
+  },
+  "compound_rule_applied": "F01-F05 remain Partial under the clarified compound rule (semantic centrality of each subclaim considered; not a mechanical weakest-subclaim rule)."
+}

@@ -1,0 +1,144 @@
+{
+ "n_total": 32,
+ "coverage": 1.0,
+ "correct": 26,
+ "incorrect": 6,
+ "unreconciled": 0,
+ "accuracy": 0.8125,
+ "effective_correct_coverage": 0.8125,
+ "macro_f1": 0.8697,
+ "per_class": {
+  "Strong": {
+   "precision": 0.8462,
+   "recall": 0.7333,
+   "f1": 0.7857,
+   "support": 15
+  },
+  "Partial": {
+   "precision": 0.7778,
+   "recall": 0.875,
+   "f1": 0.8235,
+   "support": 16
+  },
+  "Missing": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 1
+  }
+ },
+ "confusion_matrix": {
+  "Strong": {
+   "Strong": 11,
+   "Partial": 4,
+   "Missing": 0
+  },
+  "Partial": {
+   "Strong": 2,
+   "Partial": 14,
+   "Missing": 0
+  },
+  "Missing": {
+   "Strong": 0,
+   "Partial": 0,
+   "Missing": 1
+  }
+ },
+ "grounding": {
+  "grounding_rate": 1.0,
+  "unsupported_match_rate": 0.0,
+  "n_strong_partial": 31,
+  "note": "valid-citation set = evidence_source_id tokens present in the assembled prompt (doubled-prefix form used by this harness)."
+ },
+ "match_score": {
+  "per_job": [
+   {
+    "job_id": "v2paste:868864e12ac26973",
+    "job_title": "校招-AI产品经理（人才专项）",
+    "model_score": 75,
+    "gt_score": 50,
+    "abs_error": 25,
+    "hmf": 3
+   },
+   {
+    "job_id": "v2paste:8bd2292a5974ba67",
+    "job_title": "AI策略产品经理",
+    "model_score": 75,
+    "gt_score": 100,
+    "abs_error": 25,
+    "hmf": 5
+   },
+   {
+    "job_id": "v2paste:ee7963fc9c8e9269",
+    "job_title": "平台AI产品经理",
+    "model_score": 75,
+    "gt_score": 88,
+    "abs_error": 13,
+    "hmf": 4
+   },
+   {
+    "job_id": "v2paste:703edc23c7fecb6d",
+    "job_title": "增长产品经理（平台经营）",
+    "model_score": 75,
+    "gt_score": 75,
+    "abs_error": 0,
+    "hmf": 4
+   },
+   {
+    "job_id": "v2paste:2510a8a8dd701350",
+    "job_title": "AI产品经理",
+    "model_score": 61,
+    "gt_score": 61,
+    "abs_error": 0,
+    "hmf": 3
+   },
+   {
+    "job_id": "v2paste:2bb44a57a387a772",
+    "job_title": "用户增长-用户运营管培生",
+    "model_score": 38,
+    "gt_score": 38,
+    "abs_error": 0,
+    "hmf": 2
+   },
+   {
+    "job_id": "v2paste:74c7e52f7d3795f1",
+    "job_title": "产品经理",
+    "model_score": 75,
+    "gt_score": 88,
+    "abs_error": 13,
+    "hmf": 4
+   },
+   {
+    "job_id": "v2paste:1bcbc456132ab15e",
+    "job_title": "游戏AI产品经理（北京）",
+    "model_score": 75,
+    "gt_score": 75,
+    "abs_error": 0,
+    "hmf": 4
+   }
+  ],
+  "mae_vs_gt_representative_core": 9.5,
+  "scored_jobs": 8,
+  "spearman_model_score_vs_hmf": 0.7608,
+  "spearman_note": "N=8 — descriptive only, no statistical certainty."
+ },
+ "latency_ms": {
+  "mean": 15322.5,
+  "median": 14826.2,
+  "p95": 17782.5
+ },
+ "reliability": {
+  "call_count": 8,
+  "first_pass_success": 8,
+  "total_retries": 0,
+  "final_ok": 8,
+  "parse_ok": 8
+ },
+ "config": {
+  "provider": "qwen",
+  "prompt_id": "job-fit-v3-rubric-refined-v2",
+  "dataset": "v2_real",
+  "n_jobs": 8,
+  "n_matchable_gt": 32
+ }
+}

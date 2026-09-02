@@ -1,0 +1,253 @@
+{
+  "artifact": "dataset_v2_batch2_cleanup_report",
+  "created_at": "2026-09-01T15:21:42.547078+00:00",
+  "policy": "Preserve job_description_raw verbatim. Cleaned = raw minus vetted garbage glyph runs / semantically-unreliable fragments + whitespace/line-break normalisation ONLY. No word guessing, no sentence reconstruction, no paraphrase, no translation, no added info.",
+  "pasted_jobs_detected": 16,
+  "jobs_parsed": 16,
+  "jobs_excluded_for_severe_corruption": 0,
+  "jobs_with_cleanup_applied": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    10,
+    11,
+    13,
+    14
+  ],
+  "jobs_with_corrupted_text_removed": [
+    1,
+    4,
+    6,
+    14
+  ],
+  "per_job": [
+    {
+      "paste_index": 1,
+      "job_id": "v2paste:868864e12ac26973",
+      "title": "校招-AI产品经理（人才专项）",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": true,
+      "removed_corrupted_fragments": [
+        "郃个到 (garbage glyph run, start of responsibility #1)",
+        "尤鯿岵殊④薺蝽砹澎 (garbage glyph run before a 加分项 line)"
+      ],
+      "cleaning_notes": [
+        "Left OCR-style tokens untouched (NOT reconstructed): 'Agen'(→Agent), 'Al 产品'/'A1驱动'(→AI). '你将获得' section retained verbatim (perks, not requirements)."
+      ],
+      "raw_char_len": 834,
+      "cleaned_char_len": 821
+    },
+    {
+      "paste_index": 2,
+      "job_id": "v2paste:8bd2292a5974ba67",
+      "title": "AI策略产品经理",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Possible missing character in '有医疗景' (likely '医疗背景'); NOT reconstructed; sentence readable and retained. Stray double list marker '1、2、' left as-is."
+      ],
+      "raw_char_len": 408,
+      "cleaned_char_len": 408
+    },
+    {
+      "paste_index": 3,
+      "job_id": "v2paste:ee7963fc9c8e9269",
+      "title": "平台AI产品经理",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Only a missing line break normalised between '提效' and '任职要求'. No content change."
+      ],
+      "raw_char_len": 392,
+      "cleaned_char_len": 393
+    },
+    {
+      "paste_index": 4,
+      "job_id": "v2paste:703edc23c7fecb6d",
+      "title": "增长产品经理（平台经营）",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": true,
+      "removed_corrupted_fragments": [
+        "繽场的 (garbage prefix on the company sentence)",
+        "剜艟仿现务转化增长 + trailing clause '推动用户规模与' (broken, semantically unreliable) — removed",
+        "艮俏濓带狮缡璦煜壩娄伤习能力强，能够快速理解业务逻辑并适应新的业务方向; (requirement item #4, corrupted head, whole item removed as unreliable)"
+      ],
+      "cleaning_notes": [
+        "Left 'A!工具'(→AI工具) untouched. Removed 2 garbage runs and 1 fully-corrupted requirement item; all other requirement items readable and retained."
+      ],
+      "raw_char_len": 888,
+      "cleaned_char_len": 831
+    },
+    {
+      "paste_index": 5,
+      "job_id": "v2paste:7e2e8c407af8714d",
+      "title": "产品经理（AI / 网络安全）",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Left 'A/网络安全产品'(→AI/网络安全产品) untouched (single corrupted char, not reconstructed). No fragments removed."
+      ],
+      "raw_char_len": 239,
+      "cleaned_char_len": 239
+    },
+    {
+      "paste_index": 6,
+      "job_id": "v2paste:2bb44a57a387a772",
+      "title": "用户增长-用户运营管培生",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": true,
+      "removed_corrupted_fragments": [
+        "宓和 (garbage after list marker '1')",
+        "镵分一为 (garbage inside '通过SCRM系统分析用户[行为]') — removed garbage run, clause kept in reduced form",
+        "徒基郴款迹楂鴦偶 (garbage glyph run before a 岗位待遇 line)"
+      ],
+      "cleaning_notes": [
+        "Possible missing character in '精准营用户运营 SOP' (likely '精准营销'); NOT reconstructed. One SCRM clause reduced after removing an internal garbage run; 岗位待遇 section retained."
+      ],
+      "raw_char_len": 640,
+      "cleaned_char_len": 628
+    },
+    {
+      "paste_index": 7,
+      "job_id": "v2paste:1fd71cf17ec81050",
+      "title": "AI产品经理（AI业务）",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "No corruption. Whitespace only."
+      ],
+      "raw_char_len": 205,
+      "cleaned_char_len": 205
+    },
+    {
+      "paste_index": 8,
+      "job_id": "v2paste:b7478b70d7f11a86",
+      "title": "ai产品经理",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "'分析市场动态和市场' is redundant but not corrupted — left verbatim. Whitespace only."
+      ],
+      "raw_char_len": 339,
+      "cleaned_char_len": 339
+    },
+    {
+      "paste_index": 9,
+      "job_id": "v2paste:d1b0250f8ddc404a",
+      "title": "AI产品经理",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Repeated clause '有咨询经理经验优先。' occurs ~5x inline — a paste artifact, but readable; retained verbatim (not deleted, not merged). '竟品'(→竞品) left as-is."
+      ],
+      "raw_char_len": 406,
+      "cleaned_char_len": 406
+    },
+    {
+      "paste_index": 10,
+      "job_id": "v2paste:2510a8a8dd701350",
+      "title": "AI产品经理",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "'AI面试助手智能客服' missing an enumeration comma and a stray colon in '对话机器人(Chatbot):等' — left verbatim; only a sentence break normalised."
+      ],
+      "raw_char_len": 447,
+      "cleaned_char_len": 448
+    },
+    {
+      "paste_index": 11,
+      "job_id": "v2paste:7f32e30979884c48",
+      "title": "AI产品经理（游戏方案设计）",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Missing line break before '熟悉Axure' normalised. No content change."
+      ],
+      "raw_char_len": 392,
+      "cleaned_char_len": 393
+    },
+    {
+      "paste_index": 12,
+      "job_id": "v2paste:8235e9715765d378",
+      "title": "27届 ASP）AI产品经理培训生",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Multiple OCR-style AI tokens left untouched (NOT reconstructed): 'A|', 'Al', 'Al技 '(→AI技术), 'Pvthon'(→Python)."
+      ],
+      "raw_char_len": 522,
+      "cleaned_char_len": 522
+    },
+    {
+      "paste_index": 13,
+      "job_id": "v2paste:f441346f5cebbaa0",
+      "title": "AI产品经理（智能体平台 / 知识管理平台）",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "Missing line break before '任职资格:' normalised. 'A相关项目'(→AI相关项目) left as-is."
+      ],
+      "raw_char_len": 581,
+      "cleaned_char_len": 582
+    },
+    {
+      "paste_index": 14,
+      "job_id": "v2paste:1c2c780cb980a76a",
+      "title": "产品经理（AI方向）",
+      "text_cleanup_applied": true,
+      "corrupted_text_removed": true,
+      "removed_corrupted_fragments": [
+        "ц进的一位亮点 (corrupted tagline line, Cyrillic + garbled, unrecoverable) — line removed"
+      ],
+      "cleaning_notes": [
+        "Removed one unrecoverable corrupted tagline line ('ц进的一位亮点'). Left 'A1'/'Al'/'A 产品' OCR variants and 'AINative'(missing space) untouched."
+      ],
+      "raw_char_len": 603,
+      "cleaned_char_len": 595
+    },
+    {
+      "paste_index": 15,
+      "job_id": "v2paste:74c7e52f7d3795f1",
+      "title": "产品经理",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "No corruption. Clean as pasted."
+      ],
+      "raw_char_len": 291,
+      "cleaned_char_len": 291
+    },
+    {
+      "paste_index": 16,
+      "job_id": "v2paste:1bcbc456132ab15e",
+      "title": "游戏AI产品经理（北京）",
+      "text_cleanup_applied": false,
+      "corrupted_text_removed": false,
+      "removed_corrupted_fragments": [],
+      "cleaning_notes": [
+        "No corruption. Heading '(北京' missing a closing parenthesis — heading only, JD body clean. Left as-is."
+      ],
+      "raw_char_len": 431,
+      "cleaned_char_len": 431
+    }
+  ],
+  "unreconstructed_defects_left_in_place": [
+    "OCR-style 'AI' variants left as-is (A1 / A! / A/ / A| / Al / 'A 产品') in jobs 1,4,5,12,13,14",
+    "'Pvthon' (job 12), '竟品' (job 9), missing chars in '有医疗景' (job 2) and '精准营' (job 6) — NOT reconstructed",
+    "Repeated clause '有咨询经理经验优先。' (job 9) — paste artifact, retained verbatim"
+  ]
+}

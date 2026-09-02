@@ -1,0 +1,297 @@
+{
+ "run_at": "2026-09-03T00:00:00Z",
+ "configs": {
+  "qwen": "qwen3.8-max + job-fit-v3-rubric-refined-v2 (Prompt C)",
+  "kimi": "kimi-k3 + job-fit-v3-matchable-only (Control / Prompt A)"
+ },
+ "corrections_applied": [
+  "grounding metric fixed: valid-citation set taken from the assembled-prompt evidence_source_id tokens (harness fed doubled-prefix IDs, e.g. 'resume_extracted:resume_extracted:16'; models echoed them). No model output was changed; classification metrics unaffected.",
+  "kimi V2-Real single transient failure (job v2paste:868864e12ac26973, HTTP 429 engine_overloaded) re-run under the SAME standard retry policy — recorded in kimi_control/predictions.json retry_completion."
+ ],
+ "v2_real": {
+  "qwen": {
+   "macro_f1": 0.8697,
+   "ecc": 0.8125,
+   "accuracy": 0.8125,
+   "coverage": 1.0,
+   "strong_f1": 0.7857,
+   "partial_f1": 0.8235,
+   "missing_f1": 1.0,
+   "grounding_rate": 1.0,
+   "unsupported_match_rate": 0.0,
+   "match_score_mae": 9.5,
+   "hmf_spearman": 0.7608,
+   "scored_jobs": 8,
+   "mean_latency_ms": 15322.5,
+   "first_pass_success": 8,
+   "final_ok": 8,
+   "confusion": {
+    "Strong": {
+     "Strong": 11,
+     "Partial": 4,
+     "Missing": 0
+    },
+    "Partial": {
+     "Strong": 2,
+     "Partial": 14,
+     "Missing": 0
+    },
+    "Missing": {
+     "Strong": 0,
+     "Partial": 0,
+     "Missing": 1
+    }
+   }
+  },
+  "kimi": {
+   "macro_f1": 0.892,
+   "ecc": 0.8438,
+   "accuracy": 0.8438,
+   "coverage": 1.0,
+   "strong_f1": 0.8485,
+   "partial_f1": 0.8276,
+   "missing_f1": 1.0,
+   "grounding_rate": 1.0,
+   "unsupported_match_rate": 0.0,
+   "match_score_mae": 7.625,
+   "hmf_spearman": 0.7506,
+   "scored_jobs": 8,
+   "mean_latency_ms": 34134.3,
+   "first_pass_success": 7,
+   "final_ok": 8,
+   "confusion": {
+    "Strong": {
+     "Strong": 14,
+     "Partial": 1,
+     "Missing": 0
+    },
+    "Partial": {
+     "Strong": 4,
+     "Partial": 12,
+     "Missing": 0
+    },
+    "Missing": {
+     "Strong": 0,
+     "Partial": 0,
+     "Missing": 1
+    }
+   }
+  }
+ },
+ "v2_synthetic_human_reviewed_probes": {
+  "qwen": {
+   "macro_f1": 0.903,
+   "ecc": 0.9,
+   "accuracy": 0.9,
+   "confusion": {
+    "Strong": {
+     "Strong": 4,
+     "Partial": 0,
+     "Missing": 0
+    },
+    "Partial": {
+     "Strong": 0,
+     "Partial": 10,
+     "Missing": 1
+    },
+    "Missing": {
+     "Strong": 0,
+     "Partial": 1,
+     "Missing": 4
+    }
+   },
+   "per_scenario": {
+    "technology_adjacency": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "project_vs_formal_work": {
+     "evaluated_probe_count": 1,
+     "n_scored": 1,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "strong_partial_boundary": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "partial_missing_boundary": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 0.6667,
+     "effective_correct_coverage": 0.6667,
+     "errors": 1,
+     "error_breakdown": {
+      "Partial->Missing": 1
+     },
+     "dominant_confusion": "Partial->Missing",
+     "source": "human_reviewed_probe"
+    },
+    "or_alternative": {
+     "evaluated_probe_count": 2,
+     "n_scored": 2,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "compound": {
+     "evaluated_probe_count": 5,
+     "n_scored": 5,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "role_core_mismatch": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 0.6667,
+     "effective_correct_coverage": 0.6667,
+     "errors": 1,
+     "error_breakdown": {
+      "Missing->Partial": 1
+     },
+     "dominant_confusion": "Missing->Partial",
+     "source": "human_reviewed_probe"
+    }
+   }
+  },
+  "kimi": {
+   "macro_f1": 0.8362,
+   "ecc": 0.85,
+   "accuracy": 0.85,
+   "confusion": {
+    "Strong": {
+     "Strong": 4,
+     "Partial": 0,
+     "Missing": 0
+    },
+    "Partial": {
+     "Strong": 1,
+     "Partial": 10,
+     "Missing": 0
+    },
+    "Missing": {
+     "Strong": 0,
+     "Partial": 2,
+     "Missing": 3
+    }
+   },
+   "per_scenario": {
+    "technology_adjacency": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 0.3333,
+     "effective_correct_coverage": 0.3333,
+     "errors": 2,
+     "error_breakdown": {
+      "Missing->Partial": 1,
+      "Partial->Strong": 1
+     },
+     "dominant_confusion": "Missing->Partial",
+     "source": "human_reviewed_probe"
+    },
+    "project_vs_formal_work": {
+     "evaluated_probe_count": 1,
+     "n_scored": 1,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "strong_partial_boundary": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "partial_missing_boundary": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 0.6667,
+     "effective_correct_coverage": 0.6667,
+     "errors": 1,
+     "error_breakdown": {
+      "Missing->Partial": 1
+     },
+     "dominant_confusion": "Missing->Partial",
+     "source": "human_reviewed_probe"
+    },
+    "or_alternative": {
+     "evaluated_probe_count": 2,
+     "n_scored": 2,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "compound": {
+     "evaluated_probe_count": 5,
+     "n_scored": 5,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    },
+    "role_core_mismatch": {
+     "evaluated_probe_count": 3,
+     "n_scored": 3,
+     "accuracy": 1.0,
+     "effective_correct_coverage": 1.0,
+     "errors": 0,
+     "error_breakdown": {},
+     "dominant_confusion": null,
+     "source": "human_reviewed_probe"
+    }
+   }
+  }
+ },
+ "v2_synthetic_all_matchable": {
+  "qwen": {
+   "macro_f1": 0.7849,
+   "ecc": 0.7959,
+   "accuracy": 0.7959,
+   "grounding_rate": 1.0,
+   "mean_latency_ms": 9974.5
+  },
+  "kimi": {
+   "macro_f1": 0.8112,
+   "ecc": 0.8367,
+   "accuracy": 0.8367,
+   "grounding_rate": 1.0,
+   "mean_latency_ms": 22393.2
+  }
+ },
+ "no_merged_real_synthetic_score": true
+}

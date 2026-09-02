@@ -1,0 +1,523 @@
+{
+ "config": {
+  "provider": "kimi",
+  "model": "kimi-k3",
+  "prompt": "control",
+  "temperature": 1,
+  "extra": {
+   "reasoning_effort": "low"
+  },
+  "prompt_id": "job-fit-v3-matchable-only",
+  "section_d": "canonical 4-field output contract",
+  "max_tokens": 4096,
+  "retry_policy": "<= 2 transient retries, applied equally"
+ },
+ "dataset": "real",
+ "run_at": "2026-09-02T13:27:10.727686+00:00",
+ "gt_leak_guard": "GROUND_TRUTH_NOT_LOADED_YET",
+ "call_count": 8,
+ "first_pass_success": 7,
+ "total_retries": 2,
+ "final_ok": 8,
+ "parse_ok": 8,
+ "records": [
+  {
+   "job_id": "v2paste:868864e12ac26973",
+   "submitted_requirement_ids": [
+    "v2real_e491363d6dfd",
+    "v2real_02d1501dd10c",
+    "v2real_a59a5a8117b3",
+    "v2real_8a7e12bcf295"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23182.0,
+   "retries": 3,
+   "usage": {
+    "prompt_tokens": 3068,
+    "completion_tokens": 996,
+    "total_tokens": 4064,
+    "completion_tokens_details": {
+     "reasoning_tokens": 170
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在AI产品全流程、大模型/RAG应用及数据驱动优化方面有较扎实证据，尤其GoFin项目中端到端负责LLM集成与RAG落地；但缺乏保险行业经验，金融领域的经历未与AI应用直接结合，建议重点补足保险场景叙事。\", \"requirement_matches\": [{\"requirement_id\": \"v2real_e491363d6dfd\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\"], \"reason\": \"GoFin项目中以Product Owner身份覆盖需求、Backlog、跨职能交付到迭代的完整流程，并集成LLM与RAG；中国电子云实习参与需求探索与大模型应用方向。但缺少保险行业落地场景，属跨行业经验。\"}, {\"requirement_id\": \"v2real_02d1501dd10c\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"GoFin项目实际落地LLM集成、RAG与对话式目标创建，中国电子云实习探索大模型应用方向，并有明确的大语言模型应用开发与RAG文件分析经历，证据直接充分。\"}, {\"requirement_id\": \"v2real_a59a5a8117b3\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:27\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:resume:1:product_experience:7\"], \"reason\": \"在KPay通过数据分析优化转化路径并建立KPI监控体系，在光大银行分析客户反馈提出体验优化建议，具备围绕核心指标持续迭代的实证经验。\"}, {\"requirement_id\": \"v2real_8a7e12bcf295\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:resume:1:domain_experience:0\", \"resume_extracted:resume_extracted:24\", \"resume_extracted:resume_extracted:26\"], \"reason\": \"具备金融科技领域背景及光大银行金融服务实习经历，但无保险行业经验，且金融经历未体现与AI应用的结合。\"}], \"suggested_preparation\": [{\"title\": \"梳理AI产品全流程叙事\", \"action\": \"准备GoFin项目从需求探索到上线迭代的完整STAR案例，突出LLM集成与RAG落地的决策过程，并思考如何迁移到保险场景。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_e491363d6dfd\", \"v2real_02d1501dd10c\"]}, {\"title\": \"补足保险行业认知\", \"action\": \"研究智能咨询、核保辅助、保险教育等保险AI场景的典型产品与痛点，面试中主动将金融科技经验映射到保险业务。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_8a7e12bcf295\", \"v2real_e491363d6dfd\"]}, {\"title\": \"量化指标成果\", \"action\": \"整理KPay转化率优化与KPI体系的具体数据成果，准备说明如何对用户满意度、转化率、使用率等指标负责。\", \"priority\": \"Medium\", \"requirement_ids\": [\"v2real_a59a5a8117b3\"]}]}",
+   "predicted_matches": {
+    "v2real_e491363d6dfd": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5"
+     ]
+    },
+    "v2real_02d1501dd10c": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    },
+    "v2real_a59a5a8117b3": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:27",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:product_experience:7"
+     ]
+    },
+    "v2real_8a7e12bcf295": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:domain_experience:0",
+      "resume_extracted:resume_extracted:24",
+      "resume_extracted:resume_extracted:26"
+     ]
+    }
+   },
+   "note": "completed via standard retry policy after transient 429 in first pass"
+  },
+  {
+   "job_id": "v2paste:8bd2292a5974ba67",
+   "submitted_requirement_ids": [
+    "v2real_16e77009b4af",
+    "v2real_1419f35c93b1",
+    "v2real_91c6f4679f7a",
+    "v2real_b312d0137a22"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 22199.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3013,
+    "completion_tokens": 749,
+    "total_tokens": 3762,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在需求分析、跨职能协作、AI应用搭建与数据分析方面均有较扎实的证据支撑，整体与岗位匹配良好。主要差距在于缺乏抖音/短视频内容领域的直接产品经验，行业洞察更多集中在金融科技与增长运营领域。\",\"requirement_matches\":[{\"requirement_id\":\"v2real_16e77009b4af\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:21\",\"resume_extracted:resume_extracted:resume:1:product_experience:9\"],\"reason\":\"作为GoFin平台Product Owner负责需求梳理、Backlog与User Stories，并参与产品需求讨论，具备需求分析与规划经验。但无抖音或短视频产品的直接经历，独立跟进子项目的完整度待验证。\"},{\"requirement_id\":\"v2real_1419f35c93b1\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:resume:1:product_experience:5\",\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:resume:1:ai_experience:0\"],\"reason\":\"有跨职能团队（前端、后端、AI、数据库、测试）协调经验，并在GoFin项目中推动LLM集成与RAG方案落地，与技术团队协作紧密。\"},{\"requirement_id\":\"v2real_91c6f4679f7a\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\"resume_extracted:resume_extracted:resume:1:ai_experience:4\",\"resume_extracted:resume_extracted:21\"],\"reason\":\"具备大语言模型应用开发与RAG文件分析经验，并在GoFin项目中完成LLM集成与对话式目标创建，能基于业务场景搭建AI应用工作流。\"},{\"requirement_id\":\"v2real_b312d0137a22\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:19\",\"resume_extracted:resume_extracted:20\",\"resume_extracted:resume_extracted:23\",\"resume_extracted:resume_extracted:27\"],\"reason\":\"在KPay通过数据分析优化转化路径并输出业务洞察，在中国电子云开展竞品分析，并有客户反馈分析与体验优化经验，产品思维与数据分析能力均有实证。\"}],\"suggested_preparation\":[{\"title\":\"补充抖音/短视频行业认知\",\"action\":\"梳理抖音产品生态、推荐机制与创作者/商业化业务场景，准备1-2个基于真实场景的产品改进想法，以弥补行业经验缺口。\",\"priority\":\"High\",\"requirement_ids\":[\"v2real_16e77009b4af\",\"v2real_b312d0137a22\"]},{\"title\":\"准备AI应用落地案例讲述\",\"action\":\"围绕GoFin项目的LLM集成与RAG实践，整理从业务需求到Demo落地的完整链路（问题、方案、协作、结果），用于面试展示。\",\"priority\":\"High\",\"requirement_ids\":[\"v2real_91c6f4679f7a\",\"v2real_1419f35c93b1\"]},{\"title\":\"强化需求管理方法论表达\",\"action\":\"总结GoFin中Backlog管理、User Stories编写与迭代交付的方法，准备说明如何独立拆解和排期子项目需求。\",\"priority\":\"Medium\",\"requirement_ids\":[\"v2real_16e77009b4af\"]}]}",
+   "predicted_matches": {
+    "v2real_16e77009b4af": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_1419f35c93b1": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "v2real_91c6f4679f7a": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4",
+      "resume_extracted:resume_extracted:21"
+     ]
+    },
+    "v2real_b312d0137a22": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:27"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:ee7963fc9c8e9269",
+   "submitted_requirement_ids": [
+    "v2real_76dde792d2cc",
+    "v2real_17d83c4ded86",
+    "v2real_2fb2b6ffce1b",
+    "v2real_ac98119d5b1b"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 58755.8,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3062,
+    "completion_tokens": 1229,
+    "total_tokens": 4291,
+    "completion_tokens_details": {
+     "reasoning_tokens": 204
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在产品管理（GoFin Product Owner）、AI大模型应用（中国电子云）和数据驱动增长运营（KPay Group）三方面均有直接事实经历，与该岗位对AI创新产品、跨职能交付、数据导向迭代的核心要求高度吻合，四项要求均达到Strong匹配。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"v2real_76dde792d2cc\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"\n      ],\n      \"reason\": \"在中国电子云参与AI大模型产品需求与应用方向探索，并在GoFin平台主导LLM集成与RAG应用；同时具备SQL/ETL等大数据基础设施实操经验，覆盖云、大数据、机器学习推动效率变革的要求。\"\n    },\n    {\n      \"requirement_id\": \"v2real_17d83c4ded86\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"作为GoFin平台Product Owner负责需求、Backlog与User Stories等产品文档输出，并实际协调前端、后端、AI、数据库、测试等跨职能资源完成交付，与要求直接对应。\"\n    },\n    {\n      \"requirement_id\": \"v2real_2fb2b6ffce1b\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:7\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"在KPay建立KPI监控与绩效分析体系并为业务运营团队提供数据洞察，同时在GoFin收集分析客户反馈、推进产品迭代交付，完整覆盖反馈收集、评价体系与持续迭代。\"\n    },\n    {\n      \"requirement_id\": \"v2real_ac98119d5b1b\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:30\",\n        \"resume_extracted:resume_extracted:resume:1:technical_experience:8\"\n      ],\n      \"reason\": \"在KPay搭建潜客数据架构、自动化ETL和KPI监控体系，并以数据分析优化转化路径，体现将业务场景数字化、以核心数据目标指导迭代的明确能力。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理GoFin产品Owner项目STAR故事\",\n      \"action\": \"准备GoFin项目从需求定义、文档输出到跨职能协调交付的完整案例，突出与QA/设计/研发的协作细节和交付质量保障手段。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"v2real_17d83c4ded86\"]\n    },\n    {\n      \"title\": \"准备AI/LLM产品落地案例\",\n      \"action\": \"整理中国电子云AI大模型实习和GoFin中LLM集成、RAG应用的具体场景与成果，回应AI创新推动效率变革的考察点。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"v2real_76dde792d2cc\"]\n    },\n    {\n      \"title\": \"量化数据驱动迭代成果\",\n      \"action\": \"汇总KPay的KPI监控体系、ETL架构和转化优化中的量化指标（如转化率提升、数据规模），用数据证明以核心目标指导迭代的能力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"v2real_ac98119d5b1b\", \"v2real_2fb2b6ffce1b\"]\n    },\n    {\n      \"title\": \"补充内部协同办公/研发效能领域认知\",\n      \"action\": \"了解主流内部协同办公、研发效能与财务HR数字化产品形态，准备如何将过往经验迁移到该类内部产品场景的思路。\",\n      \"priority\": \"Low\",\n      \"requirement_ids\": [\"v2real_76dde792d2cc\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "v2real_76dde792d2cc": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "v2real_17d83c4ded86": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_2fb2b6ffce1b": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:product_experience:7",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_ac98119d5b1b": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:703edc23c7fecb6d",
+   "submitted_requirement_ids": [
+    "v2real_d8133fd03538",
+    "v2real_3597ec597679",
+    "v2real_82b93708742d",
+    "v2real_e009458c58e3"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 31001.8,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3099,
+    "completion_tokens": 961,
+    "total_tokens": 4060,
+    "completion_tokens_details": {
+     "reasoning_tokens": 13
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在KPay Group增长运营实习中具备渠道运营、用户分层、转化路径优化和数据监控的直接经验，与用户运营岗位的核心要求高度契合；但在用户标签体系和用户画像建设方面仅有间接支撑，C端用户触达（消息推送、活动运营）的实战证据相对有限。整体匹配度较好，建议面试中重点补强用户标签体系与C端触达玩法的认知与案例准备。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"v2real_d8133fd03538\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"],\n      \"reason\": \"在KPay Group设计渠道伙伴增长策略与运营框架，并通过数据分析优化转化路径、建立KPI监控体系，直接覆盖用户触达到转化的路径设计与运营优化。\"\n    },\n    {\n      \"requirement_id\": \"v2real_3597ec597679\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:27\"],\n      \"reason\": \"有通过行业细分和伙伴分层支持业务增长的经验，契合分层运营思路；但证据偏B端渠道伙伴，缺少消息触达、内容推送、活动运营等C端用户运营手段的直接证据。\"\n    },\n    {\n      \"requirement_id\": \"v2real_82b93708742d\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:resume:1:technical_experience:8\"],\n      \"reason\": \"搭建过潜客数据架构与自动化ETL、设计归因逻辑，具备支撑标签/触达体系的数据基建能力；但没有直接建设用户标签体系或用户画像的明确证据。\"\n    },\n    {\n      \"requirement_id\": \"v2real_e009458c58e3\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:resume:1:skills:4\"],\n      \"reason\": \"在KPay建立KPI监控和绩效分析体系，并通过数据分析优化转化路径、输出业务分析报告，直接覆盖运营指标监测与数据复盘优化。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理KPay增长运营案例，量化转化与活跃成果\",\n      \"action\": \"将KPay的渠道增长策略、转化路径优化、KPI监控经历整理成STAR结构，补充可验证的指标变化（如转化率、漏斗各阶段数据），突出从触达到转化的完整路径设计思路。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"v2real_d8133fd03538\", \"v2real_e009458c58e3\"]\n    },\n    {\n      \"title\": \"补强用户分层与C端触达方法论\",\n      \"action\": \"基于KPay伙伴分层经验，准备将其迁移到C端用户分层的思路，并学习消息推送、内容触达、活动运营的常见玩法与效果评估方式，面试中主动说明可迁移性。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"v2real_3597ec597679\"]\n    },\n    {\n      \"title\": \"准备用户标签体系与用户画像的认知框架\",\n      \"action\": \"结合潜客数据架构与ETL经验，准备一套用户标签体系设计思路（标签分层、数据来源、更新机制、触达应用），说明数据基建能力如何支撑画像精准运营，避免虚构未做过的项目。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"v2real_82b93708742d\"]\n    },\n    {\n      \"title\": \"准备数据复盘与留存分析话术\",\n      \"action\": \"复习SQL与数据分析方法，准备针对活跃、留存、转化指标的复盘案例或分析框架，展示用数据驱动运营策略迭代的能力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"v2real_e009458c58e3\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "v2real_d8133fd03538": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    },
+    "v2real_3597ec597679": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:27"
+     ]
+    },
+    "v2real_82b93708742d": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8"
+     ]
+    },
+    "v2real_e009458c58e3": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:2510a8a8dd701350",
+   "submitted_requirement_ids": [
+    "v2real_4a2e6653ee5c",
+    "v2real_98ff50f7094e",
+    "v2real_fc7b2fb760bf",
+    "v2real_5e191918da68"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 40438.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3105,
+    "completion_tokens": 1111,
+    "total_tokens": 4216,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 198
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在AI产品相关领域具备一定基础：有GoFin智能财务平台的Product Owner经历，涉及LLM集成、RAG和跨职能交付，并在中国电子云参与大模型产品需求讨论。但整体缺乏招聘场景AI产品经验、完整产品全生命周期管理、规范PRD撰写及A/B测试等数据驱动优化的直接证据，多数要求为部分匹配。\", \"requirement_matches\": [{\"requirement_id\": \"v2real_4a2e6653ee5c\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"], \"reason\": \"有GoFin平台Product Owner经历，涉及LLM集成、RAG和对话式功能设计，并在中国电子云参与大模型产品需求讨论与竞品分析；但无招聘场景AI产品经验，也未体现完整产品全生命周期管理。\"}, {\"requirement_id\": \"v2real_98ff50f7094e\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\"], \"reason\": \"作为GoFin平台Product Owner负责跨职能交付和LLM集成，简历明确记录跨职能团队协调（前端、后端、AI、数据库、测试）及产品迭代交付经历，能体现推动AI产品落地与技术业务对齐的能力。\"}, {\"requirement_id\": \"v2real_fc7b2fb760bf\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\"], \"reason\": \"在GoFin负责需求管理、Backlog和User Stories，具备需求文档化基础，且有模型性能评估经历；但无明确主导PRD撰写及定义模型准确率、响应延迟等体验指标的直接证据。\"}, {\"requirement_id\": \"v2real_5e191918da68\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:resume:1:product_experience:7\"], \"reason\": \"在KPay通过数据分析优化转化路径、建立KPI监控体系并输出数据洞察，也有客户反馈收集分析经历；但无A/B测试、埋点数据分析及AI产品功能迭代的直接证据。\"}], \"suggested_preparation\": [{\"title\": \"梳理GoFin产品Owner经历的PRD与指标案例\", \"action\": \"整理GoFin项目中需求文档、Backlog管理实例，并补充说明如何定义和追踪产品体验指标（如响应时间、用户满意度），以佐证PRD撰写能力。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_fc7b2fb760bf\"]}, {\"title\": \"准备数据驱动优化的方法论陈述\", \"action\": \"基于KPay数据分析经历，准备转化路径优化和KPI监控的具体案例，并自学A/B测试与埋点分析基本方法，面试时说明如何迁移到AI产品迭代场景。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_5e191918da68\"]}, {\"title\": \"补充招聘场景AI产品认知\", \"action\": \"调研智能匹配、人岗推荐、AI面试助手等招聘AI产品形态，结合自身LLM/RAG项目经验准备对这类产品设计思路的见解，弥补场景经验空白。\", \"priority\": \"Medium\", \"requirement_ids\": [\"v2real_4a2e6653ee5c\"]}, {\"title\": \"强化跨团队协作案例表达\", \"action\": \"准备GoFin项目中与AI、前后端团队协作推动产品落地的STAR案例，突出技术方案与业务目标对齐的具体做法。\", \"priority\": \"Low\", \"requirement_ids\": [\"v2real_98ff50f7094e\"]}]}",
+   "predicted_matches": {
+    "v2real_4a2e6653ee5c": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "v2real_98ff50f7094e": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_fc7b2fb760bf": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11"
+     ]
+    },
+    "v2real_5e191918da68": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:product_experience:7"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:2bb44a57a387a772",
+   "submitted_requirement_ids": [
+    "v2real_54403299a5ab",
+    "v2real_e413799455fb",
+    "v2real_dbdc8bbad742",
+    "v2real_839fd0328615"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 32627.6,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3039,
+    "completion_tokens": 849,
+    "total_tokens": 3888,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 135
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在增长运营、数据分析与转化路径优化方面有较扎实的实习证据（KPay 增长运营实习），可部分支撑用户增长与用户分层类要求；但私域生态、裂变拉新、朋友圈/社群内容 SOP 及 SCRM 系统使用方面缺乏直接证据，整体与私域运营岗位匹配度中等偏弱。\", \"requirement_matches\": [{\"requirement_id\": \"v2real_54403299a5ab\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"], \"reason\": \"候选人在 KPay 设计过增长策略与分层运营框架，并具备增长运营领域经历，与用户分层体系相关；但证据聚焦 B 端渠道伙伴分层，未体现 C 端用户增长模型及 RFM/AIPL 模型的实际应用。\"}, {\"requirement_id\": \"v2real_e413799455fb\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:19\"], \"reason\": \"有增长策略设计和通过数据分析优化转化路径的经历，与分层策略和转化优化相关；但没有裂变拉新、外部引流或私域用户规模运营的直接证据。\"}, {\"requirement_id\": \"v2real_dbdc8bbad742\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"证据目录中没有任何朋友圈 SOP、社群活动策划或私域内容运营的经历，无法支撑该要求。\"}, {\"requirement_id\": \"v2real_839fd0328615\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:30\"], \"reason\": \"候选人具备较强的数据分析能力，曾建立 KPI 监控体系并用数据反馈优化运营方案；但未使用过 SCRM 系统，也缺少基于该系统进行用户分层的直接证据。\"}], \"suggested_preparation\": [{\"title\": \"梳理增长与分层经历向私域场景迁移\", \"action\": \"准备将 KPay 的伙伴分层、转化路径优化经历映射到用户分层（如 RFM/AIPL）的表述，说明方法论可迁移性，但不要虚构私域实操经验。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_54403299a5ab\", \"v2real_e413799455fb\"]}, {\"title\": \"补充私域运营基础知识\", \"action\": \"系统学习私域生态、裂变拉新玩法、朋友圈 SOP 与社群运营的基本框架，面试时可展示学习成果与运营思路。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_dbdc8bbad742\", \"v2real_e413799455fb\"]}, {\"title\": \"了解主流 SCRM 工具\", \"action\": \"了解企业微信、微伴助手等主流 SCRM 系统的功能与用户分层逻辑，结合自身数据分析能力说明可快速上手。\", \"priority\": \"Medium\", \"requirement_ids\": [\"v2real_839fd0328615\"]}]}",
+   "predicted_matches": {
+    "v2real_54403299a5ab": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    },
+    "v2real_e413799455fb": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19"
+     ]
+    },
+    "v2real_dbdc8bbad742": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "v2real_839fd0328615": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:74c7e52f7d3795f1",
+   "submitted_requirement_ids": [
+    "v2real_83d2d0e02ead",
+    "v2real_771f943fd3df",
+    "v2real_01d10aea11b3",
+    "v2real_df9143338be0"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 32287.9,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2975,
+    "completion_tokens": 872,
+    "total_tokens": 3847,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在需求分析、跨职能协调、产品评估和AI应用方面均有较扎实的实习与项目证据支撑，四条要求整体匹配良好。其中需求调研与AI应用有直接的Product Owner和AI大模型实习证据，协调发布与行业产品评估有相关但场景略有差异的证据。建议重点准备GoFin产品Owner经历和中国电子云AI实习的具体案例讲述。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"v2real_83d2d0e02ead\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:resume:1:product_experience:7\"],\n      \"reason\": \"在GoFin项目担任Product Owner，负责需求、User Stories和客户反馈；在中国电子云实习期间参与产品需求讨论、分析用户场景，直接覆盖需求调研、分析与评估。\"\n    },\n    {\n      \"requirement_id\": \"v2real_771f943fd3df\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\"],\n      \"reason\": \"GoFin项目中负责Backlog管理与跨职能交付，并具备前端、后端、AI、数据库、测试的跨团队协调及产品迭代交付经历，直接对应推动协调开发、测试和发布。\"\n    },\n    {\n      \"requirement_id\": \"v2real_01d10aea11b3\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:23\", \"resume_extracted:resume_extracted:27\"],\n      \"reason\": \"在中国电子云从产品功能、技术实现和用户体验维度开展竞品分析；在光大银行实习中分析客户反馈并提出服务体验优化建议，覆盖行业产品评估与优化建议产出。\"\n    },\n    {\n      \"requirement_id\": \"v2real_df9143338be0\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"],\n      \"reason\": \"具备LLM应用开发与RAG文件分析经验，在GoFin项目中实践LLM集成与RAG，并在中国电子云实习探索大模型应用方向，充分体现借助AI优化工作的实际应用。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理GoFin Product Owner完整案例\",\n      \"action\": \"准备从需求收集、Backlog管理到跨职能交付和发布的完整STAR案例，突出协调前端、后端、AI、测试团队推动功能上线的具体成果。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"v2real_83d2d0e02ead\", \"v2real_771f943fd3df\"]\n    },\n    {\n      \"title\": \"准备竞品分析与优化建议实例\",\n      \"action\": \"复盘中国电子云竞品分析的方法论与产出，以及光大银行客户体验优化建议的落地情况，形成可讲述的评估-建议闭环案例。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"v2real_01d10aea11b3\"]\n    },\n    {\n      \"title\": \"总结AI工具提升工作效率的实践\",\n      \"action\": \"整理使用LLM、RAG等AI能力提升需求分析、数据处理等基础工作效率的具体场景和效果，呼应岗位对AI实际应用的关注。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"v2real_df9143338be0\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "v2real_83d2d0e02ead": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:product_experience:7"
+     ]
+    },
+    "v2real_771f943fd3df": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_01d10aea11b3": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:27"
+     ]
+    },
+    "v2real_df9143338be0": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "v2paste:1bcbc456132ab15e",
+   "submitted_requirement_ids": [
+    "v2real_84e47b93a153",
+    "v2real_d2e91437dbe7",
+    "v2real_45e2bfd0d8e3",
+    "v2real_6b4ea8791334"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 32582.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 3024,
+    "completion_tokens": 994,
+    "total_tokens": 4018,
+    "completion_tokens_details": {
+     "reasoning_tokens": 56
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在项目交付与数据分析方面与岗位要求匹配度较高：作为 GoFin 产品负责人有完整的需求管理、跨职能交付和 LLM/RAG 集成经验，在 KPay 建立了 KPI 监控与数据分析体系。但游戏行业场景经验缺失，AI 产品在游戏中的应用需靠通用 AI 产品能力迁移；文档沉淀与平台级产品设计的直接证据也较弱。\", \"requirement_matches\": [{\"requirement_id\": \"v2real_84e47b93a153\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"候选人有探索大模型应用方向、LLM 集成与 RAG 的实践经验，具备挖掘 AI 应用场景的能力。但证据中没有游戏行业或游戏产品相关经历，场景结合深度无法证实。\"}, {\"requirement_id\": \"v2real_d2e91437dbe7\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\"], \"reason\": \"作为 GoFin 平台 Product Owner，候选人负责需求、Backlog、跨职能交付（前端、后端、AI、数据库、测试）及产品迭代上线，直接覆盖目标制定、团队协调与按时交付的要求。\"}, {\"requirement_id\": \"v2real_45e2bfd0d8e3\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:18\"], \"reason\": \"在 KPay 建立 KPI 监控和绩效分析体系，通过数据分析优化转化路径并输出业务分析报告，直接体现用数据监测效果并迭代优化策略的能力。\"}, {\"requirement_id\": \"v2real_6b4ea8791334\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:technical_experience:8\", \"resume_extracted:resume_extracted:18\"], \"reason\": \"GoFin 项目体现了较完整的项目交付与需求文档管理经验，候选人也有数据架构设计能力。但缺少大型项目规模和平台级产品设计的直接证据，文档沉淀习惯也无明确佐证。\"}], \"suggested_preparation\": [{\"title\": \"准备游戏行业 AI 应用场景的案例思考\", \"action\": \"梳理 2-3 个 AI 产品（如 LLM NPC、AIGC 内容生成、智能匹配）与游戏体验深度结合的方案，结合自己 LLM/RAG 实践说明迁移思路，弥补游戏行业经验的缺口。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_84e47b93a153\"]}, {\"title\": \"量化 GoFin 项目交付成果\", \"action\": \"整理 GoFin 项目的目标设定、跨团队协调过程、上线节奏与上线后数据回收情况，形成可复述的 STAR 案例，突出大型项目交付能力的可信度。\", \"priority\": \"High\", \"requirement_ids\": [\"v2real_d2e91437dbe7\", \"v2real_6b4ea8791334\"]}, {\"title\": \"准备数据驱动策略优化的完整案例\", \"action\": \"以 KPay 的 KPI 监控与转化路径优化为例，说明如何设定指标、用 SQL/分析工具监测、根据数据调整策略并验证效果。\", \"priority\": \"Medium\", \"requirement_ids\": [\"v2real_45e2bfd0d8e3\"]}, {\"title\": \"展示文档沉淀与平台设计方法\", \"action\": \"准备需求文档、Backlog 管理、User Stories 等实际产出的描述，说明文档规范化习惯；并思考平台型产品与单点功能设计的差异，应对平台设计经验的追问。\", \"priority\": \"Medium\", \"requirement_ids\": [\"v2real_6b4ea8791334\"]}]}",
+   "predicted_matches": {
+    "v2real_84e47b93a153": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    },
+    "v2real_d2e91437dbe7": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "v2real_45e2bfd0d8e3": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:18"
+     ]
+    },
+    "v2real_6b4ea8791334": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8",
+      "resume_extracted:resume_extracted:18"
+     ]
+    }
+   }
+  }
+ ],
+ "retry_completion": {
+  "performed": true,
+  "policy": "<=2 transient retries, standard, applied per-call",
+  "note": "qwen had 0 first-pass failures so nothing to re-run there; policy is per-call.",
+  "log": [
+   {
+    "job_id": "v2paste:868864e12ac26973",
+    "prev_http": 429,
+    "prev_error": {
+     "message": "The engine is currently overloaded, please try again later",
+     "type": "engine_overloaded_error"
+    },
+    "retry_http": 200,
+    "retry_ok": true,
+    "retry_parse_error": null,
+    "retry_latency_ms": 23182.0
+   }
+  ]
+ }
+}

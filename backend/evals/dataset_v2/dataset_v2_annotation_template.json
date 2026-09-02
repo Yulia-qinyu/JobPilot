@@ -1,0 +1,97 @@
+{
+  "artifact_name": "dataset_v2_annotation_template",
+  "artifact_type": "human_adjudication_input_template",
+  "status": "empty_awaiting_requirements",
+  "rubric_id": "annotation-rubric-v2",
+  "rubric_freeze_state": "frozen",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "instructions_ref": "dataset_v2_human_adjudication_guide.md",
+  "evidence_snapshot_policy": "Reuse the SAME frozen candidate_evidence_snapshot (30 items) and resume_hash / experience_bank_hash as Dataset V1 pilot v2. No Profile change.",
+  "label_spaces": {
+    "requirement_type": [
+      "eligibility",
+      "matchable",
+      "knowledge",
+      "subjective"
+    ],
+    "matchable_label": [
+      "Strong",
+      "Partial",
+      "Missing"
+    ],
+    "eligibility_status": [
+      "Supported",
+      "PotentialGap",
+      "Unknown"
+    ],
+    "importance": [
+      "Critical",
+      "Important",
+      "Preferred"
+    ],
+    "human_match_fit": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "human_overall_fit": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "review_status": [
+      "pending",
+      "accepted",
+      "edited",
+      "rejected"
+    ]
+  },
+  "human_match_fit_question": "Ignoring recruitment eligibility barriers, job type, and personal application preference, considering only the candidate's currently verified experiences, skills, and the job's matchable requirements, how well does the candidate's capability fit this job? (1-5)",
+  "job_level_fields": [
+    "job_id",
+    "company",
+    "title",
+    "city",
+    "career_stage",
+    "role_family",
+    "language",
+    "human_match_fit",
+    "human_overall_fit",
+    "review_status",
+    "reviewer_notes"
+  ],
+  "requirement_level_fields": [
+    "requirement_id",
+    "job_id",
+    "job_title",
+    "company",
+    "source_text",
+    "normalized_requirement",
+    "source_section",
+    "requirement_type",
+    "importance",
+    "eligibility_category",
+    "knowledge_topics",
+    "knowledge_text",
+    "score_included",
+    "ai_match_label",
+    "ai_eligibility_status",
+    "ai_evidence_ids",
+    "ai_grounding_reason",
+    "needs_human_review",
+    "human_taxonomy_decision",
+    "human_match_label",
+    "human_eligibility_status",
+    "human_evidence_ids",
+    "human_grounding_reason",
+    "human_edit",
+    "human_accept_reject",
+    "human_notes",
+    "review_status"
+  ],
+  "jobs": []
+}

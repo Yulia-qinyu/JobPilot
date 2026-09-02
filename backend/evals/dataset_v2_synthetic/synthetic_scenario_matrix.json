@@ -1,0 +1,57 @@
+{
+  "dataset": "Dataset V2 Synthetic Challenge Set",
+  "dataset_role": "synthetic_behavioral_stress_test",
+  "purpose": "Controlled probing of known semantic failure modes / decision boundaries. NOT a real-world distribution and NOT a generalisation claim.",
+  "categories": {
+    "A_technology_adjacency": {
+      "target": 10,
+      "actual": 10,
+      "probe_expectation": "adjacent tech must NOT be upgraded to Partial → expected Missing",
+      "examples": [
+        "req multimodal / evidence only LLM-RAG",
+        "req ASR / evidence only chatbot",
+        "req fine-tuning-training / evidence only API app",
+        "req rec-search / evidence only generic AI"
+      ]
+    },
+    "B_project_vs_formal_work": {
+      "target": 8,
+      "actual": 8,
+      "probe_expectation": "years/formal-tenure gates → eligibility PotentialGap/Unknown (not converted from projects); hands-on-delivery asks → project can support Strong; formal-role-scope asks → Partial"
+    },
+    "C_strong_partial_boundary": {
+      "target": 8,
+      "actual": 8,
+      "probe_expectation": "meaningful but materially incomplete evidence → expected Partial"
+    },
+    "D_partial_missing_boundary": {
+      "target": 8,
+      "actual": 8,
+      "probe_expectation": "only weak / adjacent evidence → expected Missing (Partial must not be an uncertainty bucket)"
+    },
+    "E_or_alternative": {
+      "target": 5,
+      "actual": 5,
+      "probe_expectation": "one explicitly-allowed branch satisfied → expected Strong (not Missing because other branches unmet)"
+    },
+    "F_compound": {
+      "target": 5,
+      "actual": 5,
+      "probe_expectation": "narrowest unmet subclaim governs → expected Partial. MONITORING cases, not prompt-tuning targets."
+    },
+    "G_role_core_mismatch": {
+      "target": 6,
+      "actual": 6,
+      "probe_expectation": "role core is non-AI → core reqs Missing; AI mention → subjective / non-scoring. Tests over-reaction to AI keywords + role_family classification."
+    }
+  },
+  "gt_method": "SCENARIO-DERIVED. Each label is fixed by the controlled scenario rule applied to the REAL frozen candidate evidence profile (pilot_v2 human-verified). No matcher was asked to judge its own JD. Every matchable requirement carries expected_match_label + gt_rationale referencing the evidence configuration; eligibility carries Supported/PotentialGap/Unknown.",
+  "leakage_controls": [
+    "separate directory backend/evals/dataset_v2_synthetic/ (never dataset_v2/)",
+    "is_synthetic=true and dataset_role=synthetic_behavioral_stress_test on every job",
+    "synthetic metrics MUST NOT be merged with V2-Real metrics or reported as real-world generalisation",
+    "fictional employers only; no real company names",
+    "no finalist model inference; set must be frozen (after human review) before any prediction",
+    "no new real-candidate achievements invented; scenarios encoded relative to the frozen evidence catalogue"
+  ]
+}

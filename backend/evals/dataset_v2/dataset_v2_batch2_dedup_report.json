@@ -1,0 +1,363 @@
+{
+  "artifact": "dataset_v2_batch2_dedup_report",
+  "created_at": "2026-09-01T15:21:42.547078+00:00",
+  "method": "normalized title + company + 4-gram Jaccard + SequenceMatcher on cleaned JD body; no source_job_id/URL available for human-pasted jobs.",
+  "within_batch2": {
+    "pairs_inspected_close": [],
+    "exact_duplicates": [],
+    "probable_near_duplicates": [],
+    "result": "16 distinct jobs; 0 exact, 0 probable near-duplicates.",
+    "note": "Multiple jobs share the title 'AI产品经理' but JD bodies differ substantially (insurance / medical / enterprise-platform / recruitment / game / global-trainee / consumer). Not merged (per §5/§6)."
+  },
+  "batch2_vs_batch1": {
+    "flags": [
+      {
+        "b2": "v2paste:868864e12ac26973",
+        "b2_title": "校招-AI产品经理（人才专项）",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:868864e12ac26973",
+        "b2_title": "校招-AI产品经理（人才专项）",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:868864e12ac26973",
+        "b2_title": "校招-AI产品经理（人才专项）",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:ee7963fc9c8e9269",
+        "b2_title": "平台AI产品经理",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:ee7963fc9c8e9269",
+        "b2_title": "平台AI产品经理",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:ee7963fc9c8e9269",
+        "b2_title": "平台AI产品经理",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1fd71cf17ec81050",
+        "b2_title": "AI产品经理（AI业务）",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1fd71cf17ec81050",
+        "b2_title": "AI产品经理（AI业务）",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1fd71cf17ec81050",
+        "b2_title": "AI产品经理（AI业务）",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:b7478b70d7f11a86",
+        "b2_title": "ai产品经理",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:b7478b70d7f11a86",
+        "b2_title": "ai产品经理",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:b7478b70d7f11a86",
+        "b2_title": "ai产品经理",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:d1b0250f8ddc404a",
+        "b2_title": "AI产品经理",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:d1b0250f8ddc404a",
+        "b2_title": "AI产品经理",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:d1b0250f8ddc404a",
+        "b2_title": "AI产品经理",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:2510a8a8dd701350",
+        "b2_title": "AI产品经理",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:2510a8a8dd701350",
+        "b2_title": "AI产品经理",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:2510a8a8dd701350",
+        "b2_title": "AI产品经理",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:7f32e30979884c48",
+        "b2_title": "AI产品经理（游戏方案设计）",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:7f32e30979884c48",
+        "b2_title": "AI产品经理（游戏方案设计）",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:7f32e30979884c48",
+        "b2_title": "AI产品经理（游戏方案设计）",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:8235e9715765d378",
+        "b2_title": "27届 ASP）AI产品经理培训生",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:8235e9715765d378",
+        "b2_title": "27届 ASP）AI产品经理培训生",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:8235e9715765d378",
+        "b2_title": "27届 ASP）AI产品经理培训生",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:f441346f5cebbaa0",
+        "b2_title": "AI产品经理（智能体平台 / 知识管理平台）",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:f441346f5cebbaa0",
+        "b2_title": "AI产品经理（智能体平台 / 知识管理平台）",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:f441346f5cebbaa0",
+        "b2_title": "AI产品经理（智能体平台 / 知识管理平台）",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1bcbc456132ab15e",
+        "b2_title": "游戏AI产品经理（北京）",
+        "b1": "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+        "b1_title": "AI产品经理(J100616)",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1bcbc456132ab15e",
+        "b2_title": "游戏AI产品经理（北京）",
+        "b1": "jd:218961",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      },
+      {
+        "b2": "v2paste:1bcbc456132ab15e",
+        "b2_title": "游戏AI产品经理（北京）",
+        "b1": "jd:220156",
+        "b1_title": "AI产品经理",
+        "verdict": "distinct",
+        "basis": "same generic title 'AI产品经理'; different company/JD; B1 JD text not stored verbatim so full text-similarity deferred"
+      }
+    ],
+    "exact_duplicates": 0,
+    "probable_near_duplicates": 0,
+    "domain_overlap_flag": "Batch2 v2paste AI-recruitment PM ~ Batch1 jd:218876 (京东 AI招聘产品) — same domain, different company (unknown vs 京东) and different JD emphasis; treated as distinct, flagged for reviewer.",
+    "limitation": "Batch 1 stored WebFetch-rendered summaries, not verbatim JD text, so Batch2-vs-Batch1 text similarity is title/domain-level only."
+  },
+  "batch2_vs_v1": {
+    "rows": [
+      {
+        "b2": "v2paste:868864e12ac26973",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:8bd2292a5974ba67",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:ee7963fc9c8e9269",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:703edc23c7fecb6d",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:7e2e8c407af8714d",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:2bb44a57a387a772",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:1fd71cf17ec81050",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:b7478b70d7f11a86",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:d1b0250f8ddc404a",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:2510a8a8dd701350",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:7f32e30979884c48",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:8235e9715765d378",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:f441346f5cebbaa0",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:1c2c780cb980a76a",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:74c7e52f7d3795f1",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      },
+      {
+        "b2": "v2paste:1bcbc456132ab15e",
+        "exact_v1_overlap": false,
+        "near_dup_v1": false,
+        "note": "No source_job_id/URL for human-pasted job; company mostly unknown; no V1 JD-content match. V1 has no ByteDance/Waterdrop and no game/insurance/recruitment PM JDs."
+      }
+    ],
+    "exact_duplicates": 0,
+    "probable_near_duplicates": 0,
+    "basis": "No source id/URL for pasted jobs; company mostly unknown; no JD-content match to any of the 30 V1 jobs; V1 contains no ByteDance/Waterdrop and no game/insurance/HR-recruitment PM postings."
+  }
+}

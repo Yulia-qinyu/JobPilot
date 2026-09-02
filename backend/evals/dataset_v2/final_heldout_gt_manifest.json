@@ -1,0 +1,246 @@
+{
+  "artifact": "final_heldout_gt_manifest",
+  "frozen_at": "2026-09-02T13:17:06.541286+00:00",
+  "v2_real": {
+    "selected_jobs": 8,
+    "reviewed_matchable_requirements": 32,
+    "human_match_labels_complete": "32/32",
+    "human_match_fit_complete": "8/8",
+    "human_match_label_distribution": {
+      "Partial": 16,
+      "Strong": 15,
+      "Missing": 1
+    },
+    "human_match_fit_distribution": {
+      "3": 2,
+      "5": 1,
+      "4": 4,
+      "2": 1
+    },
+    "taxonomy_correction_v2real_df9143338be0": "confirmed matchable",
+    "importance_status": "lightweight / not exhaustively human-verified",
+    "single_annotator": true,
+    "per_job": [
+      {
+        "job_id": "v2paste:868864e12ac26973",
+        "job_title": "校招-AI产品经理（人才专项）",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "ai_product",
+        "career_stage": "campus_new_grad",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_e491363d6dfd": "Partial",
+          "v2real_02d1501dd10c": "Partial",
+          "v2real_a59a5a8117b3": "Partial",
+          "v2real_8a7e12bcf295": "Partial"
+        },
+        "human_match_fit": 3,
+        "representative_core_gt_match_score_draft_importance": 50,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:8bd2292a5974ba67",
+        "job_title": "AI策略产品经理",
+        "company": "字节跳动 (ByteDance)",
+        "company_status": "known",
+        "role_family": "ai_product",
+        "career_stage": "campus_new_grad",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_16e77009b4af": "Strong",
+          "v2real_1419f35c93b1": "Strong",
+          "v2real_91c6f4679f7a": "Strong",
+          "v2real_b312d0137a22": "Strong"
+        },
+        "human_match_fit": 5,
+        "representative_core_gt_match_score_draft_importance": 100,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:ee7963fc9c8e9269",
+        "job_title": "平台AI产品经理",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "platform_enterprise_product",
+        "career_stage": "unknown",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_76dde792d2cc": "Partial",
+          "v2real_17d83c4ded86": "Strong",
+          "v2real_2fb2b6ffce1b": "Strong",
+          "v2real_ac98119d5b1b": "Strong"
+        },
+        "human_match_fit": 4,
+        "representative_core_gt_match_score_draft_importance": 88,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:703edc23c7fecb6d",
+        "job_title": "增长产品经理（平台经营）",
+        "company": "水滴公司 (Waterdrop)",
+        "company_status": "known",
+        "role_family": "strategy_growth_fintech_product",
+        "career_stage": "unknown",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_d8133fd03538": "Strong",
+          "v2real_3597ec597679": "Partial",
+          "v2real_82b93708742d": "Partial",
+          "v2real_e009458c58e3": "Strong"
+        },
+        "human_match_fit": 4,
+        "representative_core_gt_match_score_draft_importance": 75,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:2510a8a8dd701350",
+        "job_title": "AI产品经理",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "platform_enterprise_product",
+        "career_stage": "experienced",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_4a2e6653ee5c": "Partial",
+          "v2real_98ff50f7094e": "Strong",
+          "v2real_fc7b2fb760bf": "Partial",
+          "v2real_5e191918da68": "Partial"
+        },
+        "human_match_fit": 3,
+        "representative_core_gt_match_score_draft_importance": 61,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:2bb44a57a387a772",
+        "job_title": "用户增长-用户运营管培生",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "mismatched_control",
+        "career_stage": "unknown",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_54403299a5ab": "Partial",
+          "v2real_e413799455fb": "Partial",
+          "v2real_dbdc8bbad742": "Missing",
+          "v2real_839fd0328615": "Partial"
+        },
+        "human_match_fit": 2,
+        "representative_core_gt_match_score_draft_importance": 38,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:74c7e52f7d3795f1",
+        "job_title": "产品经理",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "general_product",
+        "career_stage": "campus_new_grad",
+        "location": "unknown",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_83d2d0e02ead": "Partial",
+          "v2real_771f943fd3df": "Strong",
+          "v2real_01d10aea11b3": "Strong",
+          "v2real_df9143338be0": "Strong"
+        },
+        "human_match_fit": 4,
+        "representative_core_gt_match_score_draft_importance": 88,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      },
+      {
+        "job_id": "v2paste:1bcbc456132ab15e",
+        "job_title": "游戏AI产品经理（北京）",
+        "company": "unknown",
+        "company_status": "unknown",
+        "role_family": "ai_product",
+        "career_stage": "campus_new_grad",
+        "location": "北京市",
+        "reviewed_core_matchable_requirements": 4,
+        "human_match_labels": {
+          "v2real_84e47b93a153": "Partial",
+          "v2real_d2e91437dbe7": "Strong",
+          "v2real_45e2bfd0d8e3": "Strong",
+          "v2real_6b4ea8791334": "Partial"
+        },
+        "human_match_fit": 4,
+        "representative_core_gt_match_score_draft_importance": 75,
+        "score_note": "over the 4 reviewed core matchable requirements only, using DRAFT Importance; not a full-job Match Score."
+      }
+    ],
+    "human_verified_file": "v2_real_lightweight_gt_human_verified.json"
+  },
+  "v2_synthetic": {
+    "human_reviewed_representative_probe_rows": 21,
+    "scenario_category_coverage": {
+      "strong_partial_boundary": 3,
+      "partial_missing_boundary": 3,
+      "compound": 5,
+      "technology_adjacency": 3,
+      "project_vs_formal_work": 2,
+      "or_alternative": 2,
+      "role_core_mismatch": 3
+    },
+    "accepted": 19,
+    "edited": 2,
+    "scenario_derived_only_probe_count": 44,
+    "not_all_65_probes_human_verified": true,
+    "frozen_view_file": "synthetic_gt_frozen.json"
+  },
+  "validation": {
+    "v2_real_8_jobs": true,
+    "v2_real_32_requirements": true,
+    "v2_real_no_blank_human_match_label": true,
+    "v2_real_8_hmf_ratings": true,
+    "v2_real_hmf_in_1_5": true,
+    "v2_real_every_scored_row_matchable": true,
+    "v2_real_every_row_has_notes_and_evidence": true,
+    "v2_real_no_synthetic_contamination": true,
+    "synthetic_21_reviewed_rows": true,
+    "synthetic_all_7_categories": true,
+    "synthetic_no_pending_among_21": true,
+    "synthetic_probe_accounting_65_21_44": true,
+    "synthetic_frozen_view_reviewed_rows_match": true,
+    "synthetic_frozen_view_full_gt_retained": true,
+    "synthetic_b01_eligibility_potentialgap_not_forced": true,
+    "v1_role_unchanged": "development / model-selection set",
+    "v2_real_role": "held-out real validation",
+    "v2_synthetic_role": "separate stress test",
+    "all_pass": true
+  },
+  "limitations": {
+    "v2_real": [
+      "small N = 8 jobs",
+      "32 core requirements only",
+      "requirement selection is representative, not exhaustive",
+      "companies often unknown (source metadata not supplied)",
+      "Importance only lightly calibrated",
+      "single human annotator",
+      "not a production/publication benchmark"
+    ],
+    "v2_synthetic": [
+      "50 synthetic jobs",
+      "65 probes total",
+      "21 representative probes human-reviewed",
+      "remaining 44 probes scenario-derived only",
+      "results are behavioral stress-test evidence",
+      "not real-world performance estimates"
+    ]
+  },
+  "next": "T5 frozen finalist held-out evaluation (qwen3.8-max + Prompt C ; kimi-k3 + Control / Prompt A).",
+  "safety": {
+    "model_run": false,
+    "prompt_or_model_tuned": false,
+    "match_score_changed": false,
+    "production_changed": false,
+    "raw_draft_artifacts_overwritten": false,
+    "extra_review_rows_added": false,
+    "staged_committed_pushed": false
+  }
+}

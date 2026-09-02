@@ -1,0 +1,46 @@
+{
+  "dataset_name": "JobPilot Evaluation Dataset V2 — Mainland China (held-out validation)",
+  "dataset_version": "v2",
+  "dataset_role": "held_out_validation_test",
+  "purpose": "Held-out generalisation test for the Dataset-V1-selected model+prompt finalists. Human ground-truth fields intentionally blank. Finalist models MUST NOT be run before GT freeze.",
+  "status": "SCAFFOLD_EMPTY_AWAITING_HUMAN_COLLECTION",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "schema_ref": "dataset_v2_schema.json",
+  "rubric_id": "annotation-rubric-v2",
+  "rubric_freeze_state": "frozen",
+  "frozen_inputs": {
+    "dataset_v1_json_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+    "requirement_taxonomy": "V2 (eligibility|matchable|knowledge|subjective) — FROZEN, no V3",
+    "human_adjudication_rules": "dataset_v2_human_adjudication_guide.md (carried verbatim-in-intent from Dataset V1 pilot v1 + pilot v2 guides)"
+  },
+  "collection_targets": {
+    "target_job_count": "50-60 (preferred 60), min 50, hard cap 70",
+    "distinct_company_target": ">=12 (preferred 15-20)",
+    "max_single_company_share": "0.15 preferred / 0.20 absolute",
+    "language_target": ">=0.80 zh",
+    "career_stage_target": {
+      "campus_new_grad": "0.20-0.30",
+      "early_career": "0.30-0.40",
+      "experienced": "0.30-0.45"
+    },
+    "role_family_target": {
+      "ai_product": "0.35-0.45",
+      "general_product": "0.15-0.20",
+      "data_product": "0.10-0.15",
+      "platform_enterprise_product": "0.10-0.15",
+      "strategy_growth_fintech_product": "0.10-0.15",
+      "mismatched_control": "0.05-0.10"
+    }
+  },
+  "validation": {
+    "job_count": 0,
+    "distinct_companies": 0,
+    "mainland_china_rows": 0,
+    "chinese_language_rows": 0,
+    "human_annotation_fields_blank": true,
+    "finalist_inference_run": false,
+    "model_predictions_present": false,
+    "production_state_modified": false
+  },
+  "jobs": []
+}

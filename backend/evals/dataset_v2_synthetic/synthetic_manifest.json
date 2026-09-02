@@ -1,0 +1,100 @@
+{
+  "dataset": "Dataset V2 Synthetic Challenge Set",
+  "dataset_role": "synthetic_behavioral_stress_test",
+  "is_synthetic": true,
+  "created_at": "2026-09-01T15:46:19.223736+00:00",
+  "location": "backend/evals/dataset_v2_synthetic/ (SEPARATE from backend/evals/dataset_v2/)",
+  "job_count": 50,
+  "requirement_count": 201,
+  "requirement_taxonomy": "V2 (frozen) — eligibility / matchable / knowledge / subjective",
+  "ground_truth_status": "draft_scenario_derived_pending_human_review",
+  "freeze_status": "not_frozen",
+  "human_review_required_before": [
+    "freeze",
+    "any model inference"
+  ],
+  "finalist_inference_run": false,
+  "separation_guarantees": [
+    "separate directory backend/evals/dataset_v2_synthetic/ (never dataset_v2/)",
+    "is_synthetic=true and dataset_role=synthetic_behavioral_stress_test on every job",
+    "synthetic metrics MUST NOT be merged with V2-Real metrics or reported as real-world generalisation",
+    "fictional employers only; no real company names",
+    "no finalist model inference; set must be frozen (after human review) before any prediction",
+    "no new real-candidate achievements invented; scenarios encoded relative to the frozen evidence catalogue"
+  ],
+  "real_candidate_evidence": {
+    "fabricated": false,
+    "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+    "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+    "note": "scenarios encoded relative to the existing frozen evidence; no new achievements invented"
+  },
+  "expected_label_distribution": {
+    "Strong": 50,
+    "Missing": 25,
+    "Partial": 23
+  },
+  "career_stage_distribution": {
+    "early_career": 20,
+    "campus_new_grad": 15,
+    "experienced": 15
+  },
+  "role_family_distribution": {
+    "ai_product": 23,
+    "platform_enterprise_product": 8,
+    "data_product": 6,
+    "strategy_growth_fintech_product": 6,
+    "mismatched_control": 5,
+    "general_product": 2
+  },
+  "ai_subdomains_covered": [
+    "llm_applications",
+    "ai_commercialisation",
+    "enterprise_ai",
+    "ai_infrastructure",
+    "agent",
+    "rag_knowledge_systems",
+    "recommendation_search",
+    "ai_platform",
+    "ai_tools",
+    "multimodal",
+    "speech_asr",
+    "ai_consumer_products",
+    "ai_productivity"
+  ],
+  "production_unchanged": true,
+  "dataset_v1_unchanged": true,
+  "dataset_v2_real_unchanged": true,
+  "git": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  },
+  "artifacts": [
+    "synthetic_jobs.json",
+    "synthetic_jobs.csv",
+    "synthetic_requirements.json",
+    "synthetic_requirements.csv",
+    "synthetic_scenario_matrix.json",
+    "synthetic_gt_draft.json",
+    "synthetic_human_review.csv",
+    "synthetic_distribution_report.json",
+    "synthetic_distribution_report.md",
+    "synthetic_manifest.json"
+  ],
+  "future_evaluation_reporting_requirement": {
+    "rule": "Synthetic results MUST be reported separately as (A) all-matchable metrics, (B) probe-only metrics, (C) per-scenario-category metrics. Filler/realism anchor requirements must never be allowed to obscure stress-test (probe) performance in any future finalist run on this set.",
+    "also_recorded_in": "synthetic_manifest.json -> future_evaluation_reporting_requirement"
+  },
+  "probe_annotation": {
+    "prepared_at": "2026-09-01T16:02:06.046064+00:00",
+    "probe_report_file": "synthetic_probe_report.json",
+    "focused_review_file": "synthetic_focused_human_review.csv",
+    "total_probe_requirements": 65,
+    "focused_review_row_count": 65,
+    "compound_gt_not_auto_corrected": true,
+    "compound_gt_high_risk_scenarios": [
+      "F01",
+      "F04"
+    ]
+  }
+}

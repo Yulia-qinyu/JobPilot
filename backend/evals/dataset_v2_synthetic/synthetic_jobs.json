@@ -1,0 +1,1281 @@
+{
+  "dataset": "Dataset V2 Synthetic Challenge Set",
+  "dataset_role": "synthetic_behavioral_stress_test",
+  "is_synthetic": true,
+  "created_at": "2026-09-01T15:46:19.223736+00:00",
+  "job_count": 50,
+  "fiction_note": "所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。",
+  "jobs": [
+    {
+      "job_id": "synv2:A01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "company": "星河智能",
+      "company_is_fictional": true,
+      "title": "多模态大模型产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "multimodal",
+        "llm_applications"
+      ],
+      "job_description": "【星河智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责图文/视频多模态大模型能力的产品化规划与落地\n2. 协同算法团队定义多模态理解与生成的能力边界\n3. 跟进多模态产品的迭代与效果评估\n\n任职要求：\n1. 具备图文 / 视频 / 语音多模态大模型产品经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 理解多模态对齐与跨模态表征的基本原理\n4. 本科及以上学历\n5. 对 AI 产品有极强的热情与好奇心",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：仅 LLM/RAG 证据，要求多模态 → 相邻不升 Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A02",
+      "scenario_category": "technology_adjacency",
+      "company": "云启科技",
+      "company_is_fictional": true,
+      "title": "语音交互产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "speech_asr",
+        "llm_applications"
+      ],
+      "job_description": "【云启科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责语音识别与语音交互产品的需求与规划\n2. 推动 ASR 效果指标(识别准确率/时延)的持续优化\n3. 协同算法与工程完成语音链路落地\n\n任职要求：\n1. 有语音识别 (ASR) / 语音交互产品经验\n2. 能够评估 AI 方案的业务价值与可行性\n3. 1-3 年产品相关工作经验\n4. 了解 ASR 声学模型与端到端语音识别的基本机制",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：对话式 chatbot ≠ ASR。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "company": "智源数科",
+      "company_is_fictional": true,
+      "title": "模型训练平台产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure",
+        "ai_platform"
+      ],
+      "job_description": "【智源数科】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责大模型训练/精调平台的产品规划\n2. 定义数据管理、训练任务编排与实验追踪能力\n3. 对接算法团队的训练效率与成本目标\n\n任职要求：\n1. 有大模型精度调优 / 基模训练 / 强化学习训练经验\n2. 熟悉大模型训练流程与实验管理\n3. 具备跨职能协作与项目管理能力\n4. 硕士及以上学历\n5. 了解分布式训练与混合精度训练的能力边界",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：一般训练辅助 ≠ 精调/基模/RL 训练。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A04",
+      "scenario_category": "technology_adjacency",
+      "company": "澜图科技",
+      "company_is_fictional": true,
+      "title": "推荐策略产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "recommendation_search"
+      ],
+      "job_description": "【澜图科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责推荐系统的策略产品设计与迭代\n2. 定义召回/排序/重排的策略指标\n3. 通过数据分析驱动推荐效果提升\n\n任职要求：\n1. 有推荐系统召回 / 排序 / 重排的专项策略经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 本科及以上学历\n4. 对推荐与个性化技术有浓厚兴趣",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：一般 AI 产品经验 ≠ 推荐专项。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A05",
+      "scenario_category": "technology_adjacency",
+      "company": "熠芯科技",
+      "company_is_fictional": true,
+      "title": "搜索产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "recommendation_search",
+        "rag_knowledge_systems"
+      ],
+      "job_description": "【熠芯科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责搜索产品的query理解、排序与体验优化\n2. 定义搜索相关性与满意度指标\n3. 协同算法迭代搜索排序策略\n\n任职要求：\n1. 有搜索排序 / 相关性策略的实际项目经验\n2. 有 RAG 应用的产品实践经验\n3. 本科及以上学历\n4. 理解倒排索引与向量检索的适用边界",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：RAG 检索 ≠ 搜索排序策略专项。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A06",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A06",
+      "scenario_category": "technology_adjacency",
+      "company": "鲸落数据",
+      "company_is_fictional": true,
+      "title": "多模态内容生成产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "multimodal",
+        "ai_consumer_products"
+      ],
+      "job_description": "【鲸落数据】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责图像/视频生成方向的 C 端产品规划\n2. 跟进生成质量、可控性与安全的产品指标\n3. 协同算法定义生成能力路线\n\n任职要求：\n1. 有图文 / 视频多模态生成产品经验\n2. 具备产品设计与功能策划能力\n3. 本科及以上学历\n4. 热爱 AIGC 与创意工具",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：LLM 文本生成 ≠ 多模态生成。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A07",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A07",
+      "scenario_category": "technology_adjacency",
+      "company": "天枢智联",
+      "company_is_fictional": true,
+      "title": "语音大模型产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "speech_asr"
+      ],
+      "job_description": "【天枢智联】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责语音大模型(语音理解/合成)的产品化\n2. 定义语音质量与自然度评测指标\n3. 推动语音能力在场景中的落地\n\n任职要求：\n1. 有语音大模型 / TTS / 语音合成产品经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 1-3 年产品相关工作经验\n4. 了解语音合成与声码器的基本原理",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：文本 LLM 产品 ≠ 语音大模型。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A08",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "company": "谷雨AI",
+      "company_is_fictional": true,
+      "title": "强化学习训练产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure"
+      ],
+      "job_description": "【谷雨AI】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 RLHF / 偏好对齐训练链路的产品设计\n2. 定义奖励模型与偏好数据的管理能力\n3. 对接算法完成对齐训练迭代\n\n任职要求：\n1. 有 RLHF / 强化学习 / 偏好对齐训练经验\n2. 有模型效果评估经验\n3. 具备扎实的数据分析与逻辑思维能力\n4. 硕士及以上学历\n5. 理解 RLHF 与 DPO 的基本流程与差异",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：模型评估 ≠ 对齐训练。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A09",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "company": "岚山科技",
+      "company_is_fictional": true,
+      "title": "大模型推理引擎产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure",
+        "ai_platform"
+      ],
+      "job_description": "【岚山科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责大模型推理服务的产品规划\n2. 定义吞吐/时延/成本的服务化指标\n3. 协同工程优化推理部署方案\n\n任职要求：\n1. 熟悉 vLLM / SGLang 等大模型推理框架\n2. 有 GPU / 国产算力卡算子开发经验\n3. 具备跨职能协作与项目管理能力\n4. 本科及以上学历\n5. 了解 KV Cache 与连续批处理对吞吐的影响",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：产品侧 LLM 经验 ≠ 推理框架/算子。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:A10",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "company": "序列智能",
+      "company_is_fictional": true,
+      "title": "广告投放策略产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "recommendation_search",
+        "ai_commercialisation"
+      ],
+      "job_description": "【序列智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责广告投放与竞价策略的产品设计\n2. 定义 eCPM / 转化 / ROI 指标\n3. 通过实验与数据分析优化投放效果\n\n任职要求：\n1. 有广告 / 推荐 / 竞价策略相关产品经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 有 A/B 实验设计与执行经验\n4. 本科及以上学历\n5. 对商业化与增长有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：通用 AI 产品 ≠ 广告竞价策略。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B01",
+      "scenario_category": "project_vs_formal_work",
+      "company": "方舟云图",
+      "company_is_fictional": true,
+      "title": "资深 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications",
+        "agent"
+      ],
+      "job_description": "【方舟云图】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 产品线的整体规划与团队协作\n2. 主导核心 AI 功能从立项到上线\n3. 为产品业务指标负责\n\n任职要求：\n1. 3 年以上正式 AI 产品经理工作经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 理解 LLM 能力边界与失败模式",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：正式任职年限门槛 → 项目经历不折算年限。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B02",
+      "scenario_category": "project_vs_formal_work",
+      "company": "河图数智",
+      "company_is_fictional": true,
+      "title": "AI 产品负责人",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "agent",
+        "ai_commercialisation"
+      ],
+      "job_description": "【河图数智】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 Agent 产品方向的战略与路线\n2. 带领小团队完成从 0 到 1 的产品交付\n3. 对产品的商业化结果负责\n\n任职要求：\n1. 5 年以上产品经验，含 3 年以上团队管理\n2. 有从 0 到 1 主导产品并取得可量化业务成果的经历\n3. 具备产品设计与功能策划能力\n4. 有强烈的 ownership 意识",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：主导经历有，量化业务成果无 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B03",
+      "scenario_category": "project_vs_formal_work",
+      "company": "灯塔认知",
+      "company_is_fictional": true,
+      "title": "AI 应用交付产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications",
+        "rag_knowledge_systems"
+      ],
+      "job_description": "【灯塔认知】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 应用功能的动手交付\n2. 从需求到上线全流程推进\n3. 结合数据反馈迭代产品\n\n任职要求：\n1. 有 AI 功能的完整动手交付经验（强调实操而非正式任职年限）\n2. 1-3 年产品相关工作经验\n3. 理解 RAG 检索增强机制",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：要求动手交付 → 完整项目可支撑 Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B04",
+      "scenario_category": "project_vs_formal_work",
+      "company": "昆仑映射",
+      "company_is_fictional": true,
+      "title": "企业 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【昆仑映射】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责企业内部 AI 应用的产品规划\n2. 协调设计/研发/QA 完成交付\n3. 建立产品评价与迭代机制\n\n任职要求：\n1. 3 年以上 B 端 / 企业级产品经验\n2. 具备跨职能协作与项目管理能力\n3. 有企业级 SaaS / 多租户产品经验\n4. 对企业数字化有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：B 端正式年限门槛 → PotentialGap；多租户 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "company": "青萍智算",
+      "company_is_fictional": true,
+      "title": "AI Agent 产品专家",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "agent",
+        "rag_knowledge_systems"
+      ],
+      "job_description": "【青萍智算】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 Agent 产品的设计、交付与质量评估\n2. 定义上下文工程与人机协同流程\n3. 建立 Agent 评测与回归机制\n\n任职要求：\n1. 具备 Agent 设计交付、上下文工程、人机协同与质量评估的完整动手经验\n2. 深入理解 Agent 架构与规划-执行循环\n3. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n4. 硕士及以上学历\n5. 在 Agent 架构层面与工程团队深度对齐",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：交付+RAG+评估有，上下文工程/HITL 完整覆盖不足 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B06",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B06",
+      "scenario_category": "project_vs_formal_work",
+      "company": "溪流科技",
+      "company_is_fictional": true,
+      "title": "金融 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation",
+        "llm_applications"
+      ],
+      "job_description": "【溪流科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责金融场景下 AI 应用的产品落地\n2. 结合业务数据优化 AI 应用效果\n3. 推动金融 AI 产品的合规与迭代\n\n任职要求：\n1. 有金融行业 AI 落地项目经验\n2. 3 年以上金融科技产品经验\n3. 对金融与科技结合有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：金融+AI 实操有 → Strong；正式金融科技年限 → PotentialGap。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B07",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B07",
+      "scenario_category": "project_vs_formal_work",
+      "company": "白泽智能",
+      "company_is_fictional": true,
+      "title": "AI 产品经理（实习转正）",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications"
+      ],
+      "job_description": "【白泽智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 参与 AI 产品从需求探索到上线迭代的完整流程\n2. 协同算法/研发推动方案落地\n3. 结合用户反馈优化 AI 应用效果\n\n任职要求：\n1. 至少 1 段 AI 产品实习经验\n2. 有 AI 产品的深度使用与实践经验\n3. 本科及以上学历\n4. 对 AI 技术持续关注、探索能力强",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：实习门槛 → Supported；实操 → Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:B08",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "B08",
+      "scenario_category": "project_vs_formal_work",
+      "company": "拓扑星野",
+      "company_is_fictional": true,
+      "title": "高级产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "general_product",
+      "ai_subdomain_tags": [
+        "ai_productivity"
+      ],
+      "job_description": "【拓扑星野】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责通用效率产品的规划与商业化\n2. 协调跨团队完成版本交付\n3. 为产品的营收目标负责\n\n任职要求：\n1. 8 年以上产品经验\n2. 独立负责过完整产品线的商业化闭环\n3. 具备跨职能协作与项目管理能力\n4. 了解常见的 SaaS 商业化模式",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：8 年门槛 → PotentialGap；商业化闭环独立负责 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C01",
+      "scenario_category": "strong_partial_boundary",
+      "company": "明镜数据",
+      "company_is_fictional": true,
+      "title": "数据分析产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【明镜数据】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责数据分析平台的产品规划\n2. 定义指标体系与数据消费场景\n3. 推动数据驱动的业务迭代\n\n任职要求：\n1. 理解数据仓库架构并熟悉数据治理全流程\n2. 熟练使用 SQL 进行数据分析\n3. 本科及以上学历\n4. 了解维度建模与数据分层的基本概念",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：数据架构+ETL 有，数仓+治理全流程不足 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C02",
+      "scenario_category": "strong_partial_boundary",
+      "company": "涌流科技",
+      "company_is_fictional": true,
+      "title": "RAG 知识库产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "rag_knowledge_systems",
+        "llm_applications"
+      ],
+      "job_description": "【涌流科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责企业知识库 + RAG 问答产品\n2. 定义检索质量与回答可信度指标\n3. 推动 RAG 能力在场景中的落地\n\n任职要求：\n1. 有 RAG 系统的生产环境部署与调优经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 本科及以上学历\n4. 理解检索-重排-生成的 RAG 管线",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：有 RAG 项目，生产部署与调优证据不足 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C03",
+      "scenario_category": "strong_partial_boundary",
+      "company": "星河智能",
+      "company_is_fictional": true,
+      "title": "数据产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【星河智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责数据产品的规划与迭代\n2. 协调研发/业务完成数据能力交付\n3. 建立数据产品的评估机制\n\n任职要求：\n1. 曾以数据产品经理身份独立负责完整数据产品\n2. 熟练使用 SQL 进行数据分析\n3. 本科及以上学历\n4. 对数据与业务价值转化有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：有数据体系/运营/策划，未以 DPM 身份负责完整产品 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C04",
+      "scenario_category": "strong_partial_boundary",
+      "company": "云启科技",
+      "company_is_fictional": true,
+      "title": "AI 平台产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_platform",
+        "enterprise_ai"
+      ],
+      "job_description": "【云启科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 中台 / 平台产品的规划\n2. 定义多租户、权限与配置化能力\n3. 推动平台在多业务线的复用\n\n任职要求：\n1. 有企业级 SaaS / 多租户 / 可配置平台产品经验\n2. 具备跨职能协作与项目管理能力\n3. 3 年以上产品经验\n4. 了解多租户隔离与配置化架构的取舍",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：有可配置财务平台，无多租户/SaaS 明确证据 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "company": "智源数科",
+      "company_is_fictional": true,
+      "title": "AI Agent 评测产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "agent",
+        "rag_knowledge_systems"
+      ],
+      "job_description": "【智源数科】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 Agent 产品的评测体系建设\n2. 定义任务完成率/工具调用成功率等指标\n3. 推动评测结果驱动产品迭代\n\n任职要求：\n1. 有 Agent 专项评测体系搭建经验\n2. 有模型效果评估与数据驱动评测能力\n3. 具备扎实的数据分析与逻辑思维能力\n4. 本科及以上学历\n5. 理解 Agent 评测的常见维度与陷阱",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：有模型评估与 Agent 测试，无专项评测体系 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C06",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C06",
+      "scenario_category": "strong_partial_boundary",
+      "company": "澜图科技",
+      "company_is_fictional": true,
+      "title": "大模型应用产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications"
+      ],
+      "job_description": "【澜图科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责大模型应用的产品设计\n2. 通过 Prompt / 上下文工程提升效果\n3. 结合评测与反馈迭代\n\n任职要求：\n1. 具备 Prompt / 上下文工程的完整实践经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 本科及以上学历\n4. 理解 Prompt 工程与上下文窗口管理的方法",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：LLM/RAG 交付明确，无单独可验证 Prompt 工程事实 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C07",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C07",
+      "scenario_category": "strong_partial_boundary",
+      "company": "熠芯科技",
+      "company_is_fictional": true,
+      "title": "技术产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure"
+      ],
+      "job_description": "【熠芯科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责偏底层的技术产品设计\n2. 与工程深度协作定义接口与能力\n3. 推动技术方案落地\n\n任职要求：\n1. 熟练使用 Python 与 C++\n2. 具备技术背景，能与工程团队深度协作\n3. 本科及以上学历\n4. 了解服务化与接口设计的基本原则",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：Python 明确，C++ 仅声明 → 复合技能 Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:C08",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "C08",
+      "scenario_category": "strong_partial_boundary",
+      "company": "鲸落数据",
+      "company_is_fictional": true,
+      "title": "AI 产品经理（增长方向）",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation"
+      ],
+      "job_description": "【鲸落数据】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 产品的增长与商业化\n2. 设计从触达到转化的路径\n3. 通过数据复盘优化增长策略\n\n任职要求：\n1. 有从 0 到 1 主导产品并取得可量化业务成果的经历\n2. 有用户增长 / 增长运营 / 转化优化经验\n3. 1-3 年产品相关工作经验\n4. 对增长与商业化有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：主导交付有，量化成果不足 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D01",
+      "scenario_category": "partial_missing_boundary",
+      "company": "天枢智联",
+      "company_is_fictional": true,
+      "title": "推荐算法产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "recommendation_search"
+      ],
+      "job_description": "【天枢智联】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责推荐策略产品的设计与迭代\n2. 定义推荐效果与多样性指标\n3. 协同算法优化推荐链路\n\n任职要求：\n1. 有推荐 / 排序策略的实际项目经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 本科及以上学历\n4. 对推荐系统有兴趣",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：只有通用 AI 产品经验，无推荐项目 → Missing（非 Partial）。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D02",
+      "scenario_category": "partial_missing_boundary",
+      "company": "谷雨AI",
+      "company_is_fictional": true,
+      "title": "语音产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "speech_asr"
+      ],
+      "job_description": "【谷雨AI】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责语音方向产品的需求与规划\n2. 跟进语音识别与合成的效果指标\n3. 协同算法完成语音能力落地\n\n任职要求：\n1. 有语音识别或语音合成产品经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 本科及以上学历\n4. 了解语音前端信号处理的基本概念",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：无任何语音方向证据 → Missing。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "company": "岚山科技",
+      "company_is_fictional": true,
+      "title": "AI 基础设施产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure",
+        "ai_platform"
+      ],
+      "job_description": "【岚山科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 基础设施(训练/推理/数据)平台产品\n2. 定义资源调度与可观测能力\n3. 对接算法与工程完成平台迭代\n\n任职要求：\n1. 独立承担过大型 AI Infra 系统的设计、开发与调测\n2. 具备跨职能协作与项目管理能力\n3. 熟悉大模型训练与推理链路\n4. 硕士及以上学历\n5. 了解训练/推理资源调度的取舍",
+      "scenario_requires_manual_review": true,
+      "scenario_notes": "probe：有系统设计+LLM 后端集成，但无大型 AI Infra 开发调测 → Missing（相邻不足，标记复核）。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D04",
+      "scenario_category": "partial_missing_boundary",
+      "company": "序列智能",
+      "company_is_fictional": true,
+      "title": "多模态产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "multimodal"
+      ],
+      "job_description": "【序列智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责视频理解 / 生成方向的产品规划\n2. 定义多模态效果与安全指标\n3. 协同算法定义能力路线\n\n任职要求：\n1. 有视频理解 / 视频生成的产品经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 本科及以上学历\n4. 对多模态与视频 AI 有兴趣",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：无视频方向证据 → Missing。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "company": "方舟云图",
+      "company_is_fictional": true,
+      "title": "内容创作平台产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "mismatched_control",
+      "ai_subdomain_tags": [
+        "ai_consumer_products"
+      ],
+      "job_description": "【方舟云图】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责短剧 / 漫剧内容创作平台的产品设计\n2. 理解剧本与直播脚本的创作全流程\n3. 推动创作工具的体验优化\n\n任职要求：\n1. 有短剧 / 漫剧 / 小说创作全流程经验\n2. 有内容行业(短视频/短剧/漫剧)资深从业经验\n3. 具备产品设计与功能策划能力\n4. 本科及以上学历\n5. 热爱内容创作",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：无任何内容创作/内容行业证据 → Missing。role_family=mismatched_control。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D06",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D06",
+      "scenario_category": "partial_missing_boundary",
+      "company": "河图数智",
+      "company_is_fictional": true,
+      "title": "AI 训练数据产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "ai_infrastructure",
+        "enterprise_ai"
+      ],
+      "job_description": "【河图数智】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责标注体系与训练数据闭环的产品设计\n2. 定义数据质量与标注效率指标\n3. 推动训练数据平台迭代\n\n任职要求：\n1. 有大规模标注体系与训练数据闭环的专项经验\n2. 熟练使用 SQL 进行数据分析\n3. 本科及以上学历\n4. 了解标注质量控制与一致性评估方法",
+      "scenario_requires_manual_review": true,
+      "scenario_notes": "probe：有训练数据辅助，但无标注体系/闭环专项 → Missing（标记复核）。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D07",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D07",
+      "scenario_category": "partial_missing_boundary",
+      "company": "灯塔认知",
+      "company_is_fictional": true,
+      "title": "研究型 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications"
+      ],
+      "job_description": "【灯塔认知】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责前沿 AI 方向的探索性产品\n2. 跟踪学术进展并转化为产品机会\n3. 与研究团队紧密协作\n\n任职要求：\n1. 有顶级会议(NeurIPS/ICML/ACL 等)论文发表\n2. 能够评估 AI 方案的业务价值与可行性\n3. 硕士及以上学历\n4. 了解大模型前沿研究方向与能力边界",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：无论文发表记录 → Missing（可核验成果型）。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:D08",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "D08",
+      "scenario_category": "partial_missing_boundary",
+      "company": "昆仑映射",
+      "company_is_fictional": true,
+      "title": "开放平台产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "platform_enterprise_product",
+      "ai_subdomain_tags": [
+        "ai_platform"
+      ],
+      "job_description": "【昆仑映射】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 开放平台 / 插件生态的产品设计\n2. 定义开发者协议与插件市场机制\n3. 推动第三方生态接入\n\n任职要求：\n1. 有开放平台 / 插件生态 / MCP 建设经验\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 本科及以上学历\n4. 了解插件协议与工具调用规范",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：有对话式/RAG/AI 工具，但无开放平台/MCP 证据 → Missing。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:E01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "E01",
+      "scenario_category": "or_alternative",
+      "company": "青萍智算",
+      "company_is_fictional": true,
+      "title": "行业 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation",
+        "llm_applications"
+      ],
+      "job_description": "【青萍智算】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责垂直行业 AI 解决方案的产品化\n2. 结合行业场景定义 AI 能力\n3. 推动行业客户的落地与商业化\n\n任职要求：\n1. 有 金融 或 保险 或 支付 行业经验（满足其一即可）\n2. 本科及以上学历\n3. 对垂直行业 AI 落地有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：OR 列表，金融/支付分支已满足 → Strong（不因其他分支未满足而 Missing）。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:E02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "E02",
+      "scenario_category": "or_alternative",
+      "company": "溪流科技",
+      "company_is_fictional": true,
+      "title": "AI 能力产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "agent",
+        "rag_knowledge_systems"
+      ],
+      "job_description": "【溪流科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 能力组件的产品设计\n2. 定义能力的接入与编排方式\n3. 推动能力在多场景复用\n\n任职要求：\n1. 有 Agent 或 RAG 或 工作流自动化 经验（满足其一即可）\n2. 1-3 年产品相关工作经验\n3. 理解 Agent / RAG / workflow 的适用场景",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：RAG + 对话式 Agent 分支已满足 → Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:E03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "E03",
+      "scenario_category": "or_alternative",
+      "company": "白泽智能",
+      "company_is_fictional": true,
+      "title": "数据方向产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【白泽智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责数据类产品的需求分析与设计\n2. 通过数据分析支撑产品决策\n3. 协同研发完成数据能力交付\n\n任职要求：\n1. 熟练使用 SQL 或 Python 进行数据分析（满足其一即可）\n2. 本科及以上学历\n3. 对数据分析有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：SQL 与 Python 均满足 → Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:E04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "E04",
+      "scenario_category": "or_alternative",
+      "company": "拓扑星野",
+      "company_is_fictional": true,
+      "title": "场景 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications",
+        "recommendation_search"
+      ],
+      "job_description": "【拓扑星野】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 C 端 AI 场景产品的设计与迭代\n2. 结合用户反馈优化体验\n3. 推动场景化 AI 能力落地\n\n任职要求：\n1. 有 对话式 AI 或 推荐 或 搜索 产品经验（满足其一即可）\n2. 本科及以上学历\n3. 对 C 端产品有用户 sense",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：对话式 AI 分支已满足 → Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:E05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "E05",
+      "scenario_category": "or_alternative",
+      "company": "明镜数据",
+      "company_is_fictional": true,
+      "title": "增长 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation",
+        "ai_tools"
+      ],
+      "job_description": "【明镜数据】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 驱动的增长产品设计\n2. 搭建用户分层与转化路径\n3. 通过数据复盘优化增长\n\n任职要求：\n1. 有 用户增长 或 用户运营 或 内容平台 经验（满足其一即可）\n2. 本科及以上学历\n3. 对增长有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "probe：用户增长分支已满足 → Strong。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:F01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "F01",
+      "scenario_category": "compound",
+      "company": "涌流科技",
+      "company_is_fictional": true,
+      "title": "数据实验产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【涌流科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责实验平台与指标体系的产品设计\n2. 支撑业务的 A/B 实验与数据分析\n3. 推动实验结论落地\n\n任职要求：\n1. 熟练使用 SQL 且 具备 A/B 实验设计与执行能力\n2. 熟练使用 SQL 进行数据分析\n3. 本科及以上学历\n4. 理解实验显著性与样本量估计",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "compound：SQL(Strong) 且 AB(Missing) → 最窄未满足子项 → Partial。监控用。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:F02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "F02",
+      "scenario_category": "compound",
+      "company": "星河智能",
+      "company_is_fictional": true,
+      "title": "Agent 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "agent"
+      ],
+      "job_description": "【星河智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 Agent 产品的设计与评测\n2. 定义工具调用与记忆能力\n3. 建立 Agent 质量回归\n\n任职要求：\n1. 具备 Agent 设计能力 且 Agent 专项评测能力\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 3 年以上产品经验\n4. 理解 Agent 的规划-执行-反思循环",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "compound：设计(基本满足) 且 专项评测(不足) → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:F03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "F03",
+      "scenario_category": "compound",
+      "company": "云启科技",
+      "company_is_fictional": true,
+      "title": "企业 AI 商业化产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation",
+        "enterprise_ai"
+      ],
+      "job_description": "【云启科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责企业 AI 产品的商业化闭环\n2. 定义定价、转化与续费策略\n3. 推动商业化目标达成\n\n任职要求：\n1. 有企业级产品经验 且 完整商业化闭环经验\n2. 具备跨职能协作与项目管理能力\n3. 3 年以上产品经验\n4. 对商业化有热情",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "compound：企业级产品(有) 且 商业化闭环(独立负责不足) → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:F04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "F04",
+      "scenario_category": "compound",
+      "company": "智源数科",
+      "company_is_fictional": true,
+      "title": "全栈 AI 产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "ai_product",
+      "ai_subdomain_tags": [
+        "llm_applications",
+        "ai_infrastructure"
+      ],
+      "job_description": "【智源数科】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 AI 产品从应用到底层的端到端设计\n2. 协同算法完成效果调优\n3. 推动产品迭代\n\n任职要求：\n1. 具备 LLM 应用交付能力 且 模型精度调优能力\n2. 有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历\n3. 1-3 年产品相关工作经验\n4. 了解精调与提示工程的适用边界",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "compound：应用交付(Strong) 且 精度调优(Missing) → 最窄未满足 → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:F05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "F05",
+      "scenario_category": "compound",
+      "company": "澜图科技",
+      "company_is_fictional": true,
+      "title": "数据治理产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "data_product",
+      "ai_subdomain_tags": [
+        "enterprise_ai"
+      ],
+      "job_description": "【澜图科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责数据开发与数据治理平台产品\n2. 定义元数据、质量与血缘能力\n3. 推动治理规范落地\n\n任职要求：\n1. 有数据开发经验 且 数据治理全流程经验\n2. 熟练使用 SQL 进行数据分析\n3. 3 年以上产品经验\n4. 了解元数据管理与数据血缘",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "compound：数据开发(有) 且 治理全流程(不足) → Partial。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G01",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G01",
+      "scenario_category": "role_core_mismatch",
+      "company": "熠芯科技",
+      "company_is_fictional": true,
+      "title": "私域用户运营专员",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "mismatched_control",
+      "ai_subdomain_tags": [
+        "ai_tools"
+      ],
+      "job_description": "【熠芯科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责私域社群与用户分层运营\n2. 策划社群活动与内容触达\n3. 通过 SCRM 分析用户行为\n\n任职要求：\n1. 有私域社群 / SCRM 运营经验\n2. 有用户增长 / 转化优化经验\n3. 关注并使用 AI 工具辅助内容生成\n4. 本科及以上学历",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "AI keyword trap：核心是私域运营(Missing)，AI 提及为 subjective。测试是否因 AI 关键词误评分。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G02",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G02",
+      "scenario_category": "role_core_mismatch",
+      "company": "鲸落数据",
+      "company_is_fictional": true,
+      "title": "商业化销售运营",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "mismatched_control",
+      "ai_subdomain_tags": [
+        "ai_commercialisation"
+      ],
+      "job_description": "【鲸落数据】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责 B 端商务拓展与渠道管理\n2. 跟进销售转化与回款\n3. 维护客户关系\n\n任职要求：\n1. 有 B 端销售 / 渠道商务拓展经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 了解 AI 产品的商业价值\n4. 本科及以上学历",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "核心是销售 BD(Missing)。AI 提及为 subjective。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G03",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G03",
+      "scenario_category": "role_core_mismatch",
+      "company": "天枢智联",
+      "company_is_fictional": true,
+      "title": "智能硬件产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "mismatched_control",
+      "ai_subdomain_tags": [],
+      "job_description": "【天枢智联】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责智能终端硬件产品从定义到量产\n2. 协调结构/电子/供应链完成硬件交付\n3. 管理 BOM 与良率\n\n任职要求：\n1. 有智能硬件 / 终端产品从设计到量产的经验\n2. 具备跨职能协作与项目管理能力\n3. 对 AI + 硬件结合有思考\n4. 本科及以上学历",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "核心是硬件量产(Missing)。role_family=mismatched_control。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G04",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G04",
+      "scenario_category": "role_core_mismatch",
+      "company": "谷雨AI",
+      "company_is_fictional": true,
+      "title": "通用产品经理（关注 AI）",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "campus_new_grad",
+      "role_family": "general_product",
+      "ai_subdomain_tags": [
+        "ai_tools"
+      ],
+      "job_description": "【谷雨AI】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责通用 C 端产品的需求分析与原型设计\n2. 协调研发/设计完成版本迭代\n3. 通过数据分析优化体验\n\n任职要求：\n1. 有通用 C 端产品的需求分析与原型设计经验\n2. 关注 AI 应用趋势，能借助 AI 优化基础工作\n3. 2027 届应届毕业生",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "general_product；‘关注 AI’为 subjective，不应升级为 AI 能力评分。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G05",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G05",
+      "scenario_category": "role_core_mismatch",
+      "company": "岚山科技",
+      "company_is_fictional": true,
+      "title": "电商运营产品经理",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "early_career",
+      "role_family": "mismatched_control",
+      "ai_subdomain_tags": [
+        "recommendation_search"
+      ],
+      "job_description": "【岚山科技】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责电商平台的运营与供应链产品\n2. 优化商品、履约与转化链路\n3. 通过数据分析支撑运营决策\n\n任职要求：\n1. 有电商平台运营 / 供应链产品经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 使用 AI 工具提升运营效率\n4. 本科及以上学历",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "核心是电商运营(Missing)。AI 提及为 subjective。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    },
+    {
+      "job_id": "synv2:G06",
+      "is_synthetic": true,
+      "dataset_role": "synthetic_behavioral_stress_test",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "company": "序列智能",
+      "company_is_fictional": true,
+      "title": "战略与商业分析",
+      "language": "zh",
+      "recruiting_style": "mainland_china",
+      "career_stage": "experienced",
+      "role_family": "strategy_growth_fintech_product",
+      "ai_subdomain_tags": [
+        "ai_commercialisation"
+      ],
+      "job_description": "【序列智能】所有公司名称均为虚构，仅用于受控压力测试，不指向任何真实企业。\n\n岗位职责：\n1. 负责公司级战略研究与商业分析\n2. 输出行业研究与竞品分析\n3. 支撑高层决策\n\n任职要求：\n1. 有战略咨询 / 商业分析 / 行业研究经验\n2. 具备扎实的数据分析与逻辑思维能力\n3. 关注 AI 行业动态\n4. 本科及以上学历\n5. 了解常见的战略分析框架",
+      "scenario_requires_manual_review": false,
+      "scenario_notes": "有业务分析证据但非正式战略咨询 → Partial。AI 提及为 subjective。",
+      "candidate_evidence_snapshot": {
+        "resume_hash": "a5c64e177db9454e4562c82bfd3e2dd82aeca613b6b3ba50c5618e66c71e4f4f",
+        "experience_bank_hash": "a96398734f5533bdfa0e35af48a3db35db7b9f7152cf16105abc7b5757affef5",
+        "semantics": "same frozen catalogue as V1 / V2-Real; no new candidate achievements invented"
+      }
+    }
+  ]
+}

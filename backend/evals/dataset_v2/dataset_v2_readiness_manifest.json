@@ -1,0 +1,138 @@
+{
+  "dataset_version": "v2",
+  "dataset_role": "held_out_validation_test",
+  "phase": "phase_4_provenance_policy_revision",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "pre_task_checkpoint_commit": "a82ee17",
+  "dataset_v1_used_for_prompt_tuning": true,
+  "dataset_v2_model_predictions_seen": false,
+  "dataset_v2_finalist_predictions_run": false,
+  "ground_truth_status": "not_started",
+  "dataset_freeze_status": "not_frozen",
+  "primary_finalist": "qwen3.8-max + job-fit-v3-rubric-refined-v2",
+  "secondary_finalist": "kimi-k3 + job-fit-v3-matchable-only",
+  "finalists_run_in_this_task": false,
+  "requirement_taxonomy": "V2 (eligibility|matchable|knowledge|subjective) — FROZEN, no V3",
+  "human_adjudication_rubric": "annotation-rubric-v2 — FROZEN (commits 9e09c7b / 7f5c77a)",
+  "frozen_dataset_v1_json_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+  "readiness_status": "NOT_READY",
+  "readiness_blockers": [
+    "Verified-real ELIGIBLE = 16; verified-real CORPUS = 0 (freeze/promotion is a pending human step).",
+    "Below the 24-job minimum by 8 (and 14 below the 30 preferred).",
+    "Only 2 distinct KNOWN companies among the eligible 16 (字节跳动, 水滴); 13 company=unknown.",
+    "0 early_career; 0 data_product; strategy_growth_fintech_product 1; general_product 1; mismatched_control 1.",
+    "Cities among eligible: 北京 2, unknown 14; 广州 / 杭州 / 上海 = 0.",
+    "Batch 1 (10) stays unverified (model-rendered) — not promoted.",
+    "Requirement-candidate taxonomy classification + human adjudication (labels, HMF) not started."
+  ],
+  "what_is_ready": [
+    "backend/evals/dataset_v2/ directory",
+    "dataset_v2_schema.json (job + requirement + balance-metadata schema, consistent with V1)",
+    "dataset_v2_collection_plan.md (sampling frame / quota targets from the task spec)",
+    "dataset_v2_jobs.{json,csv} empty skeleton with metadata block + field template",
+    "dataset_v2_requirements_candidate.{json,csv} empty skeleton",
+    "dataset_v2_v1_overlap_report.json (full 30-row V1 exclusion set + check spec, overlap=0)",
+    "dataset_v2_dedup_report.json (deterministic dedup check spec, 0 results)",
+    "dataset_v2_balance_report.json/.md (targets vs empty actuals, V1 baseline for comparison)",
+    "dataset_v2_annotation_template.{json,csv} (frozen annotation-rubric-v2 field set)",
+    "dataset_v2_human_adjudication_guide.md (frozen V1/V2 rules carried forward + frozen HMF question)",
+    "dataset_v2_access_probe.md (empirical source-access findings from this session)",
+    "dataset_v2_readiness_manifest.json (this file)"
+  ],
+  "production_unchanged": true,
+  "git": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  },
+  "updated_at": "2026-09-01T15:31:10.869243+00:00",
+  "batch1": {
+    "candidates_attempted": 16,
+    "accepted_into_corpus": 0,
+    "retrieved_provisional_not_verbatim": 10,
+    "rejected_v1_exact_duplicate": 3,
+    "excluded_access_failure": 3,
+    "requirement_candidates_extracted": 0,
+    "staging_file": "dataset_v2_batch1_staging.json"
+  },
+  "batch2": {
+    "pasted_jobs_detected": 16,
+    "jobs_parsed": 16,
+    "excluded_severe_corruption": 0,
+    "staged_provisional": 16,
+    "jobs_with_cleanup_applied": 9,
+    "jobs_with_corrupted_text_removed": 4,
+    "within_batch2_exact_dupes": 0,
+    "within_batch2_probable_near_dupes": 0,
+    "vs_batch1_dupes": 0,
+    "vs_v1_dupes": 0,
+    "known_companies": [
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)"
+    ],
+    "unknown_company_count": 13,
+    "requirement_candidates_heuristic_total": 196,
+    "requirement_candidates_production_parser_run": false,
+    "staging_file": "dataset_v2_batch2_staging.json"
+  },
+  "combined_candidate_pool": {
+    "batch1_provisional": 10,
+    "batch2_provisional": 16,
+    "total_provisional": 26,
+    "accepted_into_corpus": 0,
+    "source_verified": 0,
+    "distinct_known_companies": 4,
+    "known_companies": [
+      "京东",
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)",
+      "百度"
+    ],
+    "unknown_company_jobs": 13,
+    "career_stage_distribution": {
+      "campus_new_grad": 9,
+      "experienced": 7,
+      "unknown": 10
+    },
+    "role_family_distribution": {
+      "general_product": 3,
+      "platform_enterprise_product": 8,
+      "ai_product": 12,
+      "data_product": 1,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1
+    },
+    "distinct_ai_subdomains": 13
+  },
+  "v2_real_target": {
+    "preferred": 30,
+    "minimum": 24,
+    "current_verified_real_eligible": 16,
+    "current_verified_real_corpus": 0,
+    "additional_needed_hard_floor": 8,
+    "additional_needed_preferred": 14
+  },
+  "provenance_policy": {
+    "file": "dataset_v2_provenance_policy.md",
+    "levels": {
+      "A": "source_verified",
+      "B": "human_provenance_verified",
+      "C": "unverified (excluded)"
+    },
+    "automated_verbatim_recapture_mandatory": false,
+    "human_evaluator_is_provenance_authority_for_manual_copies": true
+  },
+  "verification_reassessment": {
+    "candidate_count": 26,
+    "source_verified": 0,
+    "human_provenance_verified": 16,
+    "unverified": 10,
+    "v1_duplicates_rejected": 3,
+    "verified_real_eligible": 16,
+    "verified_real_corpus_count": 0,
+    "cleaned_corruption_only": 4,
+    "file": "dataset_v2_verification_reassessment.json"
+  },
+  "requirement_extraction_gate_passed": true,
+  "batch2_ready_for_requirement_extraction": true
+}

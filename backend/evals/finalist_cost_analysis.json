@@ -1,0 +1,456 @@
+{
+ "artifact": "finalist_cost_analysis",
+ "created_at": "2026-09-03T00:00:00Z",
+ "source": "frozen T5 prediction artifacts only — NO new API calls",
+ "configs": {
+  "qwen": "qwen3.8-max + job-fit-v3-rubric-refined-v2 (Prompt C), Alibaba DashScope mainland (dashscope.aliyuncs.com/compatible-mode/v1), temperature=0, enable_thinking=false",
+  "kimi": "kimi-k3 + job-fit-v3-matchable-only (Control / Prompt A), Moonshot mainland (api.moonshot.cn/v1), temperature=1 (MODEL_REQUIRED_VALUE), reasoning_effort=low"
+ },
+ "pricing_basis": {
+  "status": "UNAVAILABLE / UNVERIFIABLE in this environment",
+  "repo_config_pricing": "none — prior eval artifacts record cost_status = PENDING_OFFICIAL_PRICING_VERIFICATION",
+  "provider_list_price_lookup": "not possible here; qwen3.8-max / kimi-k3 list prices are not verifiable from local config or accessible documentation and post-date available knowledge",
+  "rule_applied": "task §2: do not invent prices. Dollar cost is therefore given as a price-parameterised formula + a clearly-flagged PLACEHOLDER sensitivity grid; all price-independent economics (tokens, cache, latency, reliability) are reported as measured.",
+  "cost_formula_per_call_usd": "(uncached_input_tokens*Pin + cached_input_tokens*Pcache + output_tokens*Pout)/1e6",
+  "placeholder_grid_note": "GP-A/B/C are ILLUSTRATIVE price points to show the calculation structure and sensitivity — they are NOT qwen3.8-max or kimi-k3 pricing. Replace Pin/Pcache/Pout with verified DashScope-mainland and Moonshot-mainland list prices before quoting a bill."
+ },
+ "token_usage_actual": {
+  "per_model_per_dataset": {
+   "qwen/real": {
+    "n_calls": 8,
+    "usage_metadata_coverage": "8/8",
+    "prompt_tokens_total": 27205,
+    "prompt_tokens_mean": 3400.6,
+    "prompt_tokens_median": 3401.5,
+    "cached_prompt_tokens_total": 24576,
+    "cached_prompt_tokens_mean": 3072,
+    "uncached_prompt_tokens_total": 2629,
+    "cache_hit_rate_of_prompt": 0.9034,
+    "completion_tokens_total": 8020,
+    "completion_tokens_mean": 1002.5,
+    "completion_tokens_median": 996.0,
+    "reasoning_tokens_total": 0,
+    "reasoning_tokens_mean": 0,
+    "reasoning_share_of_completion": 0.0,
+    "total_tokens_total": 35225,
+    "total_tokens_mean": 4403.1,
+    "total_tokens_median": 4411.0,
+    "latency_ms_mean": 15322.5,
+    "latency_ms_median": 14826.2,
+    "latency_ms_p95": 17782.5,
+    "first_pass_success": 8,
+    "total_retries": 0,
+    "final_ok": 8,
+    "structured_output_parse_ok": 8
+   },
+   "kimi/real": {
+    "n_calls": 8,
+    "usage_metadata_coverage": "8/8",
+    "prompt_tokens_total": 24385,
+    "prompt_tokens_mean": 3048.1,
+    "prompt_tokens_median": 3050.5,
+    "cached_prompt_tokens_total": 1536,
+    "cached_prompt_tokens_mean": 192,
+    "uncached_prompt_tokens_total": 22849,
+    "cache_hit_rate_of_prompt": 0.063,
+    "completion_tokens_total": 7761,
+    "completion_tokens_mean": 970.1,
+    "completion_tokens_median": 977.5,
+    "reasoning_tokens_total": 784,
+    "reasoning_tokens_mean": 98,
+    "reasoning_share_of_completion": 0.101,
+    "total_tokens_total": 32146,
+    "total_tokens_mean": 4018.2,
+    "total_tokens_median": 4039.0,
+    "latency_ms_mean": 34134.3,
+    "latency_ms_median": 32435.0,
+    "latency_ms_p95": 58755.8,
+    "first_pass_success": 7,
+    "total_retries": 3,
+    "final_ok": 8,
+    "structured_output_parse_ok": 8
+   },
+   "qwen/synthetic": {
+    "n_calls": 50,
+    "usage_metadata_coverage": "50/50",
+    "prompt_tokens_total": 158146,
+    "prompt_tokens_mean": 3162.9,
+    "prompt_tokens_median": 3159.5,
+    "cached_prompt_tokens_total": 51200,
+    "cached_prompt_tokens_mean": 1024,
+    "uncached_prompt_tokens_total": 106946,
+    "cache_hit_rate_of_prompt": 0.3238,
+    "completion_tokens_total": 30663,
+    "completion_tokens_mean": 613.3,
+    "completion_tokens_median": 587.0,
+    "reasoning_tokens_total": 0,
+    "reasoning_tokens_mean": 0,
+    "reasoning_share_of_completion": 0.0,
+    "total_tokens_total": 188809,
+    "total_tokens_mean": 3776.2,
+    "total_tokens_median": 3747.0,
+    "latency_ms_mean": 9974.5,
+    "latency_ms_median": 9441.7,
+    "latency_ms_p95": 13321.2,
+    "first_pass_success": 50,
+    "total_retries": 0,
+    "final_ok": 50,
+    "structured_output_parse_ok": 50
+   },
+   "kimi/synthetic": {
+    "n_calls": 50,
+    "usage_metadata_coverage": "50/50",
+    "prompt_tokens_total": 140755,
+    "prompt_tokens_mean": 2815.1,
+    "prompt_tokens_median": 2812.5,
+    "cached_prompt_tokens_total": 19456,
+    "cached_prompt_tokens_mean": 389.1,
+    "uncached_prompt_tokens_total": 121299,
+    "cache_hit_rate_of_prompt": 0.1382,
+    "completion_tokens_total": 29842,
+    "completion_tokens_mean": 596.8,
+    "completion_tokens_median": 580.0,
+    "reasoning_tokens_total": 3979,
+    "reasoning_tokens_mean": 79.6,
+    "reasoning_share_of_completion": 0.1333,
+    "total_tokens_total": 170597,
+    "total_tokens_mean": 3411.9,
+    "total_tokens_median": 3404.5,
+    "latency_ms_mean": 22393.2,
+    "latency_ms_median": 21953.5,
+    "latency_ms_p95": 30109.7,
+    "first_pass_success": 50,
+    "total_retries": 0,
+    "final_ok": 50,
+    "structured_output_parse_ok": 50
+   }
+  },
+  "per_model_overall_58_calls": {
+   "qwen": {
+    "n_calls": 58,
+    "prompt_tokens_total": 185351,
+    "cached_prompt_tokens_total": 75776,
+    "uncached_prompt_tokens_total": 109575,
+    "completion_tokens_total": 38683,
+    "reasoning_tokens_total": 0,
+    "total_tokens_total": 224034,
+    "total_retries": 0,
+    "cache_hit_rate_of_prompt": 0.4088,
+    "reasoning_share_of_completion": 0.0,
+    "total_tokens_mean": 3862.7,
+    "first_pass_success": 58,
+    "final_ok": 58,
+    "structured_output_parse_ok": 58
+   },
+   "kimi": {
+    "n_calls": 58,
+    "prompt_tokens_total": 165140,
+    "cached_prompt_tokens_total": 20992,
+    "uncached_prompt_tokens_total": 144148,
+    "completion_tokens_total": 37603,
+    "reasoning_tokens_total": 4763,
+    "total_tokens_total": 202743,
+    "total_retries": 3,
+    "cache_hit_rate_of_prompt": 0.1271,
+    "reasoning_share_of_completion": 0.1267,
+    "total_tokens_mean": 3495.6,
+    "first_pass_success": 57,
+    "final_ok": 58,
+    "structured_output_parse_ok": 58
+   }
+  }
+ },
+ "cost_model_price_parameterised": {
+  "qwen": {
+   "real": {
+    "per_job_token_workload": {
+     "uncached_in": 328.6,
+     "cached_in": 3072.0,
+     "out": 1002.5
+    },
+    "placeholder_price_sensitivity_grid": [
+     {
+      "price_point": "GP-A low",
+      "Pin_per_1M": 0.4,
+      "Pcache_per_1M": 0.1,
+      "Pout_per_1M": 1.2,
+      "cost_per_job_usd": 0.001642,
+      "cost_per_100_jobs_usd": 0.1642,
+      "cost_per_1000_jobs_usd": 1.642,
+      "input_cost_component_usd_per_job": 0.000439,
+      "output_cost_component_usd_per_job": 0.001203
+     },
+     {
+      "price_point": "GP-B mid",
+      "Pin_per_1M": 1.2,
+      "Pcache_per_1M": 0.3,
+      "Pout_per_1M": 4.0,
+      "cost_per_job_usd": 0.005326,
+      "cost_per_100_jobs_usd": 0.5326,
+      "cost_per_1000_jobs_usd": 5.326,
+      "input_cost_component_usd_per_job": 0.001316,
+      "output_cost_component_usd_per_job": 0.00401
+     },
+     {
+      "price_point": "GP-C high",
+      "Pin_per_1M": 3.0,
+      "Pcache_per_1M": 0.75,
+      "Pout_per_1M": 12.0,
+      "cost_per_job_usd": 0.01532,
+      "cost_per_100_jobs_usd": 1.532,
+      "cost_per_1000_jobs_usd": 15.32,
+      "input_cost_component_usd_per_job": 0.00329,
+      "output_cost_component_usd_per_job": 0.01203
+     }
+    ]
+   },
+   "synthetic": {
+    "per_job_token_workload": {
+     "uncached_in": 2138.9,
+     "cached_in": 1024.0,
+     "out": 613.3
+    },
+    "placeholder_price_sensitivity_grid": [
+     {
+      "price_point": "GP-A low",
+      "Pin_per_1M": 0.4,
+      "Pcache_per_1M": 0.1,
+      "Pout_per_1M": 1.2,
+      "cost_per_job_usd": 0.001694,
+      "cost_per_100_jobs_usd": 0.1694,
+      "cost_per_1000_jobs_usd": 1.694,
+      "input_cost_component_usd_per_job": 0.000958,
+      "output_cost_component_usd_per_job": 0.000736
+     },
+     {
+      "price_point": "GP-B mid",
+      "Pin_per_1M": 1.2,
+      "Pcache_per_1M": 0.3,
+      "Pout_per_1M": 4.0,
+      "cost_per_job_usd": 0.005327,
+      "cost_per_100_jobs_usd": 0.5327,
+      "cost_per_1000_jobs_usd": 5.327,
+      "input_cost_component_usd_per_job": 0.002874,
+      "output_cost_component_usd_per_job": 0.002453
+     },
+     {
+      "price_point": "GP-C high",
+      "Pin_per_1M": 3.0,
+      "Pcache_per_1M": 0.75,
+      "Pout_per_1M": 12.0,
+      "cost_per_job_usd": 0.014544,
+      "cost_per_100_jobs_usd": 1.4544,
+      "cost_per_1000_jobs_usd": 14.544,
+      "input_cost_component_usd_per_job": 0.007185,
+      "output_cost_component_usd_per_job": 0.007359
+     }
+    ]
+   },
+   "effective_billable_input_tokens": {
+    "no_discount": {
+     "effective_input_tokens_58call": 185351,
+     "effective_input_tokens_v2real": 27205
+    },
+    "typical_0.25": {
+     "effective_input_tokens_58call": 128519,
+     "effective_input_tokens_v2real": 8773
+    },
+    "aggressive_0.10": {
+     "effective_input_tokens_58call": 117153,
+     "effective_input_tokens_v2real": 5087
+    }
+   },
+   "output_tokens_58call": 38683
+  },
+  "kimi": {
+   "real": {
+    "per_job_token_workload": {
+     "uncached_in": 2856.1,
+     "cached_in": 192.0,
+     "out": 970.1
+    },
+    "placeholder_price_sensitivity_grid": [
+     {
+      "price_point": "GP-A low",
+      "Pin_per_1M": 0.4,
+      "Pcache_per_1M": 0.1,
+      "Pout_per_1M": 1.2,
+      "cost_per_job_usd": 0.002326,
+      "cost_per_100_jobs_usd": 0.2326,
+      "cost_per_1000_jobs_usd": 2.326,
+      "input_cost_component_usd_per_job": 0.001162,
+      "output_cost_component_usd_per_job": 0.001164
+     },
+     {
+      "price_point": "GP-B mid",
+      "Pin_per_1M": 1.2,
+      "Pcache_per_1M": 0.3,
+      "Pout_per_1M": 4.0,
+      "cost_per_job_usd": 0.007365,
+      "cost_per_100_jobs_usd": 0.7365,
+      "cost_per_1000_jobs_usd": 7.365,
+      "input_cost_component_usd_per_job": 0.003485,
+      "output_cost_component_usd_per_job": 0.00388
+     },
+     {
+      "price_point": "GP-C high",
+      "Pin_per_1M": 3.0,
+      "Pcache_per_1M": 0.75,
+      "Pout_per_1M": 12.0,
+      "cost_per_job_usd": 0.020354,
+      "cost_per_100_jobs_usd": 2.0354,
+      "cost_per_1000_jobs_usd": 20.354,
+      "input_cost_component_usd_per_job": 0.008712,
+      "output_cost_component_usd_per_job": 0.011642
+     }
+    ]
+   },
+   "synthetic": {
+    "per_job_token_workload": {
+     "uncached_in": 2426.0,
+     "cached_in": 389.1,
+     "out": 596.8
+    },
+    "placeholder_price_sensitivity_grid": [
+     {
+      "price_point": "GP-A low",
+      "Pin_per_1M": 0.4,
+      "Pcache_per_1M": 0.1,
+      "Pout_per_1M": 1.2,
+      "cost_per_job_usd": 0.001726,
+      "cost_per_100_jobs_usd": 0.1726,
+      "cost_per_1000_jobs_usd": 1.726,
+      "input_cost_component_usd_per_job": 0.001009,
+      "output_cost_component_usd_per_job": 0.000716
+     },
+     {
+      "price_point": "GP-B mid",
+      "Pin_per_1M": 1.2,
+      "Pcache_per_1M": 0.3,
+      "Pout_per_1M": 4.0,
+      "cost_per_job_usd": 0.005415,
+      "cost_per_100_jobs_usd": 0.5415,
+      "cost_per_1000_jobs_usd": 5.415,
+      "input_cost_component_usd_per_job": 0.003028,
+      "output_cost_component_usd_per_job": 0.002387
+     },
+     {
+      "price_point": "GP-C high",
+      "Pin_per_1M": 3.0,
+      "Pcache_per_1M": 0.75,
+      "Pout_per_1M": 12.0,
+      "cost_per_job_usd": 0.014732,
+      "cost_per_100_jobs_usd": 1.4732,
+      "cost_per_1000_jobs_usd": 14.732,
+      "input_cost_component_usd_per_job": 0.00757,
+      "output_cost_component_usd_per_job": 0.007162
+     }
+    ]
+   },
+   "effective_billable_input_tokens": {
+    "no_discount": {
+     "effective_input_tokens_58call": 165140,
+     "effective_input_tokens_v2real": 24385
+    },
+    "typical_0.25": {
+     "effective_input_tokens_58call": 149396,
+     "effective_input_tokens_v2real": 23233
+    },
+    "aggressive_0.10": {
+     "effective_input_tokens_58call": 146247,
+     "effective_input_tokens_v2real": 23003
+    }
+   },
+   "output_tokens_58call": 37603
+  }
+ },
+ "cost_efficiency_token_denominated": {
+  "qwen": {
+   "v2_real_correct_requirements": 26,
+   "v2_real_total_requirements": 32,
+   "v2_real_jobs_with_successful_structured_output": 8,
+   "raw_total_tokens_v2real": 35225,
+   "raw_tokens_per_correct_requirement": 1354.8,
+   "raw_tokens_per_effective_correct_requirement": 1354.8,
+   "raw_tokens_per_job_with_structured_output": 4403.1,
+   "cache_adjusted_billable_tokens_per_correct_requirement": {
+    "no_discount": 1354.8,
+    "typical_0.25": 645.9,
+    "aggressive_0.10": 504.1
+   }
+  },
+  "kimi": {
+   "v2_real_correct_requirements": 27,
+   "v2_real_total_requirements": 32,
+   "v2_real_jobs_with_successful_structured_output": 8,
+   "raw_total_tokens_v2real": 32146,
+   "raw_tokens_per_correct_requirement": 1190.6,
+   "raw_tokens_per_effective_correct_requirement": 1190.6,
+   "raw_tokens_per_job_with_structured_output": 4018.2,
+   "cache_adjusted_billable_tokens_per_correct_requirement": {
+    "no_discount": 1190.6,
+    "typical_0.25": 1147.9,
+    "aggressive_0.10": 1139.4
+   }
+  }
+ },
+ "incremental_quality_vs_spend": {
+  "v2_real_macro_f1": {
+   "qwen": 0.8697,
+   "kimi": 0.892,
+   "delta_kimi_minus_qwen": 0.0223
+  },
+  "v2_real_ecc": {
+   "qwen": 0.8125,
+   "kimi": 0.8438,
+   "delta_kimi_minus_qwen": 0.0313
+  },
+  "v2_real_partial_f1": {
+   "qwen": 0.8235,
+   "kimi": 0.8276
+  },
+  "v2_real_correct_requirements": {
+   "qwen": 26,
+   "kimi": 27,
+   "delta": 1
+  },
+  "note": "kimi's nominal V2-Real edge = +1 correct requirement out of 32 (+0.022 Macro F1, +0.031 ECC). N=8 jobs / 32 rows: one label flip ~ 0.03 Macro F1. Treat as a statistical tie, not a purchasable quality increment.",
+  "raw_token_cost_of_kimi_vs_qwen_v2real": {
+   "kimi_total_tokens": 32146,
+   "qwen_total_tokens": 35225,
+   "kimi_minus_qwen_raw": -3079,
+   "comment": "On RAW tokens kimi uses ~9% fewer on V2-Real. But qwen's V2-Real prompt is ~90% cache-hit vs kimi ~6%; under any documented context-cache discount qwen's EFFECTIVE billable input is far lower (see effective_billable_input_tokens). kimi also bills ~10-13% of its completion as reasoning tokens; qwen bills none."
+  }
+ },
+ "latency_comparison": {
+  "qwen": {
+   "v2_real_mean_ms": 15322.5,
+   "v2_real_p95_ms": 17782.5,
+   "v2_synthetic_mean_ms": 9974.5,
+   "v2_synthetic_p95_ms": 13321.2
+  },
+  "kimi": {
+   "v2_real_mean_ms": 34134.3,
+   "v2_real_p95_ms": 58755.8,
+   "v2_synthetic_mean_ms": 22393.2,
+   "v2_synthetic_p95_ms": 30109.7
+  }
+ },
+ "reliability_comparison": {
+  "qwen": {
+   "first_pass_success_58": 58,
+   "final_ok_58": 58,
+   "structured_output_parse_ok_58": 58,
+   "total_retries_58": 0,
+   "transient_failures": "0"
+  },
+  "kimi": {
+   "first_pass_success_58": 57,
+   "final_ok_58": 58,
+   "structured_output_parse_ok_58": 58,
+   "total_retries_58": 3,
+   "transient_failures": "kimi: 1 (V2-Real HTTP 429 engine_overloaded, recovered on retry); qwen: 0"
+  }
+ },
+ "no_new_model_calls": true
+}

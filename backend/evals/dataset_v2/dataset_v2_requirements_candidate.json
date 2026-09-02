@@ -1,0 +1,25 @@
+{
+  "dataset_version": "v2",
+  "status": "SCAFFOLD_EMPTY_AWAITING_JOB_COLLECTION",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "note": "Canonical requirement candidates. Populate AFTER jobs are collected. Deterministic jd_parser candidate extraction is allowed ONLY if it is independent of the finalist matcher; human adjudication remains the source of truth. No Strong/Partial/Missing here.",
+  "requirement_id_function": "RequirementCatalogBuilder.stable_requirement_id(source_text, normalized_requirement, requirement_type, source_section)  -> reqv2_<16hex>",
+  "fields": [
+    "requirement_id",
+    "job_id",
+    "job_title",
+    "company",
+    "source_text",
+    "normalized_requirement",
+    "source_section",
+    "requirement_type",
+    "importance",
+    "eligibility_category",
+    "knowledge_topics",
+    "knowledge_text",
+    "score_included",
+    "extraction_method",
+    "extraction_is_finalist_matcher_output"
+  ],
+  "requirements": []
+}

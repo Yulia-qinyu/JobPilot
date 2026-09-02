@@ -1,0 +1,377 @@
+{
+  "purpose": "Exclusion set: every Dataset V1 job. Any V2 candidate matching a V1 job_id, canonical URL, normalized (title|company|city) key, or high JD-text similarity MUST be rejected.",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "dataset_v1_json_sha256": "3654d64c0f94e507e91343706bd79ca6b20f8081ee22880bf537744d88b2b558",
+  "v1_job_count": 30,
+  "v1_exclusion_rows": [
+    {
+      "job_id": "veeva:8ae64dee-34a9-4e69-84ef-b91bcde3f35f",
+      "source_url": "https://jobs.lever.co/veeva/8ae64dee-34a9-4e69-84ef-b91bcde3f35f",
+      "company": "Veeva",
+      "title": "Senior Product Manager - AI Agent",
+      "city": "上海",
+      "recruitment_type": "full-time",
+      "role_category": "ai_product",
+      "norm_key": "seniorproductmanageraiagent|veeva|上海",
+      "jd_text_sha256": "e70a602373b44e56d7cf1347e72fcbbaa7a85b4258de8b548f49f4ac5c50a1e1"
+    },
+    {
+      "job_id": "baidu:0ad545f8-07df-42f1-9a10-28e79d5dc407",
+      "source_url": "https://talent.baidu.com/jobs/detail/INTERN/0ad545f8-07df-42f1-9a10-28e79d5dc407",
+      "company": "百度",
+      "title": "AI 产品经理实习生（J103757）",
+      "city": "北京",
+      "recruitment_type": "internship",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理实习生j103757|百度|北京",
+      "jd_text_sha256": "993774e855a5ca04abd785b8001b564f7b8914bbe926b6d5fd8ec91fbbfdd1bb"
+    },
+    {
+      "job_id": "baidu:7d5223fc-87b7-41ab-aef9-73aede246b65",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/7d5223fc-87b7-41ab-aef9-73aede246b65",
+      "company": "百度",
+      "title": "AI产品经理（J84006）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理j84006|百度|北京",
+      "jd_text_sha256": "ce376ee2642e1dfbd96a8e654cbe3fe5b3330c618a8cc0f0fc1456904ecad933"
+    },
+    {
+      "job_id": "baidu:6de8b72f-3c95-4078-be9e-df2602a9aab5",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/6de8b72f-3c95-4078-be9e-df2602a9aab5",
+      "company": "百度",
+      "title": "AI产品经理（J84492）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理j84492|百度|北京",
+      "jd_text_sha256": "cd5fe1f5d886579023d555421d7ca52e2af4d5a2201b337a713ba040dfffaedd"
+    },
+    {
+      "job_id": "baidu:6182a4d3-51af-4396-af24-a3d690326bff",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/6182a4d3-51af-4396-af24-a3d690326bff",
+      "company": "百度",
+      "title": "AI产品经理（J96736）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理j96736|百度|北京",
+      "jd_text_sha256": "7ac20cb5fe52593a6f974dadaa60b128a27f148c05cd5f2a255efaa5e5d6e268"
+    },
+    {
+      "job_id": "baidu:cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/cb813c3a-f041-4bbe-b06f-8dc2c62e6aaf",
+      "company": "百度",
+      "title": "AI产品经理（J98328）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理j98328|百度|北京",
+      "jd_text_sha256": "43474540e7bed186d21d196ebfdf865a6ebe48b882fbdda0fb2599f0c921b28b"
+    },
+    {
+      "job_id": "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+      "source_url": "https://talent.baidu.com/jobs/detail/GRADUATE/423c0fa3-a0f3-4def-a882-7466d3685b79",
+      "company": "百度",
+      "title": "北京-AI产品经理(J100665)",
+      "city": "北京",
+      "recruitment_type": "campus",
+      "role_category": "ai_product",
+      "norm_key": "北京ai产品经理j100665|百度|北京",
+      "jd_text_sha256": "62cc4c8f65b2b8c115380c7b104deb4b4363b66c60040271468a175a88bc35a4"
+    },
+    {
+      "job_id": "baidu:ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/ff9ed74c-8ec5-41f6-8a4c-1950500bd9f2",
+      "company": "百度",
+      "title": "大模型产品经理（J72652）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "大模型产品经理j72652|百度|北京",
+      "jd_text_sha256": "49a970afa950dd9ed89f831101bdd5e0c64cfb4f74663640fbf353dbf077270d"
+    },
+    {
+      "job_id": "baidu:aa3be39c-798a-4d92-a5af-1c84fa63b049",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/aa3be39c-798a-4d92-a5af-1c84fa63b049",
+      "company": "百度",
+      "title": "大模型应用平台产品经理（J85776）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "大模型应用平台产品经理j85776|百度|北京",
+      "jd_text_sha256": "8bb93df0c52e9c9a4440b7852884b8cfe730fecd85923fe0f9a169fb09280da5"
+    },
+    {
+      "job_id": "tencent:2092538895714664448",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2092538895714664448",
+      "company": "腾讯",
+      "title": "AI产品经理",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理|腾讯|深圳",
+      "jd_text_sha256": "a753b81505e3bdd30a81b59f842dc91b3ca8d6367629615657a7679bb905e1eb"
+    },
+    {
+      "job_id": "tencent:2088450750270324736",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2088450750270324736",
+      "company": "腾讯",
+      "title": "AI产品经理-AI平台（Agent）方向",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "ai产品经理ai平台agent方向|腾讯|深圳",
+      "jd_text_sha256": "b63fe1cb4b5e7051b48890d79fa4b19468ebdec60d8efe38496c05fbb25aebc5"
+    },
+    {
+      "job_id": "tencent:2077347119940939776",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2077347119940939776",
+      "company": "腾讯",
+      "title": "QQ-Agent产品经理",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "qqagent产品经理|腾讯|深圳",
+      "jd_text_sha256": "5a3bf19157f4b4d6fedf4cd15ce5888c811aa5e8c00a4eb0992183443104ab6a"
+    },
+    {
+      "job_id": "tencent:1978467627152072704",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=1978467627152072704",
+      "company": "腾讯",
+      "title": "微信输入法-AI产品经理",
+      "city": "广州",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "微信输入法ai产品经理|腾讯|广州",
+      "jd_text_sha256": "cf707d92ce9fa5d460a7eb65419e61b67c71144efe97c8fb5f8623f897033a26"
+    },
+    {
+      "job_id": "tencent:2036621556322562048",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2036621556322562048",
+      "company": "腾讯",
+      "title": "腾讯会议-AI产品经理-ASR方向",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "腾讯会议ai产品经理asr方向|腾讯|深圳",
+      "jd_text_sha256": "6c623d255f7a720be5bf4d7efd3fd7148d2bff14edb699cd4a796852d3ef03a9"
+    },
+    {
+      "job_id": "tencent:2052527703940313088",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2052527703940313088",
+      "company": "腾讯",
+      "title": "证券-AI产品经理-金融AI应用体验方向",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "ai_product",
+      "norm_key": "证券ai产品经理金融ai应用体验方向|腾讯|深圳",
+      "jd_text_sha256": "7fcbb565705bd31c807addf929b815be44f9cf1a3206b8ee0539d6d88f32d20a"
+    },
+    {
+      "job_id": "greenhouse:4186650005",
+      "source_url": "https://boards.greenhouse.io/sesai/jobs/4186650005?gh_jid=4186650005",
+      "company": "SES AI",
+      "title": "Data Product Manager",
+      "city": "上海",
+      "recruitment_type": "full-time",
+      "role_category": "data_product",
+      "norm_key": "dataproductmanager|sesai|上海",
+      "jd_text_sha256": "69b190428a5aced9bb5191116d668d81e525af88776c06a08a2521307abe1ff1"
+    },
+    {
+      "job_id": "tencent:2077246089718837248",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2077246089718837248",
+      "company": "腾讯",
+      "title": "光子 AI-数据平台产品经理",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "data_product",
+      "norm_key": "光子ai数据平台产品经理|腾讯|深圳",
+      "jd_text_sha256": "22b6a633ab8a848b57123559bbf0b5a23f31abc0c213335a96efb74810b2db9d"
+    },
+    {
+      "job_id": "tencent:2013806539382611968",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2013806539382611968",
+      "company": "腾讯",
+      "title": "大数据产品经理（深圳/北京）",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "data_product",
+      "norm_key": "大数据产品经理深圳北京|腾讯|深圳",
+      "jd_text_sha256": "8ae186f9443c948e1502bd92b4451ab69b7704ee98aee6b79a186703cca37130"
+    },
+    {
+      "job_id": "tencent:2047239002926510080",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2047239002926510080",
+      "company": "腾讯",
+      "title": "金融科技-AI数据产品经理-数据开发方向",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "data_product",
+      "norm_key": "金融科技ai数据产品经理数据开发方向|腾讯|深圳",
+      "jd_text_sha256": "42248000e4a2178655137c312313df4bb75f7d827507d19e5632c6af24ae7480"
+    },
+    {
+      "job_id": "baidu:105aafd8-a50f-4ef6-aad3-d0a729f5e4a8",
+      "source_url": "https://talent.baidu.com/jobs/detail/INTERN/105aafd8-a50f-4ef6-aad3-d0a729f5e4a8",
+      "company": "百度",
+      "title": "产品经理实习生（J104146）",
+      "city": "北京",
+      "recruitment_type": "internship",
+      "role_category": "general_product",
+      "norm_key": "产品经理实习生j104146|百度|北京",
+      "jd_text_sha256": "866de76ca10bc544a3ea6fd5ae4c47cc09a1c35c90d33568bb040a53bd60eab7"
+    },
+    {
+      "job_id": "baidu:1270fb70-730e-4569-9385-b013690e607d",
+      "source_url": "https://talent.baidu.com/jobs/detail/GRADUATE/1270fb70-730e-4569-9385-b013690e607d",
+      "company": "百度",
+      "title": "北京-用户产品经理(J100806)",
+      "city": "北京",
+      "recruitment_type": "campus",
+      "role_category": "general_product",
+      "norm_key": "北京用户产品经理j100806|百度|北京",
+      "jd_text_sha256": "baa37845a812d283477b102c3052a64a85a5922e85632dcbcc1ff26639a7a8e7"
+    },
+    {
+      "job_id": "tencent:1994013057063473152",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=1994013057063473152",
+      "company": "腾讯",
+      "title": "企业微信-基础产品经理",
+      "city": "广州",
+      "recruitment_type": "experienced",
+      "role_category": "general_product",
+      "norm_key": "企业微信基础产品经理|腾讯|广州",
+      "jd_text_sha256": "e9ef5d97b728fd8622b6ac345458d3f53e4c7fb6c94442d972e3e21699389ba2"
+    },
+    {
+      "job_id": "tencent:2078278970276753408",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2078278970276753408",
+      "company": "腾讯",
+      "title": "腾讯云-经营系统产品经理",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "general_product",
+      "norm_key": "腾讯云经营系统产品经理|腾讯|深圳",
+      "jd_text_sha256": "3b040c8c84727d48d960c84a6d6e6ea5a2af2da267bdd4cb5822ef5c30d4faaf"
+    },
+    {
+      "job_id": "tencent:2041409199149314048",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2041409199149314048",
+      "company": "腾讯",
+      "title": "腾讯会议-评测产品经理",
+      "city": "深圳",
+      "recruitment_type": "experienced",
+      "role_category": "general_product",
+      "norm_key": "腾讯会议评测产品经理|腾讯|深圳",
+      "jd_text_sha256": "93b692fbf5ef5a68ca078c425622727cde51787e5a65e2f0ad1337404144d888"
+    },
+    {
+      "job_id": "xsolla:252b30e5-ce58-4a32-88b3-07ee83d06e67",
+      "source_url": "https://jobs.lever.co/xsolla/252b30e5-ce58-4a32-88b3-07ee83d06e67",
+      "company": "Xsolla",
+      "title": "AI-First Engineering Intern",
+      "city": "北京",
+      "recruitment_type": "internship",
+      "role_category": "mismatched_control",
+      "norm_key": "aifirstengineeringintern|xsolla|北京",
+      "jd_text_sha256": "7e922a4f42551bf015fe221efe158a2867c6e783cd3047dd1391fdd45d95242e"
+    },
+    {
+      "job_id": "huawei:28183",
+      "source_url": "https://career.huawei.com/reccampportal/portal5/social-recruitment-detail.html?dataSource=1&jobId=28183",
+      "company": "华为",
+      "title": "AI大模型架构师（训练/推理）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "mismatched_control",
+      "norm_key": "ai大模型架构师训练推理|华为|北京",
+      "jd_text_sha256": "f6b3d253dde08b9aebf17d4135b8655e09f291841b457cdb328a839efda0f582"
+    },
+    {
+      "job_id": "tencent:2064981110395420672",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2064981110395420672",
+      "company": "腾讯",
+      "title": "微信-语音识别算法工程师",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "mismatched_control",
+      "norm_key": "微信语音识别算法工程师|腾讯|北京",
+      "jd_text_sha256": "a92965e42df3ae4ebc60c1ff4d0cfdf751e9b50ee5ec01fe8a44d0cd5d7f5a02"
+    },
+    {
+      "job_id": "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+      "source_url": "https://talent.baidu.com/jobs/detail/GRADUATE/0f336f8e-a440-4ebb-a45a-5554b493e527",
+      "company": "百度",
+      "title": "北京-策略产品经理(J100784)",
+      "city": "北京",
+      "recruitment_type": "campus",
+      "role_category": "strategy_growth_fintech",
+      "norm_key": "北京策略产品经理j100784|百度|北京",
+      "jd_text_sha256": "d3dc1096429fa6870b08c5db0a9f0440031fe7640b6fe250a16a725dbbb0bd7a"
+    },
+    {
+      "job_id": "baidu:f9302c30-aace-449e-8a6d-97c53f4dbf53",
+      "source_url": "https://talent.baidu.com/jobs/detail/SOCIAL/f9302c30-aace-449e-8a6d-97c53f4dbf53",
+      "company": "百度",
+      "title": "大模型策略产品经理（J97330）",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "strategy_growth_fintech",
+      "norm_key": "大模型策略产品经理j97330|百度|北京",
+      "jd_text_sha256": "d9ebefa798f639dc835199df424c20332b4ec72c630804d1ac76dea391b1ee3c"
+    },
+    {
+      "job_id": "tencent:2083093175941115904",
+      "source_url": "https://careers.tencent.com/jobdesc.html?postId=2083093175941115904",
+      "company": "腾讯",
+      "title": "腾讯视频-增长产品经理",
+      "city": "北京",
+      "recruitment_type": "experienced",
+      "role_category": "strategy_growth_fintech",
+      "norm_key": "腾讯视频增长产品经理|腾讯|北京",
+      "jd_text_sha256": "4b917b5ba0d6ed585d7f82f56ed43e9602b62dc0b9bee9c6c7c7becf9dfac726"
+    }
+  ],
+  "v2_job_count": 0,
+  "checks": {
+    "exact_job_id_overlap": {
+      "run": true,
+      "candidates_checked": 16,
+      "overlap_count": 3,
+      "overlapping_ids": [
+        "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+        "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+        "baidu:1270fb70-730e-4569-9385-b013690e607d"
+      ],
+      "detail": "Batch 1 candidates #1 #2 #3 reuse the exact Baidu source UUIDs of Dataset V1 jobs (J100665 / J100784 / J100806). Rejected; not retrieved; not staged."
+    },
+    "canonical_url_overlap": {
+      "run": true,
+      "v2_jobs_checked": 0,
+      "overlap_count": 0
+    },
+    "normalized_title_company_city_overlap": {
+      "run": true,
+      "candidates_checked": 16,
+      "overlap_count": 3,
+      "detail": "Same three candidates also collide on normalized (title|company|city)."
+    },
+    "jd_text_similarity_near_duplicate": {
+      "run": true,
+      "method": "normalized 4-gram Jaccard + SequenceMatcher ratio",
+      "flag_thresholds": {
+        "jaccard": 0.72,
+        "sequence_ratio": 0.86
+      },
+      "v2_jobs_checked": 0,
+      "probable_near_duplicate_count": 0,
+      "candidates_checked": 10,
+      "note": "Run on the 10 provisionally-retrieved jobs against all 30 V1 jobs: 0 near-duplicates. Note the retrieved text is model-rendered, so a verbatim re-check is required after re-capture."
+    }
+  },
+  "result": "3 exact Dataset V1 overlaps found in Batch 1 (candidates 1-3) and rejected. 0 accepted V2 jobs yet; 10 provisionally staged (non-verbatim).",
+  "batch1_candidates_checked": 16
+}

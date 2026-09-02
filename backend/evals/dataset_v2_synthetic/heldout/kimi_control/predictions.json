@@ -1,0 +1,2132 @@
+{
+ "config": {
+  "provider": "kimi",
+  "model": "kimi-k3",
+  "prompt": "control",
+  "temperature": 1,
+  "extra": {
+   "reasoning_effort": "low"
+  },
+  "prompt_id": "job-fit-v3-matchable-only",
+  "section_d": "canonical 4-field output contract",
+  "max_tokens": 4096,
+  "retry_policy": "<= 2 transient retries, applied equally"
+ },
+ "dataset": "synthetic",
+ "run_at": "2026-09-02T13:27:10.727686+00:00",
+ "gt_leak_guard": "GROUND_TRUTH_NOT_LOADED_YET",
+ "call_count": 50,
+ "first_pass_success": 50,
+ "total_retries": 0,
+ "final_ok": 50,
+ "parse_ok": 50,
+ "records": [
+  {
+   "job_id": "synv2:A01",
+   "submitted_requirement_ids": [
+    "synreq_c7935c589246",
+    "synreq_51031ce43fe5"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 25711.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2836,
+    "completion_tokens": 736,
+    "total_tokens": 3572,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 92
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 LLM / 对话式 AI 产品方向有较强的完整落地证据：以 Product Owner 身份主导 GoFin 智能财务目标管理平台的需求、Backlog、跨职能交付及 LLM 集成与 RAG 对话式目标创建。但多模态（图文/视频/语音）大模型产品经验缺乏直接证据，现有 AI 经历主要集中于文本类 LLM 与 RAG 应用，建议面试前补充相关认知与案例准备。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_c7935c589246\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"\n      ],\n      \"reason\": \"候选人有 LLM 应用开发与 RAG 文件分析等文本类大模型产品经验，并在 GoFin 项目中负责 LLM 集成，但证据未涉及图文、视频、语音等多模态模型的产品实践，模态覆盖不完整。\"\n    },\n    {\n      \"requirement_id\": \"synreq_51031ce43fe5\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:21\"\n      ],\n      \"reason\": \"候选人以 Product Owner 身份负责 GoFin 平台从需求、User Stories、跨职能交付到 LLM 集成与对话式目标创建的完整流程，并有产品迭代交付与客户反馈分析经历，直接满足从需求到上线的落地要求。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理多模态大模型产品认知与案例\",\n      \"action\": \"系统准备图文、视频、语音多模态模型（如多模态输入输出、典型产品形态）的产品知识，并思考如何将现有 LLM/RAG 经验迁移到多模态场景，以弥补直接经历的不足。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_c7935c589246\"]\n    },\n    {\n      \"title\": \"准备 GoFin 项目端到端落地复盘\",\n      \"action\": \"整理 GoFin 项目从需求定义、Backlog 管理、跨职能协作到 LLM 集成上线的完整叙事，量化成果并准备应对关于对话式 AI 产品落地细节的追问。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_51031ce43fe5\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_c7935c589246": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    },
+    "synreq_51031ce43fe5": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:21"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A02",
+   "submitted_requirement_ids": [
+    "synreq_e2fc941b8edc",
+    "synreq_b2cbe0bd5931"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19385.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2816,
+    "completion_tokens": 473,
+    "total_tokens": 3289,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 28
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人具备AI大模型产品实习、LLM/RAG项目与数据分析经验，对AI方案的业务评估有一定支撑，但缺乏语音识别（ASR）或语音交互产品的直接经验。建议补充语音交互领域知识并强化AI价值评估的案例表达。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_e2fc941b8edc\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"现有证据仅涉及LLM应用、RAG和NLP文本项目，没有任何语音识别（ASR）或语音交互产品相关的经历或技能证据。\"}, {\"requirement_id\": \"synreq_b2cbe0bd5931\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:28\"], \"reason\": \"候选人在中国电子云参与产品需求讨论、探索大模型应用方向并开展竞品分析，也曾在KPay通过数据洞察支持业务决策，具备一定价值与可行性分析基础；但缺乏明确独立评估AI方案业务价值与可行性的完整案例。\"}], \"suggested_preparation\": [{\"title\": \"补充ASR与语音交互产品知识\", \"action\": \"系统学习语音识别（ASR）技术原理、主流产品（如智能客服语音、语音助手）的交互设计，并准备一个将现有LLM/RAG经验迁移到语音交互场景的思路，以便面试中展示学习能力。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_e2fc941b8edc\"]}, {\"title\": \"梳理AI方案价值评估案例\", \"action\": \"整理中国电子云实习中探索大模型应用方向和竞品分析的具体产出，以及GoFin项目中LLM集成的决策过程，形成可量化的业务价值与可行性评估叙述。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_b2cbe0bd5931\"]}]}",
+   "predicted_matches": {
+    "synreq_e2fc941b8edc": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_b2cbe0bd5931": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:28"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A03",
+   "submitted_requirement_ids": [
+    "synreq_399feb01aabb",
+    "synreq_c9997f649ea6",
+    "synreq_816b778459ec"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 27641.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2879,
+    "completion_tokens": 838,
+    "total_tokens": 3717,
+    "completion_tokens_details": {
+     "reasoning_tokens": 146
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在跨职能协作与项目管理方面有直接的项目负责人和 Product Owner 经验，匹配度较高；但在大模型精度调优、基模训练、强化学习训练方面仅有数据支持、模型训练评估等周边经验，缺乏直接证据；对大模型训练流程有一定接触但实验管理经验未明确体现。建议重点补充训练流程与调优相关的具体实践表述。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_399feb01aabb\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:22\", \"resume_extracted:resume_extracted:29\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\"], \"reason\": \"候选人有为模型训练提供数据支持、完成模型训练评估的经历，但证据中未体现大模型精度调优、基模训练或强化学习训练的直接经验。\"}, {\"requirement_id\": \"synreq_c9997f649ea6\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:22\", \"resume_extracted:resume_extracted:29\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"], \"reason\": \"候选人参与过数据清洗、特征工程和模型训练评估，并有大语言模型应用开发经历，对训练流程有接触，但缺乏系统的实验管理（如实验跟踪、调参记录）证据。\"}, {\"requirement_id\": \"synreq_816b778459ec\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:30\"], \"reason\": \"候选人作为 Product Owner 负责 Backlog、User Stories 和跨职能交付，并协调前端、后端、AI、数据库、测试团队，且担任过项目负责人，直接满足跨职能协作与项目管理要求。\"}], \"suggested_preparation\": [{\"title\": \"梳理大模型训练相关项目细节\", \"action\": \"准备在中国电子云实习和个人 NLP 项目中与模型训练相关的具体贡献描述，明确自己在数据准备、训练评估中的角色，并坦诚说明调优/基模训练经验的边界。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_399feb01aabb\", \"synreq_c9997f649ea6\"]}, {\"title\": \"补充实验管理与训练流程知识\", \"action\": \"系统复习大模型训练流程（预训练、微调、RLHF）及实验管理工具（如 W&B、MLflow），以便面试中能清晰讨论方法论，弥补实操证据不足。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_399feb01aabb\", \"synreq_c9997f649ea6\"]}, {\"title\": \"准备跨职能协作案例\", \"action\": \"整理 GoFin 项目中作为 Product Owner 协调多职能团队、管理 Backlog 与交付的具体案例（如冲突处理、优先级决策），用于行为面试。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_816b778459ec\"]}]}",
+   "predicted_matches": {
+    "synreq_399feb01aabb": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:22",
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11"
+     ]
+    },
+    "synreq_c9997f649ea6": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:22",
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "synreq_816b778459ec": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A04",
+   "submitted_requirement_ids": [
+    "synreq_b23aa93e2e64",
+    "synreq_790c0d429007"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 30099.4,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2814,
+    "completion_tokens": 526,
+    "total_tokens": 3340,
+    "completion_tokens_details": {
+     "reasoning_tokens": 73
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在数据分析与逻辑思维方面有扎实的多段实习和项目证据，可评为 Strong；但推荐系统召回/排序/重排的专项策略经验在现有证据中无直接支撑，属于明显缺口，建议针对性补充准备。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_b23aa93e2e64\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"证据库中没有任何推荐系统召回、排序或重排相关的策略或项目经验。现有的模型训练与特征工程经历集中在 NLP 情感分析和欺诈检测场景，与推荐系统链路不直接相关。\"}, {\"requirement_id\": \"synreq_790c0d429007\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:30\", \"resume_extracted:resume_extracted:18\"], \"reason\": \"候选人在 KPay 通过数据分析优化转化路径并建立 KPI 监控体系，还主导百万级数据的 EDA 与建模分析，并设计 SQL 触发器与归因逻辑，数据分析与逻辑思维能力有直接且充分的证据支撑。\"}], \"suggested_preparation\": [{\"title\": \"补足推荐系统知识框架\", \"action\": \"系统学习推荐系统召回（如协同过滤、向量召回）、排序（如 CTR 预估、Learning to Rank）与重排（多样性、业务规则）的典型策略，准备能结合过往数据分析经验阐述如何迁移到推荐场景的回答。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_b23aa93e2e64\"]}, {\"title\": \"准备数据分析案例的结构化陈述\", \"action\": \"将 KPay 的转化路径优化、KPI 监控和欺诈数据分析项目整理为 STAR 结构案例，突出分析思路、SQL/Python 工具链和量化业务影响，以应对数据分析能力的行为面试考察。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_790c0d429007\"]}]}",
+   "predicted_matches": {
+    "synreq_b23aa93e2e64": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_790c0d429007": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:18"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A05",
+   "submitted_requirement_ids": [
+    "synreq_ac0a9beffc73",
+    "synreq_1ecbab51908d"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 21222.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2807,
+    "completion_tokens": 505,
+    "total_tokens": 3312,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 101
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人具备 RAG 产品实践的直接证据（GoFin 项目中负责 RAG 与 LLM 集成），但缺乏搜索排序 / 相关性策略方面的任何项目经验，整体匹配度偏中等。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_ac0a9beffc73\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"证据目录中没有任何涉及搜索排序、相关性策略或检索召回的项目经历，现有 NLP 与数据分析项目均不直接覆盖该能力。\"}, {\"requirement_id\": \"synreq_1ecbab51908d\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"GoFin 项目中作为 Product Owner 直接负责 RAG 与 LLM 集成，属于 RAG 应用的产品实践；简历 AI 经历中的 RAG 文件分析进一步佐证。\"}], \"suggested_preparation\": [{\"title\": \"补充搜索排序 / 相关性方向的认知准备\", \"action\": \"系统学习搜索排序核心概念（召回、粗排、精排、相关性评估指标如 NDCG、CTR），结合大模型/RAG 检索排序的关联点，准备面试中的策略讨论。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_ac0a9beffc73\"]}, {\"title\": \"梳理 RAG 项目的产品叙事\", \"action\": \"将 GoFin 项目中 RAG 与 LLM 集成的需求背景、方案取舍、评估方式整理成结构化案例，突出产品视角（用户需求、指标、迭代）以支撑面试问答。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_1ecbab51908d\"]}]}",
+   "predicted_matches": {
+    "synreq_ac0a9beffc73": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_1ecbab51908d": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A06",
+   "submitted_requirement_ids": [
+    "synreq_0ba286dafff6",
+    "synreq_6c53bb4ff35e"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 21875.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2810,
+    "completion_tokens": 620,
+    "total_tokens": 3430,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 131
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人具备扎实的产品设计与功能策划经验（GoFin Product Owner），但在图文/视频多模态生成产品方向仅有相关 AI 产品经验，缺乏直接的多模态生成产品经历，面试前需重点补强该方向的认知与案例准备。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_0ba286dafff6\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:21\",\"resume_extracted:resume_extracted:resume:1:ai_experience:0\"],\"reason\":\"候选人有 LLM/RAG 等 AI 产品经验（GoFin Product Owner、中国电子云 AI 大模型实习），但证据均为文本/对话类 AI 应用，未涉及图文或视频多模态生成产品，能力方向仅部分相关。\"},{\"requirement_id\":\"synreq_6c53bb4ff35e\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:resume:1:product_experience:9\",\"resume_extracted:resume_extracted:resume:1:product_experience:5\",\"resume_extracted:resume_extracted:23\"],\"reason\":\"候选人在 GoFin 项目担任 Product Owner，负责需求管理、产品流程、Backlog、User Stories 与迭代交付，并有跨职能协调和竞品分析经历，直接证明产品设计与功能策划能力。\"}],\"suggested_preparation\":[{\"title\":\"梳理 AI 产品经验与多模态方向的连接点\",\"action\":\"面试前准备 GoFin 与中国电子云项目的产品方法论叙述，主动补充对图文/视频多模态生成产品（如文生图、视频生成工具）的调研与思考，说明能力可迁移性，但勿虚构相关经历。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_0ba286dafff6\"]},{\"title\":\"准备产品设计完整案例\",\"action\":\"以 GoFin 项目为主线，准备从需求分析、功能策划到迭代交付的完整 STAR 案例，突出 Backlog 管理、User Stories 撰写和跨职能协作细节。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_6c53bb4ff35e\"]}]}",
+   "predicted_matches": {
+    "synreq_0ba286dafff6": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "synreq_6c53bb4ff35e": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:23"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A07",
+   "submitted_requirement_ids": [
+    "synreq_6bb69f136644",
+    "synreq_4c7c53a4315e"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19078.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2836,
+    "completion_tokens": 552,
+    "total_tokens": 3388,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 47
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人具备LLM/对话式AI产品从需求到交付的完整落地经历，与GoFin项目高度匹配；但证据库中没有任何语音大模型、TTS或语音合成相关经验，该项为明显缺口。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_6bb69f136644\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"证据目录中没有任何语音大模型、TTS或语音合成产品相关经历，候选人的AI经验集中在文本类LLM应用与RAG方向。\"\n    },\n    {\n      \"requirement_id\": \"synreq_4c7c53a4315e\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"作为GoFin智能财务目标平台的Product Owner，候选人负责需求、Backlog、跨职能交付、LLM集成、RAG和对话式目标创建，覆盖从需求到上线的完整链路；中国电子云实习中的大模型产品需求讨论进一步佐证。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理GoFin项目端到端落地叙事\",\n      \"action\": \"准备GoFin项目从需求定义、Backlog管理到LLM/RAG集成上线的完整案例，量化交付成果与用户反馈，用于面试中直接回应LLM对话式AI产品落地要求。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_4c7c53a4315e\"]\n    },\n    {\n      \"title\": \"补齐语音AI领域认知\",\n      \"action\": \"系统学习语音大模型与TTS技术原理、主流产品形态及评测指标，并思考如何将现有LLM对话产品经验迁移到语音交互场景，以便在面试中展示学习能力而非虚构经验。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_6bb69f136644\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_6bb69f136644": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_4c7c53a4315e": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A08",
+   "submitted_requirement_ids": [
+    "synreq_90a7361ccef9",
+    "synreq_b82863bde319",
+    "synreq_8ab808150f23"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 21596.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2866,
+    "completion_tokens": 674,
+    "total_tokens": 3540,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 85
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在模型效果评估和数据分析方面有较扎实的证据支持，包括NLP项目中的模型训练评估、大规模数据分析项目及KPay数据分析实习经历；但未见任何RLHF/强化学习/偏好对齐的直接经验，这是主要差距。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_90a7361ccef9\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"候选人有数据清洗、特征工程、LLM应用与RAG经验，但目录中没有任何RLHF、强化学习或偏好对齐训练的直接证据。\"}, {\"requirement_id\": \"synreq_b82863bde319\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:29\", \"resume_extracted:resume_extracted:30\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\"], \"reason\": \"电商评论NLP项目和银行欺诈数据项目中均明确包含模型训练评估，技能栏也列出模型性能评估，直接满足模型效果评估要求。\"}, {\"requirement_id\": \"synreq_8ab808150f23\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:30\"], \"reason\": \"KPay实习中搭建ETL、SQL归因逻辑、KPI监控体系并输出业务分析报告，另有Python处理百万级数据的项目经验，数据分析与逻辑思维能力证据充分。\"}], \"suggested_preparation\": [{\"title\": \"补齐RLHF/偏好对齐知识储备\", \"action\": \"系统学习RLHF流程（奖励模型、PPO/DPO等偏好对齐方法），可结合现有LLM/RAG项目思考如何在数据清洗和评估环节引入人类偏好标注，面试中诚实说明为快速学习中的方向。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_90a7361ccef9\"]}, {\"title\": \"梳理模型评估方法论表达\", \"action\": \"将NLP情感分析和欺诈检测项目中的评估指标（如准确率、F1、混淆矩阵等）整理成结构化案例，准备说明如何评估大模型输出效果。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_b82863bde319\"]}, {\"title\": \"准备数据分析量化案例\", \"action\": \"提炼KPay实习中SQL归因、KPI监控和转化优化的具体业务影响，用STAR结构呈现数据分析到决策的完整链路。\", \"priority\": \"Low\", \"requirement_ids\": [\"synreq_8ab808150f23\"]}]}",
+   "predicted_matches": {
+    "synreq_90a7361ccef9": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_b82863bde319": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11"
+     ]
+    },
+    "synreq_8ab808150f23": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A09",
+   "submitted_requirement_ids": [
+    "synreq_a7efd870a86b",
+    "synreq_34eac9ebb94e",
+    "synreq_b6e60db72007"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 26494.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2884,
+    "completion_tokens": 743,
+    "total_tokens": 3627,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 111
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在跨职能协作与项目管理方面证据充分，可评为Strong；大模型推理框架（vLLM/SGLang）仅有LLM应用与模型评估的相关经历，缺乏推理框架直接经验，为Partial；GPU/国产算力卡算子开发无任何直接证据，为Missing。建议重点补充推理框架与算子开发相关知识储备。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_a7efd870a86b\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\", \"resume_extracted:resume_extracted:28\"], \"reason\": \"候选人有LLM应用开发、RAG集成和模型性能评估经历，与大模型工程相关，但无任何vLLM/SGLang等推理框架的直接使用证据。\"}, {\"requirement_id\": \"synreq_34eac9ebb94e\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"候选人证据中无GPU或国产算力卡算子开发经历，仅有C/C++技能关键词，不足以支持该要求。\"}, {\"requirement_id\": \"synreq_b6e60db72007\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:20\"], \"reason\": \"候选人在GoFin项目担任Product Owner，负责Backlog、User Stories与跨职能交付，并协调前端、后端、AI、数据库、测试团队，直接证明跨职能协作与项目管理能力。\"}], \"suggested_preparation\": [{\"title\": \"补充大模型推理框架知识\", \"action\": \"自学vLLM/SGLang的核心机制（如PagedAttention、连续批处理），可结合既有LLM应用与模型评估经历说明学习迁移能力，准备面试中相关技术问答。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_a7efd870a86b\"]}, {\"title\": \"了解GPU算子开发基础\", \"action\": \"学习CUDA/Triton或国产算力卡（如昇腾CANN）算子开发基础概念，诚实说明当前无实战经验但具备C/C++基础和学习意愿。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_34eac9ebb94e\"]}, {\"title\": \"梳理跨职能协作案例\", \"action\": \"准备GoFin项目中协调多技术团队、管理Backlog与交付节奏的具体STAR案例，突出项目管理方法论。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_b6e60db72007\"]}]}",
+   "predicted_matches": {
+    "synreq_a7efd870a86b": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11",
+      "resume_extracted:resume_extracted:28"
+     ]
+    },
+    "synreq_34eac9ebb94e": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_b6e60db72007": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:20"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:A10",
+   "submitted_requirement_ids": [
+    "synreq_411aeef1797f",
+    "synreq_a37b5fdac403",
+    "synreq_28fcdec35d7a"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 26160.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2870,
+    "completion_tokens": 743,
+    "total_tokens": 3613,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 109
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在数据分析与逻辑思维方面证据充分（SQL、ETL、Python 百万级数据处理、KPI 分析体系），可评为 Strong；但缺乏广告/推荐/竞价策略相关的产品经验，也无 A/B 实验设计与执行的直接证据，此两项为 Missing。建议重点补充策略产品方法论与实验设计知识储备。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_411aeef1797f\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"现有证据集中于增长运营、AI 产品与金融科技领域，未涉及广告、推荐或竞价策略相关的产品经验。\"\n    },\n    {\n      \"requirement_id\": \"synreq_a37b5fdac403\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:30\"\n      ],\n      \"reason\": \"候选人在 KPay 搭建 ETL 与归因逻辑、建立 KPI 监控分析体系并输出数据洞察，且用 Python 处理百万级数据开展 EDA 与建模，数据分析与逻辑能力证据扎实。\"\n    },\n    {\n      \"requirement_id\": \"synreq_28fcdec35d7a\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"证据中仅体现转化路径优化与 KPI 监控，没有 A/B 实验设计、分组执行或效果评估的直接经历。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补充广告/推荐/竞价策略知识框架\",\n      \"action\": \"系统学习广告竞价机制（如 GSP/VCG）、推荐系统漏斗（召回-排序）与策略产品工作流程，结合 KPay 增长运营经历思考可迁移的策略思路，准备面试中的策略分析题。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_411aeef1797f\"]\n    },\n    {\n      \"title\": \"掌握 A/B 实验设计与案例分析\",\n      \"action\": \"学习假设设定、样本量估算、指标选择与显著性检验等实验方法，准备基于过往转化优化经历如何设计 A/B 测试的结构化回答。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_28fcdec35d7a\"]\n    },\n    {\n      \"title\": \"梳理数据分析项目叙事\",\n      \"action\": \"整理 KPay 归因逻辑搭建与欺诈数据分析项目的 STAR 叙述，突出分析框架、SQL/Python 实操与业务结论，强化数据能力优势。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_a37b5fdac403\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_411aeef1797f": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_a37b5fdac403": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30"
+     ]
+    },
+    "synreq_28fcdec35d7a": {
+     "label": "Missing",
+     "evidence_ids": []
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B01",
+   "submitted_requirement_ids": [
+    "synreq_cb83e27ff2a5"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 16481.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2762,
+    "completion_tokens": 437,
+    "total_tokens": 3199,
+    "completion_tokens_details": {
+     "reasoning_tokens": 47
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 GoFin 智能财务目标管理平台担任 Product Owner，覆盖需求、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成与 RAG 对话式功能，证据直接支持完整的 LLM/对话式 AI 产品落地经历，判定为 Strong。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_cb83e27ff2a5\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\"], \"reason\": \"在 GoFin 平台担任 Product Owner，负责从需求、Backlog、User Stories 到跨职能交付与客户反馈的完整流程，并涉及 LLM 集成、RAG 和对话式目标创建，直接对应从需求到上线的落地经历。\"}], \"suggested_preparation\": [{\"title\": \"梳理 GoFin 项目端到端落地故事\", \"action\": \"准备 GoFin 平台从需求定义、LLM/RAG 集成到上线交付的完整案例，量化用户反馈与迭代成果，面试时按 STAR 结构讲述。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_cb83e27ff2a5\"]}, {\"title\": \"补充上线指标与效果证据\", \"action\": \"整理该产品上线后的实际使用数据、客户反馈结论及迭代改进点，增强从需求到上线闭环的可信度。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_cb83e27ff2a5\"]}]}",
+   "predicted_matches": {
+    "synreq_cb83e27ff2a5": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B02",
+   "submitted_requirement_ids": [
+    "synreq_9a6e8d73eba3",
+    "synreq_db544a28d07d"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19562.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2822,
+    "completion_tokens": 675,
+    "total_tokens": 3497,
+    "completion_tokens_details": {
+     "reasoning_tokens": 84
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 GoFin 智能财务目标管理平台担任 Product Owner，覆盖需求、Backlog、User Stories 与跨职能交付，具备扎实的产品设计与功能策划能力，可判定为 Strong。但现有证据未明确体现从 0 到 1 主导完整产品并取得可量化业务成果的经历，该项为 Partial。建议重点梳理 GoFin 项目的从 0 到 1 过程与量化成果，以便面试中有力回应核心要求。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_9a6e8d73eba3\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\"\n      ],\n      \"reason\": \"候选人在 GoFin 项目担任 Product Owner，负责需求、产品流程与跨职能交付，显示主导产品的角色，但证据未明确说明从 0 到 1 的完整主导过程及可量化的业务成果，故判为 Partial。\"\n    },\n    {\n      \"requirement_id\": \"synreq_db544a28d07d\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:23\"\n      ],\n      \"reason\": \"候选人在 GoFin 负责产品流程、Backlog 与 User Stories 设计，并在中国电子云参与产品需求讨论与竞品分析，直接体现了产品设计与功能策划能力。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目的从 0 到 1 故事与量化成果\",\n      \"action\": \"回顾 GoFin 平台从立项、需求定义到上线的完整过程，整理用户量、转化率或效率提升等可量化数据，准备成结构化 STAR 案例用于面试。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_9a6e8d73eba3\"]\n    },\n    {\n      \"title\": \"准备产品设计方法论与功能策划案例\",\n      \"action\": \"结合 GoFin 的 Backlog 管理、User Stories 编写和竞品分析经历，准备 1-2 个功能从策划到交付的完整案例，突出设计决策依据。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_db544a28d07d\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_9a6e8d73eba3": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5"
+     ]
+    },
+    "synreq_db544a28d07d": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B03",
+   "submitted_requirement_ids": [
+    "synreq_7b76b9f8d2ec"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 21603.6,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2763,
+    "completion_tokens": 480,
+    "total_tokens": 3243,
+    "completion_tokens_details": {
+     "reasoning_tokens": 63
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 AI 功能动手交付方面有较强证据：GoFin 项目中作为 Product Owner 负责 LLM 集成、RAG 与跨职能交付，另有中国电子云 AI 大模型实习和 NLP 项目支撑实操能力，整体匹配度为 Strong。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_7b76b9f8d2ec\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:22\",\n        \"resume_extracted:resume_extracted:29\"\n      ],\n      \"reason\": \"GoFin 项目中作为 Product Owner 完整负责需求、LLM 集成、RAG 和跨职能交付，属于 AI 功能的端到端动手交付。中国电子云 AI 大模型实习（数据清洗、特征工程）和 NLP 个人项目进一步佐证实操深度。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目 AI 交付细节\",\n      \"action\": \"准备 GoFin 项目中 LLM 集成与 RAG 的具体实现过程、遇到的挑战及量化成果，用 STAR 结构组织回答。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_7b76b9f8d2ec\"]\n    },\n    {\n      \"title\": \"补充 AI 实习与 NLP 项目的技术叙事\",\n      \"action\": \"整理中国电子云实习中特征工程对模型效果的贡献，以及情感分析项目的训练评估流程，突出动手而非仅概念理解。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_7b76b9f8d2ec\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_7b76b9f8d2ec": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:22",
+      "resume_extracted:resume_extracted:29"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B04",
+   "submitted_requirement_ids": [
+    "synreq_a539c85a151b",
+    "synreq_6d3195cffc12"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 18337.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2810,
+    "completion_tokens": 602,
+    "total_tokens": 3412,
+    "completion_tokens_details": {
+     "reasoning_tokens": 95
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在跨职能协作与项目管理方面有直接证据：担任 GoFin 智能财务目标管理平台 Product Owner，负责需求、Backlog 与跨职能交付，匹配度强。企业级 SaaS / 多租户产品经验方面，仅有大模型产品实习和自研产品项目经验，缺乏明确的企业级 SaaS 与多租户架构场景，属于部分匹配。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_a539c85a151b\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:20\"], \"reason\": \"担任 GoFin 平台 Product Owner，负责 Backlog、User Stories 与跨职能交付，并明确有前端、后端、AI、数据库、测试等多角色协调与产品迭代交付经历，直接证明跨职能协作与项目管理能力。\"}, {\"requirement_id\": \"synreq_6d3195cffc12\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\"], \"reason\": \"有 GoFin 平台产品负责与中国电子云 AI 产品实习经验，具备 B 端产品相关接触，但缺乏明确的企业级 SaaS 与多租户架构场景证据，深度与场景不完全吻合。\"}], \"suggested_preparation\": [{\"title\": \"梳理跨职能项目管理案例\", \"action\": \"准备 GoFin 项目中协调前端、后端、AI、测试团队推进交付的 STAR 案例，量化迭代节奏与成果。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_a539c85a151b\"]}, {\"title\": \"补足企业级 SaaS 认知\", \"action\": \"学习 SaaS 商业模式、多租户架构与 B 端产品核心指标，并思考如何将 GoFin 平台经验与 SaaS 场景关联，面试中诚实说明现有经验的边界。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_6d3195cffc12\"]}]}",
+   "predicted_matches": {
+    "synreq_a539c85a151b": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:20"
+     ]
+    },
+    "synreq_6d3195cffc12": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B05",
+   "submitted_requirement_ids": [
+    "synreq_362220064ec2",
+    "synreq_0d7bad106433",
+    "synreq_f7c821de88d9"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 28116.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2909,
+    "completion_tokens": 893,
+    "total_tokens": 3802,
+    "completion_tokens_details": {
+     "reasoning_tokens": 139
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 LLM/对话式 AI 产品落地（GoFin 产品负责人经历覆盖需求、交付、LLM 集成与 RAG）方面匹配较强；但在 Agent 设计交付、上下文工程、人机协同及与工程团队进行 Agent 架构级对齐方面，仅有间接的技能与协调经历支撑，深度和针对性不足，整体为一强两部分。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_362220064ec2\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\"], \"reason\": \"GoFin 项目中有 LLM 集成、RAG 与对话式功能交付，且具备大模型应用开发与模型性能评估经历，与 Agent 交付和质量评估相关；但缺乏上下文工程、人机协同等明确动手经验的直接证据。\"}, {\"requirement_id\": \"synreq_0d7bad106433\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\"], \"reason\": \"作为 GoFin 智能财务目标管理平台 Product Owner，覆盖需求、Backlog、跨职能交付、客户反馈、LLM 集成、RAG 与对话式目标创建，并有产品迭代交付经历，完整体现了 LLM/对话式 AI 产品从需求到上线的落地过程。\"}, {\"requirement_id\": \"synreq_f7c821de88d9\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:28\"], \"reason\": \"有跨职能团队（前端、后端、AI、数据库、测试）协调及 LLM 集成交付经历，说明能与工程团队协作；但没有证据表明在 Agent 架构层面与工程团队进行过深度技术对齐。\"}], \"suggested_preparation\": [{\"title\": \"梳理 GoFin 项目的 Agent 化叙事\", \"action\": \"复盘 GoFin 中 LLM 集成与 RAG 对话式功能的设计决策、上下文管理与质量评估方式，整理成可量化讲述的案例，突出人机协同环节。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_362220064ec2\"]}, {\"title\": \"补充 Agent 架构技术理解\", \"action\": \"系统学习 Agent 架构（规划、工具调用、记忆、多 Agent 协作）与上下文工程主流实践，准备与工程团队讨论架构权衡的谈资。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_362220064ec2\", \"synreq_f7c821de88d9\"]}, {\"title\": \"准备端到端落地案例讲述\", \"action\": \"以 STAR 结构准备 GoFin 从需求挖掘到上线的完整故事，明确自己在需求、迭代交付与跨职能协调中的具体贡献与结果。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_0d7bad106433\", \"synreq_f7c821de88d9\"]}]}",
+   "predicted_matches": {
+    "synreq_362220064ec2": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11"
+     ]
+    },
+    "synreq_0d7bad106433": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5"
+     ]
+    },
+    "synreq_f7c821de88d9": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:28"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B06",
+   "submitted_requirement_ids": [
+    "synreq_1a8e60c1d1b5"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 17595.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2746,
+    "completion_tokens": 467,
+    "total_tokens": 3213,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 89
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人同时具备金融行业经历（光大银行、KPay 支付）与 AI 实践经验（中国电子云大模型实习、GoFin 项目），但尚无可证明“在金融行业落地的 AI 项目”的直接证据，整体为部分匹配。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_1a8e60c1d1b5\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:24\",\"resume_extracted:resume_extracted:21\",\"resume_extracted:resume_extracted:30\"],\"reason\":\"候选人在光大银行有金融服务实习经历，并在中国电子云从事大模型相关工作，GoFin 项目结合了财务场景与 LLM/RAG 集成。但 GoFin 为个人项目，缺乏在真实金融企业内落地的 AI 项目证据，故为部分匹配。\"}],\"suggested_preparation\":[{\"title\":\"梳理金融与 AI 交叉经历\",\"action\":\"将 GoFin 项目（财务目标管理 + LLM/RAG 集成）包装为金融场景下的 AI 应用案例，准备说明其技术方案与业务价值；同时准备光大银行实习中与数据、风控相关的细节，体现金融场景理解。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_1a8e60c1d1b5\"]},{\"title\":\"准备行业落地方案的表达\",\"action\":\"准备 1-2 个针对金融行业（如支付、银行）的 AI 落地思路（如智能客服、欺诈检测），可结合银行账户欺诈数据分析项目，展示从数据到模型的完整链路理解。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_1a8e60c1d1b5\"]}]}",
+   "predicted_matches": {
+    "synreq_1a8e60c1d1b5": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:24",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B07",
+   "submitted_requirement_ids": [
+    "synreq_ed0cd59648cb"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 17045.4,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2742,
+    "completion_tokens": 343,
+    "total_tokens": 3085,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 52
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在 AI 产品使用与实践方面有较强证据：曾在 GoFin 智能财务平台担任 Product Owner，负责 LLM 集成与 RAG 对话式功能，并在中国电子云实习期间探索大模型应用方向，整体满足“AI 产品深度使用与实践”要求。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_ed0cd59648cb\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:21\",\"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\"resume_extracted:resume_extracted:resume:1:ai_experience:4\"],\"reason\":\"候选人在 GoFin 智能财务平台担任 Product Owner，主导 LLM 集成、RAG 和对话式目标创建等 AI 产品功能；并在中国电子云实习中参与大模型应用方向探索，具备 AI 产品的深度实践经验。\"}],\"suggested_preparation\":[{\"title\":\"梳理 AI 产品实践案例\",\"action\":\"准备 GoFin 项目中 LLM 集成与 RAG 对话式功能的完整案例，包括需求背景、方案设计、落地效果，以便面试中具体展示 AI 产品实践深度。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_ed0cd59648cb\"]}]}",
+   "predicted_matches": {
+    "synreq_ed0cd59648cb": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:B08",
+   "submitted_requirement_ids": [
+    "synreq_b078282915db",
+    "synreq_4f0a7052df75"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19031.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2803,
+    "completion_tokens": 510,
+    "total_tokens": 3313,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人为2027届应届生，具备AI产品实习和GoFin智能财务平台Product Owner经历，对跨职能协作有较好支撑；但证据中未体现独立负责完整产品线的商业化闭环（如定价、收入、规模化商业落地），该项存在明显差距。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_b078282915db\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:19\"],\n      \"reason\": \"候选人在GoFin项目担任Product Owner并在KPay支持支付业务增长策略与KPI体系，具备产品与增长相关经验；但证据未体现其独立负责完整产品线的定价、收入与商业化闭环。\"\n    },\n    {\n      \"requirement_id\": \"synreq_4f0a7052df75\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:20\"],\n      \"reason\": \"在GoFin项目中负责Backlog、User Stories和跨职能交付，并协调前端、后端、AI、数据库、测试团队完成产品迭代，直接体现跨职能协作与项目管理能力。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理GoFin项目的商业化相关成果\",\n      \"action\": \"准备STAR案例，量化说明在GoFin或KPay中与收入、增长、转化相关的贡献边界，坦诚说明与完整商业化闭环的差距及学习思路。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_b078282915db\"]\n    },\n    {\n      \"title\": \"准备跨职能项目管理案例\",\n      \"action\": \"整理在GoFin协调多职能团队的冲突处理、优先级排序和交付节奏案例，突出具体角色与可量化成果。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_4f0a7052df75\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_b078282915db": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19"
+     ]
+    },
+    "synreq_4f0a7052df75": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:20"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C01",
+   "submitted_requirement_ids": [
+    "synreq_66885a07bd90",
+    "synreq_711d5c3e3b87"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19529.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2804,
+    "completion_tokens": 549,
+    "total_tokens": 3353,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 73
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 SQL 数据分析方面有直接的实习实战证据，匹配度高；对数据仓库架构有数据架构设计和 ETL 搭建的相关经验，但缺乏数据治理全流程的明确证据，整体匹配度中等。建议重点补充数据治理方法论知识。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_66885a07bd90\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:resume:1:technical_experience:8\"], \"reason\": \"候选人在 KPay 实习中搭建过潜客数据架构与自动化 ETL，并有数据架构设计经历，可体现对数据仓库架构的一定理解。但目录中没有数据治理全流程（如元数据、数据质量、数据标准管理）的直接证据。\"}, {\"requirement_id\": \"synreq_711d5c3e3b87\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:resume:1:skills:4\"], \"reason\": \"候选人在 KPay 实习中设计 SQL 触发器和归因逻辑、搭建自动化 ETL，并建立 KPI 监控和绩效分析体系，是 SQL 数据分析的直接实战证据，技能栏也明确列出 SQL。\"}], \"suggested_preparation\": [{\"title\": \"补充数据治理知识体系\", \"action\": \"系统学习数据治理全流程（元数据管理、数据质量、数据标准、数据安全），并准备将 KPay 的 ETL 与数据架构经验与治理概念关联表达的面试话术。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_66885a07bd90\"]}, {\"title\": \"准备 SQL 实战案例讲解\", \"action\": \"梳理 KPay 实习中 SQL 触发器、归因逻辑和 KPI 监控体系的具体案例，准备现场 SQL 编写或复杂查询场景（窗口函数、多表关联）的练习。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_711d5c3e3b87\"]}]}",
+   "predicted_matches": {
+    "synreq_66885a07bd90": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8"
+     ]
+    },
+    "synreq_711d5c3e3b87": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C02",
+   "submitted_requirement_ids": [
+    "synreq_7356f75ca5b3",
+    "synreq_2f19d85a7ef9"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 20531.5,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2836,
+    "completion_tokens": 576,
+    "total_tokens": 3412,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 67
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 LLM/对话式 AI 产品从需求到交付的完整流程上有直接项目证据，可评 Strong；RAG 方面有项目责任与技能关键词，但缺少生产环境部署与调优的直接事实，评 Partial。建议重点补充 RAG 生产实践细节的量化描述。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_7356f75ca5b3\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"GoFin 项目中负责 RAG 相关能力，且简历 AI 经历含 RAG 文件分析，但均为职责/关键词层面，缺少生产环境部署与调优的直接事实。\"}, {\"requirement_id\": \"synreq_2f19d85a7ef9\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"], \"reason\": \"GoFin 项目作为 Product Owner 覆盖需求、Backlog、User Stories、跨职能交付、客户反馈、LLM 集成与对话式目标创建，并有产品迭代交付经历，构成从需求到上线的完整落地证据。\"}], \"suggested_preparation\": [{\"title\": \"梳理 GoFin 项目 RAG 落地细节\", \"action\": \"准备面试时清晰说明 GoFin 中 RAG 的具体实现方式、检索链路、上线过程及遇到的问题与优化手段，弥补生产部署调优证据的不足。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_7356f75ca5b3\"]}, {\"title\": \"准备端到端产品交付案例叙述\", \"action\": \"围绕 GoFin 项目整理从需求挖掘、Backlog 管理到跨职能交付与客户反馈闭环的完整叙事，突出 LLM 集成与对话式功能的上线成果。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_2f19d85a7ef9\"]}]}",
+   "predicted_matches": {
+    "synreq_7356f75ca5b3": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    },
+    "synreq_2f19d85a7ef9": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C03",
+   "submitted_requirement_ids": [
+    "synreq_7a9f7ab9d753",
+    "synreq_bc51db5928f4"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23127.4,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2806,
+    "completion_tokens": 650,
+    "total_tokens": 3456,
+    "completion_tokens_details": {
+     "reasoning_tokens": 73
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 SQL 数据分析方面有较强的实战证据（KPay 实习中搭建数据架构、设计 SQL 触发器并支撑业务分析），达到 Strong；但未曾以数据产品经理身份独立负责完整数据产品，仅具备 Product Owner 项目经验和数据分析实习经历，与该要求的核心身份和职责范围存在差距，为 Partial。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_7a9f7ab9d753\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:18\"\n      ],\n      \"reason\": \"候选人在 GoFin 项目担任过 Product Owner，负责需求、Backlog 和跨职能交付，具备产品管理相关经验；但其身份并非数据产品经理，且未独立负责过完整的数据产品，职责范围和身份与该要求不完全匹配。\"\n    },\n    {\n      \"requirement_id\": \"synreq_bc51db5928f4\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:resume:1:skills:4\"\n      ],\n      \"reason\": \"候选人在 KPay 实习中搭建潜客数据架构与自动化 ETL，设计 SQL 触发器和归因逻辑，并建立 KPI 监控和绩效分析体系，是 SQL 数据分析的直接实战证据，且简历技能明确列出 SQL。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理可迁移的产品负责经历\",\n      \"action\": \"准备用 GoFin Product Owner 项目说明自己在需求定义、Backlog 管理、跨职能交付上的独立负责经验，并坦诚说明其并非数据产品经理岗位，重点突出可迁移能力。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_7a9f7ab9d753\"]\n    },\n    {\n      \"title\": \"准备 SQL 实战案例细节\",\n      \"action\": \"复盘 KPay 实习中 ETL 搭建、SQL 触发器与归因逻辑的具体实现、数据规模和业务效果，面试中可量化展示 SQL 数据分析能力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_bc51db5928f4\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_7a9f7ab9d753": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:18"
+     ]
+    },
+    "synreq_bc51db5928f4": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C04",
+   "submitted_requirement_ids": [
+    "synreq_030b4853d5f1",
+    "synreq_7446943fe7f9"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19176.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2822,
+    "completion_tokens": 626,
+    "total_tokens": 3448,
+    "completion_tokens_details": {
+     "reasoning_tokens": 98
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在跨职能协作与项目管理方面有较强的直接证据（GoFin 项目 Product Owner 经历及跨职能团队协调经验），但缺乏企业级 SaaS / 多租户 / 可配置平台的直接产品经验，仅有相关平台产品经历可作部分支撑。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_030b4853d5f1\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"候选人有 GoFin 智能财务目标管理平台的 Product Owner 与产品迭代交付经历，具备平台型产品经验，但没有企业级 SaaS、多租户架构或可配置平台的直接证据。\"\n    },\n    {\n      \"requirement_id\": \"synreq_7446943fe7f9\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"候选人在 GoFin 项目中负责 Backlog、User Stories 与跨职能交付，并明确有协调前端、后端、AI、数据库、测试团队的经历，直接满足跨职能协作与项目管理要求。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 SaaS 相关可迁移经验\",\n      \"action\": \"准备 GoFin 平台项目中涉及多用户、配置化设计或权限分层的细节，将其与企业级 SaaS / 多租户场景做类比说明，并主动补充对多租户架构和可配置平台的理解。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_030b4853d5f1\"]\n    },\n    {\n      \"title\": \"准备跨职能协作案例\",\n      \"action\": \"用 STAR 法则整理 GoFin 项目中协调前端、后端、AI、数据库、测试团队推动交付的具体案例，突出冲突处理与项目节奏管理经验。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_7446943fe7f9\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_030b4853d5f1": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "synreq_7446943fe7f9": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C05",
+   "submitted_requirement_ids": [
+    "synreq_e0927f36fb94",
+    "synreq_bb4fbe4b6744",
+    "synreq_60b56ed3950a"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 26685.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2867,
+    "completion_tokens": 853,
+    "total_tokens": 3720,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 123
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在数据分析、SQL、Python 及模型训练评估方面有较扎实的实习与项目证据，能较好支撑数据分析与模型效果评估类要求；但缺乏 Agent 专项评测体系搭建的直接经验，仅有相关模型评估与 AI 经历可作间接支撑。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_e0927f36fb94\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:11\",\n        \"resume_extracted:resume_extracted:29\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"\n      ],\n      \"reason\": \"候选人具备模型性能评估和大语言模型应用开发经历，但证据均为通用模型评估或应用开发，未体现 Agent 专项评测体系的搭建经验。\"\n    },\n    {\n      \"requirement_id\": \"synreq_bb4fbe4b6744\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:29\",\n        \"resume_extracted:resume_extracted:30\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:11\"\n      ],\n      \"reason\": \"候选人在 NLP 情感分析和欺诈数据项目中实际完成模型训练与评估，并具备模型性能评估经历，符合数据驱动的模型效果评估能力要求。\"\n    },\n    {\n      \"requirement_id\": \"synreq_60b56ed3950a\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:30\"\n      ],\n      \"reason\": \"候选人在 KPay Group 搭建数据架构、KPI 监控体系并输出业务分析报告，且用 Python 处理百万级数据开展 EDA，数据分析与逻辑思维能力有直接证据支撑。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补齐 Agent 评测体系认知\",\n      \"action\": \"系统梳理 Agent 评测的主流框架与指标（如任务完成率、工具调用准确率、轨迹评估），结合已有的模型评估项目，准备一套可迁移的评测体系设计思路，面试中主动说明如何从通用模型评估延伸到 Agent 专项评测。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_e0927f36fb94\"]\n    },\n    {\n      \"title\": \"准备模型评估项目案例\",\n      \"action\": \"整理 NLP 情感分析与欺诈检测项目中模型训练评估的指标选择、数据驱动决策过程，形成可量化、可复述的 STAR 案例。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_bb4fbe4b6744\"]\n    },\n    {\n      \"title\": \"强化数据分析成果表达\",\n      \"action\": \"准备 KPay Group 数据架构与 KPI 监控体系的关键成果数据，突出 SQL、ETL 与归因逻辑等细节，展示扎实的数据分析与逻辑思维能力。\",\n      \"priority\": \"Low\",\n      \"requirement_ids\": [\"synreq_60b56ed3950a\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_e0927f36fb94": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11",
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "synreq_bb4fbe4b6744": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11"
+     ]
+    },
+    "synreq_60b56ed3950a": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C06",
+   "submitted_requirement_ids": [
+    "synreq_f8454c6e8e53",
+    "synreq_104c593a63d3"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 22442.5,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2826,
+    "completion_tokens": 685,
+    "total_tokens": 3511,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 152
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 Prompt/上下文工程方面有 LLM 应用与 RAG 相关实践但缺少明确的 Prompt 工程证据，为部分匹配；在 LLM/对话式 AI 产品全流程落地方面，GoFin 项目 Product Owner 经历覆盖需求到交付及 LLM 集成，匹配度较高。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_f8454c6e8e53\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"GoFin 项目中有 LLM 集成、RAG 与对话式目标创建经历，简历 AI 经历也列出大语言模型应用开发与 RAG 文件分析，但没有直接证据体现 Prompt/上下文工程的系统实践，故为部分匹配。\"}, {\"requirement_id\": \"synreq_104c593a63d3\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:7\"], \"reason\": \"作为 GoFin 智能财务目标管理平台 Product Owner，覆盖需求、Backlog、跨职能交付、客户反馈及 LLM/RAG 集成，具备对话式 AI 产品从需求到上线的完整落地经历。\"}], \"suggested_preparation\": [{\"title\": \"梳理 Prompt 工程实践细节\", \"action\": \"准备一个具体案例，说明在 GoFin 或 AI 实习中如何设计 Prompt、管理上下文（如 RAG 检索内容拼接、对话轮次控制），并量化效果。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_f8454c6e8e53\"]}, {\"title\": \"准备产品全流程落地叙述\", \"action\": \"按需求定义、Backlog 管理、跨职能协作、上线与迭代复盘的时间线整理 GoFin 项目 STAR 故事，突出 LLM/RAG 集成中的关键决策。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_104c593a63d3\"]}]}",
+   "predicted_matches": {
+    "synreq_f8454c6e8e53": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    },
+    "synreq_104c593a63d3": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:7"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C07",
+   "submitted_requirement_ids": [
+    "synreq_f1f71449a863",
+    "synreq_b4f12414f216"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23222.4,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2803,
+    "completion_tokens": 689,
+    "total_tokens": 3492,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 68
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人与两项要求的整体匹配度较好。技术背景与跨团队协作方面有较强证据支撑（产品负责人经历、跨职能协调、软件工程与AI双硕士背景）；Python有实际项目应用证据，但C++仅为技能关键词，缺乏实际使用证据，故为部分匹配。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_f1f71449a863\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:30\",\n        \"resume_extracted:resume_extracted:resume:1:skills:0\",\n        \"resume_extracted:resume_extracted:resume:1:skills:1\"\n      ],\n      \"reason\": \"Python有实际项目应用证据（使用Python处理百万级数据、建模与可视化），但C++仅为简历技能关键词，缺乏实际使用场景证据，熟练度无法确认。\"\n    },\n    {\n      \"requirement_id\": \"synreq_b4f12414f216\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:resume:1:education:0\"\n      ],\n      \"reason\": \"候选人具备软件工程学士与信息技术（AI）硕士背景，并在GoFin项目中作为Product Owner负责跨职能交付（前端、后端、AI、数据库、测试），还参与大模型产品需求讨论，能支撑与工程团队的深度协作。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补充C++实际使用案例\",\n      \"action\": \"整理本科软件工程期间的C/C++课程项目、作业或代码作品，准备1-2个可讲述的具体案例，弥补仅有技能关键词的短板。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_f1f71449a863\"]\n    },\n    {\n      \"title\": \"准备跨职能协作的STAR故事\",\n      \"action\": \"以GoFin项目Product Owner经历为核心，准备与前端、后端、AI工程师协作解决具体技术分歧或推进LLM/RAG功能落地的案例，突出技术理解力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_b4f12414f216\"]\n    },\n    {\n      \"title\": \"梳理Python技术细节\",\n      \"action\": \"复习欺诈数据分析项目中的Python技术栈（pandas、建模、可视化），准备应对代码层面的追问，强化'熟练使用'的说服力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_f1f71449a863\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_f1f71449a863": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:resume:1:skills:0",
+      "resume_extracted:resume_extracted:resume:1:skills:1"
+     ]
+    },
+    "synreq_b4f12414f216": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:education:0"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:C08",
+   "submitted_requirement_ids": [
+    "synreq_67056aa36c43",
+    "synreq_664938d55ff1"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 22032.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2831,
+    "completion_tokens": 687,
+    "total_tokens": 3518,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 107
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在增长运营与转化优化方向有直接实习证据（KPay Group 增长策略、转化路径优化、KPI 体系），可评为 Strong；从 0 到 1 主导产品的经历有 GoFin Product Owner 项目支撑，但缺少可量化业务成果的直接证据，评为 Partial。建议重点补充量化成果表述与增长方法论梳理。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_67056aa36c43\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\"\n      ],\n      \"reason\": \"GoFin 智能财务目标管理平台中以 Product Owner 身份负责需求、Backlog 与跨职能交付，体现了从 0 到 1 主导产品的经历；但证据中未出现可量化的业务成果数据，成果维度不完整。\"\n    },\n    {\n      \"requirement_id\": \"synreq_664938d55ff1\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:16\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"\n      ],\n      \"reason\": \"KPay Group 实习中直接设计渠道伙伴增长策略、通过数据分析优化转化路径并建立 KPI 监控体系，覆盖用户增长、增长运营与转化优化三个方向。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目的量化成果\",\n      \"action\": \"回顾 GoFin 项目中可客观陈述的成果指标（如交付迭代次数、用户反馈采纳率、功能上线情况），准备 1-2 个基于事实的量化故事，用于回应从 0 到 1 产品成果的要求。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_67056aa36c43\"]\n    },\n    {\n      \"title\": \"准备增长运营案例的结构化讲述\",\n      \"action\": \"将 KPay Group 的增长策略设计、转化路径优化和 KPI 体系建设整理成 STAR 结构案例，突出归因逻辑与数据洞察如何驱动业务决策。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_664938d55ff1\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_67056aa36c43": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5"
+     ]
+    },
+    "synreq_664938d55ff1": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D01",
+   "submitted_requirement_ids": [
+    "synreq_11a8cde8fe62",
+    "synreq_3e890953d455"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 25741.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2804,
+    "completion_tokens": 479,
+    "total_tokens": 3283,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 61
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在数据分析与逻辑思维方面有扎实证据（KPay数据分析实习、欺诈数据分析项目、SQL/ETL实战），匹配度高；但缺乏推荐/排序策略的直接项目经验，仅能通过分层运营、转化路径优化等相关经历部分支撑。建议重点准备推荐/排序方向的补充材料。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_11a8cde8fe62\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:16\",\"resume_extracted:resume_extracted:19\",\"resume_extracted:resume_extracted:27\"],\"reason\":\"候选人有行业细分、伙伴分层和转化路径优化的增长策略经验，与排序/优先级策略思路相关，但简历中没有推荐系统或排序算法策略的直接项目经历。\"},{\"requirement_id\":\"synreq_3e890953d455\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:18\",\"resume_extracted:resume_extracted:19\",\"resume_extracted:resume_extracted:30\",\"resume_extracted:resume_extracted:20\"],\"reason\":\"候选人在KPay搭建ETL与归因逻辑、建立KPI分析体系，并用Python处理百万级数据完成EDA与建模，数据分析与逻辑思维能力有直接且充分的实证。\"}],\"suggested_preparation\":[{\"title\":\"准备推荐/排序策略的补充说明\",\"action\":\"梳理现有增长分层、转化优化经历中与排序策略相近的思考方法，并准备一个推荐/排序策略的学习案例或课程项目思路，面试时主动说明可迁移能力，避免虚构直接经验。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_11a8cde8fe62\"]},{\"title\":\"强化数据分析案例的量化表达\",\"action\":\"面试前整理好KPay归因逻辑、欺诈数据分析项目的关键数字（数据量级、效果指标），用STAR结构清晰展示分析逻辑。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_3e890953d455\"]}]}",
+   "predicted_matches": {
+    "synreq_11a8cde8fe62": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:27"
+     ]
+    },
+    "synreq_3e890953d455": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:20"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D02",
+   "submitted_requirement_ids": [
+    "synreq_513c2bd94eb3",
+    "synreq_0d737725e239"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 27504.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2822,
+    "completion_tokens": 575,
+    "total_tokens": 3397,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 34
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 LLM / 对话式 AI 产品方面有完整的从需求到上线的落地经历（GoFin 产品负责人），与第二项要求高度匹配；但证据目录中没有任何语音识别或语音合成相关的产品经验，第一项要求暂无支撑。建议面试前重点梳理 GoFin 项目的端到端交付细节，并诚实准备语音产品领域的认知补充。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_513c2bd94eb3\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"证据目录中没有任何语音识别（ASR）或语音合成（TTS）相关的产品或项目经历，无法支持该要求。\"\n    },\n    {\n      \"requirement_id\": \"synreq_0d737725e239\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\"\n      ],\n      \"reason\": \"GoFin 智能财务目标管理平台中担任 Product Owner，覆盖需求、Backlog、User Stories、LLM 集成、RAG、对话式目标创建到跨职能交付与客户反馈的完整闭环，直接证明 LLM/对话式 AI 产品从需求到上线的落地经历。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目端到端交付故事\",\n      \"action\": \"准备 GoFin 平台从需求定义、Backlog 管理、LLM/RAG 集成到上线迭代与客户反馈的完整案例，量化成果并突出个人决策点，以应对深度追问。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_0d737725e239\"]\n    },\n    {\n      \"title\": \"补充语音 AI 产品认知\",\n      \"action\": \"系统了解语音识别（ASR）与语音合成（TTS）的主流技术方案、产品形态与评估指标，面试中诚实说明暂无直接经验，并强调对话式 AI 经验的可迁移性。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_513c2bd94eb3\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_513c2bd94eb3": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_0d737725e239": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D03",
+   "submitted_requirement_ids": [
+    "synreq_45f506185cde",
+    "synreq_9283cdbfa4fe",
+    "synreq_b023cf63ab37"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 34615.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2873,
+    "completion_tokens": 1060,
+    "total_tokens": 3933,
+    "completion_tokens_details": {
+     "reasoning_tokens": 255
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在跨职能协作与项目管理方面有 GoFin Product Owner 和项目负责人经历的直接支撑，大模型训练链路也有数据支持、模型训练评估与性能评估的实际经历；但缺乏独立承担大型 AI Infra 系统设计、开发与调测的证据，仅具备相关的数据架构与模型应用经验。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_45f506185cde\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:resume:1:technical_experience:8\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"\n      ],\n      \"reason\": \"有数据架构设计、自动化 ETL 和大语言模型应用开发经验，但均为业务数据或应用层工作，无独立承担大型 AI Infra 系统设计、开发与调测的证据。\"\n    },\n    {\n      \"requirement_id\": \"synreq_9283cdbfa4fe\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:30\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"作为 GoFin Product Owner 负责 Backlog、User Stories 与跨职能交付，并协调前端、后端、AI、数据库、测试团队，且担任过数据分析项目负责人，直接证明跨职能协作与项目管理能力。\"\n    },\n    {\n      \"requirement_id\": \"synreq_b023cf63ab37\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:22\",\n        \"resume_extracted:resume_extracted:29\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:11\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"\n      ],\n      \"reason\": \"在中国电子云实习中为模型训练提供数据清洗与特征工程支持，个人项目完成模型训练评估，并具备模型性能评估与大模型应用开发经历，覆盖训练链路的多个环节。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补强 AI Infra 系统经验表述\",\n      \"action\": \"梳理现有数据架构、ETL 与模型训练支持经历中与基础设施相关的部分（如数据处理管道、训练数据链路），准备具体说明其规模、性能与调优细节；如有课程或自学中的分布式训练、推理部署实践，可在面试中主动提及。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_45f506185cde\"]\n    },\n    {\n      \"title\": \"准备跨职能协作的 STAR 案例\",\n      \"action\": \"围绕 GoFin Product Owner 经历，准备 1-2 个协调前端、后端、AI、测试团队完成迭代交付的具体案例，突出冲突解决与交付结果。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_9283cdbfa4fe\"]\n    },\n    {\n      \"title\": \"梳理大模型训练链路知识体系\",\n      \"action\": \"基于数据清洗、特征工程、模型训练评估的实际经历，系统复习训练与推理链路（数据、训练、评估、部署推理），准备讲述自己在各环节的具体贡献。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_b023cf63ab37\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_45f506185cde": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "synreq_9283cdbfa4fe": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    },
+    "synreq_b023cf63ab37": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:22",
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D04",
+   "submitted_requirement_ids": [
+    "synreq_38864a1cc6fd",
+    "synreq_bc4cef12c1ad"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23033.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2826,
+    "completion_tokens": 704,
+    "total_tokens": 3530,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 51
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 LLM / 对话式 AI 产品方向有较强的从需求到交付的落地证据（GoFin 智能财务目标平台 Product Owner 经历及中国电子云 AI 大模型实习），但证据库中没有任何视频理解或视频生成相关的产品经验，该项为明显缺口。建议面试重点突出 GoFin 项目的完整产品闭环，并提前准备对视频 AI 领域的认知补充。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_38864a1cc6fd\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"证据库中不存在任何与视频理解或视频生成相关的项目、实习或技能记录，现有 AI 经历集中在 LLM、RAG 和 NLP 文本方向。\"\n    },\n    {\n      \"requirement_id\": \"synreq_bc4cef12c1ad\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:21\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\"\n      ],\n      \"reason\": \"GoFin 项目以 Product Owner 身份负责需求、Backlog、User Stories、跨职能交付及 LLM 集成、RAG 和对话式目标创建，覆盖从需求到交付的完整闭环；中国电子云实习中的需求讨论与大模型应用探索形成佐证。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目完整落地叙事\",\n      \"action\": \"按“需求洞察—方案设计—LLM/RAG 集成—跨职能交付—上线迭代—客户反馈”结构准备项目讲述，量化可验证的成果，突出对话式 AI 产品闭环经验。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_bc4cef12c1ad\"]\n    },\n    {\n      \"title\": \"补充视频理解/视频生成领域认知\",\n      \"action\": \"系统了解主流视频理解与生成模型（如多模态大模型、文生视频）的产品形态、应用场景与评估指标，准备对视频 AI 产品机会的分析观点，诚实说明尚无直接经验。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_38864a1cc6fd\"]\n    },\n    {\n      \"title\": \"准备多模态能力迁移论述\",\n      \"action\": \"整理 LLM、RAG、NLP 项目中可迁移到视频 AI 场景的方法论（如数据管道、模型评估、用户体验设计），展示快速切入新模态的学习能力。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_38864a1cc6fd\", \"synreq_bc4cef12c1ad\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_38864a1cc6fd": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_bc4cef12c1ad": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D05",
+   "submitted_requirement_ids": [
+    "synreq_aff46a98c46a",
+    "synreq_329049069b0e",
+    "synreq_446d9d3d07fa"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 25870.9,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2890,
+    "completion_tokens": 741,
+    "total_tokens": 3631,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 115
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人具备扎实的产品设计与功能策划能力（GoFin Product Owner、AI大模型实习中的需求讨论与竞品分析），可作为核心优势；但简历中没有任何短剧/漫剧/小说创作或内容行业从业经历的证据，建议面试前补充相关作品或行业认知准备。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_aff46a98c46a\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"候选人的实习与项目经历集中在数据分析、AI大模型、金融科技领域，没有任何短剧、漫剧或小说创作全流程的相关证据。\"\n    },\n    {\n      \"requirement_id\": \"synreq_329049069b0e\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"候选人无短视频、短剧、漫剧等内容行业从业经历，现有经历均为金融、支付与AI技术方向，且为应届校招身份，不具备资深从业经验。\"\n    },\n    {\n      \"requirement_id\": \"synreq_446d9d3d07fa\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\"],\n      \"reason\": \"候选人作为GoFin平台Product Owner负责需求管理、产品流程、Backlog与跨职能交付，并在中国电子云参与产品需求讨论和多维度竞品分析，直接体现产品设计与功能策划能力。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补充短剧/漫剧内容行业认知\",\n      \"action\": \"系统了解短剧、漫剧行业现状、头部平台、创作流程与商业模式，准备对行业趋势的见解，以弥补行业经验空白。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_aff46a98c46a\", \"synreq_329049069b0e\"]\n    },\n    {\n      \"title\": \"准备内容创作相关作品或迁移思路\",\n      \"action\": \"如有任何个人写作、剧本或内容创作尝试可整理为作品；否则准备阐述AI/产品能力如何迁移赋能内容创作流程（如LLM辅助剧本生成）的思路。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_aff46a98c46a\"]\n    },\n    {\n      \"title\": \"梳理产品策划项目叙事\",\n      \"action\": \"围绕GoFin Product Owner经历准备完整的产品设计故事线：需求洞察、功能策划、优先级管理与跨职能交付成果，突出与内容产品的可迁移性。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_446d9d3d07fa\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_aff46a98c46a": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_329049069b0e": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_446d9d3d07fa": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D06",
+   "submitted_requirement_ids": [
+    "synreq_8f5efb278bff",
+    "synreq_ea7b23ae2ae6"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 26549.5,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2807,
+    "completion_tokens": 481,
+    "total_tokens": 3288,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 75
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在 SQL 数据分析方面有直接的实习实操证据，匹配度高；但在大规模标注体系与训练数据闭环方面仅有数据清洗、特征工程和模型训练相关经验，缺少标注体系设计与数据闭环的专项经历，整体为部分匹配。建议重点补充标注体系与数据闭环相关的项目表达和面试准备。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_8f5efb278bff\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:22\",\"resume_extracted:resume_extracted:29\"],\"reason\":\"候选人有数据清洗、特征工程及模型训练评估经历，与训练数据环节相关，但未体现大规模标注体系设计和数据闭环的专项经验。\"},{\"requirement_id\":\"synreq_ea7b23ae2ae6\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:18\",\"resume_extracted:resume_extracted:resume:1:skills:4\",\"resume_extracted:resume_extracted:19\"],\"reason\":\"候选人在 KPay 实习中搭建自动化 ETL 并设计 SQL 触发器和归因逻辑，且简历技能中明确列出 SQL，能直接证明熟练使用 SQL 进行数据分析。\"}],\"suggested_preparation\":[{\"title\":\"梳理数据闭环相关项目叙事\",\"action\":\"整理实习和 NLP 项目中数据清洗、标注、训练、评估的完整流程，提炼为贴近'标注体系与训练数据闭环'的表达，并准备说明数据规模与迭代机制。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_8f5efb278bff\"]},{\"title\":\"准备 SQL 实战案例\",\"action\":\"以 KPay 的 ETL 与 SQL 触发器项目为例，准备 SQL 复杂查询、归因逻辑设计的现场讲解或笔试练习。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_ea7b23ae2ae6\"]}]}",
+   "predicted_matches": {
+    "synreq_8f5efb278bff": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:22",
+      "resume_extracted:resume_extracted:29"
+     ]
+    },
+    "synreq_ea7b23ae2ae6": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:skills:4",
+      "resume_extracted:resume_extracted:19"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D07",
+   "submitted_requirement_ids": [
+    "synreq_8c6cf3d8ff66",
+    "synreq_162fa483aa92"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 18871.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2825,
+    "completion_tokens": 507,
+    "total_tokens": 3332,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 37
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 AI 产品实习、竞品分析和业务数据分析方面有实际经验，对评估 AI 方案业务价值有一定支撑（Partial）；但证据目录中没有任何顶级会议（NeurIPS/ICML/ACL 等）论文发表记录，该项为 Missing。建议面试前准备 AI 方案价值评估的案例阐述，并如实说明无论文发表情况。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_8c6cf3d8ff66\", \"match_label\": \"Missing\", \"evidence_ids\": [], \"reason\": \"证据目录中没有任何 NeurIPS、ICML、ACL 等顶级会议的论文发表记录，也无其他可佐证的学术成果。\"}, {\"requirement_id\": \"synreq_162fa483aa92\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:28\"], \"reason\": \"候选人在中国电子云参与产品需求讨论、探索大模型应用方向并开展多维度竞品分析，在 KPay 和 GoFin 也有业务分析与 AI 产品落地经验，体现了一定的方案价值与可行性评估能力。但缺少独立主导 AI 方案商业论证或可行性评估的直接证据。\"}], \"suggested_preparation\": [{\"title\": \"准备 AI 方案价值评估案例\", \"action\": \"梳理在中国电子云探索大模型应用方向、竞品分析以及 GoFin 中 LLM/RAG 集成的经历，准备用结构化方式（业务目标、成本、收益、可行性）讲述如何评估 AI 方案价值。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_162fa483aa92\"]}, {\"title\": \"如实说明论文发表情况\", \"action\": \"该岗位要求顶会论文而简历无相关记录，建议提前准备坦诚回应，并强调 NLP 个人项目、模型训练评估等实践成果作为研究潜力的补充说明。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_8c6cf3d8ff66\"]}]}",
+   "predicted_matches": {
+    "synreq_8c6cf3d8ff66": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_162fa483aa92": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:28"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:D08",
+   "submitted_requirement_ids": [
+    "synreq_547fc6b8bdef",
+    "synreq_8d1917646a55"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 27485.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2831,
+    "completion_tokens": 842,
+    "total_tokens": 3673,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 160
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人具备较完整的 LLM/对话式 AI 产品从需求到交付的落地经历（GoFin 智能财务目标管理平台 Product Owner），覆盖需求、Backlog、跨职能交付与 LLM/RAG 集成，匹配度较高。但开放平台/插件生态/MCP 建设经验无直接证据，仅有 LLM 集成与产品交付的相关经验可部分支撑，建议针对性补充说明。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_547fc6b8bdef\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:0\"\n      ],\n      \"reason\": \"候选人在 GoFin 项目中有 LLM 集成与大语言模型应用开发经历，与 AI 平台能力建设相关，但无开放平台、插件生态或 MCP 协议建设的直接证据，能力覆盖不完整。\"\n    },\n    {\n      \"requirement_id\": \"synreq_8d1917646a55\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:28\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:5\",\n        \"resume_extracted:resume_extracted:resume:1:product_experience:9\",\n        \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"\n      ],\n      \"reason\": \"GoFin 项目中候选人以 Product Owner 身份负责需求、Backlog、User Stories、跨职能交付、客户反馈及 LLM 集成、RAG 和对话式目标创建，完整覆盖 LLM/对话式 AI 产品从需求到上线的落地链路。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 GoFin 项目的端到端交付叙事\",\n      \"action\": \"准备从需求洞察、Backlog 管理到 LLM/RAG 集成上线及客户反馈迭代的完整 STAR 案例，突出对话式目标创建的产品价值与量化结果。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_8d1917646a55\"]\n    },\n    {\n      \"title\": \"补足开放平台/MCP 认知与关联经验\",\n      \"action\": \"系统学习 MCP 协议与插件生态机制，并梳理 GoFin 中 LLM 集成与工具调用的实现思路，面试时说明其向开放平台/MCP 架构迁移的可行性，避免虚构未做过的建设经历。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_547fc6b8bdef\"]\n    },\n    {\n      \"title\": \"准备 AI 大模型实习的协同佐证\",\n      \"action\": \"整理中国电子云实习中参与产品需求讨论、探索大模型应用方向的细节，作为 LLM 产品落地经历的补充素材。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_8d1917646a55\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_547fc6b8bdef": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0"
+     ]
+    },
+    "synreq_8d1917646a55": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:E01",
+   "submitted_requirement_ids": [
+    "synreq_d781fb760d3d"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 19770.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2765,
+    "completion_tokens": 290,
+    "total_tokens": 3055,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 18
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在支付（KPay Group 支付业务增长运营）、银行（中国光大银行金融服务实习）和金融科技（UNSW 金融科技硕士、GoFin 项目）领域均有直接经验，完全满足金融/保险/支付行业经验要求。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_d781fb760d3d\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:24\", \"resume_extracted:resume_extracted:26\", \"resume_extracted:resume_extracted:resume:1:domain_experience:0\"], \"reason\": \"候选人在 KPay Group 支持支付业务增长，并在中国光大银行从事金融服务实习，同时具备金融科技领域经历，支付与金融行业经验均有直接证据。\"}], \"suggested_preparation\": [{\"title\": \"梳理支付与金融实习亮点\", \"action\": \"准备 KPay 支付业务增长策略与光大银行金融产品服务的具体案例，量化成果（如转化提升、KPI 体系建设），以便面试中清晰展示行业理解。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_d781fb760d3d\"]}]}",
+   "predicted_matches": {
+    "synreq_d781fb760d3d": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:24",
+      "resume_extracted:resume_extracted:26",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:0"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:E02",
+   "submitted_requirement_ids": [
+    "synreq_fe5930fca38c"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 18461.9,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2764,
+    "completion_tokens": 413,
+    "total_tokens": 3177,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 36
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 Agent/RAG/工作流自动化方向有直接证据：GoFin 项目中负责 LLM 集成、RAG 与对话式目标创建，并有 RAG 文件分析经历，满足“三者其一即可”的要求。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_fe5930fca38c\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:21\"], \"reason\": \"GoFin 智能财务平台项目中直接负责 LLM 集成、RAG 和对话式目标创建，另有 RAG 文件分析和大语言模型应用开发经历，直接满足 RAG/Agent 经验要求。\"}], \"suggested_preparation\": [{\"title\": \"梳理 RAG 项目细节\", \"action\": \"准备 GoFin 项目中 RAG 与 LLM 集成的技术细节，包括检索链路、向量库选型、对话式目标创建的实现方式和最终效果，以应对深入追问。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_fe5930fca38c\"]}, {\"title\": \"补充 Agent 与工作流自动化认知\", \"action\": \"现有证据以 RAG 为主，建议准备对 Agent 架构（工具调用、规划、多轮推理）和工作流自动化（如已做过的自动化 ETL 可关联阐述）的理解与案例，展示更广覆盖面。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_fe5930fca38c\"]}]}",
+   "predicted_matches": {
+    "synreq_fe5930fca38c": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:21"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:E03",
+   "submitted_requirement_ids": [
+    "synreq_024677d8c29f"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 17403.8,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2754,
+    "completion_tokens": 362,
+    "total_tokens": 3116,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 12
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在数据分析方向证据充分：KPay Group 实习中设计 SQL 触发器与归因逻辑、搭建 ETL 并产出业务分析报告，个人项目中使用 Python 处理百万级数据开展 EDA 与建模，满足'熟练使用 SQL 或 Python 进行数据分析'的要求。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_024677d8c29f\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:30\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\"\n      ],\n      \"reason\": \"KPay Group 实习中搭建自动化 ETL 并设计 SQL 触发器与归因逻辑，直接证明 SQL 数据分析实战；同时个人项目中使用 Python 处理百万级数据开展 EDA 与可视化，SQL 与 Python 两项均有事实性证据支撑，满足'其一即可'的要求。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"准备 SQL 与 Python 数据分析实战案例\",\n      \"action\": \"梳理 KPay Group 的 SQL 触发器、归因逻辑与 ETL 搭建细节，以及百万级数据 EDA 项目的分析流程与结论，面试中可用 STAR 方式量化呈现。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_024677d8c29f\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_024677d8c29f": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:E04",
+   "submitted_requirement_ids": [
+    "synreq_8d61cb428347"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23489.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2769,
+    "completion_tokens": 405,
+    "total_tokens": 3174,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 37
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在对话式 AI 产品方向有直接且扎实的证据：在 GoFin 智能财务目标管理平台担任 Product Owner，负责 LLM 集成、RAG 与对话式目标创建，并在中国电子云参与大模型产品需求讨论，整体匹配度强。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_8d61cb428347\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:4\"], \"reason\": \"作为 GoFin 产品负责人直接负责 LLM 集成、RAG 和对话式目标创建，属于典型的对话式 AI 产品经验；中国电子云 AI 大模型实习中的需求讨论与大模型应用探索进一步强化支撑。\"}], \"suggested_preparation\": [{\"title\": \"梳理对话式 AI 产品案例\", \"action\": \"准备 GoFin 项目中对话式目标创建的完整案例，包括需求背景、LLM 与 RAG 集成方案、用户场景与效果，便于面试中结构化呈现。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_8d61cb428347\"]}, {\"title\": \"补充推荐与搜索方向认知\", \"action\": \"该要求满足其一即可，但可补充推荐/搜索产品的基础知识与竞品理解，展示对三类产品形态的整体把握。\", \"priority\": \"Low\", \"requirement_ids\": [\"synreq_8d61cb428347\"]}]}",
+   "predicted_matches": {
+    "synreq_8d61cb428347": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:E05",
+   "submitted_requirement_ids": [
+    "synreq_22f7ecf7215f"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 16650.4,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2770,
+    "completion_tokens": 423,
+    "total_tokens": 3193,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 27
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 KPay Group 担任数据分析/增长运营实习生期间，有直接的增长策略与运营经验，与岗位要求中的「用户增长 / 用户运营」方向高度吻合，满足三者其一即可的条件，整体匹配良好。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_22f7ecf7215f\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:16\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"\n      ],\n      \"reason\": \"候选人在 KPay Group 实习期间设计渠道伙伴增长策略与运营框架，并通过数据分析优化转化路径、建立 KPI 监控体系，直接具备增长运营实战经验，满足「用户增长或用户运营」方向要求。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理 KPay 增长运营实习案例\",\n      \"action\": \"准备一段结构化介绍：说明渠道伙伴增长策略的设计思路、转化路径优化的数据依据，以及 KPI 监控体系带来的具体业务效果，尽量补充可量化结果。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_22f7ecf7215f\"]\n    },\n    {\n      \"title\": \"准备用户增长方法论讨论\",\n      \"action\": \"基于实习中漏斗分析与归因逻辑的经验，整理对用户增长全链路（获客、转化、留存）的理解，以应对面试官对增长方法论的追问。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_22f7ecf7215f\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_22f7ecf7215f": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:F01",
+   "submitted_requirement_ids": [
+    "synreq_37d1af10e82c",
+    "synreq_632d38360d21"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 30109.7,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2811,
+    "completion_tokens": 624,
+    "total_tokens": 3435,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 46
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在 KPay 实习中实际设计 SQL 触发器、搭建 ETL 并开展数据分析，SQL 数据分析能力有较强证据支撑；但简历中未出现 A/B 实验设计与执行的直接经历，复合要求仅能部分满足。建议补充 A/B 实验相关案例或方法论准备。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_37d1af10e82c\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:resume:1:skills:4\"\n      ],\n      \"reason\": \"候选人在 KPay 实习中设计 SQL 触发器与归因逻辑、搭建 ETL，SQL 能力有实际应用证据；但目录中没有任何 A/B 实验设计与执行的经历，该组件缺乏支持。\"\n    },\n    {\n      \"requirement_id\": \"synreq_632d38360d21\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:resume:1:skills:4\"\n      ],\n      \"reason\": \"KPay 实习中搭建潜客数据架构与自动化 ETL、设计 SQL 触发器，并通过数据分析优化转化路径、输出业务分析报告，直接证明熟练使用 SQL 进行数据分析。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"准备 A/B 实验方法论与案例阐述\",\n      \"action\": \"系统梳理 A/B 实验设计流程（假设设定、样本量估算、指标选择、显著性检验），并思考如何将 KPay 的转化路径优化经历关联到实验思维，面试中诚实说明尚未独立执行过完整 A/B 实验。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_37d1af10e82c\"]\n    },\n    {\n      \"title\": \"复盘 SQL 项目细节\",\n      \"action\": \"回顾 KPay 实习中 SQL 触发器、归因逻辑和 ETL 搭建的具体实现，准备窗口函数、复杂 JOIN、性能优化等常见面试考点，用真实项目细节展示熟练度。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_632d38360d21\", \"synreq_37d1af10e82c\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_37d1af10e82c": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    },
+    "synreq_632d38360d21": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:F02",
+   "submitted_requirement_ids": [
+    "synreq_1f3464006320",
+    "synreq_4fd7dcde1639"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23631.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2832,
+    "completion_tokens": 691,
+    "total_tokens": 3523,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 194
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在 LLM/对话式 AI 产品方向有较完整的产品 Owner 经历（GoFin 平台覆盖需求到交付，含 LLM 集成与 RAG），可较好支撑产品落地要求；但 Agent 设计与 Agent 专项评测仅有间接证据（模型性能评估、LLM 应用开发），缺乏明确的 Agent 构建与评测事实，建议面试前补齐相关案例。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_1f3464006320\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:resume:1:ai_experience:0\",\"resume_extracted:resume_extracted:resume:1:ai_experience:11\",\"resume_extracted:resume_extracted:28\"],\"reason\":\"候选人有 LLM 应用开发和模型性能评估经验，并在 GoFin 项目中负责 LLM 集成与对话式目标创建，但证据未明确体现 Agent 设计或 Agent 专项评测，能力覆盖不完整。\"},{\"requirement_id\":\"synreq_4fd7dcde1639\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:resume:1:product_experience:9\",\"resume_extracted:resume_extracted:21\"],\"reason\":\"作为 GoFin 智能财务目标管理平台 Product Owner，候选人负责从需求、Backlog、User Stories 到跨职能交付的全流程，并涵盖 LLM 集成、RAG 与对话式目标创建，符合 LLM/对话式 AI 产品从需求到上线的落地经历。\"}],\"suggested_preparation\":[{\"title\":\"梳理 Agent 设计与评测案例\",\"action\":\"整理 GoFin 或课程/个人项目中与 Agent 相关的细节（如对话式目标创建的 agent 流程、工具调用设计），并准备一套 Agent 评测指标与方法的说明，弥补评测证据缺口。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_1f3464006320\"]},{\"title\":\"准备产品落地全流程陈述\",\"action\":\"围绕 GoFin 项目准备从需求分析到上线交付的完整叙述，突出 LLM 集成、RAG 落地效果与迭代数据，便于面试中量化呈现。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_4fd7dcde1639\"]}]}",
+   "predicted_matches": {
+    "synreq_1f3464006320": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11",
+      "resume_extracted:resume_extracted:28"
+     ]
+    },
+    "synreq_4fd7dcde1639": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:21"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:F03",
+   "submitted_requirement_ids": [
+    "synreq_47385f8d6c6c",
+    "synreq_8ffbff01ac78"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 24286.5,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2814,
+    "completion_tokens": 584,
+    "total_tokens": 3398,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 36
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在跨职能协作与项目管理方面有较直接证据（GoFin 项目 Product Owner 角色、跨职能团队协调与产品迭代交付），匹配较好。企业级产品经验与完整商业化闭环方面，仅有实习期间参与支付业务增长运营和产品需求讨论的经历，缺乏完整商业化闭环的端到端负责经验，属部分匹配。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_47385f8d6c6c\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:28\"],\n      \"reason\": \"候选人在 KPay 参与支付业务增长策略与运营框架，并在 GoFin 担任 Product Owner、在中国电子云参与产品需求讨论，具备一定产品与商业化相关经历。但均为实习或个人/项目角色，缺乏企业级产品完整商业化闭环的端到端负责经验。\"\n    },\n    {\n      \"requirement_id\": \"synreq_8ffbff01ac78\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\"],\n      \"reason\": \"候选人在 GoFin 平台作为 Product Owner 负责跨职能交付，并明确具备前端、后端、AI、数据库、测试的跨职能团队协调及产品迭代交付经验，直接满足该能力要求。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理商业化闭环案例\",\n      \"action\": \"整理 KPay 增长运营和 GoFin 项目中与需求、交付、客户反馈相关的具体贡献，用数据说明从需求到落地的完整链路，弥补企业级商业化经验的不足。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_47385f8d6c6c\"]\n    },\n    {\n      \"title\": \"准备跨职能协作STAR案例\",\n      \"action\": \"围绕 GoFin 项目准备 1-2 个跨职能协调与 Backlog 管理的 STAR 案例，突出冲突解决、优先级排序和迭代交付的具体做法与结果。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_8ffbff01ac78\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_47385f8d6c6c": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:28"
+     ]
+    },
+    "synreq_8ffbff01ac78": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:F04",
+   "submitted_requirement_ids": [
+    "synreq_fe17a08896da",
+    "synreq_e618fb152199"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 25903.2,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2834,
+    "completion_tokens": 797,
+    "total_tokens": 3631,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 201
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在 LLM 应用与对话式 AI 产品方向有较扎实的证据：GoFin 项目中以 Product Owner 身份覆盖需求到交付并集成 LLM/RAG，另有 AI 大模型实习与模型训练评估经历。但“模型精度调优”仅有模型评估等间接证据，深度未充分证明，整体为一项 Partial、一项 Strong。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_fe17a08896da\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:ai_experience:0\", \"resume_extracted:resume_extracted:resume:1:ai_experience:11\", \"resume_extracted:resume_extracted:29\"], \"reason\": \"LLM 应用交付有 GoFin 项目 LLM 集成与大模型应用开发经历支撑；但模型精度调优仅有模型训练评估、模型性能评估等间接证据，未直接证明精度调优实践。\"}, {\"requirement_id\": \"synreq_e618fb152199\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:resume:1:product_experience:5\", \"resume_extracted:resume_extracted:resume:1:product_experience:9\", \"resume_extracted:resume_extracted:21\"], \"reason\": \"GoFin 项目以 Product Owner 身份负责需求、Backlog、跨职能交付、客户反馈及 LLM 集成、RAG 与对话式目标创建，覆盖从需求到上线的完整落地链路。\"}], \"suggested_preparation\": [{\"title\": \"梳理 GoFin 项目端到端交付叙事\", \"action\": \"准备从需求定义、Backlog 管理到 LLM/RAG 集成上线的完整案例，量化交付成果与用户反馈，用于面试讲解。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_e618fb152199\"]}, {\"title\": \"补齐模型精度调优证据\", \"action\": \"整理情感分析项目中模型训练评估的指标（如准确率、F1）与调参过程，明确说明自己做过哪些精度优化工作，避免空泛表述。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_fe17a08896da\"]}, {\"title\": \"准备 RAG 与对话式 AI 技术问答\", \"action\": \"复习 RAG 架构、Prompt 设计与对话式目标创建的技术细节，能讲清技术选型与权衡。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_fe17a08896da\", \"synreq_e618fb152199\"]}]}",
+   "predicted_matches": {
+    "synreq_fe17a08896da": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:0",
+      "resume_extracted:resume_extracted:resume:1:ai_experience:11",
+      "resume_extracted:resume_extracted:29"
+     ]
+    },
+    "synreq_e618fb152199": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9",
+      "resume_extracted:resume_extracted:21"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:F05",
+   "submitted_requirement_ids": [
+    "synreq_fe1542987e0f",
+    "synreq_3e2e000439e9"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 17541.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2807,
+    "completion_tokens": 520,
+    "total_tokens": 3327,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 79
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在 KPay Group 实习中搭建潜客数据架构与自动化 ETL 并设计 SQL 触发器，对 SQL 数据分析要求形成较强支撑；但数据治理全流程（如元数据、质量、标准、安全等环节）缺乏完整证据，仅能通过数据架构设计与 ETL、数据清洗经验部分覆盖。建议重点补充数据治理体系化的项目叙事。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_fe1542987e0f\",\"match_label\":\"Partial\",\"evidence_ids\":[\"resume_extracted:resume_extracted:18\",\"resume_extracted:resume_extracted:resume:1:technical_experience:8\",\"resume_extracted:resume_extracted:22\"],\"reason\":\"候选人有数据架构设计、自动化 ETL 与数据清洗经验，可支撑数据开发环节；但缺少元数据管理、数据质量、数据标准等数据治理全流程的完整证据。\"},{\"requirement_id\":\"synreq_3e2e000439e9\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:18\",\"resume_extracted:resume_extracted:resume:1:skills:4\"],\"reason\":\"候选人在 KPay Group 实习中实际设计 SQL 触发器和归因逻辑并搭建自动化 ETL，且技能栏明确列出 SQL，能证明熟练使用 SQL 进行数据分析。\"}],\"suggested_preparation\":[{\"title\":\"梳理数据治理全流程叙事\",\"action\":\"基于 KPay 的 ETL 与数据架构经历，准备一段覆盖数据采集、清洗、标准化、质量监控到应用的数据治理完整链路描述，明确自己在各环节的角色与产出，避免夸大未参与的环节。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_fe1542987e0f\"]},{\"title\":\"准备 SQL 实战案例\",\"action\":\"整理 SQL 触发器、归因逻辑和 KPI 监控相关的具体查询场景与业务结果，准备现场讲解或笔试中展示 SQL 数据分析能力。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_3e2e000439e9\"]}]}",
+   "predicted_matches": {
+    "synreq_fe1542987e0f": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:technical_experience:8",
+      "resume_extracted:resume_extracted:22"
+     ]
+    },
+    "synreq_3e2e000439e9": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:resume:1:skills:4"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G01",
+   "submitted_requirement_ids": [
+    "synreq_cf5e451d4830",
+    "synreq_f5bac05335cd"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 17442.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2808,
+    "completion_tokens": 466,
+    "total_tokens": 3274,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在用户增长与转化优化方面有KPay增长运营实习的直接经验，匹配较强；但证据目录中没有任何私域社群或SCRM运营的实践记录，该项为缺失。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_cf5e451d4830\",\n      \"match_label\": \"Missing\",\n      \"evidence_ids\": [],\n      \"reason\": \"证据目录中没有任何私域社群、SCRM或企业微信运营相关的经历或技能记录，无法支持该要求。\"\n    },\n    {\n      \"requirement_id\": \"synreq_f5bac05335cd\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"],\n      \"reason\": \"在KPay担任增长运营实习期间设计渠道伙伴增长策略、通过数据分析优化转化路径并建立KPI监控体系，直接覆盖用户增长与转化优化。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"补充私域/SCRM相关认知与案例准备\",\n      \"action\": \"面试前系统了解SCRM工具与私域社群运营的核心方法论（如拉新、留存、社群分层），并准备将自己增长运营经验迁移到私域场景的思路，诚实说明为待发展领域。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_cf5e451d4830\"]\n    },\n    {\n      \"title\": \"量化增长与转化成果\",\n      \"action\": \"梳理KPay实习中增长策略和转化路径优化的具体数据指标（如转化率提升幅度、KPI体系覆盖范围），在面试中用数字呈现成果。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_f5bac05335cd\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_cf5e451d4830": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_f5bac05335cd": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G02",
+   "submitted_requirement_ids": [
+    "synreq_9c358b111a90",
+    "synreq_f089f2e124b8"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 23788.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2809,
+    "completion_tokens": 571,
+    "total_tokens": 3380,
+    "completion_tokens_details": {
+     "reasoning_tokens": 45
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在数据分析与逻辑思维方面证据充分（SQL、ETL、KPI 监控、百万级数据处理等项目与实习经历），评为 Strong；B 端销售/渠道商务拓展方面仅有渠道伙伴增长策略与运营框架相关经验，缺少直接的销售或商务拓展实战，评为 Partial。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_9c358b111a90\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"],\n      \"reason\": \"在 KPay Group 设计过渠道伙伴增长策略与运营框架，并为合作团队提供数据洞察，体现渠道侧理解；但缺乏直接的 B 端销售或商务拓展（BD）实战经历。\"\n    },\n    {\n      \"requirement_id\": \"synreq_f089f2e124b8\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:30\", \"resume_extracted:resume_extracted:20\"],\n      \"reason\": \"具备 SQL/ETL 搭建、KPI 监控与绩效分析体系经验，并用 Python 处理百万级数据完成 EDA 与建模，数据分析与逻辑能力证据直接且扎实。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理渠道伙伴策略项目细节\",\n      \"action\": \"准备 KPay 渠道伙伴增长策略的完整案例：目标、伙伴分层方法、落地动作与可量化结果，并思考如何将其迁移到 B 端销售/BD 场景，以弥补直接销售经验的不足。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_9c358b111a90\"]\n    },\n    {\n      \"title\": \"准备数据分析能力讲述\",\n      \"action\": \"整理 SQL 归因逻辑、KPI 监控体系和百万级数据欺诈分析项目的 STAR 案例，突出分析思路与业务结论，面试中主动展示。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_f089f2e124b8\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_9c358b111a90": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    },
+    "synreq_f089f2e124b8": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:30",
+      "resume_extracted:resume_extracted:20"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G03",
+   "submitted_requirement_ids": [
+    "synreq_a96918b29429",
+    "synreq_f8aa192b0eb8"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 15468.0,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2809,
+    "completion_tokens": 412,
+    "total_tokens": 3221,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 26
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\":\"候选人在跨职能协作与产品交付方面有较强的项目证据（GoFin 平台 Product Owner 经历），但完全没有智能硬件或终端产品从设计到量产的相关经验，与该岗位核心要求差距明显。\",\"requirement_matches\":[{\"requirement_id\":\"synreq_a96918b29429\",\"match_label\":\"Missing\",\"evidence_ids\":[],\"reason\":\"证据库中没有任何智能硬件或终端产品经历，更无从设计到量产的完整链路经验。候选人的经历集中在软件产品、数据分析与金融科技领域。\"},{\"requirement_id\":\"synreq_f8aa192b0eb8\",\"match_label\":\"Strong\",\"evidence_ids\":[\"resume_extracted:resume_extracted:28\",\"resume_extracted:resume_extracted:resume:1:product_experience:5\",\"resume_extracted:resume_extracted:resume:1:product_experience:9\"],\"reason\":\"在 GoFin 智能财务目标管理平台担任 Product Owner，负责需求、Backlog、User Stories 与跨职能交付，并协调前端、后端、AI、数据库、测试团队，直接体现了跨职能协作与项目管理能力。\"}],\"suggested_preparation\":[{\"title\":\"梳理跨职能协作的具体成果\",\"action\":\"准备 GoFin 项目中协调前端、后端、AI、数据库、测试团队的具体案例，量化交付节奏与迭代成果，用 STAR 结构讲清项目管理方法。\",\"priority\":\"Medium\",\"requirement_ids\":[\"synreq_f8aa192b0eb8\"]},{\"title\":\"补齐硬件产品认知\",\"action\":\"该岗位核心的智能硬件量产经验目前无证据支撑，建议面试前学习智能硬件从设计、打样到量产的基本流程与关键角色，诚实说明自身软件产品背景并强调可迁移的产品管理能力。\",\"priority\":\"High\",\"requirement_ids\":[\"synreq_a96918b29429\"]}]}",
+   "predicted_matches": {
+    "synreq_a96918b29429": {
+     "label": "Missing",
+     "evidence_ids": []
+    },
+    "synreq_f8aa192b0eb8": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:resume:1:product_experience:5",
+      "resume_extracted:resume_extracted:resume:1:product_experience:9"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G04",
+   "submitted_requirement_ids": [
+    "synreq_466eeb553c56"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 14236.1,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2748,
+    "completion_tokens": 494,
+    "total_tokens": 3242,
+    "completion_tokens_details": {
+     "reasoning_tokens": 53
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在需求分析方面有较强的证据支撑，曾担任 GoFin 智能财务平台的 Product Owner 并参与产品需求讨论与用户场景分析；但通用 C 端产品经验和原型设计能力缺乏直接证据，整体为部分匹配。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_466eeb553c56\", \"match_label\": \"Partial\", \"evidence_ids\": [\"resume_extracted:resume_extracted:28\", \"resume_extracted:resume_extracted:21\", \"resume_extracted:resume_extracted:23\"], \"reason\": \"在 GoFin 项目担任 Product Owner，负责需求管理、User Stories 和产品流程，并在中国电子云实习中参与产品需求讨论和用户场景分析，说明具备需求分析能力。但相关经历偏 B 端/企业级产品，缺乏通用 C 端产品经验及原型设计（如 Axure/Figma 产出）的直接证据。\"}], \"suggested_preparation\": [{\"title\": \"梳理需求分析项目叙事\", \"action\": \"准备以 GoFin Product Owner 经历为主线，清晰讲述需求收集、User Story 拆解、Backlog 优先级排序和交付过程，突出可迁移的产品方法论。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_466eeb553c56\"]}, {\"title\": \"补充原型设计能力展示\", \"action\": \"若做过任何界面原型或流程图，整理成作品集（如 Figma/Axure 原型）；如确实没有，可在面试中主动说明通过产品流程文档和 PRD 表达需求的实践经验。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_466eeb553c56\"]}, {\"title\": \"准备 C 端产品认知问答\", \"action\": \"针对通用 C 端产品（如常用 App）准备用户场景、需求分析和竞品分析的回答框架，弥补 C 端经验不足，展示对 C 端用户心智的理解。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_466eeb553c56\"]}]}",
+   "predicted_matches": {
+    "synreq_466eeb553c56": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:28",
+      "resume_extracted:resume_extracted:21",
+      "resume_extracted:resume_extracted:23"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G05",
+   "submitted_requirement_ids": [
+    "synreq_897ad70e4214",
+    "synreq_786657332933"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 31848.3,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2799,
+    "completion_tokens": 672,
+    "total_tokens": 3471,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 38
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\n  \"summary\": \"候选人在数据分析与逻辑思维方面证据充分，拥有SQL、ETL、KPI监控、百万级数据处理等多项实战经历，属于强匹配；但在电商平台运营/供应链产品方向仅有支付业务运营框架设计和电商评论NLP项目等相关经验，缺乏真正的电商平台运营或供应链产品经历，属于部分匹配。建议重点补充电商与供应链领域知识，并在面试中突出可迁移的运营与数据分析能力。\",\n  \"requirement_matches\": [\n    {\n      \"requirement_id\": \"synreq_897ad70e4214\",\n      \"match_label\": \"Partial\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:16\",\n        \"resume_extracted:resume_extracted:29\",\n        \"resume_extracted:resume_extracted:resume:1:domain_experience:3\"\n      ],\n      \"reason\": \"候选人在KPay设计过渠道增长策略与运营框架，并有电商评论情感分析项目和增长运营领域经历，与运营相关；但证据集中在支付/金融科技运营，未体现真正的电商平台运营或供应链产品经验。\"\n    },\n    {\n      \"requirement_id\": \"synreq_786657332933\",\n      \"match_label\": \"Strong\",\n      \"evidence_ids\": [\n        \"resume_extracted:resume_extracted:18\",\n        \"resume_extracted:resume_extracted:19\",\n        \"resume_extracted:resume_extracted:20\",\n        \"resume_extracted:resume_extracted:30\"\n      ],\n      \"reason\": \"候选人搭建过数据架构与自动化ETL、设计SQL触发器与归因逻辑、建立KPI监控体系，并用Python处理百万级数据完成EDA与建模，数据分析与逻辑思维证据直接且充分。\"\n    }\n  ],\n  \"suggested_preparation\": [\n    {\n      \"title\": \"梳理电商与供应链领域认知\",\n      \"action\": \"系统学习电商平台运营核心指标（GMV、转化率、复购率）与供应链产品基本概念（库存、履约、采购流程），准备1-2个将现有运营/数据经验迁移到电商场景的思路。\",\n      \"priority\": \"High\",\n      \"requirement_ids\": [\"synreq_897ad70e4214\"]\n    },\n    {\n      \"title\": \"准备运营经验迁移话术\",\n      \"action\": \"整理KPay渠道增长运营框架与电商评论NLP项目的细节，说明其中的运营方法论如何适用于电商平台场景，避免夸大为直接电商经验。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_897ad70e4214\"]\n    },\n    {\n      \"title\": \"强化数据分析案例表达\",\n      \"action\": \"准备ETL搭建、归因逻辑设计、KPI监控体系和百万级数据分析项目的STAR式讲述，突出分析思路与业务结论，巩固这一强匹配优势。\",\n      \"priority\": \"Medium\",\n      \"requirement_ids\": [\"synreq_786657332933\"]\n    }\n  ]\n}",
+   "predicted_matches": {
+    "synreq_897ad70e4214": {
+     "label": "Partial",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:29",
+      "resume_extracted:resume_extracted:resume:1:domain_experience:3"
+     ]
+    },
+    "synreq_786657332933": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  },
+  {
+   "job_id": "synv2:G06",
+   "submitted_requirement_ids": [
+    "synreq_65fe4a960164",
+    "synreq_4a2c31c2b7b8"
+   ],
+   "http": 200,
+   "ok": true,
+   "error": null,
+   "latency_ms": 16174.8,
+   "retries": 0,
+   "usage": {
+    "prompt_tokens": 2814,
+    "completion_tokens": 597,
+    "total_tokens": 3411,
+    "cached_tokens": 512,
+    "completion_tokens_details": {
+     "reasoning_tokens": 62
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 512
+    }
+   },
+   "parse_error": null,
+   "raw_content": "{\"summary\": \"候选人在商业分析与数据分析方面均有较扎实的实证支撑：KPay 实习中设计增长策略、搭建数据架构并输出业务分析报告，中国电子云实习中开展竞品分析，另有百万级数据分析项目经验，整体与两项要求匹配度较高。\", \"requirement_matches\": [{\"requirement_id\": \"synreq_65fe4a960164\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:16\", \"resume_extracted:resume_extracted:20\", \"resume_extracted:resume_extracted:23\", \"resume_extracted:resume_extracted:27\"], \"reason\": \"在 KPay 设计渠道增长策略与运营框架、构建业务分析报告输出数据洞察，并在中国电子云开展多维度竞品分析，直接覆盖商业分析与行业研究经验。\"}, {\"requirement_id\": \"synreq_4a2c31c2b7b8\", \"match_label\": \"Strong\", \"evidence_ids\": [\"resume_extracted:resume_extracted:18\", \"resume_extracted:resume_extracted:19\", \"resume_extracted:resume_extracted:30\"], \"reason\": \"搭建自动化 ETL 与 SQL 归因逻辑、建立 KPI 监控体系，并用 Python 处理百万级数据完成 EDA 与建模，数据分析与逻辑思维能力有多段事实证据支撑。\"}], \"suggested_preparation\": [{\"title\": \"准备商业分析案例复盘\", \"action\": \"梳理 KPay 增长策略设计与业务分析报告的完整案例，用 STAR 结构说明问题、分析框架与业务成果，以应对咨询类面试的案例考察。\", \"priority\": \"High\", \"requirement_ids\": [\"synreq_65fe4a960164\"]}, {\"title\": \"强化分析方法论表达\", \"action\": \"准备 KPI 监控体系与归因逻辑的设计思路讲解，补充对常用咨询分析框架（如 MECE、漏斗分析）的理解，体现结构化逻辑思维。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_65fe4a960164\", \"synreq_4a2c31c2b7b8\"]}, {\"title\": \"准备数据分析技术细节问答\", \"action\": \"复习 SQL 触发器、ETL 流程及百万级数据处理项目中的技术选型与难点，确保能清晰回答数据分析深度的追问。\", \"priority\": \"Medium\", \"requirement_ids\": [\"synreq_4a2c31c2b7b8\"]}]}",
+   "predicted_matches": {
+    "synreq_65fe4a960164": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:16",
+      "resume_extracted:resume_extracted:20",
+      "resume_extracted:resume_extracted:23",
+      "resume_extracted:resume_extracted:27"
+     ]
+    },
+    "synreq_4a2c31c2b7b8": {
+     "label": "Strong",
+     "evidence_ids": [
+      "resume_extracted:resume_extracted:18",
+      "resume_extracted:resume_extracted:19",
+      "resume_extracted:resume_extracted:30"
+     ]
+    }
+   }
+  }
+ ]
+}

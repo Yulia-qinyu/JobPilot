@@ -1,0 +1,364 @@
+{
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "status": "NOT_READY",
+  "reason": "Dataset V2 job set is empty; collection requires a human (or an explicitly authorised collection session). JD text must not be invented, translated, or reconstructed.",
+  "targets": {
+    "job_count": {
+      "min": 50,
+      "preferred": 60,
+      "hard_cap": 70
+    },
+    "distinct_companies": {
+      "min": 12,
+      "preferred_low": 15,
+      "preferred_high": 20
+    },
+    "single_company_share_max": {
+      "preferred": 0.15,
+      "absolute": 0.2
+    },
+    "language_zh_share_min": 0.8,
+    "career_stage": {
+      "campus_new_grad": [
+        0.2,
+        0.3
+      ],
+      "early_career": [
+        0.3,
+        0.4
+      ],
+      "experienced": [
+        0.3,
+        0.45
+      ]
+    },
+    "role_family": {
+      "ai_product": [
+        0.35,
+        0.45
+      ],
+      "general_product": [
+        0.15,
+        0.2
+      ],
+      "data_product": [
+        0.1,
+        0.15
+      ],
+      "platform_enterprise_product": [
+        0.1,
+        0.15
+      ],
+      "strategy_growth_fintech_product": [
+        0.1,
+        0.15
+      ],
+      "mismatched_control": [
+        0.05,
+        0.1
+      ]
+    },
+    "cities_preferred": [
+      "北京",
+      "上海",
+      "深圳",
+      "广州",
+      "杭州"
+    ],
+    "ai_subdomain_min_distinct": 8
+  },
+  "actuals": {
+    "job_count": 0,
+    "distinct_companies": 0,
+    "company_distribution": {},
+    "city_distribution": {},
+    "career_stage_distribution": {},
+    "role_family_distribution": {},
+    "language_distribution": {},
+    "ai_subdomain_distribution": {},
+    "source_type_distribution": {},
+    "missing_jd_count": 0,
+    "broken_source_url_count": 0
+  },
+  "v1_baseline_for_comparison": {
+    "job_count": 30,
+    "distinct_companies": 6,
+    "company_distribution": {
+      "腾讯": 14,
+      "百度": 12,
+      "Veeva": 1,
+      "SES AI": 1,
+      "Xsolla": 1,
+      "华为": 1
+    },
+    "city_distribution": {
+      "北京": 16,
+      "深圳": 10,
+      "上海": 2,
+      "广州": 2
+    },
+    "role_category_distribution": {
+      "ai_product": 15,
+      "general_product": 5,
+      "data_product": 4,
+      "mismatched_control": 3,
+      "strategy_growth_fintech": 3
+    },
+    "language_distribution": {
+      "zh": 27,
+      "en": 3
+    },
+    "top1_company_share": 0.467,
+    "top2_company_share": 0.867,
+    "requirement_taxonomy_baseline": {
+      "statement": "Dataset V1 = 158 canonical requirements = 42 eligibility + 100 matchable + 16 knowledge.",
+      "subjective_expectations": "19, recorded SEPARATELY (not part of the 158). Source: human_verified_statistics in job_match_annotation_full_v2_human_verified.json (pre-annotation was 17; human review added 2).",
+      "do_not_state": "42 + 100 + 16 + 17 subjective across 158 (wrong: conflates subjective into the 158 and uses the pre-review count)."
+    },
+    "career_stage_note": "Dataset V1 stored an employment-type field mixing {experienced, campus, internship, full-time}. That is NOT a normalized career-stage distribution: 'experienced' is a stage, 'internship'/'full-time' are employment types, 'campus' straddles both. V1 career-stage distribution REQUIRES normalization before any direct comparison to the V2 frozen enum {campus_new_grad, early_career, experienced, unknown}. No remapping is invented here.",
+    "v1_employment_type_field_raw": {
+      "experienced": 22,
+      "internship": 3,
+      "campus": 3,
+      "full-time": 2,
+      "_warning": "raw mixed field — not career-stage; do not compare directly"
+    }
+  },
+  "batch1": {
+    "note": "Provisional — computed on 10 WebFetch-retrieved (non-verbatim) jobs. 0 accepted into corpus.",
+    "staged_provisional_jobs": 10,
+    "accepted_corpus_jobs": 0,
+    "companies": {
+      "百度": 5,
+      "京东": 5
+    },
+    "company_share": {
+      "百度": 0.5,
+      "京东": 0.5
+    },
+    "primary_city": {
+      "北京市": 7,
+      "上海市": 1,
+      "深圳市": 2
+    },
+    "career_stage_validated": {
+      "campus_new_grad": 2,
+      "experienced": 6,
+      "unknown": 2
+    },
+    "role_family_validated": {
+      "general_product": 2,
+      "platform_enterprise_product": 3,
+      "ai_product": 4,
+      "data_product": 1
+    },
+    "language": {
+      "zh": 10
+    },
+    "ai_subdomain_tags": {
+      "recommendation_search": 2,
+      "ai_infrastructure": 1,
+      "ai_platform": 2,
+      "agent": 2,
+      "speech_asr": 2,
+      "ai_consumer_products": 2,
+      "ai_commercialisation": 1,
+      "ai_productivity": 1,
+      "rag_knowledge_systems": 2,
+      "llm_applications": 1,
+      "multimodal": 1,
+      "enterprise_ai": 2
+    },
+    "distinct_ai_subdomains": 12,
+    "target_band_comparison": {
+      "job_count": "10 provisional / 0 accepted vs 50 min / 60 preferred — FAIL",
+      "distinct_companies": "2 (百度, 京东) vs >=12 / 15-20 preferred — FAIL (expected for Batch 1)",
+      "single_company_share": "百度 0.5 / 京东 0.5 vs <=0.15 preferred, <=0.20 absolute — FAIL",
+      "language_zh_share": "1.0 vs >=0.80 — PASS",
+      "career_stage": "campus_new_grad 2 / early_career 0 / experienced 6 / unknown 2 — early_career and campus under-filled",
+      "role_family": "ai_product 4 / platform_enterprise_product 3 / general_product 2 / data_product 1 / strategy_growth_fintech_product 0 / mismatched_control 0",
+      "ai_subdomain": "12 distinct tags across 8 AI-relevant jobs vs >=8 target — PASS on variety, thin on volume",
+      "cities": "{'北京市': 7, '上海市': 1, '深圳市': 2} — 北京 heavy; 广州 & 杭州 absent"
+    }
+  },
+  "batch2": {
+    "view": "Batch 2 alone (16 human-pasted)",
+    "candidate_job_count": 16,
+    "unique_known_companies": [
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)"
+    ],
+    "unique_known_company_count": 2,
+    "unknown_company_count": 13,
+    "known_company_distribution": {
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "city_distribution": {
+      "unknown": 14,
+      "北京市": 2
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 7,
+      "unknown": 8,
+      "experienced": 1
+    },
+    "role_family_distribution": {
+      "ai_product": 8,
+      "platform_enterprise_product": 5,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1,
+      "general_product": 1
+    },
+    "language_distribution": {
+      "zh": 16
+    },
+    "ai_subdomain_coverage": {
+      "llm_applications": 9,
+      "agent": 5,
+      "rag_knowledge_systems": 3,
+      "ai_consumer_products": 3,
+      "ai_platform": 3,
+      "enterprise_ai": 4,
+      "ai_productivity": 1,
+      "recommendation_search": 2,
+      "ai_tools": 1,
+      "multimodal": 1
+    },
+    "distinct_ai_subdomains": 10,
+    "duplicates": {
+      "within_batch2_exact": 0,
+      "within_batch2_probable_near": 0,
+      "vs_batch1": 0,
+      "vs_v1": 0
+    },
+    "source_verification_status": {
+      "pending": 16,
+      "verified": 0
+    },
+    "requirement_candidates_heuristic_total": 196
+  },
+  "combined_batch1_plus_batch2": {
+    "view": "Batch 1 provisional (10) + Batch 2 provisional (16) = 26",
+    "candidate_job_count": 26,
+    "unique_known_companies": [
+      "京东",
+      "字节跳动 (ByteDance)",
+      "水滴公司 (Waterdrop)",
+      "百度"
+    ],
+    "unique_known_company_count": 4,
+    "unknown_company_count": 13,
+    "known_company_distribution": {
+      "百度": 5,
+      "京东": 5,
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "big_tech_concentration": {
+      "baidu+jd": 0.385,
+      "baidu+jd+bytedance": 0.462
+    },
+    "city_distribution": {
+      "北京市": 9,
+      "上海市": 1,
+      "深圳市": 2,
+      "unknown": 14
+    },
+    "career_stage_distribution": {
+      "campus_new_grad": 9,
+      "experienced": 7,
+      "unknown": 10
+    },
+    "role_family_distribution": {
+      "general_product": 3,
+      "platform_enterprise_product": 8,
+      "ai_product": 12,
+      "data_product": 1,
+      "strategy_growth_fintech_product": 1,
+      "mismatched_control": 1
+    },
+    "language_distribution": {
+      "zh": 26
+    },
+    "ai_subdomain_coverage": {
+      "recommendation_search": 4,
+      "ai_infrastructure": 1,
+      "ai_platform": 5,
+      "agent": 7,
+      "speech_asr": 2,
+      "ai_consumer_products": 5,
+      "ai_commercialisation": 1,
+      "ai_productivity": 2,
+      "rag_knowledge_systems": 5,
+      "llm_applications": 10,
+      "multimodal": 2,
+      "enterprise_ai": 6,
+      "ai_tools": 1
+    },
+    "distinct_ai_subdomains": 13,
+    "duplicates": {
+      "within_pool_exact": 0,
+      "within_pool_probable_near": 0,
+      "vs_v1_exact": 0
+    },
+    "source_verification_status": {
+      "pending": 26,
+      "verified": 0,
+      "detail": "Batch 1: URL present but JD is WebFetch-rendered (not verbatim). Batch 2: no URL, human-pasted."
+    }
+  },
+  "verified_real_view": {
+    "policy": "dataset_v2_provenance_policy.md",
+    "verified_real_eligible": 16,
+    "verified_real_corpus_count": 0,
+    "source_verified": 0,
+    "human_provenance_verified": 16,
+    "unverified_batch1": 10,
+    "verified_real_eligible_count": 16,
+    "career_stage": {
+      "unknown": 8,
+      "campus_new_grad": 7,
+      "experienced": 1
+    },
+    "role_family": {
+      "ai_product": 8,
+      "platform_enterprise_product": 5,
+      "general_product": 1,
+      "mismatched_control": 1,
+      "strategy_growth_fintech_product": 1
+    },
+    "known_company_distribution": {
+      "字节跳动 (ByteDance)": 2,
+      "水滴公司 (Waterdrop)": 1
+    },
+    "distinct_known_companies": 2,
+    "unknown_company_count": 13,
+    "city_distribution": {
+      "unknown": 14,
+      "北京市": 2
+    },
+    "ai_subdomain_distribution": {
+      "llm_applications": 9,
+      "agent": 5,
+      "enterprise_ai": 4,
+      "ai_consumer_products": 3,
+      "ai_platform": 3,
+      "rag_knowledge_systems": 3,
+      "recommendation_search": 2,
+      "ai_productivity": 1,
+      "ai_tools": 1,
+      "multimodal": 1
+    },
+    "distinct_ai_subdomains": 10,
+    "language_distribution": {
+      "zh": 16
+    },
+    "targets": {
+      "minimum": 24,
+      "preferred": 30
+    },
+    "additional_needed_hard_floor": 8,
+    "additional_needed_preferred": 14
+  }
+}

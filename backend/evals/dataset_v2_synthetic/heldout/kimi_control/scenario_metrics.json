@@ -1,0 +1,80 @@
+{
+ "per_scenario_category": {
+  "technology_adjacency": {
+   "evaluated_probe_count": 3,
+   "n_scored": 3,
+   "accuracy": 0.3333,
+   "effective_correct_coverage": 0.3333,
+   "errors": 2,
+   "error_breakdown": {
+    "Missing->Partial": 1,
+    "Partial->Strong": 1
+   },
+   "dominant_confusion": "Missing->Partial",
+   "source": "human_reviewed_probe"
+  },
+  "project_vs_formal_work": {
+   "evaluated_probe_count": 1,
+   "n_scored": 1,
+   "accuracy": 1.0,
+   "effective_correct_coverage": 1.0,
+   "errors": 0,
+   "error_breakdown": {},
+   "dominant_confusion": null,
+   "source": "human_reviewed_probe"
+  },
+  "strong_partial_boundary": {
+   "evaluated_probe_count": 3,
+   "n_scored": 3,
+   "accuracy": 1.0,
+   "effective_correct_coverage": 1.0,
+   "errors": 0,
+   "error_breakdown": {},
+   "dominant_confusion": null,
+   "source": "human_reviewed_probe"
+  },
+  "partial_missing_boundary": {
+   "evaluated_probe_count": 3,
+   "n_scored": 3,
+   "accuracy": 0.6667,
+   "effective_correct_coverage": 0.6667,
+   "errors": 1,
+   "error_breakdown": {
+    "Missing->Partial": 1
+   },
+   "dominant_confusion": "Missing->Partial",
+   "source": "human_reviewed_probe"
+  },
+  "or_alternative": {
+   "evaluated_probe_count": 2,
+   "n_scored": 2,
+   "accuracy": 1.0,
+   "effective_correct_coverage": 1.0,
+   "errors": 0,
+   "error_breakdown": {},
+   "dominant_confusion": null,
+   "source": "human_reviewed_probe"
+  },
+  "compound": {
+   "evaluated_probe_count": 5,
+   "n_scored": 5,
+   "accuracy": 1.0,
+   "effective_correct_coverage": 1.0,
+   "errors": 0,
+   "error_breakdown": {},
+   "dominant_confusion": null,
+   "source": "human_reviewed_probe"
+  },
+  "role_core_mismatch": {
+   "evaluated_probe_count": 3,
+   "n_scored": 3,
+   "accuracy": 1.0,
+   "effective_correct_coverage": 1.0,
+   "errors": 0,
+   "error_breakdown": {},
+   "dominant_confusion": null,
+   "source": "human_reviewed_probe"
+  }
+ },
+ "note": "human-reviewed probe subset per category where available; else all-matchable fallback (flagged)."
+}

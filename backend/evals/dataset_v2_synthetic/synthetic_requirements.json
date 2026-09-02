@@ -1,0 +1,2130 @@
+{
+  "dataset_role": "synthetic_behavioral_stress_test",
+  "is_synthetic": true,
+  "requirement_count": 201,
+  "taxonomy": "Requirement Taxonomy V2 (frozen)",
+  "requirements": [
+    {
+      "requirement_id": "synreq_c7935c589246",
+      "job_id": "synv2:A01",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "具备图文 / 视频 / 语音多模态大模型产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_51031ce43fe5",
+      "job_id": "synv2:A01",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_31c5518593af",
+      "job_id": "synv2:A01",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "理解多模态对齐与跨模态表征的基本原理",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "多模态对齐",
+        "跨模态表征"
+      ]
+    },
+    {
+      "requirement_id": "synreq_8e885ffb7ca8",
+      "job_id": "synv2:A01",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_38c8abd3340b",
+      "job_id": "synv2:A01",
+      "scenario_id": "A01",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 5,
+      "requirement_text": "对 AI 产品有极强的热情与好奇心",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_e2fc941b8edc",
+      "job_id": "synv2:A02",
+      "scenario_id": "A02",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有语音识别 (ASR) / 语音交互产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_b2cbe0bd5931",
+      "job_id": "synv2:A02",
+      "scenario_id": "A02",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "能够评估 AI 方案的业务价值与可行性",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_f425c37552b5",
+      "job_id": "synv2:A02",
+      "scenario_id": "A02",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_1fcf79bae62d",
+      "job_id": "synv2:A02",
+      "scenario_id": "A02",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "了解 ASR 声学模型与端到端语音识别的基本机制",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "ASR",
+        "端到端语音识别"
+      ]
+    },
+    {
+      "requirement_id": "synreq_399feb01aabb",
+      "job_id": "synv2:A03",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有大模型精度调优 / 基模训练 / 强化学习训练经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_c9997f649ea6",
+      "job_id": "synv2:A03",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "熟悉大模型训练流程与实验管理",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_816b778459ec",
+      "job_id": "synv2:A03",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_ba67eccabf56",
+      "job_id": "synv2:A03",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "硕士及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_7cad45ec2c81",
+      "job_id": "synv2:A03",
+      "scenario_id": "A03",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 5,
+      "requirement_text": "了解分布式训练与混合精度训练的能力边界",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "分布式训练",
+        "混合精度"
+      ]
+    },
+    {
+      "requirement_id": "synreq_b23aa93e2e64",
+      "job_id": "synv2:A04",
+      "scenario_id": "A04",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有推荐系统召回 / 排序 / 重排的专项策略经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_790c0d429007",
+      "job_id": "synv2:A04",
+      "scenario_id": "A04",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_35910053a290",
+      "job_id": "synv2:A04",
+      "scenario_id": "A04",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_3470be3ec6b4",
+      "job_id": "synv2:A04",
+      "scenario_id": "A04",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "对推荐与个性化技术有浓厚兴趣",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_ac0a9beffc73",
+      "job_id": "synv2:A05",
+      "scenario_id": "A05",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有搜索排序 / 相关性策略的实际项目经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_1ecbab51908d",
+      "job_id": "synv2:A05",
+      "scenario_id": "A05",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "有 RAG 应用的产品实践经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_e6e7cbddef6b",
+      "job_id": "synv2:A05",
+      "scenario_id": "A05",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_841e72d3ba7a",
+      "job_id": "synv2:A05",
+      "scenario_id": "A05",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "理解倒排索引与向量检索的适用边界",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "倒排索引",
+        "向量检索"
+      ]
+    },
+    {
+      "requirement_id": "synreq_0ba286dafff6",
+      "job_id": "synv2:A06",
+      "scenario_id": "A06",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有图文 / 视频多模态生成产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_6c53bb4ff35e",
+      "job_id": "synv2:A06",
+      "scenario_id": "A06",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "具备产品设计与功能策划能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_a204bd31f64c",
+      "job_id": "synv2:A06",
+      "scenario_id": "A06",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_50afb4f7241c",
+      "job_id": "synv2:A06",
+      "scenario_id": "A06",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "热爱 AIGC 与创意工具",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_6bb69f136644",
+      "job_id": "synv2:A07",
+      "scenario_id": "A07",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有语音大模型 / TTS / 语音合成产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_4c7c53a4315e",
+      "job_id": "synv2:A07",
+      "scenario_id": "A07",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_d5aa04c5ea2f",
+      "job_id": "synv2:A07",
+      "scenario_id": "A07",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_5558166c34d5",
+      "job_id": "synv2:A07",
+      "scenario_id": "A07",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "了解语音合成与声码器的基本原理",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "TTS",
+        "声码器"
+      ]
+    },
+    {
+      "requirement_id": "synreq_90a7361ccef9",
+      "job_id": "synv2:A08",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有 RLHF / 强化学习 / 偏好对齐训练经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_b82863bde319",
+      "job_id": "synv2:A08",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "有模型效果评估经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_8ab808150f23",
+      "job_id": "synv2:A08",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_d9128fddc70e",
+      "job_id": "synv2:A08",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "硕士及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_a360714f2baa",
+      "job_id": "synv2:A08",
+      "scenario_id": "A08",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 5,
+      "requirement_text": "理解 RLHF 与 DPO 的基本流程与差异",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "RLHF",
+        "DPO"
+      ]
+    },
+    {
+      "requirement_id": "synreq_a7efd870a86b",
+      "job_id": "synv2:A09",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "熟悉 vLLM / SGLang 等大模型推理框架",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_34eac9ebb94e",
+      "job_id": "synv2:A09",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "有 GPU / 国产算力卡算子开发经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_b6e60db72007",
+      "job_id": "synv2:A09",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_da2a5622630f",
+      "job_id": "synv2:A09",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_5da24149cd80",
+      "job_id": "synv2:A09",
+      "scenario_id": "A09",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 5,
+      "requirement_text": "了解 KV Cache 与连续批处理对吞吐的影响",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "KV Cache",
+        "continuous batching"
+      ]
+    },
+    {
+      "requirement_id": "synreq_411aeef1797f",
+      "job_id": "synv2:A10",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 1,
+      "requirement_text": "有广告 / 推荐 / 竞价策略相关产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_a37b5fdac403",
+      "job_id": "synv2:A10",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_28fcdec35d7a",
+      "job_id": "synv2:A10",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 3,
+      "requirement_text": "有 A/B 实验设计与执行经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_ce4c2d014ec0",
+      "job_id": "synv2:A10",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ac6f4a41b9f4",
+      "job_id": "synv2:A10",
+      "scenario_id": "A10",
+      "scenario_category": "technology_adjacency",
+      "requirement_index": 5,
+      "requirement_text": "对商业化与增长有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_c3fc72219d0a",
+      "job_id": "synv2:B01",
+      "scenario_id": "B01",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "3 年以上正式 AI 产品经理工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_cb83e27ff2a5",
+      "job_id": "synv2:B01",
+      "scenario_id": "B01",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_4a5f26637a08",
+      "job_id": "synv2:B01",
+      "scenario_id": "B01",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "理解 LLM 能力边界与失败模式",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "LLM 能力边界",
+        "幻觉"
+      ]
+    },
+    {
+      "requirement_id": "synreq_018726f42a67",
+      "job_id": "synv2:B02",
+      "scenario_id": "B02",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "5 年以上产品经验，含 3 年以上团队管理",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_9a6e8d73eba3",
+      "job_id": "synv2:B02",
+      "scenario_id": "B02",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "有从 0 到 1 主导产品并取得可量化业务成果的经历",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_db544a28d07d",
+      "job_id": "synv2:B02",
+      "scenario_id": "B02",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "具备产品设计与功能策划能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_9f445d80b3cb",
+      "job_id": "synv2:B02",
+      "scenario_id": "B02",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 4,
+      "requirement_text": "有强烈的 ownership 意识",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_7b76b9f8d2ec",
+      "job_id": "synv2:B03",
+      "scenario_id": "B03",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "有 AI 功能的完整动手交付经验（强调实操而非正式任职年限）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_6eb47ebe8424",
+      "job_id": "synv2:B03",
+      "scenario_id": "B03",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_5915dd7761b4",
+      "job_id": "synv2:B03",
+      "scenario_id": "B03",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "理解 RAG 检索增强机制",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "RAG"
+      ]
+    },
+    {
+      "requirement_id": "synreq_6619b5118719",
+      "job_id": "synv2:B04",
+      "scenario_id": "B04",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "3 年以上 B 端 / 企业级产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_a539c85a151b",
+      "job_id": "synv2:B04",
+      "scenario_id": "B04",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_6d3195cffc12",
+      "job_id": "synv2:B04",
+      "scenario_id": "B04",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "有企业级 SaaS / 多租户产品经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_fcda2c6815f9",
+      "job_id": "synv2:B04",
+      "scenario_id": "B04",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 4,
+      "requirement_text": "对企业数字化有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_362220064ec2",
+      "job_id": "synv2:B05",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "具备 Agent 设计交付、上下文工程、人机协同与质量评估的完整动手经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_396cc70eab93",
+      "job_id": "synv2:B05",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "深入理解 Agent 架构与规划-执行循环",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "Agent 架构",
+        "planning-execution"
+      ]
+    },
+    {
+      "requirement_id": "synreq_0d7bad106433",
+      "job_id": "synv2:B05",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_61c659b08f95",
+      "job_id": "synv2:B05",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 4,
+      "requirement_text": "硕士及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f7c821de88d9",
+      "job_id": "synv2:B05",
+      "scenario_id": "B05",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 5,
+      "requirement_text": "在 Agent 架构层面与工程团队深度对齐",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_1a8e60c1d1b5",
+      "job_id": "synv2:B06",
+      "scenario_id": "B06",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "有金融行业 AI 落地项目经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_b4c8b8ef5c77",
+      "job_id": "synv2:B06",
+      "scenario_id": "B06",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "3 年以上金融科技产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_7d472f5733b0",
+      "job_id": "synv2:B06",
+      "scenario_id": "B06",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "对金融与科技结合有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_9ba5d1c07e51",
+      "job_id": "synv2:B07",
+      "scenario_id": "B07",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "至少 1 段 AI 产品实习经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ed0cd59648cb",
+      "job_id": "synv2:B07",
+      "scenario_id": "B07",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "有 AI 产品的深度使用与实践经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_29b7da2d1b2e",
+      "job_id": "synv2:B07",
+      "scenario_id": "B07",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_e9a0df019cd5",
+      "job_id": "synv2:B07",
+      "scenario_id": "B07",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 4,
+      "requirement_text": "对 AI 技术持续关注、探索能力强",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_36fc4aaddaa8",
+      "job_id": "synv2:B08",
+      "scenario_id": "B08",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 1,
+      "requirement_text": "8 年以上产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_b078282915db",
+      "job_id": "synv2:B08",
+      "scenario_id": "B08",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 2,
+      "requirement_text": "独立负责过完整产品线的商业化闭环",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_4f0a7052df75",
+      "job_id": "synv2:B08",
+      "scenario_id": "B08",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 3,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_f2962ef4617b",
+      "job_id": "synv2:B08",
+      "scenario_id": "B08",
+      "scenario_category": "project_vs_formal_work",
+      "requirement_index": 4,
+      "requirement_text": "了解常见的 SaaS 商业化模式",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "订阅制",
+        "PLG"
+      ]
+    },
+    {
+      "requirement_id": "synreq_66885a07bd90",
+      "job_id": "synv2:C01",
+      "scenario_id": "C01",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "理解数据仓库架构并熟悉数据治理全流程",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_711d5c3e3b87",
+      "job_id": "synv2:C01",
+      "scenario_id": "C01",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "熟练使用 SQL 进行数据分析",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_8562f261e07a",
+      "job_id": "synv2:C01",
+      "scenario_id": "C01",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f05fe9843edd",
+      "job_id": "synv2:C01",
+      "scenario_id": "C01",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解维度建模与数据分层的基本概念",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "维度建模",
+        "数据分层"
+      ]
+    },
+    {
+      "requirement_id": "synreq_7356f75ca5b3",
+      "job_id": "synv2:C02",
+      "scenario_id": "C02",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有 RAG 系统的生产环境部署与调优经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_2f19d85a7ef9",
+      "job_id": "synv2:C02",
+      "scenario_id": "C02",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_12d5d7459db4",
+      "job_id": "synv2:C02",
+      "scenario_id": "C02",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_e2a715634f83",
+      "job_id": "synv2:C02",
+      "scenario_id": "C02",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "理解检索-重排-生成的 RAG 管线",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "RAG 管线",
+        "重排"
+      ]
+    },
+    {
+      "requirement_id": "synreq_7a9f7ab9d753",
+      "job_id": "synv2:C03",
+      "scenario_id": "C03",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "曾以数据产品经理身份独立负责完整数据产品",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_bc51db5928f4",
+      "job_id": "synv2:C03",
+      "scenario_id": "C03",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "熟练使用 SQL 进行数据分析",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_6c020dc6d870",
+      "job_id": "synv2:C03",
+      "scenario_id": "C03",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_edd48d144dfe",
+      "job_id": "synv2:C03",
+      "scenario_id": "C03",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "对数据与业务价值转化有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_030b4853d5f1",
+      "job_id": "synv2:C04",
+      "scenario_id": "C04",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有企业级 SaaS / 多租户 / 可配置平台产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_7446943fe7f9",
+      "job_id": "synv2:C04",
+      "scenario_id": "C04",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_eee90b9a40e3",
+      "job_id": "synv2:C04",
+      "scenario_id": "C04",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "3 年以上产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_7c3cce4a9c51",
+      "job_id": "synv2:C04",
+      "scenario_id": "C04",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解多租户隔离与配置化架构的取舍",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "多租户",
+        "配置化"
+      ]
+    },
+    {
+      "requirement_id": "synreq_e0927f36fb94",
+      "job_id": "synv2:C05",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有 Agent 专项评测体系搭建经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_bb4fbe4b6744",
+      "job_id": "synv2:C05",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有模型效果评估与数据驱动评测能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_60b56ed3950a",
+      "job_id": "synv2:C05",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_2ebaeccb7331",
+      "job_id": "synv2:C05",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f415b4fcc70e",
+      "job_id": "synv2:C05",
+      "scenario_id": "C05",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 5,
+      "requirement_text": "理解 Agent 评测的常见维度与陷阱",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "Agent 评测",
+        "任务完成率"
+      ]
+    },
+    {
+      "requirement_id": "synreq_f8454c6e8e53",
+      "job_id": "synv2:C06",
+      "scenario_id": "C06",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "具备 Prompt / 上下文工程的完整实践经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_104c593a63d3",
+      "job_id": "synv2:C06",
+      "scenario_id": "C06",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_0f764f3bee82",
+      "job_id": "synv2:C06",
+      "scenario_id": "C06",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_43cd84dae7ce",
+      "job_id": "synv2:C06",
+      "scenario_id": "C06",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "理解 Prompt 工程与上下文窗口管理的方法",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "Prompt 工程",
+        "上下文窗口"
+      ]
+    },
+    {
+      "requirement_id": "synreq_f1f71449a863",
+      "job_id": "synv2:C07",
+      "scenario_id": "C07",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "熟练使用 Python 与 C++",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_b4f12414f216",
+      "job_id": "synv2:C07",
+      "scenario_id": "C07",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "具备技术背景，能与工程团队深度协作",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_2b9abc65cc35",
+      "job_id": "synv2:C07",
+      "scenario_id": "C07",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ff541f7869dc",
+      "job_id": "synv2:C07",
+      "scenario_id": "C07",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解服务化与接口设计的基本原则",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "服务化",
+        "接口设计"
+      ]
+    },
+    {
+      "requirement_id": "synreq_67056aa36c43",
+      "job_id": "synv2:C08",
+      "scenario_id": "C08",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有从 0 到 1 主导产品并取得可量化业务成果的经历",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_664938d55ff1",
+      "job_id": "synv2:C08",
+      "scenario_id": "C08",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有用户增长 / 增长运营 / 转化优化经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_bf7e964a2c6f",
+      "job_id": "synv2:C08",
+      "scenario_id": "C08",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 3,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_2e4e3ed79773",
+      "job_id": "synv2:C08",
+      "scenario_id": "C08",
+      "scenario_category": "strong_partial_boundary",
+      "requirement_index": 4,
+      "requirement_text": "对增长与商业化有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_11a8cde8fe62",
+      "job_id": "synv2:D01",
+      "scenario_id": "D01",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有推荐 / 排序策略的实际项目经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_3e890953d455",
+      "job_id": "synv2:D01",
+      "scenario_id": "D01",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_69fc0bb1920b",
+      "job_id": "synv2:D01",
+      "scenario_id": "D01",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_b570593bb6e7",
+      "job_id": "synv2:D01",
+      "scenario_id": "D01",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "对推荐系统有兴趣",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_513c2bd94eb3",
+      "job_id": "synv2:D02",
+      "scenario_id": "D02",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有语音识别或语音合成产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_0d737725e239",
+      "job_id": "synv2:D02",
+      "scenario_id": "D02",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_55a65d7a39aa",
+      "job_id": "synv2:D02",
+      "scenario_id": "D02",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f830b84301c4",
+      "job_id": "synv2:D02",
+      "scenario_id": "D02",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解语音前端信号处理的基本概念",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "降噪",
+        "VAD"
+      ]
+    },
+    {
+      "requirement_id": "synreq_45f506185cde",
+      "job_id": "synv2:D03",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "独立承担过大型 AI Infra 系统的设计、开发与调测",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_9283cdbfa4fe",
+      "job_id": "synv2:D03",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_b023cf63ab37",
+      "job_id": "synv2:D03",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "熟悉大模型训练与推理链路",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_5fbec706e6f4",
+      "job_id": "synv2:D03",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "硕士及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_25c948430434",
+      "job_id": "synv2:D03",
+      "scenario_id": "D03",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 5,
+      "requirement_text": "了解训练/推理资源调度的取舍",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "资源调度",
+        "可观测性"
+      ]
+    },
+    {
+      "requirement_id": "synreq_38864a1cc6fd",
+      "job_id": "synv2:D04",
+      "scenario_id": "D04",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有视频理解 / 视频生成的产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_bc4cef12c1ad",
+      "job_id": "synv2:D04",
+      "scenario_id": "D04",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_c3985bb984d7",
+      "job_id": "synv2:D04",
+      "scenario_id": "D04",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_3580a987a4d4",
+      "job_id": "synv2:D04",
+      "scenario_id": "D04",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "对多模态与视频 AI 有兴趣",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_aff46a98c46a",
+      "job_id": "synv2:D05",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有短剧 / 漫剧 / 小说创作全流程经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_329049069b0e",
+      "job_id": "synv2:D05",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有内容行业(短视频/短剧/漫剧)资深从业经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_446d9d3d07fa",
+      "job_id": "synv2:D05",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "具备产品设计与功能策划能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_742830ecebb8",
+      "job_id": "synv2:D05",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_6a092033b4eb",
+      "job_id": "synv2:D05",
+      "scenario_id": "D05",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 5,
+      "requirement_text": "热爱内容创作",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_8f5efb278bff",
+      "job_id": "synv2:D06",
+      "scenario_id": "D06",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有大规模标注体系与训练数据闭环的专项经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ea7b23ae2ae6",
+      "job_id": "synv2:D06",
+      "scenario_id": "D06",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "熟练使用 SQL 进行数据分析",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_da19d9f8eb94",
+      "job_id": "synv2:D06",
+      "scenario_id": "D06",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_03e6703712ac",
+      "job_id": "synv2:D06",
+      "scenario_id": "D06",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解标注质量控制与一致性评估方法",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "标注一致性",
+        "质检"
+      ]
+    },
+    {
+      "requirement_id": "synreq_8c6cf3d8ff66",
+      "job_id": "synv2:D07",
+      "scenario_id": "D07",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有顶级会议(NeurIPS/ICML/ACL 等)论文发表",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_162fa483aa92",
+      "job_id": "synv2:D07",
+      "scenario_id": "D07",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "能够评估 AI 方案的业务价值与可行性",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_f9e78361a71b",
+      "job_id": "synv2:D07",
+      "scenario_id": "D07",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "硕士及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_25d882a6c761",
+      "job_id": "synv2:D07",
+      "scenario_id": "D07",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解大模型前沿研究方向与能力边界",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "前沿研究",
+        "能力边界"
+      ]
+    },
+    {
+      "requirement_id": "synreq_547fc6b8bdef",
+      "job_id": "synv2:D08",
+      "scenario_id": "D08",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 1,
+      "requirement_text": "有开放平台 / 插件生态 / MCP 建设经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_8d1917646a55",
+      "job_id": "synv2:D08",
+      "scenario_id": "D08",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_c69da3f4ef27",
+      "job_id": "synv2:D08",
+      "scenario_id": "D08",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_1225d285a6b9",
+      "job_id": "synv2:D08",
+      "scenario_id": "D08",
+      "scenario_category": "partial_missing_boundary",
+      "requirement_index": 4,
+      "requirement_text": "了解插件协议与工具调用规范",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "插件协议",
+        "工具调用"
+      ]
+    },
+    {
+      "requirement_id": "synreq_d781fb760d3d",
+      "job_id": "synv2:E01",
+      "scenario_id": "E01",
+      "scenario_category": "or_alternative",
+      "requirement_index": 1,
+      "requirement_text": "有 金融 或 保险 或 支付 行业经验（满足其一即可）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_84430e28d8c7",
+      "job_id": "synv2:E01",
+      "scenario_id": "E01",
+      "scenario_category": "or_alternative",
+      "requirement_index": 2,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_cfc223332bfe",
+      "job_id": "synv2:E01",
+      "scenario_id": "E01",
+      "scenario_category": "or_alternative",
+      "requirement_index": 3,
+      "requirement_text": "对垂直行业 AI 落地有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_fe5930fca38c",
+      "job_id": "synv2:E02",
+      "scenario_id": "E02",
+      "scenario_category": "or_alternative",
+      "requirement_index": 1,
+      "requirement_text": "有 Agent 或 RAG 或 工作流自动化 经验（满足其一即可）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_c24158660395",
+      "job_id": "synv2:E02",
+      "scenario_id": "E02",
+      "scenario_category": "or_alternative",
+      "requirement_index": 2,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_41bfff753273",
+      "job_id": "synv2:E02",
+      "scenario_id": "E02",
+      "scenario_category": "or_alternative",
+      "requirement_index": 3,
+      "requirement_text": "理解 Agent / RAG / workflow 的适用场景",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "Agent",
+        "RAG",
+        "workflow"
+      ]
+    },
+    {
+      "requirement_id": "synreq_024677d8c29f",
+      "job_id": "synv2:E03",
+      "scenario_id": "E03",
+      "scenario_category": "or_alternative",
+      "requirement_index": 1,
+      "requirement_text": "熟练使用 SQL 或 Python 进行数据分析（满足其一即可）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_dda2f5dd234f",
+      "job_id": "synv2:E03",
+      "scenario_id": "E03",
+      "scenario_category": "or_alternative",
+      "requirement_index": 2,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ce1464542aac",
+      "job_id": "synv2:E03",
+      "scenario_id": "E03",
+      "scenario_category": "or_alternative",
+      "requirement_index": 3,
+      "requirement_text": "对数据分析有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_8d61cb428347",
+      "job_id": "synv2:E04",
+      "scenario_id": "E04",
+      "scenario_category": "or_alternative",
+      "requirement_index": 1,
+      "requirement_text": "有 对话式 AI 或 推荐 或 搜索 产品经验（满足其一即可）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_bc108c23026a",
+      "job_id": "synv2:E04",
+      "scenario_id": "E04",
+      "scenario_category": "or_alternative",
+      "requirement_index": 2,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ca4d1a428ec6",
+      "job_id": "synv2:E04",
+      "scenario_id": "E04",
+      "scenario_category": "or_alternative",
+      "requirement_index": 3,
+      "requirement_text": "对 C 端产品有用户 sense",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_22f7ecf7215f",
+      "job_id": "synv2:E05",
+      "scenario_id": "E05",
+      "scenario_category": "or_alternative",
+      "requirement_index": 1,
+      "requirement_text": "有 用户增长 或 用户运营 或 内容平台 经验（满足其一即可）",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_7bc5886dabdc",
+      "job_id": "synv2:E05",
+      "scenario_id": "E05",
+      "scenario_category": "or_alternative",
+      "requirement_index": 2,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_ebd547b7b284",
+      "job_id": "synv2:E05",
+      "scenario_id": "E05",
+      "scenario_category": "or_alternative",
+      "requirement_index": 3,
+      "requirement_text": "对增长有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_37d1af10e82c",
+      "job_id": "synv2:F01",
+      "scenario_id": "F01",
+      "scenario_category": "compound",
+      "requirement_index": 1,
+      "requirement_text": "熟练使用 SQL 且 具备 A/B 实验设计与执行能力",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_632d38360d21",
+      "job_id": "synv2:F01",
+      "scenario_id": "F01",
+      "scenario_category": "compound",
+      "requirement_index": 2,
+      "requirement_text": "熟练使用 SQL 进行数据分析",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_c8b386a4808e",
+      "job_id": "synv2:F01",
+      "scenario_id": "F01",
+      "scenario_category": "compound",
+      "requirement_index": 3,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_efc24d992121",
+      "job_id": "synv2:F01",
+      "scenario_id": "F01",
+      "scenario_category": "compound",
+      "requirement_index": 4,
+      "requirement_text": "理解实验显著性与样本量估计",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "显著性",
+        "样本量"
+      ]
+    },
+    {
+      "requirement_id": "synreq_1f3464006320",
+      "job_id": "synv2:F02",
+      "scenario_id": "F02",
+      "scenario_category": "compound",
+      "requirement_index": 1,
+      "requirement_text": "具备 Agent 设计能力 且 Agent 专项评测能力",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_4fd7dcde1639",
+      "job_id": "synv2:F02",
+      "scenario_id": "F02",
+      "scenario_category": "compound",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_29696934cdd9",
+      "job_id": "synv2:F02",
+      "scenario_id": "F02",
+      "scenario_category": "compound",
+      "requirement_index": 3,
+      "requirement_text": "3 年以上产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_c4cc61f162dc",
+      "job_id": "synv2:F02",
+      "scenario_id": "F02",
+      "scenario_category": "compound",
+      "requirement_index": 4,
+      "requirement_text": "理解 Agent 的规划-执行-反思循环",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "planning",
+        "reflection"
+      ]
+    },
+    {
+      "requirement_id": "synreq_47385f8d6c6c",
+      "job_id": "synv2:F03",
+      "scenario_id": "F03",
+      "scenario_category": "compound",
+      "requirement_index": 1,
+      "requirement_text": "有企业级产品经验 且 完整商业化闭环经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_8ffbff01ac78",
+      "job_id": "synv2:F03",
+      "scenario_id": "F03",
+      "scenario_category": "compound",
+      "requirement_index": 2,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_ee75c36bd0e6",
+      "job_id": "synv2:F03",
+      "scenario_id": "F03",
+      "scenario_category": "compound",
+      "requirement_index": 3,
+      "requirement_text": "3 年以上产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_70b0d8254b55",
+      "job_id": "synv2:F03",
+      "scenario_id": "F03",
+      "scenario_category": "compound",
+      "requirement_index": 4,
+      "requirement_text": "对商业化有热情",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_fe17a08896da",
+      "job_id": "synv2:F04",
+      "scenario_id": "F04",
+      "scenario_category": "compound",
+      "requirement_index": 1,
+      "requirement_text": "具备 LLM 应用交付能力 且 模型精度调优能力",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_e618fb152199",
+      "job_id": "synv2:F04",
+      "scenario_id": "F04",
+      "scenario_category": "compound",
+      "requirement_index": 2,
+      "requirement_text": "有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_d3d62b85bc6a",
+      "job_id": "synv2:F04",
+      "scenario_id": "F04",
+      "scenario_category": "compound",
+      "requirement_index": 3,
+      "requirement_text": "1-3 年产品相关工作经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_74f82d7b62f9",
+      "job_id": "synv2:F04",
+      "scenario_id": "F04",
+      "scenario_category": "compound",
+      "requirement_index": 4,
+      "requirement_text": "了解精调与提示工程的适用边界",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "精调",
+        "提示工程"
+      ]
+    },
+    {
+      "requirement_id": "synreq_fe1542987e0f",
+      "job_id": "synv2:F05",
+      "scenario_id": "F05",
+      "scenario_category": "compound",
+      "requirement_index": 1,
+      "requirement_text": "有数据开发经验 且 数据治理全流程经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_3e2e000439e9",
+      "job_id": "synv2:F05",
+      "scenario_id": "F05",
+      "scenario_category": "compound",
+      "requirement_index": 2,
+      "requirement_text": "熟练使用 SQL 进行数据分析",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_12f672f0a23b",
+      "job_id": "synv2:F05",
+      "scenario_id": "F05",
+      "scenario_category": "compound",
+      "requirement_index": 3,
+      "requirement_text": "3 年以上产品经验",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_16cdb82a79f6",
+      "job_id": "synv2:F05",
+      "scenario_id": "F05",
+      "scenario_category": "compound",
+      "requirement_index": 4,
+      "requirement_text": "了解元数据管理与数据血缘",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "元数据",
+        "数据血缘"
+      ]
+    },
+    {
+      "requirement_id": "synreq_cf5e451d4830",
+      "job_id": "synv2:G01",
+      "scenario_id": "G01",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有私域社群 / SCRM 运营经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f5bac05335cd",
+      "job_id": "synv2:G01",
+      "scenario_id": "G01",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "有用户增长 / 转化优化经验",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_ef192c577136",
+      "job_id": "synv2:G01",
+      "scenario_id": "G01",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "关注并使用 AI 工具辅助内容生成",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_3852c42a6cc4",
+      "job_id": "synv2:G01",
+      "scenario_id": "G01",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_9c358b111a90",
+      "job_id": "synv2:G02",
+      "scenario_id": "G02",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有 B 端销售 / 渠道商务拓展经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f089f2e124b8",
+      "job_id": "synv2:G02",
+      "scenario_id": "G02",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_30552875f6ba",
+      "job_id": "synv2:G02",
+      "scenario_id": "G02",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "了解 AI 产品的商业价值",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_4b6ee92d879a",
+      "job_id": "synv2:G02",
+      "scenario_id": "G02",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_a96918b29429",
+      "job_id": "synv2:G03",
+      "scenario_id": "G03",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有智能硬件 / 终端产品从设计到量产的经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_f8aa192b0eb8",
+      "job_id": "synv2:G03",
+      "scenario_id": "G03",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "具备跨职能协作与项目管理能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_2c4e3b81eb68",
+      "job_id": "synv2:G03",
+      "scenario_id": "G03",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "对 AI + 硬件结合有思考",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_2f111f324cbe",
+      "job_id": "synv2:G03",
+      "scenario_id": "G03",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_466eeb553c56",
+      "job_id": "synv2:G04",
+      "scenario_id": "G04",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有通用 C 端产品的需求分析与原型设计经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_48581ffa96c9",
+      "job_id": "synv2:G04",
+      "scenario_id": "G04",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "关注 AI 应用趋势，能借助 AI 优化基础工作",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_ef230dd45024",
+      "job_id": "synv2:G04",
+      "scenario_id": "G04",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "2027 届应届毕业生",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_897ad70e4214",
+      "job_id": "synv2:G05",
+      "scenario_id": "G05",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有电商平台运营 / 供应链产品经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_786657332933",
+      "job_id": "synv2:G05",
+      "scenario_id": "G05",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_e5310ce0da5e",
+      "job_id": "synv2:G05",
+      "scenario_id": "G05",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "使用 AI 工具提升运营效率",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_759a4856ee93",
+      "job_id": "synv2:G05",
+      "scenario_id": "G05",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_65fe4a960164",
+      "job_id": "synv2:G06",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 1,
+      "requirement_text": "有战略咨询 / 商业分析 / 行业研究经验",
+      "requirement_type": "matchable",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_4a2c31c2b7b8",
+      "job_id": "synv2:G06",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 2,
+      "requirement_text": "具备扎实的数据分析与逻辑思维能力",
+      "requirement_type": "matchable",
+      "importance": "Important"
+    },
+    {
+      "requirement_id": "synreq_8b5b64c9e65c",
+      "job_id": "synv2:G06",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 3,
+      "requirement_text": "关注 AI 行业动态",
+      "requirement_type": "subjective",
+      "importance": "Preferred"
+    },
+    {
+      "requirement_id": "synreq_97dbb8ea034b",
+      "job_id": "synv2:G06",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 4,
+      "requirement_text": "本科及以上学历",
+      "requirement_type": "eligibility",
+      "importance": "Critical"
+    },
+    {
+      "requirement_id": "synreq_70921c2f8d5c",
+      "job_id": "synv2:G06",
+      "scenario_id": "G06",
+      "scenario_category": "role_core_mismatch",
+      "requirement_index": 5,
+      "requirement_text": "了解常见的战略分析框架",
+      "requirement_type": "knowledge",
+      "importance": "Important",
+      "knowledge_topics": [
+        "SWOT",
+        "波特五力"
+      ]
+    }
+  ]
+}

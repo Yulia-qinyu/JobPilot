@@ -1,0 +1,45 @@
+{
+  "purpose": "Within-V2 deterministic deduplication.",
+  "created_at": "2026-09-01T13:53:45.056820+00:00",
+  "v2_job_count": 0,
+  "deterministic_checks": [
+    {
+      "key": "source_job_id",
+      "when_available": true,
+      "duplicates_found": 0
+    },
+    {
+      "key": "canonical_url",
+      "duplicates_found": 0
+    },
+    {
+      "key": "normalized(title|company|location)",
+      "duplicates_found": 0
+    },
+    {
+      "key": "jd_text_4gram_jaccard >= 0.72 OR sequence_ratio >= 0.86",
+      "clusters_found": 0
+    }
+  ],
+  "exact_duplicates": 0,
+  "same_employer_multi_url_duplicates": 0,
+  "substantially_identical_jd_duplicates": 0,
+  "highest_pairwise_jaccard": null,
+  "result": "Batch 1: 0 within-batch duplicates. 1 normalized-title collision inspected and retained as distinct roles.",
+  "batch1_provisional_jobs": 10,
+  "within_batch1": {
+    "exact_duplicates": 0,
+    "same_employer_multi_url_duplicates": 0,
+    "substantially_identical_jd_duplicates": 0,
+    "normalized_key_collisions_retained": [
+      {
+        "norm_key": "ai产品经理|京东|北京市",
+        "job_ids": [
+          "jd:218961",
+          "jd:220156"
+        ],
+        "resolution": "distinct postings, different requementId and JD content; retained (same company != duplicate)"
+      }
+    ]
+  }
+}

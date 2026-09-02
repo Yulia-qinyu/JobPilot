@@ -1,0 +1,200 @@
+{
+  "artifact": "dataset_v2_batch1_import_report",
+  "created_at": "2026-09-01T14:33:40.295512+00:00",
+  "candidates_attempted": 16,
+  "accepted_into_corpus": 0,
+  "retrieved_provisional_not_verbatim": [
+    "baidu:31e3795e-d5fd-4573-854b-960ab1fcf46a",
+    "baidu:950150b6-f8d8-454e-8cc8-88a2b046e96a",
+    "baidu:9a93f28d-aae0-4098-a5d0-aabc54633d98",
+    "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+    "baidu:3d4822dd-dc02-4988-ad9c-436550059c6d",
+    "jd:212557",
+    "jd:218961",
+    "jd:220156",
+    "jd:218876",
+    "jd:215614"
+  ],
+  "rejected_v1_exact_duplicate": [
+    {
+      "candidate_n": 1,
+      "job_id": "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+      "v1_job": true,
+      "reason": "job_id baidu:423c0fa3-... is Dataset V1 job (北京-AI产品经理(J100665), campus, ai_product). Exact overlap -> rejected, not retrieved."
+    },
+    {
+      "candidate_n": 2,
+      "job_id": "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+      "v1_job": true,
+      "reason": "job_id baidu:0f336f8e-... is Dataset V1 job (北京-策略产品经理(J100784)). Exact overlap -> rejected."
+    },
+    {
+      "candidate_n": 3,
+      "job_id": "baidu:1270fb70-730e-4569-9385-b013690e607d",
+      "v1_job": true,
+      "reason": "job_id baidu:1270fb70-... is Dataset V1 job (北京-用户产品经理(J100806)). Exact overlap -> rejected."
+    }
+  ],
+  "excluded_access_failure": [
+    {
+      "candidate_n": 6,
+      "company": "百度",
+      "title": "AI 产品经理实习生(J105159)",
+      "url": "https://talent.baidu.com/jobs/list?recruitType=INTERN",
+      "reason": "URL is an intern LIST page. WebFetch confirms J105159 exists (日常实习, ACG, 北京, 物流优化方向 AI 产品) but returns NO stable detail-page URL / job id and only a summarised responsibilities blurb. No stable source_job_id, no verbatim JD -> excluded pending detail-URL resolution. employment_type=internship kept separate; NOT added as a career_stage value."
+    },
+    {
+      "candidate_n": 15,
+      "company": "腾讯",
+      "title": "企业微信-AI产品经理-智能表格",
+      "url": "https://careers.tencent.com/zh-cn/cityinfo.html?city=5",
+      "reason": "URL is a CITY listing page. Tencent Careers search is an SPA that renders no results to WebFetch, and in-app browser navigation to careers.tencent.com was denied this session. No Post ID / detail URL resolved, no JD retrieved -> excluded pending postId resolution."
+    },
+    {
+      "candidate_n": 16,
+      "company": "PatSnap",
+      "title": "AI Product Manager (Intellectual Property / AI Agent)",
+      "url": "https://jobs.lever.co/patsnap?location=Shanghai",
+      "reason": "Lever board returned HTTP 403 Forbidden. No individual detail URL resolved, no JD retrieved -> excluded. (Historical note: patsnap:2711679 was a candidate REMOVED from Dataset V1 as English-heavy; it is NOT in the V1 corpus of 30, so this is an access failure, not a V1 duplicate.)"
+    }
+  ],
+  "resolved_detail_urls": {
+    "baidu:31e3795e-d5fd-4573-854b-960ab1fcf46a": {
+      "url": "https://talent.baidu.com/jobs/detail/GRADUATE/31e3795e-d5fd-4573-854b-960ab1fcf46a",
+      "source_job_id": "J100820",
+      "source_uuid": "31e3795e-d5fd-4573-854b-960ab1fcf46a"
+    },
+    "baidu:950150b6-f8d8-454e-8cc8-88a2b046e96a": {
+      "url": "https://talent.baidu.com/jobs/detail/GRADUATE/950150b6-f8d8-454e-8cc8-88a2b046e96a",
+      "source_job_id": "J101084",
+      "source_uuid": "950150b6-f8d8-454e-8cc8-88a2b046e96a"
+    },
+    "baidu:9a93f28d-aae0-4098-a5d0-aabc54633d98": {
+      "url": "https://talent.baidu.com/jobs/detail/SOCIAL/9a93f28d-aae0-4098-a5d0-aabc54633d98",
+      "source_job_id": "J104071",
+      "source_uuid": "9a93f28d-aae0-4098-a5d0-aabc54633d98"
+    },
+    "baidu:ceb7d9ad-295e-4a9f-a53d-7cb856e720dc": {
+      "url": "https://talent.baidu.com/jobs/detail/SOCIAL/ceb7d9ad-295e-4a9f-a53d-7cb856e720dc",
+      "source_job_id": "J100616",
+      "source_uuid": "ceb7d9ad-295e-4a9f-a53d-7cb856e720dc"
+    },
+    "baidu:3d4822dd-dc02-4988-ad9c-436550059c6d": {
+      "url": "https://talent.baidu.com/jobs/detail/SOCIAL/3d4822dd-dc02-4988-ad9c-436550059c6d",
+      "source_job_id": "J100620",
+      "source_uuid": "3d4822dd-dc02-4988-ad9c-436550059c6d"
+    },
+    "jd:212557": {
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=212557",
+      "source_job_id": "212557",
+      "source_uuid": null
+    },
+    "jd:218961": {
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=218961",
+      "source_job_id": "218961",
+      "source_uuid": null
+    },
+    "jd:220156": {
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=220156",
+      "source_job_id": "220156",
+      "source_uuid": null
+    },
+    "jd:218876": {
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=218876",
+      "source_job_id": "218876",
+      "source_uuid": null
+    },
+    "jd:215614": {
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=215614",
+      "source_job_id": "215614",
+      "source_uuid": null
+    }
+  },
+  "unresolved_urls": {
+    "candidate_6": {
+      "url": "https://talent.baidu.com/jobs/list?recruitType=INTERN",
+      "problem": "URL is an intern LIST page. WebFetch confirms J105159 exists (日常实习, ACG, 北京, 物流优化方向 AI 产品) but returns NO stable detail-page URL / job id and only a summarised responsibilities blurb. No stable source_job_id, no verbatim JD -> excluded pending detail-URL resolution. employment_type=internship kept separate; NOT added as a career_stage value."
+    },
+    "candidate_15": {
+      "url": "https://careers.tencent.com/zh-cn/cityinfo.html?city=5",
+      "problem": "URL is a CITY listing page. Tencent Careers search is an SPA that renders no results to WebFetch, and in-app browser navigation to careers.tencent.com was denied this session. No Post ID / detail URL resolved, no JD retrieved -> excluded pending postId resolution."
+    },
+    "candidate_16": {
+      "url": "https://jobs.lever.co/patsnap?location=Shanghai",
+      "problem": "Lever board returned HTTP 403 Forbidden. No individual detail URL resolved, no JD retrieved -> excluded. (Historical note: patsnap:2711679 was a candidate REMOVED from Dataset V1 as English-heavy; it is NOT in the V1 corpus of 30, so this is an access failure, not a V1 duplicate.)"
+    }
+  },
+  "retrieval_method": "WebFetch (page->markdown->small-model answer). NOT verbatim. In-app browser navigation to talent.baidu.com / zhaopin.jd.com / careers.tencent.com was DENIED this session; jobs.lever.co returned HTTP 403.",
+  "dedup": {
+    "within_batch1_exact_duplicates": 0,
+    "within_batch1_normalized_key_collisions_retained": [
+      {
+        "norm_key": "ai产品经理|京东|北京市",
+        "job_ids": [
+          "jd:218961",
+          "jd:220156"
+        ],
+        "resolution": "distinct postings (different requementId, different JD: 消息推送/用户产品 vs 数字人直播). Retained."
+      }
+    ],
+    "v1_exact_overlap_count": 3,
+    "v1_exact_overlap_job_ids": [
+      "baidu:423c0fa3-a0f3-4def-a882-7466d3685b79",
+      "baidu:0f336f8e-a440-4ebb-a45a-5554b493e527",
+      "baidu:1270fb70-730e-4569-9385-b013690e607d"
+    ],
+    "v1_near_duplicate_count_among_retrieved": 0,
+    "v1_near_duplicate_method": "normalized 4-gram Jaccard + SequenceMatcher; none of the 10 retrieved match any V1 job_id, canonical URL, or normalized (title|company|city) key."
+  },
+  "balance_provisional": {
+    "staged_provisional_jobs": 10,
+    "accepted_corpus_jobs": 0,
+    "companies": {
+      "百度": 5,
+      "京东": 5
+    },
+    "company_share": {
+      "百度": 0.5,
+      "京东": 0.5
+    },
+    "primary_city": {
+      "北京市": 7,
+      "上海市": 1,
+      "深圳市": 2
+    },
+    "career_stage_validated": {
+      "campus_new_grad": 2,
+      "experienced": 6,
+      "unknown": 2
+    },
+    "role_family_validated": {
+      "general_product": 2,
+      "platform_enterprise_product": 3,
+      "ai_product": 4,
+      "data_product": 1
+    },
+    "language": {
+      "zh": 10
+    },
+    "ai_subdomain_tags": {
+      "recommendation_search": 2,
+      "ai_infrastructure": 1,
+      "ai_platform": 2,
+      "agent": 2,
+      "speech_asr": 2,
+      "ai_consumer_products": 2,
+      "ai_commercialisation": 1,
+      "ai_productivity": 1,
+      "rag_knowledge_systems": 2,
+      "llm_applications": 1,
+      "multimodal": 1,
+      "enterprise_ai": 2
+    },
+    "distinct_ai_subdomains": 12
+  },
+  "requirement_candidate_extraction": {
+    "performed": false,
+    "reason": "Matcher-independent requirement-candidate extraction is only meaningful on verbatim JD text. All Batch 1 JD text is WebFetch model-rendered (not verbatim), so extraction is deferred until verbatim re-capture. No Strong/Partial/Missing, no HMF, no finalist predictions.",
+    "requirement_candidate_count": 0
+  }
+}

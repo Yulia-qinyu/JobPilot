@@ -1,0 +1,46 @@
+{
+  "artifact": "synthetic_importance_report",
+  "created_at": "2026-09-02T03:04:55.998208+00:00",
+  "focused_probe_count": 65,
+  "schema_fields_added": [
+    "draft_importance",
+    "importance_rationale",
+    "human_importance",
+    "importance_review_status",
+    "human_importance_notes"
+  ],
+  "allowed_human_importance": [
+    "Critical",
+    "Important",
+    "Preferred"
+  ],
+  "importance_distribution_over_probes": {
+    "Critical": 52,
+    "Important": 13
+  },
+  "importance_distribution_by_type": {
+    "matchable": {
+      "Critical": 46,
+      "Important": 13
+    },
+    "eligibility": {
+      "Critical": 6
+    }
+  },
+  "matchable_probe_count": 59,
+  "eligibility_probe_count": 6,
+  "number_requiring_explicit_human_importance_review": 65,
+  "note_eligibility": "eligibility probes carry an importance value and should still get a human importance decision, but eligibility does NOT enter Match Score.",
+  "raw_synthetic_requirements_overwritten": false,
+  "match_label_adjudication_checkpoint": {
+    "file": "synthetic_match_adjudication_checkpoint.json",
+    "cases_adjudicated": 9,
+    "accepted": 7,
+    "edited": [
+      "D03: Missing->Partial",
+      "D06: Missing->Partial"
+    ],
+    "importance_still_pending_for_all": true,
+    "importance_uncertain_field_added": true
+  }
+}

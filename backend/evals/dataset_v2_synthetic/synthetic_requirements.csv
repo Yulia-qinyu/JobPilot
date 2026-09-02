@@ -1,0 +1,202 @@
+requirement_id,job_id,scenario_id,scenario_category,requirement_index,requirement_type,importance,requirement_text
+synreq_c7935c589246,synv2:A01,A01,technology_adjacency,1,matchable,Critical,具备图文 / 视频 / 语音多模态大模型产品经验
+synreq_51031ce43fe5,synv2:A01,A01,technology_adjacency,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_31c5518593af,synv2:A01,A01,technology_adjacency,3,knowledge,Important,理解多模态对齐与跨模态表征的基本原理
+synreq_8e885ffb7ca8,synv2:A01,A01,technology_adjacency,4,eligibility,Critical,本科及以上学历
+synreq_38c8abd3340b,synv2:A01,A01,technology_adjacency,5,subjective,Preferred,对 AI 产品有极强的热情与好奇心
+synreq_e2fc941b8edc,synv2:A02,A02,technology_adjacency,1,matchable,Critical,有语音识别 (ASR) / 语音交互产品经验
+synreq_b2cbe0bd5931,synv2:A02,A02,technology_adjacency,2,matchable,Important,能够评估 AI 方案的业务价值与可行性
+synreq_f425c37552b5,synv2:A02,A02,technology_adjacency,3,eligibility,Critical,1-3 年产品相关工作经验
+synreq_1fcf79bae62d,synv2:A02,A02,technology_adjacency,4,knowledge,Important,了解 ASR 声学模型与端到端语音识别的基本机制
+synreq_399feb01aabb,synv2:A03,A03,technology_adjacency,1,matchable,Critical,有大模型精度调优 / 基模训练 / 强化学习训练经验
+synreq_c9997f649ea6,synv2:A03,A03,technology_adjacency,2,matchable,Important,熟悉大模型训练流程与实验管理
+synreq_816b778459ec,synv2:A03,A03,technology_adjacency,3,matchable,Important,具备跨职能协作与项目管理能力
+synreq_ba67eccabf56,synv2:A03,A03,technology_adjacency,4,eligibility,Critical,硕士及以上学历
+synreq_7cad45ec2c81,synv2:A03,A03,technology_adjacency,5,knowledge,Important,了解分布式训练与混合精度训练的能力边界
+synreq_b23aa93e2e64,synv2:A04,A04,technology_adjacency,1,matchable,Critical,有推荐系统召回 / 排序 / 重排的专项策略经验
+synreq_790c0d429007,synv2:A04,A04,technology_adjacency,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_35910053a290,synv2:A04,A04,technology_adjacency,3,eligibility,Critical,本科及以上学历
+synreq_3470be3ec6b4,synv2:A04,A04,technology_adjacency,4,subjective,Preferred,对推荐与个性化技术有浓厚兴趣
+synreq_ac0a9beffc73,synv2:A05,A05,technology_adjacency,1,matchable,Critical,有搜索排序 / 相关性策略的实际项目经验
+synreq_1ecbab51908d,synv2:A05,A05,technology_adjacency,2,matchable,Important,有 RAG 应用的产品实践经验
+synreq_e6e7cbddef6b,synv2:A05,A05,technology_adjacency,3,eligibility,Critical,本科及以上学历
+synreq_841e72d3ba7a,synv2:A05,A05,technology_adjacency,4,knowledge,Important,理解倒排索引与向量检索的适用边界
+synreq_0ba286dafff6,synv2:A06,A06,technology_adjacency,1,matchable,Critical,有图文 / 视频多模态生成产品经验
+synreq_6c53bb4ff35e,synv2:A06,A06,technology_adjacency,2,matchable,Important,具备产品设计与功能策划能力
+synreq_a204bd31f64c,synv2:A06,A06,technology_adjacency,3,eligibility,Critical,本科及以上学历
+synreq_50afb4f7241c,synv2:A06,A06,technology_adjacency,4,subjective,Preferred,热爱 AIGC 与创意工具
+synreq_6bb69f136644,synv2:A07,A07,technology_adjacency,1,matchable,Critical,有语音大模型 / TTS / 语音合成产品经验
+synreq_4c7c53a4315e,synv2:A07,A07,technology_adjacency,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_d5aa04c5ea2f,synv2:A07,A07,technology_adjacency,3,eligibility,Critical,1-3 年产品相关工作经验
+synreq_5558166c34d5,synv2:A07,A07,technology_adjacency,4,knowledge,Important,了解语音合成与声码器的基本原理
+synreq_90a7361ccef9,synv2:A08,A08,technology_adjacency,1,matchable,Critical,有 RLHF / 强化学习 / 偏好对齐训练经验
+synreq_b82863bde319,synv2:A08,A08,technology_adjacency,2,matchable,Important,有模型效果评估经验
+synreq_8ab808150f23,synv2:A08,A08,technology_adjacency,3,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_d9128fddc70e,synv2:A08,A08,technology_adjacency,4,eligibility,Critical,硕士及以上学历
+synreq_a360714f2baa,synv2:A08,A08,technology_adjacency,5,knowledge,Important,理解 RLHF 与 DPO 的基本流程与差异
+synreq_a7efd870a86b,synv2:A09,A09,technology_adjacency,1,matchable,Critical,熟悉 vLLM / SGLang 等大模型推理框架
+synreq_34eac9ebb94e,synv2:A09,A09,technology_adjacency,2,matchable,Important,有 GPU / 国产算力卡算子开发经验
+synreq_b6e60db72007,synv2:A09,A09,technology_adjacency,3,matchable,Important,具备跨职能协作与项目管理能力
+synreq_da2a5622630f,synv2:A09,A09,technology_adjacency,4,eligibility,Critical,本科及以上学历
+synreq_5da24149cd80,synv2:A09,A09,technology_adjacency,5,knowledge,Important,了解 KV Cache 与连续批处理对吞吐的影响
+synreq_411aeef1797f,synv2:A10,A10,technology_adjacency,1,matchable,Critical,有广告 / 推荐 / 竞价策略相关产品经验
+synreq_a37b5fdac403,synv2:A10,A10,technology_adjacency,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_28fcdec35d7a,synv2:A10,A10,technology_adjacency,3,matchable,Important,有 A/B 实验设计与执行经验
+synreq_ce4c2d014ec0,synv2:A10,A10,technology_adjacency,4,eligibility,Critical,本科及以上学历
+synreq_ac6f4a41b9f4,synv2:A10,A10,technology_adjacency,5,subjective,Preferred,对商业化与增长有热情
+synreq_c3fc72219d0a,synv2:B01,B01,project_vs_formal_work,1,eligibility,Critical,3 年以上正式 AI 产品经理工作经验
+synreq_cb83e27ff2a5,synv2:B01,B01,project_vs_formal_work,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_4a5f26637a08,synv2:B01,B01,project_vs_formal_work,3,knowledge,Important,理解 LLM 能力边界与失败模式
+synreq_018726f42a67,synv2:B02,B02,project_vs_formal_work,1,eligibility,Critical,5 年以上产品经验，含 3 年以上团队管理
+synreq_9a6e8d73eba3,synv2:B02,B02,project_vs_formal_work,2,matchable,Critical,有从 0 到 1 主导产品并取得可量化业务成果的经历
+synreq_db544a28d07d,synv2:B02,B02,project_vs_formal_work,3,matchable,Important,具备产品设计与功能策划能力
+synreq_9f445d80b3cb,synv2:B02,B02,project_vs_formal_work,4,subjective,Preferred,有强烈的 ownership 意识
+synreq_7b76b9f8d2ec,synv2:B03,B03,project_vs_formal_work,1,matchable,Critical,有 AI 功能的完整动手交付经验（强调实操而非正式任职年限）
+synreq_6eb47ebe8424,synv2:B03,B03,project_vs_formal_work,2,eligibility,Critical,1-3 年产品相关工作经验
+synreq_5915dd7761b4,synv2:B03,B03,project_vs_formal_work,3,knowledge,Important,理解 RAG 检索增强机制
+synreq_6619b5118719,synv2:B04,B04,project_vs_formal_work,1,eligibility,Critical,3 年以上 B 端 / 企业级产品经验
+synreq_a539c85a151b,synv2:B04,B04,project_vs_formal_work,2,matchable,Important,具备跨职能协作与项目管理能力
+synreq_6d3195cffc12,synv2:B04,B04,project_vs_formal_work,3,matchable,Important,有企业级 SaaS / 多租户产品经验
+synreq_fcda2c6815f9,synv2:B04,B04,project_vs_formal_work,4,subjective,Preferred,对企业数字化有热情
+synreq_362220064ec2,synv2:B05,B05,project_vs_formal_work,1,matchable,Critical,具备 Agent 设计交付、上下文工程、人机协同与质量评估的完整动手经验
+synreq_396cc70eab93,synv2:B05,B05,project_vs_formal_work,2,knowledge,Important,深入理解 Agent 架构与规划-执行循环
+synreq_0d7bad106433,synv2:B05,B05,project_vs_formal_work,3,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_61c659b08f95,synv2:B05,B05,project_vs_formal_work,4,eligibility,Critical,硕士及以上学历
+synreq_f7c821de88d9,synv2:B05,B05,project_vs_formal_work,5,matchable,Important,在 Agent 架构层面与工程团队深度对齐
+synreq_1a8e60c1d1b5,synv2:B06,B06,project_vs_formal_work,1,matchable,Critical,有金融行业 AI 落地项目经验
+synreq_b4c8b8ef5c77,synv2:B06,B06,project_vs_formal_work,2,eligibility,Critical,3 年以上金融科技产品经验
+synreq_7d472f5733b0,synv2:B06,B06,project_vs_formal_work,3,subjective,Preferred,对金融与科技结合有热情
+synreq_9ba5d1c07e51,synv2:B07,B07,project_vs_formal_work,1,eligibility,Critical,至少 1 段 AI 产品实习经验
+synreq_ed0cd59648cb,synv2:B07,B07,project_vs_formal_work,2,matchable,Critical,有 AI 产品的深度使用与实践经验
+synreq_29b7da2d1b2e,synv2:B07,B07,project_vs_formal_work,3,eligibility,Critical,本科及以上学历
+synreq_e9a0df019cd5,synv2:B07,B07,project_vs_formal_work,4,subjective,Preferred,对 AI 技术持续关注、探索能力强
+synreq_36fc4aaddaa8,synv2:B08,B08,project_vs_formal_work,1,eligibility,Critical,8 年以上产品经验
+synreq_b078282915db,synv2:B08,B08,project_vs_formal_work,2,matchable,Critical,独立负责过完整产品线的商业化闭环
+synreq_4f0a7052df75,synv2:B08,B08,project_vs_formal_work,3,matchable,Important,具备跨职能协作与项目管理能力
+synreq_f2962ef4617b,synv2:B08,B08,project_vs_formal_work,4,knowledge,Important,了解常见的 SaaS 商业化模式
+synreq_66885a07bd90,synv2:C01,C01,strong_partial_boundary,1,matchable,Critical,理解数据仓库架构并熟悉数据治理全流程
+synreq_711d5c3e3b87,synv2:C01,C01,strong_partial_boundary,2,matchable,Important,熟练使用 SQL 进行数据分析
+synreq_8562f261e07a,synv2:C01,C01,strong_partial_boundary,3,eligibility,Critical,本科及以上学历
+synreq_f05fe9843edd,synv2:C01,C01,strong_partial_boundary,4,knowledge,Important,了解维度建模与数据分层的基本概念
+synreq_7356f75ca5b3,synv2:C02,C02,strong_partial_boundary,1,matchable,Critical,有 RAG 系统的生产环境部署与调优经验
+synreq_2f19d85a7ef9,synv2:C02,C02,strong_partial_boundary,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_12d5d7459db4,synv2:C02,C02,strong_partial_boundary,3,eligibility,Critical,本科及以上学历
+synreq_e2a715634f83,synv2:C02,C02,strong_partial_boundary,4,knowledge,Important,理解检索-重排-生成的 RAG 管线
+synreq_7a9f7ab9d753,synv2:C03,C03,strong_partial_boundary,1,matchable,Critical,曾以数据产品经理身份独立负责完整数据产品
+synreq_bc51db5928f4,synv2:C03,C03,strong_partial_boundary,2,matchable,Important,熟练使用 SQL 进行数据分析
+synreq_6c020dc6d870,synv2:C03,C03,strong_partial_boundary,3,eligibility,Critical,本科及以上学历
+synreq_edd48d144dfe,synv2:C03,C03,strong_partial_boundary,4,subjective,Preferred,对数据与业务价值转化有热情
+synreq_030b4853d5f1,synv2:C04,C04,strong_partial_boundary,1,matchable,Critical,有企业级 SaaS / 多租户 / 可配置平台产品经验
+synreq_7446943fe7f9,synv2:C04,C04,strong_partial_boundary,2,matchable,Important,具备跨职能协作与项目管理能力
+synreq_eee90b9a40e3,synv2:C04,C04,strong_partial_boundary,3,eligibility,Critical,3 年以上产品经验
+synreq_7c3cce4a9c51,synv2:C04,C04,strong_partial_boundary,4,knowledge,Important,了解多租户隔离与配置化架构的取舍
+synreq_e0927f36fb94,synv2:C05,C05,strong_partial_boundary,1,matchable,Critical,有 Agent 专项评测体系搭建经验
+synreq_bb4fbe4b6744,synv2:C05,C05,strong_partial_boundary,2,matchable,Important,有模型效果评估与数据驱动评测能力
+synreq_60b56ed3950a,synv2:C05,C05,strong_partial_boundary,3,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_2ebaeccb7331,synv2:C05,C05,strong_partial_boundary,4,eligibility,Critical,本科及以上学历
+synreq_f415b4fcc70e,synv2:C05,C05,strong_partial_boundary,5,knowledge,Important,理解 Agent 评测的常见维度与陷阱
+synreq_f8454c6e8e53,synv2:C06,C06,strong_partial_boundary,1,matchable,Critical,具备 Prompt / 上下文工程的完整实践经验
+synreq_104c593a63d3,synv2:C06,C06,strong_partial_boundary,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_0f764f3bee82,synv2:C06,C06,strong_partial_boundary,3,eligibility,Critical,本科及以上学历
+synreq_43cd84dae7ce,synv2:C06,C06,strong_partial_boundary,4,knowledge,Important,理解 Prompt 工程与上下文窗口管理的方法
+synreq_f1f71449a863,synv2:C07,C07,strong_partial_boundary,1,matchable,Important,熟练使用 Python 与 C++
+synreq_b4f12414f216,synv2:C07,C07,strong_partial_boundary,2,matchable,Important,具备技术背景，能与工程团队深度协作
+synreq_2b9abc65cc35,synv2:C07,C07,strong_partial_boundary,3,eligibility,Critical,本科及以上学历
+synreq_ff541f7869dc,synv2:C07,C07,strong_partial_boundary,4,knowledge,Important,了解服务化与接口设计的基本原则
+synreq_67056aa36c43,synv2:C08,C08,strong_partial_boundary,1,matchable,Critical,有从 0 到 1 主导产品并取得可量化业务成果的经历
+synreq_664938d55ff1,synv2:C08,C08,strong_partial_boundary,2,matchable,Important,有用户增长 / 增长运营 / 转化优化经验
+synreq_bf7e964a2c6f,synv2:C08,C08,strong_partial_boundary,3,eligibility,Critical,1-3 年产品相关工作经验
+synreq_2e4e3ed79773,synv2:C08,C08,strong_partial_boundary,4,subjective,Preferred,对增长与商业化有热情
+synreq_11a8cde8fe62,synv2:D01,D01,partial_missing_boundary,1,matchable,Critical,有推荐 / 排序策略的实际项目经验
+synreq_3e890953d455,synv2:D01,D01,partial_missing_boundary,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_69fc0bb1920b,synv2:D01,D01,partial_missing_boundary,3,eligibility,Critical,本科及以上学历
+synreq_b570593bb6e7,synv2:D01,D01,partial_missing_boundary,4,subjective,Preferred,对推荐系统有兴趣
+synreq_513c2bd94eb3,synv2:D02,D02,partial_missing_boundary,1,matchable,Critical,有语音识别或语音合成产品经验
+synreq_0d737725e239,synv2:D02,D02,partial_missing_boundary,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_55a65d7a39aa,synv2:D02,D02,partial_missing_boundary,3,eligibility,Critical,本科及以上学历
+synreq_f830b84301c4,synv2:D02,D02,partial_missing_boundary,4,knowledge,Important,了解语音前端信号处理的基本概念
+synreq_45f506185cde,synv2:D03,D03,partial_missing_boundary,1,matchable,Critical,独立承担过大型 AI Infra 系统的设计、开发与调测
+synreq_9283cdbfa4fe,synv2:D03,D03,partial_missing_boundary,2,matchable,Important,具备跨职能协作与项目管理能力
+synreq_b023cf63ab37,synv2:D03,D03,partial_missing_boundary,3,matchable,Important,熟悉大模型训练与推理链路
+synreq_5fbec706e6f4,synv2:D03,D03,partial_missing_boundary,4,eligibility,Critical,硕士及以上学历
+synreq_25c948430434,synv2:D03,D03,partial_missing_boundary,5,knowledge,Important,了解训练/推理资源调度的取舍
+synreq_38864a1cc6fd,synv2:D04,D04,partial_missing_boundary,1,matchable,Critical,有视频理解 / 视频生成的产品经验
+synreq_bc4cef12c1ad,synv2:D04,D04,partial_missing_boundary,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_c3985bb984d7,synv2:D04,D04,partial_missing_boundary,3,eligibility,Critical,本科及以上学历
+synreq_3580a987a4d4,synv2:D04,D04,partial_missing_boundary,4,subjective,Preferred,对多模态与视频 AI 有兴趣
+synreq_aff46a98c46a,synv2:D05,D05,partial_missing_boundary,1,matchable,Critical,有短剧 / 漫剧 / 小说创作全流程经验
+synreq_329049069b0e,synv2:D05,D05,partial_missing_boundary,2,matchable,Important,有内容行业(短视频/短剧/漫剧)资深从业经验
+synreq_446d9d3d07fa,synv2:D05,D05,partial_missing_boundary,3,matchable,Important,具备产品设计与功能策划能力
+synreq_742830ecebb8,synv2:D05,D05,partial_missing_boundary,4,eligibility,Critical,本科及以上学历
+synreq_6a092033b4eb,synv2:D05,D05,partial_missing_boundary,5,subjective,Preferred,热爱内容创作
+synreq_8f5efb278bff,synv2:D06,D06,partial_missing_boundary,1,matchable,Critical,有大规模标注体系与训练数据闭环的专项经验
+synreq_ea7b23ae2ae6,synv2:D06,D06,partial_missing_boundary,2,matchable,Important,熟练使用 SQL 进行数据分析
+synreq_da19d9f8eb94,synv2:D06,D06,partial_missing_boundary,3,eligibility,Critical,本科及以上学历
+synreq_03e6703712ac,synv2:D06,D06,partial_missing_boundary,4,knowledge,Important,了解标注质量控制与一致性评估方法
+synreq_8c6cf3d8ff66,synv2:D07,D07,partial_missing_boundary,1,matchable,Important,有顶级会议(NeurIPS/ICML/ACL 等)论文发表
+synreq_162fa483aa92,synv2:D07,D07,partial_missing_boundary,2,matchable,Important,能够评估 AI 方案的业务价值与可行性
+synreq_f9e78361a71b,synv2:D07,D07,partial_missing_boundary,3,eligibility,Critical,硕士及以上学历
+synreq_25d882a6c761,synv2:D07,D07,partial_missing_boundary,4,knowledge,Important,了解大模型前沿研究方向与能力边界
+synreq_547fc6b8bdef,synv2:D08,D08,partial_missing_boundary,1,matchable,Critical,有开放平台 / 插件生态 / MCP 建设经验
+synreq_8d1917646a55,synv2:D08,D08,partial_missing_boundary,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_c69da3f4ef27,synv2:D08,D08,partial_missing_boundary,3,eligibility,Critical,本科及以上学历
+synreq_1225d285a6b9,synv2:D08,D08,partial_missing_boundary,4,knowledge,Important,了解插件协议与工具调用规范
+synreq_d781fb760d3d,synv2:E01,E01,or_alternative,1,matchable,Critical,有 金融 或 保险 或 支付 行业经验（满足其一即可）
+synreq_84430e28d8c7,synv2:E01,E01,or_alternative,2,eligibility,Critical,本科及以上学历
+synreq_cfc223332bfe,synv2:E01,E01,or_alternative,3,subjective,Preferred,对垂直行业 AI 落地有热情
+synreq_fe5930fca38c,synv2:E02,E02,or_alternative,1,matchable,Critical,有 Agent 或 RAG 或 工作流自动化 经验（满足其一即可）
+synreq_c24158660395,synv2:E02,E02,or_alternative,2,eligibility,Critical,1-3 年产品相关工作经验
+synreq_41bfff753273,synv2:E02,E02,or_alternative,3,knowledge,Important,理解 Agent / RAG / workflow 的适用场景
+synreq_024677d8c29f,synv2:E03,E03,or_alternative,1,matchable,Critical,熟练使用 SQL 或 Python 进行数据分析（满足其一即可）
+synreq_dda2f5dd234f,synv2:E03,E03,or_alternative,2,eligibility,Critical,本科及以上学历
+synreq_ce1464542aac,synv2:E03,E03,or_alternative,3,subjective,Preferred,对数据分析有热情
+synreq_8d61cb428347,synv2:E04,E04,or_alternative,1,matchable,Critical,有 对话式 AI 或 推荐 或 搜索 产品经验（满足其一即可）
+synreq_bc108c23026a,synv2:E04,E04,or_alternative,2,eligibility,Critical,本科及以上学历
+synreq_ca4d1a428ec6,synv2:E04,E04,or_alternative,3,subjective,Preferred,对 C 端产品有用户 sense
+synreq_22f7ecf7215f,synv2:E05,E05,or_alternative,1,matchable,Critical,有 用户增长 或 用户运营 或 内容平台 经验（满足其一即可）
+synreq_7bc5886dabdc,synv2:E05,E05,or_alternative,2,eligibility,Critical,本科及以上学历
+synreq_ebd547b7b284,synv2:E05,E05,or_alternative,3,subjective,Preferred,对增长有热情
+synreq_37d1af10e82c,synv2:F01,F01,compound,1,matchable,Critical,熟练使用 SQL 且 具备 A/B 实验设计与执行能力
+synreq_632d38360d21,synv2:F01,F01,compound,2,matchable,Important,熟练使用 SQL 进行数据分析
+synreq_c8b386a4808e,synv2:F01,F01,compound,3,eligibility,Critical,本科及以上学历
+synreq_efc24d992121,synv2:F01,F01,compound,4,knowledge,Important,理解实验显著性与样本量估计
+synreq_1f3464006320,synv2:F02,F02,compound,1,matchable,Critical,具备 Agent 设计能力 且 Agent 专项评测能力
+synreq_4fd7dcde1639,synv2:F02,F02,compound,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_29696934cdd9,synv2:F02,F02,compound,3,eligibility,Critical,3 年以上产品经验
+synreq_c4cc61f162dc,synv2:F02,F02,compound,4,knowledge,Important,理解 Agent 的规划-执行-反思循环
+synreq_47385f8d6c6c,synv2:F03,F03,compound,1,matchable,Critical,有企业级产品经验 且 完整商业化闭环经验
+synreq_8ffbff01ac78,synv2:F03,F03,compound,2,matchable,Important,具备跨职能协作与项目管理能力
+synreq_ee75c36bd0e6,synv2:F03,F03,compound,3,eligibility,Critical,3 年以上产品经验
+synreq_70b0d8254b55,synv2:F03,F03,compound,4,subjective,Preferred,对商业化有热情
+synreq_fe17a08896da,synv2:F04,F04,compound,1,matchable,Critical,具备 LLM 应用交付能力 且 模型精度调优能力
+synreq_e618fb152199,synv2:F04,F04,compound,2,matchable,Important,有完整的 LLM / 对话式 AI 产品从需求到上线的落地经历
+synreq_d3d62b85bc6a,synv2:F04,F04,compound,3,eligibility,Critical,1-3 年产品相关工作经验
+synreq_74f82d7b62f9,synv2:F04,F04,compound,4,knowledge,Important,了解精调与提示工程的适用边界
+synreq_fe1542987e0f,synv2:F05,F05,compound,1,matchable,Critical,有数据开发经验 且 数据治理全流程经验
+synreq_3e2e000439e9,synv2:F05,F05,compound,2,matchable,Important,熟练使用 SQL 进行数据分析
+synreq_12f672f0a23b,synv2:F05,F05,compound,3,eligibility,Critical,3 年以上产品经验
+synreq_16cdb82a79f6,synv2:F05,F05,compound,4,knowledge,Important,了解元数据管理与数据血缘
+synreq_cf5e451d4830,synv2:G01,G01,role_core_mismatch,1,matchable,Critical,有私域社群 / SCRM 运营经验
+synreq_f5bac05335cd,synv2:G01,G01,role_core_mismatch,2,matchable,Important,有用户增长 / 转化优化经验
+synreq_ef192c577136,synv2:G01,G01,role_core_mismatch,3,subjective,Preferred,关注并使用 AI 工具辅助内容生成
+synreq_3852c42a6cc4,synv2:G01,G01,role_core_mismatch,4,eligibility,Critical,本科及以上学历
+synreq_9c358b111a90,synv2:G02,G02,role_core_mismatch,1,matchable,Critical,有 B 端销售 / 渠道商务拓展经验
+synreq_f089f2e124b8,synv2:G02,G02,role_core_mismatch,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_30552875f6ba,synv2:G02,G02,role_core_mismatch,3,subjective,Preferred,了解 AI 产品的商业价值
+synreq_4b6ee92d879a,synv2:G02,G02,role_core_mismatch,4,eligibility,Critical,本科及以上学历
+synreq_a96918b29429,synv2:G03,G03,role_core_mismatch,1,matchable,Critical,有智能硬件 / 终端产品从设计到量产的经验
+synreq_f8aa192b0eb8,synv2:G03,G03,role_core_mismatch,2,matchable,Important,具备跨职能协作与项目管理能力
+synreq_2c4e3b81eb68,synv2:G03,G03,role_core_mismatch,3,subjective,Preferred,对 AI + 硬件结合有思考
+synreq_2f111f324cbe,synv2:G03,G03,role_core_mismatch,4,eligibility,Critical,本科及以上学历
+synreq_466eeb553c56,synv2:G04,G04,role_core_mismatch,1,matchable,Critical,有通用 C 端产品的需求分析与原型设计经验
+synreq_48581ffa96c9,synv2:G04,G04,role_core_mismatch,2,subjective,Preferred,关注 AI 应用趋势，能借助 AI 优化基础工作
+synreq_ef230dd45024,synv2:G04,G04,role_core_mismatch,3,eligibility,Critical,2027 届应届毕业生
+synreq_897ad70e4214,synv2:G05,G05,role_core_mismatch,1,matchable,Critical,有电商平台运营 / 供应链产品经验
+synreq_786657332933,synv2:G05,G05,role_core_mismatch,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_e5310ce0da5e,synv2:G05,G05,role_core_mismatch,3,subjective,Preferred,使用 AI 工具提升运营效率
+synreq_759a4856ee93,synv2:G05,G05,role_core_mismatch,4,eligibility,Critical,本科及以上学历
+synreq_65fe4a960164,synv2:G06,G06,role_core_mismatch,1,matchable,Critical,有战略咨询 / 商业分析 / 行业研究经验
+synreq_4a2c31c2b7b8,synv2:G06,G06,role_core_mismatch,2,matchable,Important,具备扎实的数据分析与逻辑思维能力
+synreq_8b5b64c9e65c,synv2:G06,G06,role_core_mismatch,3,subjective,Preferred,关注 AI 行业动态
+synreq_97dbb8ea034b,synv2:G06,G06,role_core_mismatch,4,eligibility,Critical,本科及以上学历
+synreq_70921c2f8d5c,synv2:G06,G06,role_core_mismatch,5,knowledge,Important,了解常见的战略分析框架

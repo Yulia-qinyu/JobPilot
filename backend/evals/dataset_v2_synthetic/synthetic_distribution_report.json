@@ -1,0 +1,129 @@
+{
+  "job_count": 50,
+  "requirement_count": 201,
+  "scenario_category_distribution": {
+    "technology_adjacency": 10,
+    "partial_missing_boundary": 8,
+    "project_vs_formal_work": 8,
+    "strong_partial_boundary": 8,
+    "role_core_mismatch": 6,
+    "compound": 5,
+    "or_alternative": 5
+  },
+  "scenario_id_list": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06"
+  ],
+  "career_stage_distribution": {
+    "early_career": 20,
+    "campus_new_grad": 15,
+    "experienced": 15
+  },
+  "role_family_distribution": {
+    "ai_product": 23,
+    "platform_enterprise_product": 8,
+    "data_product": 6,
+    "strategy_growth_fintech_product": 6,
+    "mismatched_control": 5,
+    "general_product": 2
+  },
+  "requirement_type_distribution": {
+    "matchable": 98,
+    "eligibility": 51,
+    "knowledge": 28,
+    "subjective": 24
+  },
+  "expected_match_label_distribution": {
+    "Strong": 50,
+    "Missing": 25,
+    "Partial": 23
+  },
+  "expected_match_label_pct": {
+    "Strong": 0.51,
+    "Missing": 0.255,
+    "Partial": 0.235
+  },
+  "expected_eligibility_status_distribution": {
+    "Supported": 35,
+    "PotentialGap": 9,
+    "Unknown": 7
+  },
+  "importance_distribution": {
+    "Critical": 97,
+    "Important": 80,
+    "Preferred": 24
+  },
+  "ai_subdomain_distribution": {
+    "llm_applications": 12,
+    "ai_commercialisation": 9,
+    "enterprise_ai": 9,
+    "ai_infrastructure": 7,
+    "agent": 6,
+    "rag_knowledge_systems": 6,
+    "recommendation_search": 6,
+    "ai_platform": 5,
+    "ai_tools": 3,
+    "multimodal": 3,
+    "speech_asr": 3,
+    "ai_consumer_products": 2,
+    "ai_productivity": 1
+  },
+  "ai_subdomains_missing": [],
+  "scenario_requires_manual_review_jobs": [
+    "D03",
+    "D06"
+  ],
+  "partial_not_dominant_check": {
+    "partial_share_of_matchable": 0.235,
+    "dominant_label": "Strong",
+    "pass": true
+  }
+}

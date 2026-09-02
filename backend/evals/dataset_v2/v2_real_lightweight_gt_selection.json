@@ -1,0 +1,169 @@
+{
+  "artifact": "v2_real_lightweight_gt_selection",
+  "created_at": "2026-09-02T13:00:29.924578+00:00",
+  "selected_from": "16 human_provenance_verified V2-Real jobs (dataset_v2_real_frozen.json)",
+  "selected_job_count": 8,
+  "selection_not_based_on_model_performance": true,
+  "role_family_distribution": {
+    "ai_product": 3,
+    "platform_enterprise_product": 2,
+    "strategy_growth_fintech_product": 1,
+    "mismatched_control": 1,
+    "general_product": 1
+  },
+  "career_stage_distribution": {
+    "campus_new_grad": 4,
+    "unknown": 3,
+    "experienced": 1
+  },
+  "company_known": {
+    "v2paste:8bd2292a5974ba67": "字节跳动 (ByteDance)",
+    "v2paste:703edc23c7fecb6d": "水滴公司 (Waterdrop)"
+  },
+  "jobs": [
+    {
+      "job_id": "v2paste:868864e12ac26973",
+      "job_title": "校招-AI产品经理（人才专项）",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "ai_product",
+      "career_stage": "campus_new_grad",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "cleaned_corruption_only",
+      "neutral_selection_reason": "AI Product coverage; insurance/fintech-adjacent vertical (distinct from the medical and gaming AI jobs); clear JD with responsibilities + requirements + 加分项; requirements adjudicable against the candidate's finance/LLM/RAG evidence.",
+      "core_matchable_requirement_ids": [
+        "v2real_e491363d6dfd",
+        "v2real_02d1501dd10c",
+        "v2real_a59a5a8117b3",
+        "v2real_8a7e12bcf295"
+      ]
+    },
+    {
+      "job_id": "v2paste:8bd2292a5974ba67",
+      "job_title": "AI策略产品经理",
+      "company": "字节跳动 (ByteDance)",
+      "company_status": "known",
+      "role_family": "ai_product",
+      "career_stage": "campus_new_grad",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "human_captured_raw",
+      "neutral_selection_reason": "AI Product coverage; named employer (ByteDance / 小荷健康); healthcare-AI vertical (distinct domain); campus career-stage; concise clear JD.",
+      "core_matchable_requirement_ids": [
+        "v2real_16e77009b4af",
+        "v2real_1419f35c93b1",
+        "v2real_91c6f4679f7a",
+        "v2real_b312d0137a22"
+      ]
+    },
+    {
+      "job_id": "v2paste:ee7963fc9c8e9269",
+      "job_title": "平台AI产品经理",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "platform_enterprise_product",
+      "career_stage": "unknown",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "human_captured_raw",
+      "neutral_selection_reason": "Platform / Enterprise Product coverage; internal collaboration-office / R&D-efficiency / finance-HR platform product (distinct pattern from the HR-tech AI job); tests platform vs applied-AI-product fit.",
+      "core_matchable_requirement_ids": [
+        "v2real_76dde792d2cc",
+        "v2real_17d83c4ded86",
+        "v2real_2fb2b6ffce1b",
+        "v2real_ac98119d5b1b"
+      ]
+    },
+    {
+      "job_id": "v2paste:703edc23c7fecb6d",
+      "job_title": "增长产品经理（平台经营）",
+      "company": "水滴公司 (Waterdrop)",
+      "company_status": "known",
+      "role_family": "strategy_growth_fintech_product",
+      "career_stage": "unknown",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "cleaned_corruption_only",
+      "neutral_selection_reason": "Strategy / Growth / FinTech coverage (only such job in the pool); named employer (水滴); insurance-platform growth operations; overlaps the candidate's growth-ops evidence — good consistency test.",
+      "core_matchable_requirement_ids": [
+        "v2real_d8133fd03538",
+        "v2real_3597ec597679",
+        "v2real_82b93708742d",
+        "v2real_e009458c58e3"
+      ]
+    },
+    {
+      "job_id": "v2paste:2510a8a8dd701350",
+      "job_title": "AI产品经理",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "platform_enterprise_product",
+      "career_stage": "experienced",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "human_captured_raw",
+      "neutral_selection_reason": "Second Platform / Enterprise Product; the only 'experienced' career-stage job (career-stage diversity); HR-tech / recruitment AI domain (distinct); mixes recommendation-system asks the candidate lacks with PM asks the candidate has.",
+      "core_matchable_requirement_ids": [
+        "v2real_4a2e6653ee5c",
+        "v2real_98ff50f7094e",
+        "v2real_fc7b2fb760bf",
+        "v2real_5e191918da68"
+      ]
+    },
+    {
+      "job_id": "v2paste:2bb44a57a387a772",
+      "job_title": "用户增长-用户运营管培生",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "mismatched_control",
+      "career_stage": "unknown",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "cleaned_corruption_only",
+      "neutral_selection_reason": "Mismatched / control coverage (only such job in the pool); private-domain (私域) user-operations trainee — a non-PM role; tests whether the matcher over-credits generic growth/data evidence for a role whose core is 私域/社群/SCRM work the candidate has no evidence for. JD had mojibake, conservatively cleaned.",
+      "core_matchable_requirement_ids": [
+        "v2real_54403299a5ab",
+        "v2real_e413799455fb",
+        "v2real_dbdc8bbad742",
+        "v2real_839fd0328615"
+      ]
+    },
+    {
+      "job_id": "v2paste:74c7e52f7d3795f1",
+      "job_title": "产品经理",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "general_product",
+      "career_stage": "campus_new_grad",
+      "location": "unknown",
+      "language": "zh",
+      "jd_text_fidelity": "human_captured_raw",
+      "neutral_selection_reason": "General Product coverage (only such job in the pool); travel-industry general PM; campus; '关注AI' appears as a light expectation — tests role-core vs AI-keyword handling.",
+      "core_matchable_requirement_ids": [
+        "v2real_83d2d0e02ead",
+        "v2real_771f943fd3df",
+        "v2real_01d10aea11b3",
+        "v2real_df9143338be0"
+      ]
+    },
+    {
+      "job_id": "v2paste:1bcbc456132ab15e",
+      "job_title": "游戏AI产品经理（北京）",
+      "company": "unknown",
+      "company_status": "unknown",
+      "role_family": "ai_product",
+      "career_stage": "campus_new_grad",
+      "location": "北京市",
+      "language": "zh",
+      "jd_text_fidelity": "human_captured_raw",
+      "neutral_selection_reason": "Third AI Product, gaming vertical (distinct from insurance and healthcare); campus; explicit location (北京); strong data-analysis asks that overlap the candidate's evidence + gaming-industry asks that do not.",
+      "core_matchable_requirement_ids": [
+        "v2real_84e47b93a153",
+        "v2real_d2e91437dbe7",
+        "v2real_45e2bfd0d8e3",
+        "v2real_6b4ea8791334"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "dataset_version": "v2",
+  "dataset_role": "held_out_validation_test",
+  "rubric_id": "annotation-rubric-v2",
+  "rubric_freeze_state": "frozen",
+  "rubric_milestone_commits": {
+    "product_taxonomy": "9e09c7b",
+    "rubric_freeze": "7f5c77a"
+  },
+  "consistent_with": "job_match_eval_dataset_v1.json",
+  "job_record_fields": {
+    "job_id": "str  '<source>:<source_job_id>'  (stable, unique)",
+    "source": "str  human-readable source label, e.g. 'ByteDance official careers'",
+    "source_job_id": "str  employer's own posting id when available else '' ",
+    "source_type": "enum  official_company_career_page | company_controlled_recruiting_page | public_official_listing",
+    "company": "str  employer display name (original language ok)",
+    "title": "str  posting title verbatim",
+    "location": "str  mainland China city (北京/上海/深圳/广州/杭州/...)",
+    "career_stage": "enum  campus_new_grad | early_career | experienced | unknown",
+    "role_family": "enum  ai_product | general_product | data_product | platform_enterprise_product | strategy_growth_fintech_product | mismatched_control",
+    "ai_subdomain": "str|null  only for ai_product/mismatched; one of the §8 subdomains or null",
+    "language": "enum  zh | en   (classified: zh when substantive CJK chars >= Latin alpha chars)",
+    "job_url": "str  canonical public URL of the posting",
+    "job_description_raw": "str  verbatim JD text (responsibilities + requirements). NOT translated, NOT reconstructed.",
+    "responsibilities_text": "str  verbatim responsibilities section if separable else ''",
+    "requirements_text": "str  verbatim requirements section if separable else ''",
+    "preferred_requirements_text": "str  verbatim '优先/加分/preferred' block if present else ''",
+    "education_requirement": "str  verbatim only if JD states it; else '' (never inferred)",
+    "experience_requirement": "str  verbatim only if JD states it; else '' (never inferred)",
+    "graduation_year_requirement": "str  verbatim only if JD states it; else ''",
+    "salary_text": "str  verbatim if present else ''",
+    "collected_at": "ISO-8601  when the JD text was captured",
+    "collector": "str  who/what captured it (human name or tool)",
+    "access_note": "str  how it was accessed; MUST record any block encountered",
+    "human_requirements": "'' (blank until adjudication)",
+    "human_match_labels": "'' (blank until adjudication)",
+    "human_match_fit": "'' (blank; 1-5 integer, human only)",
+    "human_overall_fit": "'' (blank; 1-5 integer, human only)",
+    "reviewer_notes": "''"
+  },
+  "requirement_candidate_fields": {
+    "requirement_id": "str  reqv2_<16hex> from RequirementCatalogBuilder.stable_requirement_id(...)",
+    "job_id": "str",
+    "job_title": "str",
+    "company": "str",
+    "source_text": "str  verbatim JD span this requirement came from",
+    "normalized_requirement": "str  single independently-judgeable requirement statement",
+    "source_section": "enum  responsibilities | requirements | preferred | education | experience | other",
+    "requirement_type": "enum  eligibility | matchable | knowledge | subjective   (Evidence-Verifiability, NOT keywords)",
+    "importance": "enum  Critical | Important | Preferred",
+    "eligibility_category": "enum|null  degree|graduation_cohort|experience_years|certification|work_authorization|language|other  (eligibility only)",
+    "knowledge_topics": "list|null  (knowledge only)",
+    "knowledge_text": "str|null  (knowledge only)",
+    "score_included": "bool  true ONLY for matchable",
+    "extraction_method": "str  e.g. 'deterministic jd_parser candidate' | 'manual'",
+    "extraction_is_finalist_matcher_output": "bool  MUST be false"
+  },
+  "balance_metadata_fields": {
+    "target_job_count": "50-60 (preferred 60), min 50, hard cap 70",
+    "distinct_company_target": ">=12 (preferred 15-20)",
+    "max_single_company_share": "0.15 preferred / 0.20 absolute",
+    "language_target": ">=0.80 zh",
+    "career_stage_target": {
+      "campus_new_grad": "0.20-0.30",
+      "early_career": "0.30-0.40",
+      "experienced": "0.30-0.45"
+    },
+    "role_family_target": {
+      "ai_product": "0.35-0.45",
+      "general_product": "0.15-0.20",
+      "data_product": "0.10-0.15",
+      "platform_enterprise_product": "0.10-0.15",
+      "strategy_growth_fintech_product": "0.10-0.15",
+      "mismatched_control": "0.05-0.10"
+    }
+  },
+  "prohibited": [
+    "model predictions inside the dataset",
+    "translated / reconstructed / paraphrased JD text",
+    "inferred hard requirements not stated in the JD",
+    "finalist-matcher output used for requirement extraction or ground truth",
+    "any Requirement Taxonomy change (no V3)"
+  ]
+}
