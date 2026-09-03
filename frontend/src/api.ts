@@ -26,7 +26,7 @@ import type {
   JobSearchStrategy,
   PlanItem,
   PlanType,
-  PlanningToday,
+  Nudge,
 } from "./types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
@@ -234,17 +234,8 @@ export const workspaceApi = {
   deletePlan: (id: number) => apiRequest<void>(`/api/workspace/plan-items/${id}`, { method: "DELETE" }),
 };
 
-export const planningApi = {
-  today: () => apiRequest<PlanningToday>("/api/planning/today"),
-  generate: (force_regenerate = false) => apiRequest<PlanningToday>("/api/planning/today", {
-    method: "POST",
-    body: JSON.stringify({ force_regenerate }),
-  }),
-  addToPlan: (snapshotId: number, itemId: string, values?: { title?: string; date?: string }) =>
-    apiRequest<PlanItem>(`/api/planning/snapshots/${snapshotId}/items/${encodeURIComponent(itemId)}/add-to-plan`, {
-      method: "POST",
-      body: JSON.stringify(values ?? {}),
-    }),
+export const nudgesApi = {
+  list: () => apiRequest<Nudge[]>("/api/nudges"),
 };
 
 export const jobImportsApi = {

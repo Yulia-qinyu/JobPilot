@@ -23,6 +23,7 @@ from app.schemas.job_decision import (
 from app.services.analysis_freshness import analysis_identity_is_current
 from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalogBuilder, canonical_hash
+from app.services.matcher_client import active_matcher_model
 from app.services.requirement_catalog import RequirementCatalogBuilder
 from app.services.role_classifier import RoleClassifier
 from app.services.target_role_fit_service import TargetRoleFitService
@@ -289,7 +290,7 @@ class JobDecisionService:
             resume_hash=evidence_hashes[0],
             experience_bank_hash=evidence_hashes[1],
             structured_jd_hash=jd_hash,
-            matcher_model=self.settings.claude_model,
+            matcher_model=active_matcher_model(self.settings),
             enforce_matcher_version=(
                 structured_jd.requirement_taxonomy_version == "v2"
             ),

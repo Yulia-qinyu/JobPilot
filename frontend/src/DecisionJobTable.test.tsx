@@ -51,10 +51,12 @@ describe("My Jobs table", () => {
     expect(html).toContain("删除");
   });
 
-  it("renders stale analysis without exposing the decision funnel", () => {
+  it("keeps Match Score visible and labels stale analysis separately from posting expiry", () => {
     const job = { ...base, match_score: 88, match_is_stale: true, decision: { ...base.decision!, final_decision: "Priority" as const } };
     const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[job]} busyId={null} onStatusChange={() => undefined} onDelete={() => undefined} /></MemoryRouter>);
-    expect(html).toContain("已过期");
+    expect(html).toContain("88%");
+    expect(html).toContain("需更新");
+    expect(html).not.toContain("已过期");
     expect(html).not.toContain("优先投递");
   });
 });

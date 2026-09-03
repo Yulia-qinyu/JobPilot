@@ -108,6 +108,31 @@ describe("Phase 3 Fit Analysis presentation", () => {
     expect(html).toContain("重新分析");
     expect(html).toContain("↻ 重新分析");
     expect(html).toContain("reanalyze-button");
+    expect(html).toContain("requirement-evidence-list");
+    expect(html).not.toContain("<table");
+    expect(html).toContain("判断依据");
+  });
+
+  it("does not white-screen when the V2 taxonomy overlays are absent (legacy / partial payload)", () => {
+    const legacy = { ...analysis } as Record<string, unknown>;
+    delete legacy.eligibility_requirements;
+    delete legacy.knowledge_requirements;
+    delete legacy.score_basis;
+    let html = "";
+    expect(() => {
+      html = renderToStaticMarkup(
+        <FitAnalysisResult
+          analysis={legacy as unknown as FitAnalysis}
+          isStale={false}
+          analyzing={false}
+          onReanalyze={() => undefined}
+        />,
+      );
+    }).not.toThrow();
+    expect(html).toContain("82"); // score shell still renders
+    expect(html).toContain("逐项匹配"); // matchable section still renders
+    expect(html).not.toContain("岗位资格"); // no fabricated eligibility section
+    expect(html).not.toContain("岗位知识要求"); // no fabricated knowledge section
   });
 
   it("renders stale, pending, loading and failure states", () => {

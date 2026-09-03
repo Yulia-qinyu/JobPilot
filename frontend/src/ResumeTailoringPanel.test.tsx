@@ -48,10 +48,27 @@ describe("Resume Tailoring UI", () => {
 
   it("evidence drawer includes evidence, requirement and guardrail status", () => {
     const html = renderToStaticMarkup(<EvidenceDrawer bullet={bullet} plan={tailoring.tailoring_plan} />);
-    expect(html).toContain("resume_extracted:1");
+    expect(html).toContain("主简历内容");
+    expect(html).not.toContain("resume_extracted:1");
     expect(html).toContain("LLM 产品交付");
     expect(html).toContain("经历背景");
     expect(html).toContain("数字真实性：通过");
+  });
+
+  it("never renders canonical requirement ids in tailoring copy", () => {
+    const internalId = "reqv2_8bee5441a1218033";
+    const planOnly: ResumeTailoring = {
+      ...tailoring,
+      generated_draft: {},
+      tailoring_plan: {
+        ...tailoring.tailoring_plan,
+        relevant_requirements: [{ ...tailoring.tailoring_plan.relevant_requirements[0], requirement_id: internalId, text: "具备较强的数据分析能力" }],
+        experiences: [{ ...tailoring.tailoring_plan.experiences[0], bullet_items: [{ ...tailoring.tailoring_plan.experiences[0].bullet_items[0], target_requirement_ids: [internalId], reason: `针对 ${internalId} 突出数据分析。` }] }],
+      },
+    };
+    const html = renderToStaticMarkup(<TailoringPlanView tailoring={planOnly} busy={false} onGenerate={() => undefined} />);
+    expect(html).toContain("具备较强的数据分析能力");
+    expect(html).not.toContain("reqv2_");
   });
 
   it("renders model keep without pretending there is a tailored rewrite", () => {

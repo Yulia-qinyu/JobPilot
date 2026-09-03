@@ -7,6 +7,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     anthropic_api_key: str = Field(default="", repr=False)
     claude_model: str = "claude-sonnet-4-5-20250929"
+
+    # Job Analysis requirement matcher. This is the only LLM step whose model was
+    # chosen by a frozen evaluation; every other service stays Claude-backed.
+    # provider "qwen" -> DashScope (OpenAI-compatible); anything else -> Claude.
+    matcher_provider: str = "anthropic"
+    matcher_model: str = "qwen3.8-max"
+    dashscope_api_key: str = Field(default="", repr=False)
+    qwen_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+
     frontend_origins: str = "http://localhost:5173"
     database_url: str = "postgresql+psycopg://jobpilot:jobpilot@localhost:5433/jobpilot"
     max_upload_bytes: int = 10 * 1024 * 1024

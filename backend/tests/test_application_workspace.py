@@ -24,6 +24,7 @@ from app.schemas.workspace import (
 )
 from app.services.fit_analysis_service import FitAnalysisService
 from app.services.job_service import JobService
+from app.services.matcher_client import active_matcher_model
 from app.services.preview_analysis_store import preview_analysis_store
 from app.services.profile_service import ProfileService
 from app.services.requirement_matcher import RequirementMatcher
@@ -119,7 +120,7 @@ class DynamicMatcher:
     SCHEMA_VERSION = RequirementMatcher.SCHEMA_VERSION
 
     def __init__(self):
-        self.client = Mock(model=get_settings().claude_model)
+        self.client = Mock(model=active_matcher_model(get_settings()))
         self.calls = 0
 
     def analyze(self, requirements, evidence):

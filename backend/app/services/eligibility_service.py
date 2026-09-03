@@ -40,11 +40,36 @@ DEGREE_LEVELS = {
     "专科": 1,
     "bachelor": 2,
     "本科": 2,
+    "学士": 2,
     "master": 3,
     "硕士": 3,
     "phd": 4,
     "doctor": 4,
     "博士": 4,
+}
+
+# Deliberately small education-field map for common explicit eligibility checks.
+# This is not intended to become a universal discipline ontology. It only lets
+# verified Education.field values satisfy a few common, stable discipline groups.
+EDUCATION_FIELD_HINT = re.compile(
+    r"专业(?:背景|方向)?|学科背景|major|field\s+of\s+study|academic\s+background",
+    re.IGNORECASE,
+)
+DISCIPLINE_PATTERNS = {
+    "computer_related": re.compile(
+        r"计算机|软件工程|人工智能|信息技术|计算机科学|数据科学|"
+        r"\bcomputer\s+science\b|\bsoftware\s+engineering\b|"
+        r"\bartificial\s+intelligence\b|\binformation\s+technology\b|"
+        r"\bdata\s+science\b|\bAI(?:\s+方向)?\b",
+        re.IGNORECASE,
+    ),
+    "mathematics": re.compile(r"数学|\bmathematics?\b", re.IGNORECASE),
+    "statistics": re.compile(r"统计学|\bstatistics?\b", re.IGNORECASE),
+}
+DISCIPLINE_LABELS = {
+    "computer_related": "计算机相关",
+    "mathematics": "数学",
+    "statistics": "统计学",
 }
 
 
@@ -292,33 +317,30 @@ class EligibilityService:
             )
 
         required_degree = self._required_degree(text)
-        if category == "degree" or required_degree is not None:
-            if required_degree is None:
-                return self._eligibility_read(
-                    requirement, "Unknown", [], "无法从岗位原文确定具体学历层级。"
+        required_disciplines = self._required_disciplines(text)
+        education_checks: list[EligibilityRequirementRead] = []
+
+        # Backward compatibility: some existing V2 records used category=degree
+        # for a major-only requirement because education_field did not yet exist.
+        # When the source clearly expresses a discipline but no degree level, use
+        # the field evaluator instead of returning the misleading degree reason.
+        if required_degree is not None or (category == "degree" and not required_disciplines):
+            education_checks.append(
+                self._evaluate_degree_requirement(
+                    requirement, candidate, evidence_by_id, required_degree
                 )
-            degree = self._highest_degree(candidate)
-            if degree is None:
-                return self._eligibility_read(
-                    requirement,
-                    "Unknown",
-                    [],
-                    f"当前证据尚未确认{self._degree_label(required_degree)}及以上学历。",
-                )
-            degree_evidence = self._degree_evidence_ids(evidence_by_id, required_degree)
-            if degree < required_degree:
-                return self._eligibility_read(
-                    requirement,
-                    "PotentialGap",
-                    degree_evidence,
-                    f"已验证学历低于{self._degree_label(required_degree)}及以上门槛。",
-                )
-            return self._eligibility_read(
-                requirement,
-                "Supported",
-                degree_evidence,
-                "主简历教育经历支持岗位明确学历门槛。",
             )
+        if required_disciplines or category == "education_field":
+            education_checks.append(
+                self._evaluate_education_field_requirement(
+                    requirement,
+                    candidate,
+                    evidence_by_id,
+                    required_disciplines,
+                )
+            )
+        if education_checks:
+            return self._combine_education_checks(requirement, education_checks)
 
         experience = EXPERIENCE.search(text)
         if category == "experience_years" or experience:
@@ -439,6 +461,149 @@ class EligibilityService:
                 marker in source.text.casefold() and level >= required_degree
                 for marker, level in DEGREE_LEVELS.items()
             )
+        ]
+
+    @classmethod
+    def _evaluate_degree_requirement(
+        cls,
+        requirement: StructuredRequirement,
+        candidate: ResumeProfile,
+        evidence_by_id: dict,
+        required_degree: int | None,
+    ) -> EligibilityRequirementRead:
+        if required_degree is None:
+            return cls._eligibility_read(
+                requirement, "Unknown", [], "无法从岗位原文确定具体学历层级。"
+            )
+        degree = cls._highest_degree(candidate)
+        if degree is None:
+            return cls._eligibility_read(
+                requirement,
+                "Unknown",
+                [],
+                f"当前证据尚未确认{cls._degree_label(required_degree)}及以上学历。",
+            )
+        degree_evidence = cls._degree_evidence_ids(evidence_by_id, required_degree)
+        if degree < required_degree:
+            return cls._eligibility_read(
+                requirement,
+                "PotentialGap",
+                degree_evidence,
+                f"已验证学历低于{cls._degree_label(required_degree)}及以上门槛。",
+            )
+        return cls._eligibility_read(
+            requirement,
+            "Supported",
+            degree_evidence,
+            "主简历教育经历支持岗位明确学历门槛。",
+        )
+
+    @classmethod
+    def _evaluate_education_field_requirement(
+        cls,
+        requirement: StructuredRequirement,
+        candidate: ResumeProfile,
+        evidence_by_id: dict,
+        required_disciplines: set[str],
+    ) -> EligibilityRequirementRead:
+        if not required_disciplines:
+            return cls._eligibility_read(
+                requirement,
+                "Unknown",
+                [],
+                "无法从岗位原文确定具体专业或学科范围。",
+            )
+
+        fields = [item.field.strip() for item in candidate.education if item.field and item.field.strip()]
+        if not fields:
+            return cls._eligibility_read(
+                requirement,
+                "Unknown",
+                [],
+                "当前已验证教育经历尚未记录专业或学科背景。",
+            )
+
+        matches = [
+            (field, cls._discipline_groups(field).intersection(required_disciplines))
+            for field in fields
+            if cls._discipline_groups(field).intersection(required_disciplines)
+        ]
+        if matches:
+            matched_fields = [field for field, _ in matches]
+            matched_disciplines = {
+                discipline for _, disciplines in matches for discipline in disciplines
+            }
+            evidence_ids = cls._education_field_evidence_ids(
+                evidence_by_id, matched_fields
+            )
+            labels = "、".join(
+                DISCIPLINE_LABELS[item]
+                for item in sorted(matched_disciplines)
+                if item in DISCIPLINE_LABELS
+            )
+            return cls._eligibility_read(
+                requirement,
+                "Supported",
+                evidence_ids,
+                f"主简历教育经历中的专业「{'；'.join(matched_fields)}」支持岗位要求中的{labels}专业范围。",
+            )
+
+        evidence_ids = cls._education_field_evidence_ids(evidence_by_id, fields)
+        labels = "、".join(
+            DISCIPLINE_LABELS[item]
+            for item in sorted(required_disciplines)
+            if item in DISCIPLINE_LABELS
+        )
+        return cls._eligibility_read(
+            requirement,
+            "Unknown",
+            evidence_ids,
+            f"已记录专业为「{'；'.join(fields)}」，但现有学科映射无法确认其属于岗位要求的{labels}专业范围。",
+        )
+
+    @classmethod
+    def _combine_education_checks(
+        cls,
+        requirement: StructuredRequirement,
+        checks: list[EligibilityRequirementRead],
+    ) -> EligibilityRequirementRead:
+        if any(item.status == "PotentialGap" for item in checks):
+            status = "PotentialGap"
+        elif any(item.status == "Unknown" for item in checks):
+            status = "Unknown"
+        else:
+            status = "Supported"
+        return cls._eligibility_read(
+            requirement,
+            status,
+            [evidence_id for item in checks for evidence_id in item.evidence_ids],
+            " ".join(item.reason for item in checks),
+        )
+
+    @staticmethod
+    def _required_disciplines(requirement: str) -> set[str]:
+        if not EDUCATION_FIELD_HINT.search(requirement):
+            return set()
+        return EligibilityService._discipline_groups(requirement)
+
+    @staticmethod
+    def _discipline_groups(value: str) -> set[str]:
+        return {
+            group
+            for group, pattern in DISCIPLINE_PATTERNS.items()
+            if pattern.search(value)
+        }
+
+    @staticmethod
+    def _education_field_evidence_ids(
+        evidence_by_id: dict, fields: list[str]
+    ) -> list[str]:
+        normalized_fields = [field.casefold() for field in fields]
+        return [
+            catalog_id
+            for catalog_id, source in evidence_by_id.items()
+            if source.context == "教育经历"
+            and any(field in source.text.casefold() for field in normalized_fields)
         ]
 
     @staticmethod

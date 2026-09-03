@@ -1,13 +1,12 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 import { profileApi, workspaceApi } from "./api";
-import { ROLE_FAMILIES, ROLE_FAMILY_LABELS, ROLE_PRIORITY_LABELS } from "./decision-utils";
+import { ROLE_PRIORITY_LABELS } from "./decision-utils";
 import { canAddTarget, formatUpdatedAt, MAX_TARGETS } from "./profile-utils";
 import type {
   Experience,
   ExperienceFact,
   NamedTarget,
-  RoleFamily,
   RolePriority,
   TargetRole,
   UserProfile,
@@ -58,12 +57,7 @@ export function CandidateIdentityCard({
   );
 }
 
-const ROLE_SUGGESTIONS: { name: string; family: RoleFamily }[] = [
-  { name: "AI Product Manager", family: "ai_product" },
-  { name: "FinTech Product Manager", family: "fintech_product" },
-  { name: "Data Product Manager", family: "data_product" },
-  { name: "Strategy Product Manager", family: "strategy_product" },
-];
+const ROLE_SUGGESTIONS = ["AI 产品经理", "金融科技产品经理", "数据产品经理", "策略产品经理"];
 
 function LoadingBlock() {
   return <div className="profile-loading"><span className="spinner dark" />正在加载求职档案…</div>;
@@ -189,11 +183,8 @@ export function TargetRoleCard({
 }) {
   const [name, setName] = useState("");
   const [priority, setPriority] = useState<RolePriority>("primary");
-  const [editingClassificationId, setEditingClassificationId] = useState<number | null>(null);
-  const needsAttention = roles.some((role) => role.effective_role_family === "unknown");
   return <section className="profile-card target-card role-target-card">
-    <div className="profile-card-header"><div><h2>目标岗位</h2><p>你决定求职优先级，系统自动识别标准岗位方向。</p></div><span className="count">{roles.length} / {MAX_TARGETS}</span></div>
-    {needsAttention && <div className="role-reminder">部分目标岗位暂无法确定分类，请确认后获得更准确的岗位筛选。</div>}
+    <div className="profile-card-header"><div><h2>目标岗位</h2><p>设置你当前主攻、备选或探索的岗位方向。</p></div><span className="count">{roles.length} / {MAX_TARGETS}</span></div>
     <div className="target-role-list">
       {roles.map((role) => <div className="target-role-row" key={role.id}>
         <div className="target-role-main">
@@ -201,25 +192,15 @@ export function TargetRoleCard({
           <select aria-label={`${role.name} 优先级`} value={role.priority} disabled={busy} onChange={(event) => onUpdate(role.id, { priority: event.target.value as RolePriority })}>{Object.entries(ROLE_PRIORITY_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
           <button className="tag-remove" aria-label={`移除 ${role.name}`} onClick={() => onRemove(role.id)} disabled={busy}>×</button>
         </div>
-        <div className={`role-classification ${role.effective_role_family === "unknown" ? "unknown" : ""}`}>
-          <span>系统识别</span><strong>{ROLE_FAMILY_LABELS[role.effective_role_family]}</strong>
-          {role.role_family_override && <small>手动修正</small>}
-          <button type="button" onClick={() => setEditingClassificationId((current) => current === role.id ? null : role.id)}>{editingClassificationId === role.id ? "收起" : "修改分类"}</button>
-        </div>
-        {role.effective_role_family === "unknown" && <p className="role-unknown-message">暂无法确定岗位分类，请确认。</p>}
-        {editingClassificationId === role.id && <div className="role-override-editor">
-          <select aria-label={`${role.name} 手动分类`} value={role.role_family_override || role.auto_role_family} disabled={busy} onChange={(event) => onUpdate(role.id, { role_family_override: event.target.value as RoleFamily })}>{ROLE_FAMILIES.filter((value) => value !== "unknown").map((value) => <option key={value} value={value}>{ROLE_FAMILY_LABELS[value]}</option>)}</select>
-          {role.role_family_override && <button type="button" disabled={busy} onClick={() => onUpdate(role.id, { role_family_override: null })}>清除手动修正</button>}
-        </div>}
       </div>)}
       {!roles.length && <span className="empty-inline">暂未添加。</span>}
     </div>
-    <form className="target-role-add" onSubmit={(event) => { event.preventDefault(); if (!name.trim()) return; onAdd(name.trim(), priority); setName(""); }}>
-      <input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：AI Product Manager" disabled={busy || !canAddTarget(roles.length)} />
+    {canAddTarget(roles.length) ? <><form className="target-role-add" onSubmit={(event) => { event.preventDefault(); if (!name.trim()) return; onAdd(name.trim(), priority); setName(""); }}>
+      <input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：AI 产品经理" disabled={busy || !canAddTarget(roles.length)} />
       <select value={priority} onChange={(event) => setPriority(event.target.value as RolePriority)}>{Object.entries(ROLE_PRIORITY_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
       <button type="submit" disabled={busy || !name.trim() || !canAddTarget(roles.length)}>添加</button>
     </form>
-    <div className="suggestions"><span>常见岗位</span>{ROLE_SUGGESTIONS.filter((item) => !roles.some((role) => role.name.toLowerCase() === item.name.toLowerCase())).slice(0, 3).map((item) => <button key={item.name} type="button" disabled={busy || !canAddTarget(roles.length)} onClick={() => setName(item.name)}>+ {item.name}</button>)}</div>
+    <div className="suggestions"><span>常见岗位</span>{ROLE_SUGGESTIONS.filter((item) => !roles.some((role) => role.name.toLowerCase() === item.toLowerCase())).slice(0, 3).map((item) => <button key={item} type="button" disabled={busy} onClick={() => setName(item)}>+ {item}</button>)}</div></> : <p className="target-limit-message">已达到 5 个目标岗位上限</p>}
   </section>;
 }
 
@@ -293,7 +274,7 @@ export default function ProfilePage() {
       {notice && <div className="notice profile-message">{notice}</div>}
       {!profile ? <button className="primary-small" onClick={() => window.location.reload()}>重新加载</button> : <>
         <section className="profile-card strategy-card">
-          <div className="profile-card-header"><div><span className="card-kicker">我的求职策略</span><h2>你现在更想怎样推进？</h2><p>这会成为未来规划建议的基础，你可以随时修改。</p></div></div>
+          <div className="profile-card-header"><div><span className="card-kicker">我的求职策略</span><h2>你现在更想怎样推进？</h2><p>JobPilot 会根据你的求职策略调整岗位提醒和推进优先级，你可以随时修改。</p></div></div>
           <div className="strategy-options">{STRATEGIES.map((strategy) => <button key={strategy.id} className={profile.job_search_strategy === strategy.id ? "selected" : ""} disabled={busy} onClick={() => void run(async () => { await workspaceApi.updateStrategy(strategy.id); return profileApi.get(); }, "求职策略已保存。") }><strong>{strategy.title}</strong><span>{strategy.description}</span></button>)}</div>
         </section>
         <CandidateIdentityCard key={`${profile.candidate_type ?? "unknown"}-${profile.graduation_year ?? "unknown"}`} candidateType={profile.candidate_type} graduationYear={profile.graduation_year} busy={busy} onSave={(candidateType, graduationYear) => void run(() => profileApi.updateIdentity(candidateType, graduationYear), "求职身份已保存，既有匹配分析将按新证据重新验证。") } />

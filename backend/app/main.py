@@ -12,7 +12,7 @@ from app.routes.job_decisions import job_router as job_decision_job_router
 from app.routes.job_decisions import router as job_decisions_router
 from app.routes.job_imports import router as job_imports_router
 from app.routes.jobs import router as jobs_router
-from app.routes.planning import router as planning_router
+from app.routes.nudges import router as nudges_router
 from app.routes.profile import router as profile_router
 from app.routes.resume_tailoring import router as resume_tailoring_router
 from app.routes.workspace import router as workspace_router
@@ -52,7 +52,7 @@ app.include_router(resume_tailoring_router)
 app.include_router(dashboard_router)
 app.include_router(discovery_router)
 app.include_router(workspace_router)
-app.include_router(planning_router)
+app.include_router(nudges_router)
 
 
 @app.get("/api/health")

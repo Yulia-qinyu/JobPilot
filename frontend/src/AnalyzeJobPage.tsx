@@ -6,6 +6,9 @@ import {
   REQUIREMENT_IMPORTANCE_LABELS,
   REQUIREMENT_MATCH_LABELS,
 } from "./analysis-utils";
+import ErrorBoundary from "./ErrorBoundary";
+import PreparationRecommendations from "./PreparationRecommendations";
+import { safeUserCopy } from "./requirement-display";
 import type { FitAnalysisPreview, JobPreview, RequirementImportance } from "./types";
 
 const IMPORTANCE_ORDER: RequirementImportance[] = ["Critical", "Important", "Preferred"];
@@ -15,8 +18,9 @@ function isUrl(value: string) {
 }
 
 function MatchableRequirementGroups({ analysis }: { analysis: FitAnalysisPreview }) {
+  const matches = analysis.requirement_matches ?? [];
   return <div className="requirement-groups">{IMPORTANCE_ORDER.map((importance) => {
-    const items = analysis.requirement_matches.filter((item) => item.importance === importance);
+    const items = matches.filter((item) => item.importance === importance);
     if (!items.length) return null;
     return <section key={importance}>
       <h3>{REQUIREMENT_IMPORTANCE_LABELS[importance]}</h3>
@@ -31,28 +35,38 @@ const ELIGIBILITY_LABELS = {
   Unknown: "待确认",
 } as const;
 
-function TaxonomyOverview({ analysis }: { analysis: FitAnalysisPreview }) {
+export function TaxonomyOverview({ analysis }: { analysis: FitAnalysisPreview }) {
+  // eligibility_requirements / knowledge_requirements are read-time taxonomy
+  // overlays: the backend defaults them to [], but a legacy or partial response
+  // shape can omit them entirely. Normalize once here so a missing array can
+  // never white-screen the Analyze page.
+  const eligibilityRequirements = analysis.eligibility_requirements ?? [];
+  const knowledgeRequirements = analysis.knowledge_requirements ?? [];
+  const requirementMatches = analysis.requirement_matches ?? [];
   return <div className="taxonomy-overview">
-    {analysis.eligibility_requirements.length > 0 && <section className="taxonomy-section">
+    {eligibilityRequirements.length > 0 && <section className="taxonomy-section">
       <div className="taxonomy-heading"><h3>岗位资格</h3><span>不计入 Match Score</span></div>
-      <ul className="taxonomy-list">{analysis.eligibility_requirements.map((item) => <li key={item.requirement_id}>
+      <ul className="taxonomy-list">{eligibilityRequirements.map((item) => <li key={item.requirement_id}>
         <div><strong>{item.requirement_text}</strong><p>{item.reason}</p></div>
         <span className={`eligibility-state eligibility-${item.status.toLowerCase()}`}>{ELIGIBILITY_LABELS[item.status]}</span>
       </li>)}</ul>
     </section>}
     <section className="taxonomy-section">
       <div className="taxonomy-heading"><h3>履历匹配要求</h3><span>计入 Match Score</span></div>
-      {analysis.requirement_matches.length ? <MatchableRequirementGroups analysis={analysis} /> : <p className="muted">该岗位没有可由履历证据评分的要求。</p>}
+      {requirementMatches.length ? <MatchableRequirementGroups analysis={analysis} /> : <p className="muted">该岗位没有可由履历证据评分的要求。</p>}
     </section>
-    {analysis.knowledge_requirements.length > 0 && <section className="taxonomy-section knowledge-requirements">
+    {knowledgeRequirements.length > 0 && <section className="taxonomy-section knowledge-requirements">
       <div className="taxonomy-heading"><h3>岗位知识要求</h3><span>准备主题</span></div>
-      <ul>{analysis.knowledge_requirements.map((item) => <li key={item.requirement_id}><strong>{item.requirement_text}</strong>{item.knowledge_topics.length > 0 && <div className="topic-tags">{item.knowledge_topics.map((topic) => <span key={topic}>{topic}</span>)}</div>}</li>)}</ul>
+      <ul>{knowledgeRequirements.map((item) => {
+        const topics = item.knowledge_topics ?? [];
+        return <li key={item.requirement_id}><strong>{item.requirement_text}</strong>{topics.length > 0 && <div className="topic-tags">{topics.map((topic) => <span key={topic}>{topic}</span>)}</div>}</li>;
+      })}</ul>
       <p className="taxonomy-note">这些主题不计入 Match Score，可作为面试准备方向。</p>
     </section>}
   </div>;
 }
 
-function AnalysisResults({
+export function AnalysisResults({
   preview,
   analysis,
   onReset,
@@ -62,6 +76,8 @@ function AnalysisResults({
   onReset: () => void;
 }) {
   const navigate = useNavigate();
+  const requirementMatches = analysis.requirement_matches ?? [];
+  const suggestedPreparation = analysis.suggested_preparation ?? [];
   const [adding, setAdding] = useState(false);
   const [persistedId, setPersistedId] = useState<number | null>(null);
   const [notice, setNotice] = useState("");
@@ -91,8 +107,10 @@ function AnalysisResults({
     } finally { setAdding(false); }
   }
 
-  return <main className="workspace-shell analyze-result-page">
+  return <main className="analyze-result-page">
+    <div className="analysis-result-container">
     <Link className="back-link" to="/analyze" onClick={(event) => { event.preventDefault(); onReset(); }}>← 分析其他岗位</Link>
+    <div className="analysis-result-surface">
     <header className="analysis-result-header">
       <div><span className="eyebrow">{preview.company || "公司待确认"}</span><h1>{preview.role || "岗位名称待确认"}</h1><p>{[preview.location, preview.recruitment_type].filter(Boolean).join(" · ") || "地点与招聘类型未注明"}</p></div>
       <div className="analysis-result-actions">
@@ -107,25 +125,32 @@ function AnalysisResults({
 
     <nav className="analysis-mini-nav"><a href="#requirements">01 岗位要求</a><a href="#match">02 匹配分析</a><a href="#resume">03 简历优化</a></nav>
 
+    <div className="analysis-result-body">
+
     <section id="requirements" className="analysis-module">
-      <div className="module-number">01</div><div className="module-heading"><span>Job Understanding</span><h2>岗位要求</h2><p>{preview.structured_jd.role_summary || "已将完整 JD 整理为可快速阅读的岗位要求。"}</p></div>
-      <TaxonomyOverview analysis={analysis} />
+      <div className="module-number">01</div><div className="module-heading"><span>岗位理解</span><h2>岗位要求</h2><p>{preview.structured_jd.role_summary || "已将完整 JD 整理为可快速阅读的岗位要求。"}</p></div>
+      <ErrorBoundary fallback={<p className="muted">岗位要求信息暂时无法展示，其余分析结果不受影响。</p>}>
+        <TaxonomyOverview analysis={analysis} />
+      </ErrorBoundary>
     </section>
 
     <section id="match" className="analysis-module">
-      <div className="module-number">02</div><div className="module-heading"><span>Evidence-grounded Match</span><h2>匹配分析</h2><p>{analysis.summary}</p></div>
-      {analysis.requirement_matches.length ? <div className="requirement-match-list">{analysis.requirement_matches.map((item) => <article key={item.requirement_id} className={`requirement-match match-${item.match_status.toLowerCase()}`}>
+      <div className="module-number">02</div><div className="module-heading"><span>基于真实经历的匹配</span><h2>匹配分析</h2><p>{safeUserCopy(analysis.summary, requirementMatches.map((item) => item.requirement_text))}</p></div>
+      {requirementMatches.length ? <div className="requirement-match-list">{requirementMatches.map((item) => <article key={item.requirement_id} className={`requirement-match match-${item.match_status.toLowerCase()}`}>
         <div><span className="match-icon" aria-hidden="true">{item.match_status === "Strong" ? "✓" : item.match_status === "Partial" ? "◐" : "○"}</span><div><h3>{item.requirement_text}</h3><span className={`assessment ${item.match_status.toLowerCase()}`}>{REQUIREMENT_MATCH_LABELS[item.match_status]}</span></div></div>
-        <p>{item.reason}</p>
-        {item.evidence_sources.length > 0 && <details><summary>查看支持证据</summary><ul>{item.evidence_sources.map((source) => <li key={`${source.source_type}-${source.source_id}`}><strong>{source.context}</strong><span>{source.text}</span></li>)}</ul></details>}
+        <p>{safeUserCopy(item.reason, [item.requirement_text])}</p>
+        {(item.evidence_sources ?? []).length > 0 && <details><summary>查看支持证据</summary><ul>{(item.evidence_sources ?? []).map((source) => <li key={`${source.source_type}-${source.source_id}`}><strong>{source.context}</strong><span>{source.text}</span></li>)}</ul></details>}
       </article>)}</div> : <div className="score-unavailable"><strong>Match Score 暂不可用</strong><p>该岗位没有可由履历证据稳定评分的要求；岗位资格与知识主题仍可单独查看。</p></div>}
     </section>
 
     <section id="resume" className="analysis-module resume-guidance">
-      <div className="module-number">03</div><div className="module-heading"><span>Resume Optimization</span><h2>简历优化</h2><p>针对这个岗位，你的简历最值得优先调整这些内容。所有具体改写仍会经过证据校验。</p></div>
-      {analysis.suggested_preparation.length ? <ol>{analysis.suggested_preparation.map((item, index) => <li key={`${item.title}-${index}`}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.action}</p></div></li>)}</ol> : <p className="muted">当前没有额外的简历优化重点。</p>}
+      <div className="module-number">03</div><div className="module-heading"><span>针对性简历优化</span><h2>简历优化</h2><p>针对这个岗位，你的简历最值得优先调整这些内容。所有具体改写仍会经过证据校验。</p></div>
+      {suggestedPreparation.length ? <PreparationRecommendations items={suggestedPreparation} matches={requirementMatches} /> : <p className="muted">当前没有额外的简历优化重点。</p>}
       <div className="resume-next-step">{persistedId ? <button className="secondary-button" onClick={() => navigate(`/jobs/${persistedId}?tab=resume`)}>查看具体修改建议</button> : <><p>加入我的岗位后，可生成逐条、可追溯的简历修改建议。</p><button className="secondary-button" disabled={adding} onClick={() => void addToMyJobs()}>加入后继续优化</button></>}</div>
     </section>
+    </div>
+    </div>
+    </div>
   </main>;
 }
 

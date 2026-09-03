@@ -12,7 +12,13 @@ from app.db.models import Job, JobAnalysis, JobDecision, TargetRole
 from app.db.session import get_db
 from app.main import app
 from app.repositories.profile_repository import DEFAULT_PROFILE_ID, ProfileRepository
-from app.schemas.analysis import Education, JDRequirements, ResumeProfile, WorkExperience
+from app.schemas.analysis import (
+    Education,
+    JDRequirements,
+    ResumeProfile,
+    StructuredRequirement,
+    WorkExperience,
+)
 from app.schemas.job import JobCreate
 from app.schemas.job_decision import JobDecisionOverride
 from app.services.eligibility_service import EligibilityService
@@ -21,6 +27,7 @@ from app.services.job_decision_service import JobDecisionService
 from app.services.job_service import JobService
 from app.services.profile_service import ProfileService
 from app.services.requirement_catalog import RequirementCatalogBuilder
+from app.services.requirement_matcher import RequirementMatcher
 from app.services.role_classifier import RoleClassifier
 from app.services.target_role_fit_service import TargetRoleFitService
 
@@ -231,6 +238,77 @@ def test_recompute_override_freshness_and_phase3_final_decision(db: Session) -> 
     service.recompute([job.id])
     assert service.get(job.id).final_decision is None
 
+
+def test_v2_decision_freshness_uses_the_active_matcher_provider(
+    db: Session, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A fresh Qwen analysis must not be mislabeled stale as a posting expiry."""
+    seed_profile(db)
+    structured = JDRequirements(
+        company="Example",
+        role="AI 产品经理",
+        responsibilities=["负责 AI 产品工作"],
+        requirement_taxonomy_version="v2",
+        requirements=[
+            StructuredRequirement(
+                requirement_id="reqv2_active_matcher",
+                source_text="具备数据分析能力",
+                normalized_requirement="数据分析能力",
+                source_section="requirements",
+                requirement_type="matchable",
+                importance="Important",
+            )
+        ],
+    )
+    created = JobService(db, Settings()).create(
+        JobCreate(
+            company="Example",
+            role="AI 产品经理",
+            location="北京",
+            original_jd=(
+                "负责 AI 产品规划、用户研究与跨团队交付，具备较强的数据分析能力。"
+                "能够结合业务目标设计方案，并持续跟踪产品效果与用户反馈。"
+            ),
+            structured_jd=structured,
+        )
+    )
+    job = db.get(Job, created.id)
+    assert job is not None
+    profile = ProfileRepository(db).get_full_profile()
+    evidence = EvidenceCatalogBuilder().build(profile)
+    requirement_hash = RequirementCatalogBuilder().build(job.structured_jd).structured_jd_hash
+    db.add(
+        JobAnalysis(
+            job_id=job.id,
+            resume_hash=evidence.resume_hash,
+            experience_bank_hash=evidence.experience_bank_hash,
+            structured_jd_hash=requirement_hash,
+            matcher_model="qwen3.8-max",
+            matcher_prompt_version=RequirementMatcher.PROMPT_VERSION,
+            matcher_schema_version=RequirementMatcher.SCHEMA_VERSION,
+            match_score=88,
+            recommendation="Apply",
+            summary="Supported result",
+            requirement_matches=[],
+            strengths=[],
+            gaps=[],
+            suggested_preparation=[],
+        )
+    )
+    db.commit()
+    db.expire(job, ["analysis"])
+    monkeypatch.setattr(
+        "app.services.job_decision_service.active_matcher_model",
+        lambda _settings: "qwen3.8-max",
+    )
+
+    analysis_hash, valid = JobDecisionService(db)._valid_analysis(
+        job, (evidence.resume_hash, evidence.experience_bank_hash)
+    )
+
+    assert analysis_hash is not None
+    assert valid is not None
+    assert valid.match_score == 88
 
 def test_job_decision_api_paginates_filters_summarizes_and_never_calls_claude() -> None:
     engine = make_engine()

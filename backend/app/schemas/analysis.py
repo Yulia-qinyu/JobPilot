@@ -54,6 +54,7 @@ RequirementSourceSection = Literal[
 RequirementImportance = Literal["Critical", "Important", "Preferred"]
 EligibilityCategory = Literal[
     "degree",
+    "education_field",
     "graduation_cohort",
     "experience_years",
     "certification",
@@ -116,6 +117,7 @@ class JDStructuredRequirementOutput(BaseModel):
     importance: RequirementImportance
     eligibility_category: Literal[
         "degree",
+        "education_field",
         "graduation_cohort",
         "experience_years",
         "certification",

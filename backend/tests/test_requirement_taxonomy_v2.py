@@ -123,6 +123,23 @@ def test_practical_rag_requirement_remains_matchable() -> None:
     assert parsed.requirements[0].requirement_type == "matchable"
 
 
+def test_education_field_category_is_preserved_by_v2_parser_normalization() -> None:
+    source = "统计学、数学或计算机相关专业背景"
+    parsed = JDParser._to_requirements(
+        output_for(
+            suggestion(
+                source,
+                source,
+                "eligibility",
+                category="education_field",
+            )
+        ),
+        source,
+    )
+
+    assert parsed.requirements[0].eligibility_category == "education_field"
+
+
 def test_unsupported_source_text_is_not_admitted() -> None:
     parsed = JDParser._to_requirements(
         output_for(suggestion("有 Agent 项目经验", "Agent 项目经验", "matchable")),

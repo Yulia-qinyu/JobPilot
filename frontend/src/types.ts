@@ -65,9 +65,12 @@ export interface FitAnalysis {
   strengths: FitStrength[];
   gaps: FitGap[];
   suggested_preparation: PreparationItem[];
-  eligibility_requirements: EligibilityRequirement[];
-  knowledge_requirements: KnowledgeRequirement[];
-  score_basis: ScoreBasis;
+  // Read-time Requirement Taxonomy V2 overlays. The current backend always
+  // serializes these (defaulting to [] / a zeroed ScoreBasis), but a legacy or
+  // partial analysis payload can omit them — consumers must tolerate absence.
+  eligibility_requirements?: EligibilityRequirement[];
+  knowledge_requirements?: KnowledgeRequirement[];
+  score_basis?: ScoreBasis;
   created_at: string;
   updated_at: string;
 }
@@ -146,7 +149,7 @@ export interface StructuredRequirement {
   source_section: "requirements" | "preferred" | "responsibilities" | "education" | "experience" | "other";
   requirement_type: RequirementType;
   importance: RequirementImportance;
-  eligibility_category: "degree" | "graduation_cohort" | "experience_years" | "certification" | "work_authorization" | "language" | "other" | null;
+  eligibility_category: "degree" | "education_field" | "graduation_cohort" | "experience_years" | "certification" | "work_authorization" | "language" | "other" | null;
   knowledge_topics: string[];
 }
 
@@ -413,12 +416,23 @@ export interface ApplicationStatusDefinition { id: number; key: string; label: s
 export type PlanType = "application" | "resume" | "interview_prep" | "job_search" | "follow_up" | "other";
 export interface PlanItem { id: number; title: string; date: string; time_optional: string | null; job_id: number | null; type: PlanType; status: "todo" | "done"; notes: string | null; created_by: "user" | "agent_suggestion"; completed_at: string | null; created_at: string; updated_at: string; job: { id: number; company: string; role: string } | null; }
 
-export type AdvicePriority = "high" | "medium" | "low";
-export type AdviceActionType = "apply" | "resume" | "interview_prep" | "job_search" | "follow_up" | "review" | "plan" | "other";
-export interface PlanningSignals { days_since_last_job_added: number | null; days_since_last_application: number | null; pending_application_count: number; jobs_ready_to_apply_count: number; jobs_without_tailored_resume_count: number; upcoming_interview_count: number; overdue_plan_count: number; today_plan_load: number; recent_completed_plan_count: number; }
-export interface DailyAdviceItem { id: string; priority: AdvicePriority; action_type: AdviceActionType; title: string; reason: string; related_job_id: number | null; suggested_plan_type: PlanType | null; suggested_date: string | null; added_plan_item_id: number | null; }
-export interface DailyAdviceSnapshot { id: number; advice_date: string; summary: string; items: DailyAdviceItem[]; generated_at: string; model: string; input_tokens: number | null; output_tokens: number | null; latency_ms: number | null; status: "Generated" | "Fallback"; }
-export interface PlanningToday { snapshot: DailyAdviceSnapshot | null; is_stale: boolean; empty_context: boolean; empty_message: string | null; timezone: string; as_of: string; signals: PlanningSignals; }
+export type NudgeType =
+  | "interview_soon"
+  | "high_match_stale"
+  | "eligibility_review"
+  | "stale_decision"
+  | "ready_to_apply"
+  | "no_new_jobs"
+  | "pending_backlog";
+export interface Nudge {
+  type: NudgeType;
+  priority: number;
+  job_id: number | null;
+  title: string;
+  message: string;
+  reason: Record<string, unknown>;
+  cta: { type: "open_job" | "open_my_jobs" | "open_analysis" | "open_discover"; target: string | null };
+}
 
 export type DiscoveryState = "NeedsClarification" | "NeedsRefinement" | "Ready" | "Searching" | "Completed" | "Partial" | "Failed" | "Expired";
 export type DiscoveryRelevance = "High" | "Medium" | "Low";

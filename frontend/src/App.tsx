@@ -7,7 +7,6 @@ import DiscoverPage from "./DiscoverPage";
 import JobDetailPage from "./JobDetailPage";
 import JobsPage from "./JobsPage";
 import ProfilePage from "./ProfilePage";
-import PlanPage from "./PlanPage";
 
 export function AppNavigation() {
   const location = useLocation();
@@ -16,7 +15,6 @@ export function AppNavigation() {
     <div className="nav-links">
       <NavLink className={({ isActive }) => isActive || location.pathname === "/" ? "active" : undefined} to="/analyze">岗位分析</NavLink>
       <NavLink className={({ isActive }) => isActive || location.pathname.startsWith("/jobs/") ? "active" : undefined} to="/my-jobs">我的岗位</NavLink>
-      <NavLink to="/plan">计划</NavLink>
       <NavLink to="/profile">求职档案</NavLink>
     </div>
   </nav></header>;
@@ -31,7 +29,9 @@ const APP_ROUTES: RouteObject[] = [
   { path: APP_PATHS.addJob, element: <AddJobPage /> },
   { path: APP_PATHS.jobDetail, element: <JobDetailPage /> },
   { path: APP_PATHS.profile, element: <ProfilePage /> },
-  { path: APP_PATHS.plan, element: <PlanPage /> },
+  // The standalone daily planning page has been retired. Keep the path as a
+  // silent redirect so old links / bookmarks land on 我的岗位.
+  { path: APP_PATHS.plan, element: <Navigate to={APP_PATHS.myJobs} replace /> },
   { path: "*", element: <Navigate to="/" replace /> },
 ];
 

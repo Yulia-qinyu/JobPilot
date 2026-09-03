@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.db.session import get_db
 from app.schemas.fit_analysis import FitAnalysisState
-from app.services.claude_client import ClaudeServiceError, ClaudeStructuredClient
+from app.services.claude_client import ClaudeServiceError
 from app.services.decision_integration import safe_recompute_job_decisions
 from app.services.fit_analysis_service import (
     FitAnalysisError,
@@ -16,6 +16,7 @@ from app.services.fit_analysis_service import (
     FitAnalysisPrerequisiteError,
     FitAnalysisService,
 )
+from app.services.matcher_client import build_matcher_client
 from app.services.requirement_matcher import RequirementMatcher
 
 router = APIRouter(prefix="/api/jobs/{job_id}/analysis", tags=["Fit Analysis"])
@@ -23,7 +24,7 @@ router = APIRouter(prefix="/api/jobs/{job_id}/analysis", tags=["Fit Analysis"])
 
 @lru_cache
 def get_requirement_matcher() -> RequirementMatcher:
-    return RequirementMatcher(ClaudeStructuredClient(get_settings()))
+    return RequirementMatcher(build_matcher_client(get_settings()))
 
 
 def service(db: Session) -> FitAnalysisService:

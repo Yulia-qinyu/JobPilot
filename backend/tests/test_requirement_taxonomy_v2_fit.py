@@ -15,6 +15,7 @@ from app.config import Settings
 from app.db.base import Base
 from app.repositories.profile_repository import ProfileRepository
 from app.schemas.analysis import (
+    Education,
     JDRequirements,
     ResumeProfile,
     StructuredRequirement,
@@ -22,12 +23,14 @@ from app.schemas.analysis import (
 )
 from app.schemas.fit_analysis import FitAnalysisOutput, RequirementMatchOutput
 from app.schemas.job import JobCreate
+from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalogBuilder
 from app.services.fit_analysis_service import (
     FitAnalysisNormalizationError,
     FitAnalysisService,
 )
 from app.services.job_service import JobService
+from app.services.matcher_client import active_matcher_model
 from app.services.profile_service import ProfileService
 from app.services.requirement_catalog import RequirementCatalogBuilder
 from app.services.requirement_matcher import RequirementMatcher
@@ -95,10 +98,110 @@ def _setup(structured_jd: JDRequirements) -> tuple[Session, int, Mock]:
         )
     )
     matcher = Mock()
-    matcher.client.model = Settings().claude_model
+    matcher.client.model = active_matcher_model(Settings())
     matcher.PROMPT_VERSION = RequirementMatcher.PROMPT_VERSION
     matcher.SCHEMA_VERSION = RequirementMatcher.SCHEMA_VERSION
     return db, job.id, matcher
+
+
+def _profile_with_education(*, field: str, degree: str | None = "学士"):
+    engine = create_engine(
+        "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
+    )
+    Base.metadata.create_all(engine)
+    db = Session(engine)
+    ProfileService(db).replace_resume(
+        "master.docx",
+        "verified education resume",
+        ResumeProfile(
+            education=[
+                Education(
+                    institution="Example University",
+                    degree=degree,
+                    field=field,
+                    period="2023–2027",
+                )
+            ]
+        ),
+    )
+    return db, ProfileRepository(db).get_full_profile()
+
+
+def _evaluate_education_requirement(
+    *, field: str, source_text: str, normalized: str, category: str, degree: str | None = "学士"
+):
+    db, profile = _profile_with_education(field=field, degree=degree)
+    requirement = _requirement(
+        source_text,
+        normalized,
+        "eligibility",
+        importance="Critical",
+        eligibility_category=category,
+    )
+    result = EligibilityService().evaluate_requirements(profile, _v2_jd(requirement))[0]
+    db.close()
+    return result
+
+
+def test_artificial_intelligence_major_supports_computer_related_requirement() -> None:
+    # Compatibility case: historical parser output misclassified this as degree.
+    result = _evaluate_education_requirement(
+        field="Artificial Intelligence",
+        source_text="统计学/数学/计算机相关专业优先",
+        normalized="统计学、数学或计算机相关专业背景",
+        category="degree",
+    )
+
+    assert result.status == "Supported"
+    assert result.evidence_ids
+    assert "专业" in result.reason
+    assert "学历层级" not in result.reason
+
+
+def test_computer_science_major_supports_computer_related_requirement() -> None:
+    result = _evaluate_education_requirement(
+        field="Computer Science",
+        source_text="计算机相关专业背景",
+        normalized="计算机相关专业背景",
+        category="education_field",
+    )
+
+    assert result.status == "Supported"
+    assert "计算机相关" in result.reason
+
+
+def test_unrelated_major_is_not_automatically_supported() -> None:
+    result = _evaluate_education_requirement(
+        field="History",
+        source_text="计算机相关专业背景",
+        normalized="计算机相关专业背景",
+        category="education_field",
+    )
+
+    assert result.status == "Unknown"
+    assert "专业" in result.reason
+    assert "学历层级" not in result.reason
+
+
+def test_degree_level_is_evaluated_independently_from_major() -> None:
+    degree_result = _evaluate_education_requirement(
+        field="History",
+        source_text="本科及以上学历",
+        normalized="本科及以上学历",
+        category="degree",
+    )
+    major_result = _evaluate_education_requirement(
+        field="人工智能",
+        degree=None,
+        source_text="计算机相关专业背景",
+        normalized="计算机相关专业背景",
+        category="education_field",
+    )
+
+    assert degree_result.status == "Supported"
+    assert "学历门槛" in degree_result.reason
+    assert major_result.status == "Supported"
+    assert "专业" in major_result.reason
 
 
 def test_knowledge_only_v2_job_is_unscorable_and_skips_the_matcher(caplog) -> None:

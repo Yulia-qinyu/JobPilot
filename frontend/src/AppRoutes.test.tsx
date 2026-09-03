@@ -24,6 +24,7 @@ describe("primary product routes", () => {
     expect(analyze).toContain("粘贴岗位链接或完整 JD");
     expect(discover).toContain("今天你想搜索什么机会");
     expect(home).not.toContain("发现岗位</a>");
+    expect(home).not.toContain(">计划</a>");
     expect(home).toContain("岗位分析");
     expect(home).not.toContain("Phase 7");
     expect(home).toContain('class="active"');
@@ -31,7 +32,8 @@ describe("primary product routes", () => {
 
   it("keeps My Jobs, Profile, legacy jobs, add, and detail routes", () => {
     expect(renderAt("/my-jobs")).toContain("我的岗位");
-    expect(renderAt("/plan")).toContain("我的计划");
+    // The standalone planning page is retired; /plan silently redirects.
+    expect(renderAt("/plan")).toContain("我的岗位");
     expect(renderAt("/profile")).toContain("求职档案");
     expect(APP_PATHS.legacyJobs).toBe("/jobs");
     expect(APP_PATHS.addJob).toBe("/jobs/new");

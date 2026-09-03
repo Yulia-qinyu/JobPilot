@@ -12,8 +12,8 @@ from app.services.requirement_catalog import RequirementCatalogBuilder
 
 
 class JDParser:
-    PROMPT_VERSION = "job-jd-v4-requirement-taxonomy"
-    SCHEMA_VERSION = "jd-requirements-v4"
+    PROMPT_VERSION = "job-jd-v5-education-field"
+    SCHEMA_VERSION = "jd-requirements-v5"
     MAX_REQUIREMENTS = 40
 
     def __init__(self, client: ClaudeStructuredClient):
@@ -43,9 +43,12 @@ sentence only when it explicitly states independent requirements. Never turn the
 into an invented practical-experience requirement.
 
 Classify by EVIDENCE VERIFIABILITY, not by a single keyword:
-- eligibility: explicit degree, graduation cohort, minimum duration, certification, work
-  authorization, or mandatory language qualification. A duration such as "3年以上 AI 产品经验"
-  is eligibility only; do not duplicate it as a matchable AI-product requirement.
+- eligibility: explicit degree, required education field/major, graduation cohort, minimum duration,
+  certification, work authorization, or mandatory language qualification. Keep degree level and
+  education field separate: use eligibility_category=degree for a degree level and
+  eligibility_category=education_field for a required major or discipline background. A duration
+  such as "3年以上 AI 产品经验" is eligibility only; do not duplicate it as a matchable AI-product
+  requirement.
 - matchable: career evidence can reasonably verify experience or practical capability, such as SQL
   use, RAG implementation, product delivery, data analysis, or industry experience.
 - knowledge: theoretical understanding, principles, mechanisms, architecture, or capability

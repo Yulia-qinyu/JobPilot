@@ -8,28 +8,28 @@ import type {
 } from "./types";
 
 export const ROLE_FAMILY_LABELS: Record<RoleFamily, string> = {
-  ai_product: "AI Product",
-  fintech_product: "FinTech Product",
-  data_product: "Data Product",
-  strategy_product: "Strategy Product",
-  platform_product: "Platform Product",
-  growth_product: "Growth Product",
-  general_product: "General Product",
-  product_operations: "Product Operations",
-  solution: "Solution",
-  engineering: "Engineering",
-  algorithm: "Algorithm",
-  design: "Design",
-  other: "Other",
+  ai_product: "AI 产品",
+  fintech_product: "金融科技产品",
+  data_product: "数据产品",
+  strategy_product: "策略产品",
+  platform_product: "平台产品",
+  growth_product: "增长产品",
+  general_product: "通用产品",
+  product_operations: "产品运营",
+  solution: "解决方案",
+  engineering: "工程",
+  algorithm: "算法",
+  design: "设计",
+  other: "其他",
   unknown: "待完善",
 };
 
 export const ROLE_FAMILIES = Object.keys(ROLE_FAMILY_LABELS) as RoleFamily[];
 
 export const ROLE_PRIORITY_LABELS: Record<RolePriority, string> = {
-  primary: "Primary",
-  secondary: "Secondary",
-  exploratory: "Exploratory",
+  primary: "主攻",
+  secondary: "备选",
+  exploratory: "探索",
 };
 
 export const ELIGIBILITY_LABELS: Record<EligibilityStatus, string> = {
@@ -40,9 +40,9 @@ export const ELIGIBILITY_LABELS: Record<EligibilityStatus, string> = {
 };
 
 export const ROLE_FIT_LABELS: Record<TargetRoleFit, string> = {
-  Primary: "Primary",
-  Secondary: "Secondary",
-  Exploratory: "Exploratory",
+  Primary: "主攻",
+  Secondary: "备选",
+  Exploratory: "探索",
   Low: "低相关",
   NotTarget: "非目标",
   Unknown: "待确认",

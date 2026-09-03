@@ -18,7 +18,7 @@ export default function DecisionJobTable({ jobs, statuses = [], busyId, onStatus
     <tbody>{jobs.map((job) => <tr key={job.id} tabIndex={0} onClick={() => navigate(`/jobs/${job.id}`)} onKeyDown={(event) => { if (event.key === "Enter") navigate(`/jobs/${job.id}`); }}>
       <td><Link to={`/jobs/${job.id}`} onClick={(event) => event.stopPropagation()}><strong>{job.role}</strong><span>{job.company}</span></Link></td>
       <td>{job.location || <span className="muted">未注明</span>}</td>
-      <td>{job.match_is_stale ? <span className="stale-score">已过期</span> : job.match_score === null ? <span className="pending-score">待分析</span> : <span className="table-match-score">{job.match_score}%</span>}</td>
+      <td>{job.match_score === null ? <span className="pending-score">待分析</span> : <span className="score-with-freshness"><span className="table-match-score">{job.match_score}%</span>{job.match_is_stale && <small>需更新</small>}</span>}</td>
       <td onClick={(event) => event.stopPropagation()}><select className={`status-select status-${job.status.toLowerCase().replaceAll(" ", "-")}`} value={job.application_status_id ?? ""} disabled={busyId === job.id} aria-label={`更新 ${job.company} ${job.role} 的状态`} onChange={(event) => onStatusChange(job, Number(event.target.value))}>{statuses.length ? statuses.map((status) => <option key={status.id} value={status.id}>{status.label}</option>) : JOB_STATUSES.map((status) => <option key={status} value="">{APPLICATION_STATUS_LABELS[status]}</option>)}</select></td>
       <td>{formatFullDate(job.updated_at)}</td>
       <td onClick={(event) => event.stopPropagation()}><button className="danger-text-button" disabled={busyId === job.id} onClick={() => onDelete(job)}>删除</button></td>

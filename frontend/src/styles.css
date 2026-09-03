@@ -1318,3 +1318,129 @@ input:focus, textarea:focus, select:focus { border-color: var(--color-border-str
   .tailoring-plan > .fit-card:first-child, .tailored-draft > .fit-card:first-child { padding: 24px 20px; }
   .before-after { grid-template-columns: 1fr; }
 }
+
+/* Smart Nudges — 求职提醒 module on 我的岗位. */
+.nudge-module { margin: 0 0 18px; padding: 18px 20px; border: 1px solid var(--pink-border); border-radius: 18px; background: var(--color-brand-primary-surface); }
+.nudge-module-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.nudge-module-head h2 { margin: 4px 0 0; font-size: 1.05rem; }
+.nudge-module-head p { margin: 0; color: var(--ink-soft); font-size: .84rem; }
+.nudge-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.nudge-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--pink-border); }
+.nudge-item[data-priority="0"] { border-left: 3px solid var(--color-brand-primary); }
+.nudge-copy { flex: 1; min-width: 0; }
+.nudge-copy h3 { margin: 0 0 2px; font-size: .92rem; }
+.nudge-copy p { margin: 0; color: var(--ink-soft); font-size: .84rem; }
+.nudge-cta { flex-shrink: 0; font-weight: 700; color: var(--pink-dark); text-decoration: none; }
+.nudge-module-empty { margin: 0 0 16px; padding: 10px 2px; color: var(--ink-soft); font-size: .84rem; }
+
+/* Final UX pass: readable requirement matching and recommendation linkage. */
+.requirement-evidence-list { display: grid; gap: 0; margin-top: 20px; }
+.requirement-evidence-list > article { padding: 22px 0; border-top: 1px solid var(--color-border-default); }
+.requirement-evidence-list > article:first-child { border-top: 0; }
+.requirement-evidence-list header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.requirement-evidence-list h3 { margin: 0; max-width: 70ch; color: var(--color-text-primary); font-size: 16px; line-height: 1.55; }
+.requirement-badges { display: flex; flex: 0 0 auto; flex-wrap: wrap; gap: 7px; }
+.importance-badge, .requirement-badges .assessment, .requirement-badges .hard-badge { white-space: nowrap; }
+.importance-badge { padding: 4px 9px; border-radius: 999px; background: var(--color-brand-primary-surface); color: var(--color-text-secondary); font-size: 12px; font-weight: 700; }
+.requirement-evidence-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: 28px; margin-top: 18px; }
+.requirement-evidence-grid section { min-width: 0; }
+.requirement-evidence-grid h4, .recommendation-field > span, .recommendation-action > span { display: block; margin: 0 0 7px; color: var(--color-text-secondary); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.requirement-evidence-grid p, .requirement-evidence-grid li { margin: 0; color: var(--color-text-body); font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+.requirement-evidence-grid ul { display: grid; gap: 10px; margin: 0; padding-left: 18px; }
+.requirement-evidence-grid li span { display: block; margin-bottom: 3px; color: var(--color-text-secondary); font-size: 12px; }
+
+.preparation-recommendations, .tailoring-recommendations { display: grid; gap: 0; margin: 18px 0 0; padding: 0; list-style: none; }
+.preparation-recommendations > li, .tailoring-recommendations > article { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 14px; padding: 20px 0; border-top: 1px solid var(--color-border-default); }
+.recommendation-number { color: var(--color-brand-primary); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.recommendation-content { min-width: 0; }
+.recommendation-content h3 { margin: 0 0 16px; color: var(--color-text-primary); font-size: 16px; line-height: 1.5; }
+.recommendation-field { margin-top: 13px; }
+.recommendation-field p { margin: 0; max-width: 76ch; color: var(--color-text-body); font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+.recommendation-action { display: grid; grid-template-columns: minmax(100px, 1fr) minmax(150px, 220px); align-items: end; gap: 16px; margin-top: 16px; }
+.recommendation-action > span { grid-column: 1 / -1; margin-bottom: -8px; }
+.score-with-freshness { display: inline-flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.score-with-freshness small { padding: 3px 7px; border-radius: 999px; background: var(--color-warning-bg); color: var(--color-warning); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.target-limit-message { margin: 16px 0 0; padding: 13px 15px; border-radius: var(--radius-sm); background: var(--color-brand-primary-surface); color: var(--color-text-secondary); font-size: 14px; font-weight: 700; }
+.role-classification { grid-template-columns: auto minmax(0, 1fr) auto; }
+.role-override-editor small { color: var(--color-text-muted); font-size: 12px; }
+
+/* Analyze result: one shared grid inside a distinct, padded result surface. */
+.analyze-result-page {
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 72px);
+  margin: 0;
+  padding: 30px 24px 80px;
+  background: var(--color-bg-page);
+}
+.analysis-result-container { width: min(1180px, 100%); margin: 0 auto; }
+.analysis-result-container > .back-link { display: inline-flex; margin: 0 0 16px 4px; }
+.analysis-result-surface {
+  overflow: clip;
+  border: 1px solid var(--color-border-default);
+  border-radius: 24px;
+  background: var(--color-bg-card);
+  box-shadow: 0 18px 52px rgba(91, 48, 62, .07);
+}
+.analysis-result-surface .analysis-result-header {
+  align-items: center;
+  margin: 0;
+  padding: 44px 48px 38px;
+}
+.analysis-result-header > div:first-child { min-width: 0; max-width: 720px; }
+.analysis-result-header h1 { overflow-wrap: anywhere; }
+.analysis-result-surface > .notice,
+.analysis-result-surface > .error { margin: 0 48px 20px; }
+.analysis-result-surface .analysis-mini-nav {
+  top: 72px;
+  z-index: 5;
+  gap: 34px;
+  margin: 0;
+  padding: 0 48px;
+  border-top: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-default);
+  background: rgba(255, 255, 255, .97);
+  backdrop-filter: blur(10px);
+}
+.analysis-result-surface .analysis-mini-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 54px;
+  white-space: nowrap;
+}
+.analysis-result-body { padding: 0 48px 22px; }
+.analysis-result-body .analysis-module {
+  margin: 0;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--color-border-default);
+}
+.analysis-result-body .analysis-module:last-child { border-bottom: 0; }
+.analysis-result-body .module-heading { max-width: 780px; margin-bottom: 28px; }
+.analysis-result-body .module-heading h2 { margin: 7px 0 12px; }
+.analysis-result-body .module-heading p { max-width: 72ch; margin: 0; line-height: 1.75; }
+
+@media (max-width: 960px) {
+  .analysis-result-surface .analysis-result-header { padding: 36px 32px 32px; }
+  .analysis-result-surface > .notice,
+  .analysis-result-surface > .error { margin-right: 32px; margin-left: 32px; }
+  .analysis-result-surface .analysis-mini-nav { padding-right: 32px; padding-left: 32px; }
+  .analysis-result-body { padding-right: 32px; padding-left: 32px; }
+}
+
+@media (max-width: 820px) {
+  .requirement-evidence-list header { display: grid; }
+  .requirement-badges { justify-content: flex-start; }
+  .requirement-evidence-grid { grid-template-columns: 1fr; gap: 18px; }
+  .recommendation-action { grid-template-columns: 1fr; }
+  .recommendation-action > span { grid-column: 1; margin-bottom: -8px; }
+  .analyze-result-page { padding: 22px 16px 56px; }
+  .analysis-result-surface { border-radius: 19px; }
+  .analysis-result-surface .analysis-result-header { gap: 24px; padding: 30px 22px 28px; }
+  .analysis-result-surface .analysis-result-actions { width: 100%; }
+  .analysis-result-surface .match-number { width: 100%; }
+  .analysis-result-surface > .notice,
+  .analysis-result-surface > .error { margin: 0 22px 18px; }
+  .analysis-result-surface .analysis-mini-nav { gap: 24px; padding: 0 22px; }
+  .analysis-result-body { padding: 0 22px 12px; }
+  .analysis-result-body .analysis-module { padding: 38px 0; }
+}

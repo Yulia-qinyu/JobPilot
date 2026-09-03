@@ -28,6 +28,7 @@ from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalog, EvidenceCatalogBuilder
 from app.services.hard_requirements import validate_hard_requirement
 from app.services.match_score import MatchScoreService
+from app.services.matcher_client import active_matcher_model
 from app.services.preview_analysis_store import new_artifact, preview_analysis_store
 from app.services.requirement_catalog import RequirementCatalog, RequirementCatalogBuilder
 from app.services.requirement_matcher import RequirementMatcher
@@ -89,7 +90,7 @@ class FitAnalysisService:
         if stored.structured_jd_hash != jd_hash:
             stale_reasons.append("job_description")
         if structured_jd.requirement_taxonomy_version == "v2" and (
-            stored.matcher_model != self.settings.claude_model
+            stored.matcher_model != active_matcher_model(self.settings)
             or stored.matcher_prompt_version != RequirementMatcher.PROMPT_VERSION
             or stored.matcher_schema_version != RequirementMatcher.SCHEMA_VERSION
         ):
@@ -270,7 +271,7 @@ class FitAnalysisService:
             or artifact.structured_jd_hash != requirements.structured_jd_hash
             or artifact.matcher_prompt_version != RequirementMatcher.PROMPT_VERSION
             or artifact.matcher_schema_version != RequirementMatcher.SCHEMA_VERSION
-            or artifact.matcher_model != self.settings.claude_model
+            or artifact.matcher_model != active_matcher_model(self.settings)
         ):
             return None
         analysis = artifact.analysis

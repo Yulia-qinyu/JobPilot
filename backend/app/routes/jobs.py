@@ -27,6 +27,7 @@ from app.services.fit_analysis_service import (
 from app.services.jd_parser import JDParser
 from app.services.job_ingestion import JobIngestionError, JobPageFetcher
 from app.services.job_service import JobNotFoundError, JobService, JobServiceError
+from app.services.matcher_client import build_matcher_client
 from app.services.requirement_matcher import RequirementMatcher
 
 router = APIRouter(prefix="/api/jobs", tags=["Jobs"])
@@ -50,7 +51,7 @@ def get_job_fetcher() -> JobPageFetcher:
 
 @lru_cache
 def get_preview_matcher() -> RequirementMatcher:
-    return RequirementMatcher(ClaudeStructuredClient(get_settings()))
+    return RequirementMatcher(build_matcher_client(get_settings()))
 
 
 def service(db: Session) -> JobService:
