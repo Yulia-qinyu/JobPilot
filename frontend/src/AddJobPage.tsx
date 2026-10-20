@@ -1,10 +1,10 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ApiError, jobsApi } from "./api";
-import type { JobPreview } from "./types";
+import { ApiError, jobsApi, workspaceApi } from "./api";
+import type { ApplicationStatusDefinition, JobPreview } from "./types";
 
-type Mode = "url" | "jd";
+type Mode = "quick" | "url" | "jd";
 
 function splitLines(value: string): string[] {
   return value.split("\n").map((item) => item.trim().replace(/^[-•]\s*/, "")).filter(Boolean);
@@ -12,7 +12,7 @@ function splitLines(value: string): string[] {
 
 export default function AddJobPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<Mode>("url");
+  const [mode, setMode] = useState<Mode>("quick");
   const [url, setUrl] = useState("");
   const [jd, setJd] = useState("");
   const [preview, setPreview] = useState<JobPreview | null>(null);
@@ -27,6 +27,19 @@ export default function AddJobPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPasteFallback, setShowPasteFallback] = useState(false);
+  const [quickCompany, setQuickCompany] = useState("");
+  const [quickRole, setQuickRole] = useState("");
+  const [quickLocation, setQuickLocation] = useState("");
+  const [quickApplicationDate, setQuickApplicationDate] = useState("");
+  const [quickStatusId, setQuickStatusId] = useState("");
+  const [statuses, setStatuses] = useState<ApplicationStatusDefinition[]>([]);
+
+  useEffect(() => {
+    workspaceApi.statuses().then((items) => {
+      setStatuses(items);
+      setQuickStatusId(String(items.find((item) => item.key === "interested")?.id || ""));
+    }).catch((cause: Error) => setError(cause.message));
+  }, []);
 
   function applyPreview(value: JobPreview) {
     setPreview(value);
@@ -53,6 +66,32 @@ export default function AddJobPage() {
     } finally {
       setLoading(false);
     }
+  }
+
+  async function saveQuick(event: FormEvent) {
+    event.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      await jobsApi.quickCreate({
+        company: quickCompany.trim(),
+        role: quickRole.trim(),
+        location: quickLocation.trim() || null,
+        application_date: quickApplicationDate || null,
+        application_status_id: quickStatusId ? Number(quickStatusId) : null,
+      });
+      navigate("/my-jobs");
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "岗位添加失败，请稍后重试。");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function selectMode(value: Mode) {
+    setMode(value);
+    setError("");
+    setShowPasteFallback(false);
   }
 
   async function save(event: FormEvent) {
@@ -124,17 +163,28 @@ export default function AddJobPage() {
 
   return (
     <main className="workspace-shell add-job-page">
-      <header className="workspace-heading compact"><div><span className="eyebrow">Add Job</span><h1>添加岗位</h1><p>从公开岗位链接读取，或直接粘贴完整 JD。</p></div></header>
+      <header className="workspace-heading compact"><div><span className="eyebrow">Add Job</span><h1>添加岗位</h1><p>快速记录一个机会，或通过岗位链接和完整 JD 获取分析信息。</p></div></header>
       <section className="add-job-card">
-        <div className="mode-tabs"><button className={mode === "url" ? "active" : ""} onClick={() => { setMode("url"); setError(""); }}>岗位链接</button><button className={mode === "jd" ? "active" : ""} onClick={() => { setMode("jd"); setError(""); }}>粘贴 JD</button></div>
-        <form onSubmit={parse}>
+        <div className="mode-tabs"><button type="button" className={mode === "quick" ? "active" : ""} onClick={() => selectMode("quick")}>快速添加</button><button type="button" className={mode === "url" ? "active" : ""} onClick={() => selectMode("url")}>岗位链接</button><button type="button" className={mode === "jd" ? "active" : ""} onClick={() => selectMode("jd")}>粘贴 JD</button></div>
+        {mode === "quick" ? <form onSubmit={saveQuick}>
+          <div className="quick-add-grid">
+            <label>岗位名称 *<input value={quickRole} onChange={(event) => setQuickRole(event.target.value)} maxLength={255} required /></label>
+            <label>公司名称 *<input value={quickCompany} onChange={(event) => setQuickCompany(event.target.value)} maxLength={255} required /></label>
+            <label>地点<input value={quickLocation} onChange={(event) => setQuickLocation(event.target.value)} maxLength={255} placeholder="可选" /></label>
+            <label>投递日期<input type="date" value={quickApplicationDate} onChange={(event) => setQuickApplicationDate(event.target.value)} /></label>
+            <label>当前状态<select value={quickStatusId} onChange={(event) => setQuickStatusId(event.target.value)}>{!quickStatusId && <option value="">感兴趣</option>}{statuses.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+          </div>
+          <p className="quick-add-note">只加入“我的岗位”，不会解析 JD 或自动运行匹配分析。</p>
+          {error && <div className="error" role="alert">{error}</div>}
+          <div className="form-actions"><button type="button" className="secondary-button" onClick={() => navigate("/my-jobs")}>取消</button><button className="primary-link button-link" type="submit" disabled={loading || !quickCompany.trim() || !quickRole.trim()}>{loading ? "正在添加…" : "添加岗位"}</button></div>
+        </form> : <form onSubmit={parse}>
           {mode === "url" ? <label>公开岗位链接<input type="url" value={url} onChange={(event) => setUrl(event.target.value)} placeholder="https://talent.example.com/job/..." required /></label> : <label>完整职位描述<textarea value={jd} onChange={(event) => setJd(event.target.value)} rows={15} minLength={50} maxLength={100000} placeholder="在这里粘贴完整 JD，内容将保持原始语言…" required /><span className="char-count">{jd.length.toLocaleString()} / 100,000</span></label>}
           {error && <div className="error" role="alert">{error}</div>}
           {showPasteFallback && <button type="button" className="fallback-button" onClick={() => { setMode("jd"); setError(""); setShowPasteFallback(false); }}>改为手动粘贴 JD</button>}
           <div className="form-actions"><button type="button" className="secondary-button" onClick={() => navigate("/my-jobs")}>取消</button><button className="primary-link button-link" type="submit" disabled={loading || (mode === "url" ? !url.trim() : jd.trim().length < 50)}>{loading ? <><span className="spinner" />正在解析岗位…</> : "解析岗位信息"}</button></div>
-        </form>
+        </form>}
       </section>
-      <p className="safe-fetch-note">只读取单个公开页面。JobPilot 不会绕过登录、反爬验证或访问内部网络。</p>
+      {mode !== "quick" && <p className="safe-fetch-note">只读取单个公开页面。JobPilot 不会绕过登录、反爬验证或访问内部网络。</p>}
     </main>
   );
 }

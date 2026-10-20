@@ -219,3 +219,44 @@ def test_workspace_api_rejects_invalid_strategy_and_plan_job() -> None:
     finally:
         app.dependency_overrides.clear()
         Base.metadata.drop_all(engine)
+
+
+def test_quick_add_api_creates_job_visible_in_my_jobs_without_phase3() -> None:
+    engine = create_engine(
+        "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
+    )
+    Base.metadata.create_all(engine)
+    testing = sessionmaker(bind=engine, expire_on_commit=False)
+
+    def override_db():
+        with testing() as session:
+            yield session
+
+    app.dependency_overrides[get_db] = override_db
+    try:
+        client = TestClient(app)
+        statuses = client.get("/api/workspace/application-statuses").json()
+        applied = next(item for item in statuses if item["key"] == "applied")
+        response = client.post(
+            "/api/jobs/quick",
+            json={
+                "company": "京东",
+                "role": "产品方向 2027 TET",
+                "application_date": "2026-09-08",
+                "application_status_id": applied["id"],
+            },
+        )
+        assert response.status_code == 201
+        created = response.json()
+        assert created["original_jd"] == ""
+        assert created["application_date"] == "2026-09-08"
+        assert created["application_status_id"] == applied["id"]
+        listing = client.get(
+            "/api/job-decisions?page=1&page_size=50&sort=recent"
+        ).json()
+        assert any(item["id"] == created["id"] for item in listing["items"])
+        with testing() as db:
+            assert db.scalar(select(JobAnalysis)) is None
+    finally:
+        app.dependency_overrides.clear()
+        Base.metadata.drop_all(engine)

@@ -14,11 +14,13 @@ from app.schemas.job import (
     JobCreate,
     JobListItem,
     JobPreview,
+    JobQuickCreate,
     JobRead,
     JobUpdate,
 )
 from app.schemas.profile import TargetCompanyRead, TargetRoleRead
 from app.services.activity_service import ActivityService
+from app.services.application_status_transition import ApplicationStatusTransitionService
 from app.services.decision_integration import safe_recompute_job_decisions
 from app.services.fit_analysis_service import FitAnalysisService
 from app.services.jd_parser import JDParser
@@ -138,6 +140,65 @@ class JobService:
         safe_recompute_job_decisions(self.db, [job.id])
         return JobRead.model_validate(job).model_copy(update={"analysis_promoted": promoted})
 
+    def create_quick(self, payload: JobQuickCreate) -> JobRead:
+        """Create a user-owned workspace Job without parsing or semantic analysis."""
+        ProfileRepository(self.db).ensure_default_profile()
+        company = self._required(payload.company, "Company")
+        role = self._required(payload.role, "Role")
+        location = self._optional(payload.location)
+        statuses = WorkspaceService(self.db).ensure_default_statuses()
+        if payload.application_status_id is None:
+            definition = next(item for item in statuses if item.key == "interested")
+        else:
+            definition = self.db.get(
+                ApplicationStatusDefinition, payload.application_status_id
+            )
+            if (
+                definition is None
+                or definition.user_profile_id != DEFAULT_PROFILE_ID
+                or not definition.is_active
+            ):
+                raise JobServiceError("Application status not found.")
+        identity = f"quick-add\0{company.casefold()}\0{role.casefold()}\0{location or ''}"
+        structured = JDRequirements(
+            company=company,
+            role=role,
+            location=location,
+            requirement_taxonomy_version="legacy-v1",
+        )
+        job = Job(
+            user_profile_id=DEFAULT_PROFILE_ID,
+            company=company,
+            role=role,
+            location=location,
+            recruitment_type=None,
+            source_url=None,
+            original_jd="",
+            structured_jd=structured.model_dump(mode="json"),
+            published_date=None,
+            status=definition.legacy_status or "Interested",
+            application_status_id=definition.id,
+            match_score=None,
+            recommendation=None,
+            application_date=payload.application_date,
+            application_status_changed_at=None,
+            parser_model=None,
+            parser_prompt_version=None,
+            parser_schema_version=None,
+            source_content_hash=self.content_hash(identity),
+            source="manual",
+            source_metadata={"creation_mode": "quick_add"},
+        )
+        self.repo.add(job)
+        ActivityService(self.db).record(
+            "job_added",
+            job_id=job.id,
+            metadata={"source": "quick_add"},
+        )
+        self.repo.commit()
+        self.repo.refresh(job)
+        return JobRead.model_validate(job)
+
     def delete(self, job_id: int) -> None:
         job = self.repo.get(job_id)
         if job is None:
@@ -167,7 +228,6 @@ class JobService:
         if job is None:
             raise JobNotFoundError("Job not found.")
         changes = payload.model_dump(exclude_unset=True)
-        old_status = job.status
         if "company" in changes:
             job.company = self._required(changes["company"], "Company")
         if "role" in changes:
@@ -176,20 +236,32 @@ class JobService:
             "location",
             "recruitment_type",
             "next_stage",
-            "notes",
         ):
             if field in changes:
                 setattr(job, field, self._optional(changes[field]))
-        for field in ("published_date", "status", "application_date", "interview_date"):
+        # Transitional compatibility bridge for older clients only. Phase B UI
+        # writes the canonical JobNote timeline and never dual-writes this field.
+        if "notes" in changes:
+            job.notes = self._optional(changes["notes"])
+        for field in ("published_date", "application_date", "interview_date", "deadline_at"):
             if field in changes:
                 setattr(job, field, changes[field])
         if "application_status_id" in changes:
             definition = self.db.get(ApplicationStatusDefinition, changes["application_status_id"])
             if definition is None or definition.user_profile_id != DEFAULT_PROFILE_ID or not definition.is_active:
                 raise JobServiceError("Application status not found.")
-            job.application_status_id = definition.id
-            if definition.legacy_status:
-                job.status = definition.legacy_status
+            ApplicationStatusTransitionService(self.db).apply(
+                job, definition, source="manual"
+            )
+        elif "status" in changes:
+            statuses = WorkspaceService(self.db).ensure_default_statuses()
+            definition = next(
+                (item for item in statuses if item.legacy_status == changes["status"]), None
+            )
+            if definition is not None:
+                ApplicationStatusTransitionService(self.db).apply(
+                    job, definition, source="manual"
+                )
         if "structured_jd" in changes and payload.structured_jd is not None:
             job.structured_jd = payload.structured_jd.model_dump(mode="json")
 
@@ -204,12 +276,6 @@ class JobService:
             }
         )
         job.structured_jd = structured.model_dump(mode="json")
-        if job.status != old_status or "application_status_id" in changes:
-            ActivityService(self.db).record(
-                "application_status_changed", job_id=job.id,
-                metadata={"from_status": old_status, "to_status": job.status,
-                          "application_status_id": job.application_status_id},
-            )
         if "interview_date" in changes:
             ActivityService(self.db).record("interview_scheduled", job_id=job.id, metadata={"date": str(job.interview_date) if job.interview_date else None})
         self.repo.commit()

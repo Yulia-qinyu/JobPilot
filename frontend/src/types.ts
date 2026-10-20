@@ -219,8 +219,10 @@ export interface Job extends JobListItem {
   published_date: string | null;
   recommendation: string | null;
   application_date: string | null;
+  application_status_changed_at?: string | null;
   next_stage: string | null;
   interview_date: string | null;
+  deadline_at?: string | null;
   notes: string | null;
   external_job_id: string | null;
   source_metadata: Record<string, unknown> | null;
@@ -357,11 +359,24 @@ export interface DecisionJobItem {
   status: JobStatus;
   application_status_id?: number | null;
   application_status_label?: string | null;
+  application_date?: string | null;
+  application_status_changed_at?: string | null;
+  latest_note?: JobNote | null;
   created_at: string;
   updated_at: string;
   match_score: number | null;
   match_is_stale: boolean;
   decision: JobDecision | null;
+}
+
+export interface JobNote {
+  id: number;
+  job_id: number;
+  content: string;
+  author_type: "human" | "agent";
+  metadata_json: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface DecisionJobPage {

@@ -27,6 +27,7 @@ import type {
   PlanItem,
   PlanType,
   Nudge,
+  JobNote,
 } from "./types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
@@ -179,6 +180,8 @@ export const resumeTailoringApi = {
 };
 
 export const jobsApi = {
+  quickCreate: (payload: { company: string; role: string; location?: string | null; application_date?: string | null; application_status_id?: number | null }) =>
+    apiRequest<Job>("/api/jobs/quick", { method: "POST", body: JSON.stringify(payload) }),
   previewUrl: (url: string) =>
     apiRequest<JobPreview>("/api/jobs/preview/url", {
       method: "POST",
@@ -214,11 +217,19 @@ export const jobsApi = {
       application_date: string | null;
       next_stage: string | null;
       interview_date: string | null;
+      deadline_at: string | null;
       notes: string | null;
       structured_jd: StructuredJD;
       application_status_id: number;
     }>,
   ) => apiRequest<Job>(`/api/jobs/${id}`, { method: "PATCH", body: JSON.stringify(values) }),
+};
+
+export const jobNotesApi = {
+  list: (jobId: number) => apiRequest<JobNote[]>(`/api/jobs/${jobId}/notes`),
+  create: (jobId: number, content: string) => apiRequest<JobNote>(`/api/jobs/${jobId}/notes`, { method: "POST", body: JSON.stringify({ content }) }),
+  update: (jobId: number, noteId: number, content: string) => apiRequest<JobNote>(`/api/jobs/${jobId}/notes/${noteId}`, { method: "PATCH", body: JSON.stringify({ content }) }),
+  delete: (jobId: number, noteId: number) => apiRequest<void>(`/api/jobs/${jobId}/notes/${noteId}`, { method: "DELETE" }),
 };
 
 export const workspaceApi = {

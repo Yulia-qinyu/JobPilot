@@ -56,6 +56,7 @@ class JobDecisionRepository:
         match_status: str | None,
         decision_value: str | None,
         company: str | None,
+        location: str | None,
         source: str | None,
         application_status: str | None,
         job_ids: Sequence[int] | None,
@@ -81,6 +82,8 @@ class JobDecisionRepository:
             )
         if company:
             filters.append(func.lower(Job.company).contains(company.casefold()))
+        if location:
+            filters.append(func.lower(Job.location).contains(location.casefold()))
         if source == "manual":
             filters.append(Job.source.is_(None))
         elif source:
@@ -144,7 +147,7 @@ class JobDecisionRepository:
                 Job.id.desc(),
             )
         else:
-            base = base.order_by(Job.created_at.desc(), Job.id.desc())
+            base = base.order_by(Job.updated_at.desc(), Job.id.desc())
         rows = list(self.db.execute(base.offset((page - 1) * page_size).limit(page_size)).all())
         total = int(self.db.scalar(count_statement) or 0)
         return rows, total

@@ -33,7 +33,6 @@ class Settings(BaseSettings):
     discovery_max_sessions: int = 20
     discovery_max_results: int = 500
     app_timezone: str = "Australia/Sydney"
-
     model_config = SettingsConfigDict(
         env_file=(".env", "../.env"),
         env_file_encoding="utf-8",

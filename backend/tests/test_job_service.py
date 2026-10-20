@@ -1,5 +1,5 @@
 from datetime import date
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import Session
@@ -7,10 +7,11 @@ from sqlalchemy.pool import StaticPool
 
 from app.config import Settings
 from app.db.base import Base
-from app.db.models import Job
+from app.db.models import ActivityEvent, Job, JobAnalysis
 from app.schemas.analysis import JDRequirements, KeyRequirement
-from app.schemas.job import JobCreate, JobUpdate
+from app.schemas.job import JobCreate, JobQuickCreate, JobUpdate
 from app.services.job_service import JobService
+from app.services.workspace_service import WorkspaceService
 
 
 def make_engine():
@@ -85,6 +86,81 @@ def test_create_edit_detail_and_persist_across_sessions() -> None:
         assert reloaded.next_stage == "准备材料"
         assert reloaded.interview_date == date(2026, 9, 1)
         assert reloaded.notes == "Follow up next week"
+
+
+def test_manual_status_change_updates_timestamp_once_and_noop_is_stable() -> None:
+    engine = make_engine()
+    with Session(engine) as db:
+        created = JobService(db, Settings()).create(create_payload())
+        statuses = WorkspaceService(db).ensure_default_statuses()
+        applied = next(item for item in statuses if item.key == "applied")
+
+        JobService(db, Settings()).update(
+            created.id, JobUpdate(application_status_id=applied.id)
+        )
+        stored = db.get(Job, created.id)
+        assert stored is not None
+        changed_at = stored.application_status_changed_at
+        assert changed_at is not None
+        event_count = db.scalar(
+            select(func.count(ActivityEvent.id)).where(
+                ActivityEvent.job_id == created.id,
+                ActivityEvent.event_type == "application_status_changed",
+            )
+        )
+
+        JobService(db, Settings()).update(
+            created.id, JobUpdate(application_status_id=applied.id)
+        )
+        db.refresh(stored)
+        assert stored.application_status_changed_at == changed_at
+        assert db.scalar(
+            select(func.count(ActivityEvent.id)).where(
+                ActivityEvent.job_id == created.id,
+                ActivityEvent.event_type == "application_status_changed",
+            )
+        ) == event_count
+
+
+def test_quick_add_creates_workspace_job_without_analysis() -> None:
+    engine = make_engine()
+    with Session(engine) as db, patch(
+        "app.services.job_service.safe_recompute_job_decisions"
+    ) as recompute:
+        statuses = WorkspaceService(db).ensure_default_statuses()
+        to_apply = next(item for item in statuses if item.key == "to_apply")
+        created = JobService(db, Settings()).create_quick(
+            JobQuickCreate(
+                company="Example",
+                role="产品经理",
+                location="北京",
+                application_date=date(2026, 9, 8),
+                application_status_id=to_apply.id,
+            )
+        )
+        assert created.company == "Example"
+        assert created.role == "产品经理"
+        assert created.location == "北京"
+        assert created.application_date == date(2026, 9, 8)
+        assert created.application_status_id == to_apply.id
+        assert created.status == "Preparing"
+        assert created.original_jd == ""
+        assert created.source == "manual"
+        assert created.source_metadata == {"creation_mode": "quick_add"}
+        assert db.scalar(select(JobAnalysis).where(JobAnalysis.job_id == created.id)) is None
+        recompute.assert_not_called()
+
+
+def test_quick_add_defaults_to_interested_with_optional_location() -> None:
+    engine = make_engine()
+    with Session(engine) as db:
+        created = JobService(db, Settings()).create_quick(
+            JobQuickCreate(company="Example", role="产品经理")
+        )
+        assert created.location is None
+        assert created.application_date is None
+        assert created.status == "Interested"
+        assert created.application_status_label == "感兴趣"
 
 
 def test_dashboard_uses_application_funnel_metric_semantics() -> None:

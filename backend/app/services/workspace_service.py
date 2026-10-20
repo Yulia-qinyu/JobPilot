@@ -17,6 +17,7 @@ from app.schemas.workspace import (
     StrategyRead,
 )
 from app.services.activity_service import ActivityService
+from app.services.application_status_transition import ApplicationStatusTransitionService
 
 DEFAULT_STATUSES = [
     ("interested", "感兴趣", 10, "Interested"),
@@ -136,10 +137,10 @@ class WorkspaceService:
         if target is not None and target.id == item.id:
             raise WorkspaceConflictError("迁移目标不能是当前状态。")
         for job in jobs:
-            job.application_status = target
-            job.application_status_id = target.id if target else None
-            if target and target.legacy_status:
-                job.status = target.legacy_status
+            if target is not None:
+                ApplicationStatusTransitionService(self.db).apply(
+                    job, target, source="status_definition_migration"
+                )
         self.db.delete(item)
         self.db.commit()
         return ApplicationStatusDeleteResult(deleted_id=status_id, migrated_jobs=len(jobs))

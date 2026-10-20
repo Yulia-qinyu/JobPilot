@@ -75,6 +75,9 @@ class UserProfile(TimestampMixin, Base):
     daily_advice_snapshots: Mapped[list["DailyAdviceSnapshot"]] = relationship(
         back_populates="user_profile", cascade="all, delete-orphan"
     )
+    job_notes: Mapped[list["JobNote"]] = relationship(
+        back_populates="user_profile", cascade="all, delete-orphan"
+    )
 
 
 class Resume(TimestampMixin, Base):
@@ -224,8 +227,12 @@ class Job(TimestampMixin, Base):
     match_score: Mapped[int | None] = mapped_column(Integer)
     recommendation: Mapped[str | None] = mapped_column(String(32))
     application_date: Mapped[date | None] = mapped_column(Date)
+    application_status_changed_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True)
+    )
     next_stage: Mapped[str | None] = mapped_column(String(255))
     interview_date: Mapped[date | None] = mapped_column(Date)
+    deadline_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     notes: Mapped[str | None] = mapped_column(Text)
     parser_model: Mapped[str | None] = mapped_column(String(120))
     parser_prompt_version: Mapped[str | None] = mapped_column(String(40))
@@ -250,6 +257,11 @@ class Job(TimestampMixin, Base):
         back_populates="jobs"
     )
     plan_items: Mapped[list["PlanItem"]] = relationship(back_populates="job")
+    job_notes: Mapped[list["JobNote"]] = relationship(
+        back_populates="job",
+        cascade="all, delete-orphan",
+        order_by="JobNote.created_at.desc()",
+    )
 
     @property
     def application_status_label(self) -> str | None:
@@ -275,6 +287,28 @@ class ApplicationStatusDefinition(TimestampMixin, Base):
     legacy_status: Mapped[str | None] = mapped_column(String(32))
     user_profile: Mapped[UserProfile] = relationship(back_populates="application_status_definitions")
     jobs: Mapped[list[Job]] = relationship(back_populates="application_status")
+
+
+class JobNote(TimestampMixin, Base):
+    __tablename__ = "job_notes"
+    __table_args__ = (
+        CheckConstraint("author_type IN ('human', 'agent')", name="ck_job_notes_author_type"),
+        UniqueConstraint("job_id", "dedupe_key", name="uq_job_notes_job_dedupe_key"),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_profile_id: Mapped[int] = mapped_column(
+        ForeignKey("user_profiles.id", ondelete="CASCADE"), index=True
+    )
+    job_id: Mapped[int] = mapped_column(
+        ForeignKey("jobs.id", ondelete="CASCADE"), index=True
+    )
+    content: Mapped[str] = mapped_column(Text)
+    author_type: Mapped[str] = mapped_column(String(16), index=True)
+    metadata_json: Mapped[dict] = mapped_column(JSON, default=dict)
+    dedupe_key: Mapped[str | None] = mapped_column(String(128))
+    user_profile: Mapped[UserProfile] = relationship(back_populates="job_notes")
+    job: Mapped[Job] = relationship(back_populates="job_notes")
 
 
 class PlanItem(TimestampMixin, Base):

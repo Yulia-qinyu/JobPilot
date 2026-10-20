@@ -13,6 +13,7 @@ from app.schemas.job import (
     JobJdPreviewRequest,
     JobListItem,
     JobPreview,
+    JobQuickCreate,
     JobRead,
     JobUpdate,
     JobUrlPreviewRequest,
@@ -147,6 +148,17 @@ def preview_job_analysis(
 def create_job(payload: JobCreate, db: Session = Depends(get_db)) -> JobRead:
     try:
         return service(db).create(payload)
+    except (JobServiceError, SQLAlchemyError) as exc:
+        db.rollback()
+        raise job_error(exc) from exc
+
+
+@router.post("/quick", response_model=JobRead, status_code=status.HTTP_201_CREATED)
+def create_quick_job(
+    payload: JobQuickCreate, db: Session = Depends(get_db)
+) -> JobRead:
+    try:
+        return service(db).create_quick(payload)
     except (JobServiceError, SQLAlchemyError) as exc:
         db.rollback()
         raise job_error(exc) from exc

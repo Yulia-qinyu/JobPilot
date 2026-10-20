@@ -11,6 +11,7 @@ from app.routes.job_analysis import router as job_analysis_router
 from app.routes.job_decisions import job_router as job_decision_job_router
 from app.routes.job_decisions import router as job_decisions_router
 from app.routes.job_imports import router as job_imports_router
+from app.routes.job_notes import router as job_notes_router
 from app.routes.jobs import router as jobs_router
 from app.routes.nudges import router as nudges_router
 from app.routes.profile import router as profile_router
@@ -46,6 +47,7 @@ app.include_router(profile_router)
 app.include_router(jobs_router)
 app.include_router(job_analysis_router)
 app.include_router(job_imports_router)
+app.include_router(job_notes_router)
 app.include_router(job_decisions_router)
 app.include_router(job_decision_job_router)
 app.include_router(resume_tailoring_router)

@@ -12,6 +12,7 @@ const base: DecisionJobItem = {
   location: "北京",
   source: "bytedance",
   status: "Interested",
+  application_date: null,
   created_at: "2026-08-23T00:00:00Z",
   updated_at: "2026-08-23T00:00:00Z",
   match_score: null,
@@ -41,22 +42,41 @@ const base: DecisionJobItem = {
   },
 };
 
+const handlers = {
+  busyId: null,
+  onStatusChange: () => undefined,
+  onOpenNotes: () => undefined,
+};
+
 describe("My Jobs table", () => {
   it("renders the practical workspace columns without decision language", () => {
-    const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[base]} busyId={null} onStatusChange={() => undefined} onDelete={() => undefined} /></MemoryRouter>);
+    const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[base]} {...handlers} /></MemoryRouter>);
     expect(html).toContain("AI 产品经理");
     expect(html).toContain("ByteDance");
-    expect(html).toContain("待分析");
+    expect(html).toContain("公司");
+    expect(html).toContain("备注");
+    expect(html).not.toContain("投递日期");
+    expect(html).not.toContain("自动追踪");
     expect(html).not.toContain("值得分析");
-    expect(html).toContain("删除");
+    expect(html).not.toContain("Match Score");
+    expect(html).toContain("查看详情");
+    expect(html).not.toContain("删除岗位");
   });
 
-  it("keeps Match Score visible and labels stale analysis separately from posting expiry", () => {
+  it("shows the latest timeline note without exposing the legacy notes field", () => {
+    const job = { ...base, latest_note: { id: 3, job_id: 1, content: "测评已完成，等待下一阶段通知。", author_type: "agent" as const, metadata_json: {}, created_at: "2026-09-08T10:00:00Z", updated_at: "2026-09-08T10:00:00Z" } };
+    const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[job]} {...handlers} /></MemoryRouter>);
+    expect(html).toContain("测评已完成，等待下一阶段通知。");
+    expect(html).toContain("Agent");
+  });
+
+  it("hides Match Score without changing the underlying job data", () => {
     const job = { ...base, match_score: 88, match_is_stale: true, decision: { ...base.decision!, final_decision: "Priority" as const } };
-    const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[job]} busyId={null} onStatusChange={() => undefined} onDelete={() => undefined} /></MemoryRouter>);
-    expect(html).toContain("88%");
-    expect(html).toContain("需更新");
+    const html = renderToStaticMarkup(<MemoryRouter><DecisionJobTable jobs={[job]} {...handlers} /></MemoryRouter>);
+    expect(html).not.toContain("88%");
+    expect(html).not.toContain("需更新");
     expect(html).not.toContain("已过期");
     expect(html).not.toContain("优先投递");
   });
+
 });

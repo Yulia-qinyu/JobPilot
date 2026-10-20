@@ -26,6 +26,15 @@ export function formatFullDate(value: string): string {
   }).format(new Date(value));
 }
 
+export function formatDateTime(value: string): string {
+  return new Intl.DateTimeFormat("zh-CN", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(value));
+}
+
 export function jobMatchesFilter(job: JobListItem, filter: string): boolean {
   if (filter === "all") return true;
   if (filter === "Interview") {

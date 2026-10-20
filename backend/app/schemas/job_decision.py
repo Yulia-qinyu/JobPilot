@@ -1,9 +1,10 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from app.schemas.job import JobStatus
+from app.schemas.job_note import JobNoteRead
 from app.schemas.profile import RoleFamily
 
 EligibilityStatus = Literal["Eligible", "PossiblyEligible", "Ineligible", "Unknown"]
@@ -67,6 +68,9 @@ class DecisionJobItem(BaseModel):
     status: JobStatus
     application_status_id: int | None = None
     application_status_label: str | None = None
+    application_date: date | None = None
+    application_status_changed_at: datetime | None = None
+    latest_note: JobNoteRead | None = None
     created_at: datetime
     updated_at: datetime
     match_score: int | None

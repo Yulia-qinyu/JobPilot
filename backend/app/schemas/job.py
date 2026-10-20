@@ -64,6 +64,14 @@ class JobCreate(BaseModel):
     preview_artifact_token: str | None = Field(default=None, min_length=20, max_length=200)
 
 
+class JobQuickCreate(BaseModel):
+    company: str = Field(min_length=1, max_length=255)
+    role: str = Field(min_length=1, max_length=255)
+    location: str | None = Field(default=None, max_length=255)
+    application_date: date | None = None
+    application_status_id: int | None = None
+
+
 class JobUpdate(BaseModel):
     company: str | None = Field(default=None, min_length=1, max_length=255)
     role: str | None = Field(default=None, min_length=1, max_length=255)
@@ -74,6 +82,7 @@ class JobUpdate(BaseModel):
     application_date: date | None = None
     next_stage: str | None = Field(default=None, max_length=255)
     interview_date: date | None = None
+    deadline_at: datetime | None = None
     notes: str | None = Field(default=None, max_length=10_000)
     structured_jd: JDRequirements | None = None
     application_status_id: int | None = None
@@ -95,8 +104,10 @@ class JobRead(BaseModel):
     match_score: int | None
     recommendation: str | None
     application_date: date | None
+    application_status_changed_at: datetime | None
     next_stage: str | None
     interview_date: date | None
+    deadline_at: datetime | None
     notes: str | None
     source: str | None
     external_job_id: str | None

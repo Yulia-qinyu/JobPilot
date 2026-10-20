@@ -13,15 +13,15 @@ export function AppNavigation() {
   return <header className="app-navigation"><nav>
     <Link className="brand" to="/">Job<span>Pilot</span></Link>
     <div className="nav-links">
-      <NavLink className={({ isActive }) => isActive || location.pathname === "/" ? "active" : undefined} to="/analyze">岗位分析</NavLink>
-      <NavLink className={({ isActive }) => isActive || location.pathname.startsWith("/jobs/") ? "active" : undefined} to="/my-jobs">我的岗位</NavLink>
+      <NavLink className={({ isActive }) => isActive || location.pathname === "/" || location.pathname.startsWith("/jobs/") ? "active" : undefined} to="/my-jobs">我的岗位</NavLink>
+      <NavLink to="/analyze">岗位分析</NavLink>
       <NavLink to="/profile">求职档案</NavLink>
     </div>
   </nav></header>;
 }
 
 const APP_ROUTES: RouteObject[] = [
-  { path: APP_PATHS.home, element: <AnalyzeJobPage /> },
+  { path: APP_PATHS.home, element: <JobsPage /> },
   { path: APP_PATHS.analyze, element: <AnalyzeJobPage /> },
   { path: APP_PATHS.discover, element: <DiscoverPage /> },
   { path: APP_PATHS.myJobs, element: <JobsPage /> },

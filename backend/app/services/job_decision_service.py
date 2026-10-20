@@ -23,6 +23,7 @@ from app.schemas.job_decision import (
 from app.services.analysis_freshness import analysis_identity_is_current
 from app.services.eligibility_service import EligibilityService
 from app.services.evidence_catalog import EvidenceCatalogBuilder, canonical_hash
+from app.services.job_note_service import JobNoteService
 from app.services.matcher_client import active_matcher_model
 from app.services.requirement_catalog import RequirementCatalogBuilder
 from app.services.role_classifier import RoleClassifier
@@ -100,6 +101,9 @@ class JobDecisionService:
         page = int(filters["page"])
         page_size = int(filters["page_size"])
         rows, total = self.repo.page(**filters)  # type: ignore[arg-type]
+        latest_notes = JobNoteService(self.db).latest_for_jobs(
+            [job.id for job, _, _ in rows]
+        )
         items = []
         for job, decision, analysis in rows:
             items.append(
@@ -112,6 +116,9 @@ class JobDecisionService:
                     status=job.status,
                     application_status_id=job.application_status_id,
                     application_status_label=(job.application_status.label if job.application_status else None),
+                    application_date=job.application_date,
+                    application_status_changed_at=job.application_status_changed_at,
+                    latest_note=latest_notes.get(job.id),
                     match_score=job.match_score if analysis is not None else None,
                     match_is_stale=analysis is not None
                     and (decision is None or decision.analysis_hash is None),
